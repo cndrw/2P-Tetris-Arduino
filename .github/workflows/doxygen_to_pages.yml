@@ -3,9 +3,9 @@ name: Execute doxygen & upload to gh-pages
 
 on:
   # Runs on pushes and merges, preferably only main project branch "testat-007"
-  push:
-    branches: [ "main" ]
-              #[ "feature_gh_pages_doxygen" ] #for testing and validation only
+  # push:
+  #   branches: [ "main" ]
+  #             #[ "feature_gh_pages_doxygen" ] #for testing and validation only
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
