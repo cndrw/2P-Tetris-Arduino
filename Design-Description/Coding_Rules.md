@@ -80,6 +80,19 @@ float time = 0f;
 bool isActivated = false;
 ```
 
+## Defines
+Use makros  over enums, enums will take up storage while makros won't.
+To ensure right usage over when using over mutiple files, coherent makros shall begin with an common title.
+
+Example:
+```
+#define GAME_STATE_PLAY 0
+#define GAME_STATE_PAUSE 1
+
+#define MENUE_MAIN 0
+#define MENUE_PAUSE 1
+```
+
 The asterisk (*) for pointers is next to the type additionally pointers will be named with and "p_" prefix. 
 
 Example:
