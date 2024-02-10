@@ -7,27 +7,25 @@ class Tile:
         self.value = value
         
 
-img = Image.open("test2.png")
+img = Image.open("pics/Pausenmenü.png")
 
 Tiles = []
 rows = []
 
-for x in range(img.width):
+for y in range(img.height):
     row = ""
-    for y in range(img.height):
+    for x in range(img.width):
         pixel = img.getpixel((x, y))
-        if (pixel[0] == 0):
-           row += "1"
+        if (pixel[3] == 0):
+           row += "0"
         else:
-            row += "0"
+            row += "1"
     rows.append(row)
 
 
-print(rows)
-
 with open("output.txt", "w", ) as f:
     for r in rows: 
+        f.write("0b")
         f.write(r)
-        f.write("\n")
-
+        f.write(",\n")
 
