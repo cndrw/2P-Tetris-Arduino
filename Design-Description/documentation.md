@@ -25,7 +25,7 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
 
 ## Hardware
 ### Display
-Das Display hat eine gesamt größe von 32x32 LEDs, welche aus 16 verschiedenen 8x8 LED-Modulen zusammengesetzt ist. Diese einzelnen Module sind per Dasy-Chain verbunden.
+Das Display hat eine gesamt größe von 32x32 LEDs, welche aus 16 verschiedenen 8x8 LED-Modulen zusammengesetzt ist. Diese einzelnen Module sind per Daisy-Chain verbunden.
 
 ## Rendering
 ### interne Representation des Displays
