@@ -128,10 +128,31 @@ Dies Übertragung wird von der `DrawScreen` funktion ausgefürht, diese zeichnet
 
 
 ## OS-Struktur
-### Processes
+An oberster Stelle der Instanzen ist `RetrisOS`, es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das `Process`-Interface. 
+
 ### MenueHandler
+Eine Instanz mit dem `Process`-Interface ist der `MenueHandler`, dieser ist Verantwortlich die richtigen Menüs anzuzeigen. Da es ein Prozess ist, kann es auch alle Aufgaben wie in [OS-Struktur](#os-struktur) genannt, da das einfrieren von Menüs allerdings nicht benötigt wird, ist diese Funktionalität leer.
+
+Der `MenueHandler` wurde mit dem Strategie Design Pattern entworfen, da alle Menüs in den Grundzügen gleich funktionieren, aber trotzdem leicht anderes Verhalten in der Ausführung haben.
+Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.\
+
+`RefreshMenue` zeichnet das Menue erneut, mit evtl. Veränderungen.\
+`PushButton` führt die Funktion des (virtuellen) Knopfes (auf dem Display) aus, je nachdem welcher Knopf gerade ausgewählt ist.\
+`ButtonSelect` wählt den nächsten Knopf aus.
+
+Über die `AddMenue` Methode können einfach Menüs hinzugefügt werden, die das `Menue`-Interface haben. In der momentanen Implementierung ist die maximal Anzahl an Menüs die verwaltet werden auf drei beschränkt(Hauptmenü, Pausenmenü, Game-Over-Menü).
+
 ### GameManager
----
+Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er ist steuert die Ausführen des eigentlichen Gameplays, je nachdem welcher Modus ausgählt worden ist.
+
+Bei der Initialisierung des Prozesses (`Init`) wird eine Startsequenz gestartet, welche die Worte "Auf die Blöcke, fertig, lost" nacheinander mit einer kurzen Verzögerung zeigt. Danach wird der Initialisierungsvorgang der Spielsitzung(en) ausgeführt.
+
+Im `Update` werden lediglich die Spielsitzung(en) aktualisiert. Des Weiteren wird der momentane Zustand der Spielsitzung(en) ausgelesen und sollten beide im Zustand `GAME_STATE_FINISHED` sein wird der Systemprozess zum `MenueHandler` gewechselt, welcher das Game-Over-Menü zeigt.
+
+Die `Input`-Methode gibt lediglich die Eingaben der jeweiligen Controller an die dazugehörigen Spielinstanzen. Außerdem prüft sie vorher ob Controller 1 den Start-Knopf gedrückt hat, ist das der Fall so wird zum Pausenmenü gewechselt.
+
+In der `Freeze`-Methode werden/wird die laufenden Spielsitzung/en eingefroren, damit das Pausenmenü ausgeführt und falls gewollt, zum Spielgeschehen zurückgewechselt werden kann. Im Falle eines stilllegen wird nur das momentane Spielfeld gespeichert. Dabei werden die Zeilen welche zwischen der oberen und unteren Begrenzung des Spielfeldes sind, in ihrer Komplettheit aus dem internen `screen` kopiert. Beim entfrieren werden lediglich die gespeicherten Zeilen wieder in den `screen` kopiert und anschließend noch das/die Spielfeld/er gezeichnet, da beim entfrieren die `Init`-Methode eines Prozess nicht noch einmal aufgerufen wird.
+
 ## SpielLogik
 ### Input Management
 ### Kollisions Erkennung
