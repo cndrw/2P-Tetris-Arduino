@@ -7,7 +7,8 @@ class Tile:
         self.value = value
         
 
-img = Image.open("Homescreen2.0.png")
+
+img = Image.open("pics/Pausenmenü.png")
 
 Tiles = []
 rows = []
