@@ -105,6 +105,11 @@ Zuerst muss deshalb die richtige Reihe ausgewählt werden. Die erste Übertragun
     row = screen[i + (j / 4) * 8]; // Y-Wert des screens
 }
 ```
+![Renderer_visual](pics/Renderer_visual_v2.png)
+
+Diese Bild stellt das die Übertragungsreihenfolge der internen Repräsentation bildlich da. Das Bild ist wie folgt zu lesen. Zuerst wird Rot übertragen, dann Grün, Dunkelblau, Hellblau, Gelb, Pink, Orang und zum Schluss Weiß. Außerdem wird von Hell nach Dunkel und anschließend von Oben nach unten übertragen. Demnach wird zuerst ganz oben das rote, helle Feld zuerst Übertragen, danach das rechts daneben, bis zum Dunkelsten, wonach die nächste Rote Zeile übertragen wird.
+
+
 Aufgrund der Übertragungsreihenfolge, muss aus dem Integer der eine Zeile representiert die vier MSB zuerst versendet werden und die vier LSB zuletzt. Dass heißt der Zahl muss zuerst um 6 Byte nach rechts verschoben werden, danach um 4, dann um 2 und die vier LSB müssen nicht extra verschoben werden. Nachdem der ganze Integer zerteilt und übertrage wurde, muss dies von neu beginngen. Diese Folgen verhalten lässt sich mittels dem Modulo Operator verwirklichen.
 ```
 // innerhalb der beiden For-Schleifen
