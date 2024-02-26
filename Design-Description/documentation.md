@@ -105,6 +105,11 @@ Zuerst muss deshalb die richtige Reihe ausgewählt werden. Die erste Übertragun
     row = screen[i + (j / 4) * 8]; // Y-Wert des screens
 }
 ```
+![Renderer_visual](pics/Renderer_visual_v2.png)
+
+Diese Bild stellt die Übertragungsreihenfolge der internen Repräsentation bildlich da. Das Bild ist wie folgt zu lesen. Zuerst wird Rot übertragen, dann Grün, Dunkelblau, Hellblau, Gelb, Pink, Orang und zum Schluss Weiß. Außerdem wird von Hell nach Dunkel und anschließend von Oben nach unten übertragen. Demnach wird zuerst ganz oben das rote, helle Feld zuerst Übertragen, danach das rechts daneben, bis zum Dunkelsten, wonach die nächste Rote Zeile übertragen wird.
+
+
 Aufgrund der Übertragungsreihenfolge, muss aus dem Integer der eine Zeile representiert die vier MSB zuerst versendet werden und die vier LSB zuletzt. Dass heißt der Zahl muss zuerst um 6 Byte nach rechts verschoben werden, danach um 4, dann um 2 und die vier LSB müssen nicht extra verschoben werden. Nachdem der ganze Integer zerteilt und übertrage wurde, muss dies von neu beginngen. Diese Folgen verhalten lässt sich mittels dem Modulo Operator verwirklichen.
 ```
 // innerhalb der beiden For-Schleifen
@@ -131,32 +136,43 @@ Dies Übertragung wird von der `DrawScreen` funktion ausgefürht, diese zeichnet
 An oberster Stelle der Instanzen ist `RetrisOS`, es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das `Process`-Interface. 
 
 ### MenueHandler
-Eine Instanz mit dem `Process`-Interface ist der `MenueHandler`, dieser ist Verantwortlich die richtigen Menüs anzuzeigen. Da es ein Prozess ist, kann es auch alle Aufgaben wie in [OS-Struktur](#os-struktur) genannt, da das einfrieren von Menüs allerdings nicht benötigt wird, ist diese Funktionalität leer.
+Eine Instanz mit dem `Process`-Interface ist der `MenueHandler`, dieser ist Verantwortlich die richtigen Menüs anzuzeigen. Da es ein Prozess ist, kann es auch alle Aufgaben wie in der [OS-Struktur](#os-struktur) genannt, da das einfrieren von Menüs allerdings nicht benötigt wird, ist diese Funktionalität leer.
 
 Der `MenueHandler` wurde mit dem Strategie Design Pattern entworfen, da alle Menüs in den Grundzügen gleich funktionieren, aber trotzdem leicht anderes Verhalten in der Ausführung haben.
-Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.\
-
+Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.
+<!-- 
 `RefreshMenue` zeichnet das Menue erneut, mit evtl. Veränderungen.\
 `PushButton` führt die Funktion des (virtuellen) Knopfes (auf dem Display) aus, je nachdem welcher Knopf gerade ausgewählt ist.\
 `ButtonSelect` wählt den nächsten Knopf aus.
 
-Über die `AddMenue` Methode können einfach Menüs hinzugefügt werden, die das `Menue`-Interface haben. In der momentanen Implementierung ist die maximal Anzahl an Menüs die verwaltet werden auf drei beschränkt(Hauptmenü, Pausenmenü, Game-Over-Menü).
+Über die `AddMenue` Methode können einfach Menüs hinzugefügt werden, die das `Menue`-Interface haben. In der momentanen Implementierung ist die maximal Anzahl an Menüs die verwaltet werden auf drei beschränkt(Hauptmenü, Pausenmenü, Game-Over-Menü). -->
 
 ### GameManager
-Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er ist steuert die Ausführen des eigentlichen Gameplays, je nachdem welcher Modus ausgählt worden ist.
-
+Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht, sondern reagiert nur auf bestimmte aufkommende Spielzustände.
+<!-- 
 Bei der Initialisierung des Prozesses (`Init`) wird eine Startsequenz gestartet, welche die Worte "Auf die Blöcke, fertig, lost" nacheinander mit einer kurzen Verzögerung zeigt. Danach wird der Initialisierungsvorgang der Spielsitzung(en) ausgeführt.
 
 Im `Update` werden lediglich die Spielsitzung(en) aktualisiert. Des Weiteren wird der momentane Zustand der Spielsitzung(en) ausgelesen und sollten beide im Zustand `GAME_STATE_FINISHED` sein wird der Systemprozess zum `MenueHandler` gewechselt, welcher das Game-Over-Menü zeigt.
 
 Die `Input`-Methode gibt lediglich die Eingaben der jeweiligen Controller an die dazugehörigen Spielinstanzen. Außerdem prüft sie vorher ob Controller 1 den Start-Knopf gedrückt hat, ist das der Fall so wird zum Pausenmenü gewechselt.
 
-In der `Freeze`-Methode werden/wird die laufenden Spielsitzung/en eingefroren, damit das Pausenmenü ausgeführt und falls gewollt, zum Spielgeschehen zurückgewechselt werden kann. Im Falle eines stilllegen wird nur das momentane Spielfeld gespeichert. Dabei werden die Zeilen welche zwischen der oberen und unteren Begrenzung des Spielfeldes sind, in ihrer Komplettheit aus dem internen `screen` kopiert. Beim entfrieren werden lediglich die gespeicherten Zeilen wieder in den `screen` kopiert und anschließend noch das/die Spielfeld/er gezeichnet, da beim entfrieren die `Init`-Methode eines Prozess nicht noch einmal aufgerufen wird.
+In der `Freeze`-Methode werden/wird die laufenden Spielsitzung/en eingefroren, damit das Pausenmenü ausgeführt und falls gewollt, zum Spielgeschehen zurückgewechselt werden kann. Im Falle eines stilllegen wird nur das momentane Spielfeld gespeichert. Dabei werden die Zeilen welche zwischen der oberen und unteren Begrenzung des Spielfeldes sind, in ihrer Komplettheit aus dem internen `screen` kopiert. Beim entfrieren werden lediglich die gespeicherten Zeilen wieder in den `screen` kopiert und anschließend noch das/die Spielfeld/er gezeichnet, da beim entfrieren die `Init`-Methode eines Prozess nicht noch einmal aufgerufen wird. -->
 
 ## SpielLogik
+
+Die gesamte Spiellogik ist innerhalb der [`RetrisGame`]()-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig. Allgemein 
+
 ### Input Management
 ### Kollisions Erkennung
+
+Die Kollisionerkennung erfolgt bei `RetrisGame` nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für  die Kollisionauswertung, es reicht schon den aktuellen Zustand internen `screen` auszulesen.
+
+Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt, sollte es dann, im Vergleich mit dem gesetzten Pixeln im `screen`,dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
+
+
 ### Full-Line Erkennung
+
+
 
 ## Music
 Die Musik in Retris wir über einen Piezo-Buzzer realisiert. Die Basis des Codes, der für die Musik zuständig ist kommt von [robsoncoutu](https://github.com/robsoncouto/arduino-songs/tree/master), jedoch wurden einige Änderungen vorgenommen, um die Performance zu erhöhen, welche in den Folgenden Kapitel erläutert werden.
