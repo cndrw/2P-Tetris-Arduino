@@ -8,8 +8,6 @@
     - [Mikrocomputer](#mikrocomputer)
     - [Controller](#controller)
     - [LCD](#lcd)
-3. [Projektverlauf und Meilensteine](#projektverlauf-und-meilensteine)
-
 
 
 # Kurzbeschreibung
@@ -22,7 +20,7 @@ Retris baut auf dem Erbe des Originalspiels Tetris auf und strebt danach, die We
 
 # Aufbau
 
-Grundsätzlich ist es sehr kompakt und einfach gehalten. Es besteht aus einem Gehäuse, indem sich der Mikrocontroller und die Verdrahtungen befinden. So werden die Verdrahtungen geschützt und es gibt ein objektiv besseres Bild. Außerdem beinhaltet das Gehäuse die LED-Matrix, die Controller-Anschlüsse, sowie das LCD (Liquid Crystal Display). An das Gehäuse werden dann zwei SNES-Controller, sowie ein USB-C Netzkabel angebracht.
+Grundsätzlich ist es kompakt und einfach gehalten. Es besteht aus einem Gehäuse, indem sich der Mikrocontroller und die Verdrahtungen befinden. So werden die Verdrahtungen geschützt und es gibt ein  besseres Design. Außerdem beinhaltet das Gehäuse die LED-Matrix, die Controller-Anschlüsse, sowie das LCD (Liquid Crystal Display). An das Gehäuse werden dann zwei SNES-Controller, sowie ein USB-C Netzkabel angebracht.
 
 ### Gehäuse
 Das Gehäuse ist ein 3D gefertigtes Konstrukt. Eine technische Zeichnung können sie dem ``Engineering_Folder`` entnehmen. Es besteht aus drei einzelnen Teilen, die anschließend verschraubt worden sind, sodass sich Kabelbrüche o.ä. Fehler leicht beheben lassen. Auf dem einen Teil sind die vier LED-Matrizen festgelötet, sodass diese immer in einem Verbund sind. Die anderen beiden Teile stellen dann das eigentliche Gehäuse dar. Im Gehäusedeckel wurden einige Aussparungen gemacht, sodass man dort die entsprechenden Komponenten und Anschlüsse vom Gehäuseinneren sehen kann.
@@ -39,13 +37,3 @@ Ein absolutes Alleinstellungsmerkmal ist die Implementierung von SNES-Controller
 
 ### LCD
 Das LCD (Liquid Crystal Display) ist im Gehäuse über der Matrix angebracht. Es besitzt zwei Zeilen, die den Punktestand der einzelnen Spieler anzeigen.
-
-
-# Projektverlauf und Meilensteine
-
-Das Projekt wurde im 
-
-Was besonders gut?
-Worauf wurde geachtet?
-Was ist es genau?
-einfach erklären was uns auszeichnet was das Projekt ausmacht
