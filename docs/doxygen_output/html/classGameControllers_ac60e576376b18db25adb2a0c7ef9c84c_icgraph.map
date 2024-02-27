@@ -1,0 +1,6 @@
+<map id="GameControllers::translate" name="GameControllers::translate">
+<area shape="rect" id="node1" title=" " alt="" coords="244,56,443,83"/>
+<area shape="rect" id="node2" href="$classGameControllers.html#abaccc058e11f3efdac32fc1ecc1c2cf5" title="button will be unpressed until released again" alt="" coords="15,5,187,32"/>
+<area shape="rect" id="node3" href="$classGameControllers.html#a80c557dba6f8914ba835118db49bb1ba" title="returns if button is currently down" alt="" coords="13,56,188,83"/>
+<area shape="rect" id="node4" href="$classGameControllers.html#aaf3605a91b2f0f68a81c75e70682bff1" title="returns true if button state changed to down since previous poll. repeatAfterTics can be used to repe..." alt="" coords="5,107,196,133"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="digitalWrite" name="digitalWrite">
+<area shape="rect" id="node1" title=" " alt="" coords="396,208,495,235"/>
+<area shape="rect" id="node2" href="$Controller__config_8h.html#adc91b5e1d03dd2e79e933e929c43a702" title=" " alt="" coords="206,5,246,32"/>
+<area shape="rect" id="node3" href="$classSNESController.html#a0d2b57919b6cf491f48c37029174f542" title=" " alt="" coords="104,56,348,83"/>
+<area shape="rect" id="node5" href="$Working__controller_8h.html#a4d79f16fcff3dd651f38091664c9c3b0" title=" " alt="" coords="157,107,295,133"/>
+<area shape="rect" id="node7" href="$classGameControllers.html#aed3a10b52ecbc00cbba70874abd39c70" title="This has to be initialized once for the shared pins latch and clock." alt="" coords="145,157,307,184"/>
+<area shape="rect" id="node8" href="$classGameControllers.html#adeeae140a11fe035d6878c4a026cdb1e" title=" " alt="" coords="144,208,308,235"/>
+<area shape="rect" id="node9" href="$namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1" title="reads the current state of the controller(s)" alt="" coords="126,259,326,285"/>
+<area shape="rect" id="node10" href="$namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8" title="setups the controller pins" alt="" coords="163,309,289,336"/>
+<area shape="rect" id="node11" href="$Controller__config_8h.html#af015d732f139aba04682cb1ee623a5a9" title=" " alt="" coords="183,360,269,387"/>
+<area shape="rect" id="node12" href="$classSNESController.html#a3164456f56661fdd50bcbae1af536257" title=" " alt="" coords="113,411,339,437"/>
+<area shape="rect" id="node4" href="$Chat__controller__config_8h.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,56,56,83"/>
+<area shape="rect" id="node6" href="$Working__controller_8h.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,107,56,133"/>
+</map>

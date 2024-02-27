@@ -1,0 +1,217 @@
+\hypertarget{Controller__config_8h}{}\doxysection{Engineering/\+Controller\+\_\+config.h File Reference}
+\label{Controller__config_8h}\index{Engineering/Controller\_config.h@{Engineering/Controller\_config.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+Include dependency graph for Controller\+\_\+config.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{Controller__config_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structController}{Controller}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceInput}{Input}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Controller__config_8h_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{Controller__config_8h_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\item 
+void \mbox{\hyperlink{namespaceInput_adf34fe3e60bbc7bf553fd830ba5f8cdf}{Input\+::\+Setup\+Pins}} (const uint8\+\_\+t controller, uint8\+\_\+t DATA\+\_\+\+SERIALPIN)
+\item 
+void \mbox{\hyperlink{namespaceInput_a9d92855bcbf7a86d791cec75d7b3027c}{Input\+::\+Read\+Controller\+Input}} (const uint8\+\_\+t controller, uint8\+\_\+t DATA\+\_\+\+SERIALPIN) const
+\item 
+bool \mbox{\hyperlink{namespaceInput_a2ebf7cdfdd3ad28ddbc3e35732d3525a}{Input\+::\+Get\+Key}} (const uint8\+\_\+t controller, const uint8\+\_\+t key) const
+\item 
+void \mbox{\hyperlink{Controller__config_8h_af015d732f139aba04682cb1ee623a5a9}{setup\+Pins}} (const uint8\+\_\+t controller, uint8\+\_\+t DATA\+\_\+\+SERIALPIN)
+\item 
+void \mbox{\hyperlink{Controller__config_8h_ab8d1a2e216b74e3fa33fa8110e5cde69}{Read\+Controller\+Input}} (const uint8\+\_\+t controller, uint8\+\_\+t DATA\+\_\+\+SERIALPIN) const
+\item 
+\mbox{\hyperlink{Controller__config_8h_a70cd16e5da89af1f9d86c7a62902d9de}{delay\+Microseconds}} (12)
+\item 
+\mbox{\hyperlink{Controller__config_8h_a08508f32c5c3ec17aea5857adf663789}{digital\+Write}} (\mbox{\hyperlink{Working__controller_8h_a7f7b81a1372527dc85a4bb31810ee383}{DATA\+\_\+\+LATCH}}, LOW)
+\item 
+\mbox{\hyperlink{Controller__config_8h_ae421e455adbb2d3b618661a2a41c79ab}{delay\+Microseconds}} (6)
+\item 
+\mbox{\hyperlink{Controller__config_8h_adc91b5e1d03dd2e79e933e929c43a702}{for}} (int i=0;i$<$ 16;i++)
+\item 
+\mbox{\hyperlink{Controller__config_8h_a688e6ffd12f98a77fc83da777515d2b1}{print\+Buttons}} ()
+\item 
+void \mbox{\hyperlink{Controller__config_8h_aeeea7618171e0f2c3a40833906173f7d}{Get\+Key}} (const uint8\+\_\+t controller, const uint8\+\_\+t key) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{Controller__config_8h_a74c00d175575909c2856da82b4bfacef}{DATA\+\_\+\+CLOCK}} = 6
+\item 
+int \mbox{\hyperlink{Controller__config_8h_a7f7b81a1372527dc85a4bb31810ee383}{DATA\+\_\+\+LATCH}} = 7
+\item 
+int \mbox{\hyperlink{Controller__config_8h_a576d4af387ebaa6838646f34f164a347}{DATA\+\_\+\+SERIAL1}} = 12
+\item 
+int \mbox{\hyperlink{Controller__config_8h_a93177123138d4986fe6d91827466c9a1}{DATA\+\_\+\+SERIAL2}} = 13
+\item 
+int \mbox{\hyperlink{Controller__config_8h_a0ad56e72feb5447393c98a248785fffb}{buttons}} \mbox{[}12\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{namespaceInput_ae1891368539682810122014fb8cc977c}{Input\+::controller\+Count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Controller__config_8h_a70cd16e5da89af1f9d86c7a62902d9de}\label{Controller__config_8h_a70cd16e5da89af1f9d86c7a62902d9de}} 
+\index{Controller\_config.h@{Controller\_config.h}!delayMicroseconds@{delayMicroseconds}}
+\index{delayMicroseconds@{delayMicroseconds}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{delayMicroseconds()}{delayMicroseconds()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily delay\+Microseconds (\begin{DoxyParamCaption}\item[{12}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Controller__config_8h_a70cd16e5da89af1f9d86c7a62902d9de_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Controller__config_8h_ae421e455adbb2d3b618661a2a41c79ab}\label{Controller__config_8h_ae421e455adbb2d3b618661a2a41c79ab}} 
+\index{Controller\_config.h@{Controller\_config.h}!delayMicroseconds@{delayMicroseconds}}
+\index{delayMicroseconds@{delayMicroseconds}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{delayMicroseconds()}{delayMicroseconds()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily delay\+Microseconds (\begin{DoxyParamCaption}\item[{6}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Controller__config_8h_a08508f32c5c3ec17aea5857adf663789}\label{Controller__config_8h_a08508f32c5c3ec17aea5857adf663789}} 
+\index{Controller\_config.h@{Controller\_config.h}!digitalWrite@{digitalWrite}}
+\index{digitalWrite@{digitalWrite}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{digitalWrite()}{digitalWrite()}}
+{\footnotesize\ttfamily digital\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Working__controller_8h_a7f7b81a1372527dc85a4bb31810ee383}{DATA\+\_\+\+LATCH}}}]{,  }\item[{LOW}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Controller__config_8h_a08508f32c5c3ec17aea5857adf663789_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Controller__config_8h_adc91b5e1d03dd2e79e933e929c43a702}\label{Controller__config_8h_adc91b5e1d03dd2e79e933e929c43a702}} 
+\index{Controller\_config.h@{Controller\_config.h}!for@{for}}
+\index{for@{for}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{for()}{for()}}
+{\footnotesize\ttfamily for (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{Controller__config_8h_adc91b5e1d03dd2e79e933e929c43a702_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Controller__config_8h_aeeea7618171e0f2c3a40833906173f7d}\label{Controller__config_8h_aeeea7618171e0f2c3a40833906173f7d}} 
+\index{Controller\_config.h@{Controller\_config.h}!GetKey@{GetKey}}
+\index{GetKey@{GetKey}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{GetKey()}{GetKey()}}
+{\footnotesize\ttfamily void Get\+Key (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{controller,  }\item[{const uint8\+\_\+t}]{key }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{Controller__config_8h_afe461d27b9c48d5921c00d521181f12f}\label{Controller__config_8h_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Controller\_config.h@{Controller\_config.h}!loop@{loop}}
+\index{loop@{loop}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{Controller__config_8h_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Controller__config_8h_a688e6ffd12f98a77fc83da777515d2b1}\label{Controller__config_8h_a688e6ffd12f98a77fc83da777515d2b1}} 
+\index{Controller\_config.h@{Controller\_config.h}!printButtons@{printButtons}}
+\index{printButtons@{printButtons}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{printButtons()}{printButtons()}}
+{\footnotesize\ttfamily print\+Buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Controller__config_8h_a688e6ffd12f98a77fc83da777515d2b1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Controller__config_8h_ab8d1a2e216b74e3fa33fa8110e5cde69}\label{Controller__config_8h_ab8d1a2e216b74e3fa33fa8110e5cde69}} 
+\index{Controller\_config.h@{Controller\_config.h}!ReadControllerInput@{ReadControllerInput}}
+\index{ReadControllerInput@{ReadControllerInput}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{ReadControllerInput()}{ReadControllerInput()}}
+{\footnotesize\ttfamily void Read\+Controller\+Input (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{controller,  }\item[{uint8\+\_\+t}]{DATA\+\_\+\+SERIALPIN }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{Controller__config_8h_a4fc01d736fe50cf5b977f755b675f11d}\label{Controller__config_8h_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Controller\_config.h@{Controller\_config.h}!setup@{setup}}
+\index{setup@{setup}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{Controller__config_8h_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Controller__config_8h_af015d732f139aba04682cb1ee623a5a9}\label{Controller__config_8h_af015d732f139aba04682cb1ee623a5a9}} 
+\index{Controller\_config.h@{Controller\_config.h}!setupPins@{setupPins}}
+\index{setupPins@{setupPins}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{setupPins()}{setupPins()}}
+{\footnotesize\ttfamily void setup\+Pins (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{controller,  }\item[{uint8\+\_\+t}]{DATA\+\_\+\+SERIALPIN }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{Controller__config_8h_af015d732f139aba04682cb1ee623a5a9_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{Controller__config_8h_a0ad56e72feb5447393c98a248785fffb}\label{Controller__config_8h_a0ad56e72feb5447393c98a248785fffb}} 
+\index{Controller\_config.h@{Controller\_config.h}!buttons@{buttons}}
+\index{buttons@{buttons}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{buttons}{buttons}}
+{\footnotesize\ttfamily int buttons\mbox{[}12\mbox{]}}
+
+\mbox{\Hypertarget{Controller__config_8h_a74c00d175575909c2856da82b4bfacef}\label{Controller__config_8h_a74c00d175575909c2856da82b4bfacef}} 
+\index{Controller\_config.h@{Controller\_config.h}!DATA\_CLOCK@{DATA\_CLOCK}}
+\index{DATA\_CLOCK@{DATA\_CLOCK}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_CLOCK}{DATA\_CLOCK}}
+{\footnotesize\ttfamily int DATA\+\_\+\+CLOCK = 6}
+
+\mbox{\Hypertarget{Controller__config_8h_a7f7b81a1372527dc85a4bb31810ee383}\label{Controller__config_8h_a7f7b81a1372527dc85a4bb31810ee383}} 
+\index{Controller\_config.h@{Controller\_config.h}!DATA\_LATCH@{DATA\_LATCH}}
+\index{DATA\_LATCH@{DATA\_LATCH}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_LATCH}{DATA\_LATCH}}
+{\footnotesize\ttfamily int DATA\+\_\+\+LATCH = 7}
+
+\mbox{\Hypertarget{Controller__config_8h_a576d4af387ebaa6838646f34f164a347}\label{Controller__config_8h_a576d4af387ebaa6838646f34f164a347}} 
+\index{Controller\_config.h@{Controller\_config.h}!DATA\_SERIAL1@{DATA\_SERIAL1}}
+\index{DATA\_SERIAL1@{DATA\_SERIAL1}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_SERIAL1}{DATA\_SERIAL1}}
+{\footnotesize\ttfamily int DATA\+\_\+\+SERIAL1 = 12}
+
+\mbox{\Hypertarget{Controller__config_8h_a93177123138d4986fe6d91827466c9a1}\label{Controller__config_8h_a93177123138d4986fe6d91827466c9a1}} 
+\index{Controller\_config.h@{Controller\_config.h}!DATA\_SERIAL2@{DATA\_SERIAL2}}
+\index{DATA\_SERIAL2@{DATA\_SERIAL2}!Controller\_config.h@{Controller\_config.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_SERIAL2}{DATA\_SERIAL2}}
+{\footnotesize\ttfamily int DATA\+\_\+\+SERIAL2 = 13}
+

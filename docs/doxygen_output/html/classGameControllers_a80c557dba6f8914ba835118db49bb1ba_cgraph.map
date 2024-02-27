@@ -1,0 +1,4 @@
+<map id="GameControllers::down" name="GameControllers::down">
+<area shape="rect" id="node1" title="returns if button is currently down" alt="" coords="5,5,180,32"/>
+<area shape="rect" id="node2" href="$classGameControllers.html#ac60e576376b18db25adb2a0c7ef9c84c" title=" " alt="" coords="228,5,427,32"/>
+</map>

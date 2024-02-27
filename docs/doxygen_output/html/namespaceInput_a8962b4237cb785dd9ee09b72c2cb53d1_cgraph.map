@@ -1,0 +1,5 @@
+<map id="Input::ReadControllerInputs" name="Input::ReadControllerInputs">
+<area shape="rect" id="node1" title="reads the current state of the controller(s)" alt="" coords="5,31,205,57"/>
+<area shape="rect" id="node2" href="$Controller__config_8h.html#a70cd16e5da89af1f9d86c7a62902d9de" title=" " alt="" coords="253,5,400,32"/>
+<area shape="rect" id="node3" href="$Controller__config_8h.html#a08508f32c5c3ec17aea5857adf663789" title=" " alt="" coords="277,56,376,83"/>
+</map>

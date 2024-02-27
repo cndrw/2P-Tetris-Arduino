@@ -1,0 +1,4 @@
+<map id="GameControllers::init" name="GameControllers::init">
+<area shape="rect" id="node1" title="This has to be initialized once for the shared pins latch and clock." alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node2" href="$Controller__config_8h.html#a08508f32c5c3ec17aea5857adf663789" title=" " alt="" coords="215,5,313,32"/>
+</map>

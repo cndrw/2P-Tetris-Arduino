@@ -1,0 +1,4 @@
+<map id="GameControllers::clear" name="GameControllers::clear">
+<area shape="rect" id="node1" title="button will be unpressed until released again" alt="" coords="5,5,177,32"/>
+<area shape="rect" id="node2" href="$classGameControllers.html#ac60e576376b18db25adb2a0c7ef9c84c" title=" " alt="" coords="225,5,424,32"/>
+</map>

@@ -1,0 +1,314 @@
+\hypertarget{classGameControllers}{}\doxysection{Game\+Controllers Class Reference}
+\label{classGameControllers}\index{GameControllers@{GameControllers}}
+
+
+{\ttfamily \#include $<$bitluni\+\_\+controller.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}} \{ \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476a46af5392e23c27482b584815dd74a9e1}{NES}} = 0
+, \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476a854835b06296eaa66c98a43420a70b8e}{SNES}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}} \{ \newline
+\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95caf3903decfb2fb28b4560e3becec67800}{B}} = 0
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca2ab5aae9cc27d1d7126b1ce9234caa8c}{Y}} = 1
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cac260b610956894f82953c1d1dd9f9163}{SELECT}} = 2
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca4f66f69fecd2e422f9067f6c62bd7565}{START}} = 3
+, \newline
+\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca480aed3760efe3461705bae0ffc14ce1}{UP}} = 4
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca1eddf30078ef59e626dee63cb65fcb6e}{DOWN}} = 5
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95caccae4938177c750bc0e28bc3354ce95f}{LEFT}} = 6
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca5c3778a1d25963c5336d1b82a4c1bdbc}{RIGHT}} = 7
+, \newline
+\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cac3d88effb1afac8e40a96eb82fa8eed9}{A}} = 8
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca287ceb40321585833859cfeb2a7ce14f}{X}} = 9
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cafc072e854944980fc9fb8f44ae86b633}{L}} = 10
+, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cab11f9c7519fcdbe8ba713e08b30a2da8}{R}} = 11
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGameControllers_aed3a10b52ecbc00cbba70874abd39c70}{init}} (int latch, int clock)
+\begin{DoxyCompactList}\small\item\em This has to be initialized once for the shared pins latch and clock. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameControllers_a2528ba0d2a5c06df13eb03c0fb2768cb}{set\+Controller}} (int controller, \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}} type, int data\+Pin)
+\begin{DoxyCompactList}\small\item\em This sets the controller type and initializes its individual data pin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameControllers_adeeae140a11fe035d6878c4a026cdb1e}{poll}} ()
+\item 
+int \mbox{\hyperlink{classGameControllers_ac60e576376b18db25adb2a0c7ef9c84c}{translate}} (int controller, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}} b) const
+\item 
+void \mbox{\hyperlink{classGameControllers_abaccc058e11f3efdac32fc1ecc1c2cf5}{clear}} (int controller, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}} b)
+\begin{DoxyCompactList}\small\item\em button will be unpressed until released again \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGameControllers_a80c557dba6f8914ba835118db49bb1ba}{down}} (int controller, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}} b) const
+\begin{DoxyCompactList}\small\item\em returns if button is currently down \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGameControllers_aaf3605a91b2f0f68a81c75e70682bff1}{pressed}} (int controller, \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}} b, long repeat\+After\+Tics=0x7fffffff) const
+\begin{DoxyCompactList}\small\item\em returns true if button state changed to down since previous poll. repeat\+After\+Tics can be used to repeat after button was hold down for sme time \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}} \mbox{\hyperlink{classGameControllers_a1f0c5e13c1cfb3f06cb5b2022c99ceae}{get\+Type}} (int controller)
+\begin{DoxyCompactList}\small\item\em returns the type of controller configured \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameControllers_a3aa35257e1409647454601a72f45aa8c}{print\+Buttons}} (\mbox{\hyperlink{classGameControllers_a32d5c98f447ecfcb2ec68009b829a4bc}{buttons}}\mbox{[}c\mbox{]}\mbox{[}i\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}} \mbox{\hyperlink{classGameControllers_af5825886cf1c9f07566c4c1570460519}{types}} \mbox{[}\mbox{\hyperlink{bitluni__controller_8h_abcc2547d720676ea4e5c7b9cf5609789}{MAX\+\_\+\+CONTROLLERS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{classGameControllers_a097dabacb4cf3361b6c97c7dcf1c8beb}{latch\+Pin}}
+\item 
+int \mbox{\hyperlink{classGameControllers_a5f9e63dcaed806122150096cce853138}{clock\+Pin}}
+\item 
+int \mbox{\hyperlink{classGameControllers_ab528e7879663b5eeb98c951a28399bd8}{data\+Pins}} \mbox{[}\mbox{\hyperlink{bitluni__controller_8h_abcc2547d720676ea4e5c7b9cf5609789}{MAX\+\_\+\+CONTROLLERS}}\mbox{]}
+\item 
+long \mbox{\hyperlink{classGameControllers_a32d5c98f447ecfcb2ec68009b829a4bc}{buttons}} \mbox{[}\mbox{\hyperlink{bitluni__controller_8h_abcc2547d720676ea4e5c7b9cf5609789}{MAX\+\_\+\+CONTROLLERS}}\mbox{]}\mbox{[}12\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}} 
+\index{GameControllers@{GameControllers}!Button@{Button}}
+\index{Button@{Button}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{Button}{Button}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Game\+Controllers\+::\+Button}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B@{B}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!B@{B}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95caf3903decfb2fb28b4560e3becec67800}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95caf3903decfb2fb28b4560e3becec67800}} 
+B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Y@{Y}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!Y@{Y}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca2ab5aae9cc27d1d7126b1ce9234caa8c}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca2ab5aae9cc27d1d7126b1ce9234caa8c}} 
+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!SELECT@{SELECT}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cac260b610956894f82953c1d1dd9f9163}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cac260b610956894f82953c1d1dd9f9163}} 
+SELECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{START@{START}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!START@{START}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca4f66f69fecd2e422f9067f6c62bd7565}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca4f66f69fecd2e422f9067f6c62bd7565}} 
+START&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!UP@{UP}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca480aed3760efe3461705bae0ffc14ce1}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca480aed3760efe3461705bae0ffc14ce1}} 
+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!DOWN@{DOWN}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca1eddf30078ef59e626dee63cb65fcb6e}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca1eddf30078ef59e626dee63cb65fcb6e}} 
+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!LEFT@{LEFT}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95caccae4938177c750bc0e28bc3354ce95f}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95caccae4938177c750bc0e28bc3354ce95f}} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!RIGHT@{RIGHT}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca5c3778a1d25963c5336d1b82a4c1bdbc}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca5c3778a1d25963c5336d1b82a4c1bdbc}} 
+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A@{A}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!A@{A}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cac3d88effb1afac8e40a96eb82fa8eed9}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cac3d88effb1afac8e40a96eb82fa8eed9}} 
+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X@{X}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!X@{X}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca287ceb40321585833859cfeb2a7ce14f}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95ca287ceb40321585833859cfeb2a7ce14f}} 
+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L@{L}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!L@{L}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cafc072e854944980fc9fb8f44ae86b633}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cafc072e854944980fc9fb8f44ae86b633}} 
+L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R@{R}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!R@{R}}}\mbox{\Hypertarget{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cab11f9c7519fcdbe8ba713e08b30a2da8}\label{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95cab11f9c7519fcdbe8ba713e08b30a2da8}} 
+R&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classGameControllers_a53283eea88ef6bbb0d48525755a54476}\label{classGameControllers_a53283eea88ef6bbb0d48525755a54476}} 
+\index{GameControllers@{GameControllers}!Type@{Type}}
+\index{Type@{Type}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Game\+Controllers\+::\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NES@{NES}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!NES@{NES}}}\mbox{\Hypertarget{classGameControllers_a53283eea88ef6bbb0d48525755a54476a46af5392e23c27482b584815dd74a9e1}\label{classGameControllers_a53283eea88ef6bbb0d48525755a54476a46af5392e23c27482b584815dd74a9e1}} 
+NES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SNES@{SNES}!GameControllers@{GameControllers}}\index{GameControllers@{GameControllers}!SNES@{SNES}}}\mbox{\Hypertarget{classGameControllers_a53283eea88ef6bbb0d48525755a54476a854835b06296eaa66c98a43420a70b8e}\label{classGameControllers_a53283eea88ef6bbb0d48525755a54476a854835b06296eaa66c98a43420a70b8e}} 
+SNES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameControllers_abaccc058e11f3efdac32fc1ecc1c2cf5}\label{classGameControllers_abaccc058e11f3efdac32fc1ecc1c2cf5}} 
+\index{GameControllers@{GameControllers}!clear@{clear}}
+\index{clear@{clear}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Game\+Controllers\+::clear (\begin{DoxyParamCaption}\item[{int}]{controller,  }\item[{\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}}}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+button will be unpressed until released again 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameControllers_abaccc058e11f3efdac32fc1ecc1c2cf5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGameControllers_a80c557dba6f8914ba835118db49bb1ba}\label{classGameControllers_a80c557dba6f8914ba835118db49bb1ba}} 
+\index{GameControllers@{GameControllers}!down@{down}}
+\index{down@{down}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{down()}{down()}}
+{\footnotesize\ttfamily bool Game\+Controllers\+::down (\begin{DoxyParamCaption}\item[{int}]{controller,  }\item[{\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}}}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns if button is currently down 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameControllers_a80c557dba6f8914ba835118db49bb1ba_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGameControllers_a1f0c5e13c1cfb3f06cb5b2022c99ceae}\label{classGameControllers_a1f0c5e13c1cfb3f06cb5b2022c99ceae}} 
+\index{GameControllers@{GameControllers}!getType@{getType}}
+\index{getType@{getType}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}} Game\+Controllers\+::get\+Type (\begin{DoxyParamCaption}\item[{int}]{controller }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the type of controller configured 
+
+\mbox{\Hypertarget{classGameControllers_aed3a10b52ecbc00cbba70874abd39c70}\label{classGameControllers_aed3a10b52ecbc00cbba70874abd39c70}} 
+\index{GameControllers@{GameControllers}!init@{init}}
+\index{init@{init}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Game\+Controllers\+::init (\begin{DoxyParamCaption}\item[{int}]{latch,  }\item[{int}]{clock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This has to be initialized once for the shared pins latch and clock. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classGameControllers_aed3a10b52ecbc00cbba70874abd39c70_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGameControllers_adeeae140a11fe035d6878c4a026cdb1e}\label{classGameControllers_adeeae140a11fe035d6878c4a026cdb1e}} 
+\index{GameControllers@{GameControllers}!poll@{poll}}
+\index{poll@{poll}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily void Game\+Controllers\+::poll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameControllers_adeeae140a11fe035d6878c4a026cdb1e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGameControllers_aaf3605a91b2f0f68a81c75e70682bff1}\label{classGameControllers_aaf3605a91b2f0f68a81c75e70682bff1}} 
+\index{GameControllers@{GameControllers}!pressed@{pressed}}
+\index{pressed@{pressed}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{pressed()}{pressed()}}
+{\footnotesize\ttfamily bool Game\+Controllers\+::pressed (\begin{DoxyParamCaption}\item[{int}]{controller,  }\item[{\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}}}]{b,  }\item[{long}]{repeat\+After\+Tics = {\ttfamily 0x7fffffff} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns true if button state changed to down since previous poll. repeat\+After\+Tics can be used to repeat after button was hold down for sme time 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameControllers_aaf3605a91b2f0f68a81c75e70682bff1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGameControllers_a3aa35257e1409647454601a72f45aa8c}\label{classGameControllers_a3aa35257e1409647454601a72f45aa8c}} 
+\index{GameControllers@{GameControllers}!printButtons@{printButtons}}
+\index{printButtons@{printButtons}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{printButtons()}{printButtons()}}
+{\footnotesize\ttfamily void Game\+Controllers\+::print\+Buttons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameControllers_a32d5c98f447ecfcb2ec68009b829a4bc}{buttons}}}]{\mbox{[}c\mbox{]}\mbox{[}i\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameControllers_a3aa35257e1409647454601a72f45aa8c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGameControllers_a2528ba0d2a5c06df13eb03c0fb2768cb}\label{classGameControllers_a2528ba0d2a5c06df13eb03c0fb2768cb}} 
+\index{GameControllers@{GameControllers}!setController@{setController}}
+\index{setController@{setController}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{setController()}{setController()}}
+{\footnotesize\ttfamily void Game\+Controllers\+::set\+Controller (\begin{DoxyParamCaption}\item[{int}]{controller,  }\item[{\mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}}}]{type,  }\item[{int}]{data\+Pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This sets the controller type and initializes its individual data pin. 
+
+\mbox{\Hypertarget{classGameControllers_ac60e576376b18db25adb2a0c7ef9c84c}\label{classGameControllers_ac60e576376b18db25adb2a0c7ef9c84c}} 
+\index{GameControllers@{GameControllers}!translate@{translate}}
+\index{translate@{translate}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily int Game\+Controllers\+::translate (\begin{DoxyParamCaption}\item[{int}]{controller,  }\item[{\mbox{\hyperlink{classGameControllers_ac7d0e17f48a1708dc367b7a3f6e0e95c}{Button}}}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameControllers_ac60e576376b18db25adb2a0c7ef9c84c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classGameControllers_a32d5c98f447ecfcb2ec68009b829a4bc}\label{classGameControllers_a32d5c98f447ecfcb2ec68009b829a4bc}} 
+\index{GameControllers@{GameControllers}!buttons@{buttons}}
+\index{buttons@{buttons}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{buttons}{buttons}}
+{\footnotesize\ttfamily long Game\+Controllers\+::buttons\mbox{[}\mbox{\hyperlink{bitluni__controller_8h_abcc2547d720676ea4e5c7b9cf5609789}{MAX\+\_\+\+CONTROLLERS}}\mbox{]}\mbox{[}12\mbox{]}}
+
+\mbox{\Hypertarget{classGameControllers_a5f9e63dcaed806122150096cce853138}\label{classGameControllers_a5f9e63dcaed806122150096cce853138}} 
+\index{GameControllers@{GameControllers}!clockPin@{clockPin}}
+\index{clockPin@{clockPin}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{clockPin}{clockPin}}
+{\footnotesize\ttfamily int Game\+Controllers\+::clock\+Pin}
+
+\mbox{\Hypertarget{classGameControllers_ab528e7879663b5eeb98c951a28399bd8}\label{classGameControllers_ab528e7879663b5eeb98c951a28399bd8}} 
+\index{GameControllers@{GameControllers}!dataPins@{dataPins}}
+\index{dataPins@{dataPins}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{dataPins}{dataPins}}
+{\footnotesize\ttfamily int Game\+Controllers\+::data\+Pins\mbox{[}\mbox{\hyperlink{bitluni__controller_8h_abcc2547d720676ea4e5c7b9cf5609789}{MAX\+\_\+\+CONTROLLERS}}\mbox{]}}
+
+\mbox{\Hypertarget{classGameControllers_a097dabacb4cf3361b6c97c7dcf1c8beb}\label{classGameControllers_a097dabacb4cf3361b6c97c7dcf1c8beb}} 
+\index{GameControllers@{GameControllers}!latchPin@{latchPin}}
+\index{latchPin@{latchPin}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{latchPin}{latchPin}}
+{\footnotesize\ttfamily int Game\+Controllers\+::latch\+Pin}
+
+\mbox{\Hypertarget{classGameControllers_af5825886cf1c9f07566c4c1570460519}\label{classGameControllers_af5825886cf1c9f07566c4c1570460519}} 
+\index{GameControllers@{GameControllers}!types@{types}}
+\index{types@{types}!GameControllers@{GameControllers}}
+\doxysubsubsection{\texorpdfstring{types}{types}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameControllers_a53283eea88ef6bbb0d48525755a54476}{Type}} Game\+Controllers\+::types\mbox{[}\mbox{\hyperlink{bitluni__controller_8h_abcc2547d720676ea4e5c7b9cf5609789}{MAX\+\_\+\+CONTROLLERS}}\mbox{]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engineering/\mbox{\hyperlink{bitluni__controller_8h}{bitluni\+\_\+controller.\+h}}\end{DoxyCompactItemize}
