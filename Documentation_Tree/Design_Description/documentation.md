@@ -105,7 +105,7 @@ Zuerst muss deshalb die richtige Reihe ausgewählt werden. Die erste Übertragun
     row = screen[i + (j / 4) * 8]; // Y-Wert des screens
 }
 ```
-![Renderer_visual](pics/Renderer_visual_v2.png)
+![Renderer_visual](images/Renderer_visual_v2.png)
 
 Diese Bild stellt die Übertragungsreihenfolge der internen Repräsentation bildlich da. Das Bild ist wie folgt zu lesen. Zuerst wird Rot übertragen, dann Grün, Dunkelblau, Hellblau, Gelb, Pink, Orang und zum Schluss Weiß. Außerdem wird von Hell nach Dunkel und anschließend von Oben nach unten übertragen. Demnach wird zuerst ganz oben das rote, helle Feld zuerst Übertragen, danach das rechts daneben, bis zum Dunkelsten, wonach die nächste Rote Zeile übertragen wird.
 
