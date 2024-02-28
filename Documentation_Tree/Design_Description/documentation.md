@@ -135,11 +135,17 @@ Dies Übertragung wird von der `DrawScreen` funktion ausgefürht, diese zeichnet
 ## OS-Struktur
 An oberster Stelle der Instanzen ist `RetrisOS`, es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das `Process`-Interface. 
 
+![UML-OS](../Engineering_Folder/images/UML_RetrisOS.svg)
+
 ### MenueHandler
 Eine Instanz mit dem `Process`-Interface ist der `MenueHandler`, dieser ist Verantwortlich die richtigen Menüs anzuzeigen. Da es ein Prozess ist, kann es auch alle Aufgaben wie in der [OS-Struktur](#os-struktur) genannt, da das einfrieren von Menüs allerdings nicht benötigt wird, ist diese Funktionalität leer.
 
 Der `MenueHandler` wurde mit dem Strategie Design Pattern entworfen, da alle Menüs in den Grundzügen gleich funktionieren, aber trotzdem leicht anderes Verhalten in der Ausführung haben.
+
+![UML-MenueHandler](../Engineering_Folder/images/UML_MenuHandler.svg)
+
 Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.
+![UML-Menues](../Engineering_Folder/images/UML_Menues.svg)
 <!-- 
 `RefreshMenue` zeichnet das Menue erneut, mit evtl. Veränderungen.\
 `PushButton` führt die Funktion des (virtuellen) Knopfes (auf dem Display) aus, je nachdem welcher Knopf gerade ausgewählt ist.\
@@ -149,6 +155,8 @@ Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionali
 
 ### GameManager
 Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht, sondern reagiert nur auf bestimmte aufkommende Spielzustände.
+
+![UML-GameManger](../Engineering_Folder/images/UML_GameManager.svg)
 <!-- 
 Bei der Initialisierung des Prozesses (`Init`) wird eine Startsequenz gestartet, welche die Worte "Auf die Blöcke, fertig, lost" nacheinander mit einer kurzen Verzögerung zeigt. Danach wird der Initialisierungsvorgang der Spielsitzung(en) ausgeführt.
 
@@ -161,6 +169,8 @@ In der `Freeze`-Methode werden/wird die laufenden Spielsitzung/en eingefroren, d
 ## SpielLogik
 
 Die gesamte Spiellogik ist innerhalb der [`RetrisGame`]()-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig. Allgemein 
+
+![UML-RetrisGame](../Engineering_Folder/images/UML_RetrisGame.svg)
 
 ### Input Management
 ### Kollisions Erkennung
@@ -273,6 +283,7 @@ Function()
     }
 } 
 ```
+
 
 
 
