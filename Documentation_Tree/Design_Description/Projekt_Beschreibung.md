@@ -58,14 +58,18 @@ Quellen:
 [Circuitcellar](https://circuitcellar.com/research-design-hub/projects/interfacing-with-video-game-controllers/)
 [Bitluni](https://bitluni.net/gamepad)
 
-### I2C-LCD
-Das LCD (Liquid Crystal Display) ist im Gehäuse über der Matrix angebracht. Es besitzt zwei Zeilen, die den Punktestand der einzelnen Spieler anzeigen.
-
-### Buzzer
-
 ### Spannungsversorgung
 Zu Anfang des Projekts standen verschiedene Möglichkeiten zur Spannungsversorgung zur Auswahl. Diese hat sich mit Festlegung der einzelnen Komponenten auf eine einfache Lösung reduziert.
 Wir entschieden uns nach abwägen der Möglichkeiten dafür eine externe Spannungsquelle zu nutzen und diese per USB Typ-C Anschluss abnehmbar zu gestalten. 
 Den Strom liefert ein handeslsübliches USB-Netzteil in Form eines Ladegerätes bekannt von Smartphones. Dieses leifert eine Spannung von 5V und 3A Strom, damit steht uns eine Leistung von 15 Watt zu Verfügung.
 Eine weitere Möglichkeit die noch im Raum steht und bei einer zukünftigen Version des Projektes genutzt werden kann, ist die Integration einer Powerbank mit entsprechender Leistung. Diese könnte leicht in das Gehäuse integriert werden.
 Hierzu müssten nur einige Anpassungen vorgenommen werden, darunter zählt das Hinzufügen eines Ladeanschlusses und eines Schalters um die Stromzufuhr beliebig zu beeinflussen.
+
+### I2C-LCD
+Das LCD (Liquid Crystal Display) ist im Gehäuse über der Matrix angebracht. Es besitzt zwei Zeilen, die den Punktestand der einzelnen Spieler anzeigen.
+Die Ansteuerung des LCD erfolgt über die I2C-Schnittstelle (Pins: 20 SDA, 21 SCL) des Mikrocontrollers. Die Spannungsversorgung des LCD erfolgt durch den gemeinsamen Anschluss an die externe Spannungsquelle (5V).
+Das LCD war Teil des Arduino Kits und wurde somit nicht extra angeschafft. 
+
+### Buzzer
+Beim Buzzer handelt es sich um den Lautsprecher der Teil des Aurduino-Development Kits ist. Dieser wird im Gehäuse verbaut und gibt den bekannten Tetris Song wieder.
+Die Ansteuerung des Buzzers erfolgt über einen digitalen PWM-Pin des Mikrocontrollers.
