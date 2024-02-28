@@ -1,0 +1,54 @@
+\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md0}{}\doxysection{Inhalt}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md0}
+
+\begin{DoxyItemize}
+\item \href{\#motivation}{\texttt{ Motivation}}
+\item \href{\#spielbeschreibung}{\texttt{ Spielbeschreibung}}
+\begin{DoxyItemize}
+\item \href{\#spielmechanik}{\texttt{ Spielmechanik}}
+\begin{DoxyItemize}
+\item \href{\#punktesystem}{\texttt{ Punktesystem}}
+\item \href{\#die-tastenbelegung-der-controller-sieht-folgende-funktionen-vor}{\texttt{ Tastenbelegung}}
+\item \href{\#spielende}{\texttt{ Spielende}}
+\end{DoxyItemize}
+\item \href{\#innovative-funktionen}{\texttt{ Innovative Funktionen}}
+\item \href{\#mobilit\%C3\%A4t-und-flexibilit\%C3\%A4t}{\texttt{ Mobilität und Flexibilität}}
+\item \href{\#100--spielspa\%C3\%9F-garantiert}{\texttt{ 100 \% Spielspaß}}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md1}{}\doxysubsection{Motivation}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md1}
+Retris basiert auf dem legendären Puzzle-\/\+Videospiel Tetris, dass 1985 von dem sowjetischen Softwareingenieur Alexey Pajitnov entwickelt wurde. Es wurde von mehreren Unternehmen für verschiedene Plattformen veröffentlicht. Inspiriert von dem zeitlosen Klassiker, bietet Retris ein vertrautes Gameplay, das durch moderne Technologie und einzigartige Features bereichert wird. Retris wird mit SNES-\/\+Controllern gesteuert und kann im Zwei-\/\+Spieler-\/\+Modus gespielt werden.\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md2}{}\doxysection{Spielbeschreibung}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md2}
+Es wird mit sieben verschiedenen Steinen gespielt, die wiederum aus vier gleichen Quadraten aufgebaut sind. Diese Steine senken sich nach dem Spielstart einzeln von oben nach unten durch das rechteckige Spielfeld, das 10 Quadrate breit und 20 Quadrate hoch ist. Die Steine müssen vom Spieler am Boden zu lückenlosen, waagrechten Reihen zusammengesetzt werden. Der Spieler kann die Steine während des Fallens solange um 90° drehen, bis sie entweder am Grunde des Spielfeldes angelangt sind oder auf einem anderen Stein aufsitzen.
+
+Ist die Abwärtsbewegung eines Steines zum Stillstand gekommen, fällt der nächste Stein von oben herab. Die Reihenfolge, in der die Steine aufeinander folgen, ist vollkommen wahllos, d. h. dem Zufall überlassen. Im normalen Modus wird der nächste Stein jedoch in einem Vorschaufenster angezeigt.
+
+\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md3}{}\doxysubsection{Spielmechanik\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md3}
+In Retris geht es darum, die Blöcke, sogenannte Tetrominos, geschickt zu stapeln, um vollständige Reihen zu bilden und Punkte zu sammeln. Steuern Sie die fallenden Blöcke mit Ihrem Controller und passen Sie sie so an, dass sie perfekt in die bestehenden Lücken passen. Je mehr Reihen Sie auf einmal vervollständigen, desto mehr Punkte verdienen Sie!\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md4}{}\doxysubsubsection{Punktesystem\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md4}
+In NINTENDOs Spielen für NES, Game Boy und Super NES wurden die Punkte nach folgender Formel errechnet\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40 * Level für eine volle Reihe}
+\DoxyCodeLine{100 * Level für zwei Reihen}
+\DoxyCodeLine{300 * Level für drei}
+\DoxyCodeLine{1200 * Level für vier Reihen}
+
+\end{DoxyCode}
+ Nach einer bestimmten Anzahl an Reihen, die der Spieler gelöscht hat -\/ in unserem Falle 10, gelangt er ins nächste Level, was sowohl eine erhöhte Fallgeschwindigkeit der Steine als auch eine höhere Punktzahl für vervollständigte Reihen bedingt (siehe oben).\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md5}{}\doxysubsubsection{Die Tastenbelegung der Controller sieht folgende Funktionen vor\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md5}
+
+\begin{DoxyItemize}
+\item A \+: Im Spiel wird bei betätigen der Block fallen gelassen und im Menü wird die Eingabe bestätigt
+\item B \+: nicht belegt
+\item X \+: Rotieren des Blocks
+\item Y \+: nicht belegt Pfeiltasten \+:
+\item links \+: Bewegung des Retrominos nach links
+\item rechts \+: Bewegung des Retrominos nach rechts
+\item oben \+: Pfeiltaste nach oben bewegt die Auswahl nach oben
+\item unten \+: Pfeiltaste nach unten bewegt die Auswahl nach unten
+\end{DoxyItemize}
+
+Start Knopf \+: Stoppen des Spiels, Pause Select Knopf \+: Stoppen des Spiels, Pause R1 \+: nicht belegt L1 \+: nicht belegt
+
+\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md6}{}\doxysubsubsection{Spielende\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md6}
+Wenn das Spielfeld mit unvollständigen Reihen bis zum oberen Rand gefüllt ist, so dass ein folgender Stein nicht mehr nach unten fallen kann, ist das Spiel zu Ende\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md7}{}\doxysubsection{Innovative Funktionen\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md7}
+Retris bietet eine Vielzahl von innovativen Funktionen, die das Spielerlebnis bereichern. Von einem eingängigen Soundtrack, der die Atmosphäre belebt, bis hin zu einem Zwei-\/\+Spieler-\/\+Modus, der es Ihnen ermöglicht, gegen Freunde oder Rivalen anzutreten, bietet Retris eine Vielzahl von Möglichkeiten, das Spiel zu genießen.\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md8}{}\doxysubsection{Mobilität und Flexibilität\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md8}
+Dank seiner tragbaren Hardware und mobilen Stromversorgung können Sie Retris überallhin mitnehmen und spielen, egal ob Sie unterwegs sind oder zu Hause auf dem Sofa entspannen. Das kompakte Design und die austauschbaren Controller machen Retris zu einem idealen Begleiter für unterwegs.\hypertarget{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md9}{}\doxysubsection{100 \% Spielspaß garantiert\+:}\label{md_Documentation_Tree_Engineering_Folder_Spielbeschreibung_autotoc_md9}
+Mit seinem einzigartigen Gameplay, innovativen Funktionen und grenzenloser Spielfreude ist Retris das Spiel für alle, die das Retro-\/\+Feeling lieben und gleichzeitig die Zukunft des Gamings erleben wollen.
+
+Bereit, Ihre Retrominos zu stapeln und die Herausforderung anzunehmen? Dann bleibt nur eins -\/ {\ttfamily Auf die Blöcke, Fertig, Los!} 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['for_46',['for',['../Controller__config_8h.html#adc91b5e1d03dd2e79e933e929c43a702',1,'Controller_config.h']]]
+  ['lastinput_25',['lastInput',['../structInput_1_1Controller.html#a47b1c0535d7300a9e7536ea94f5f9869',1,'Input::Controller']]]
 ];

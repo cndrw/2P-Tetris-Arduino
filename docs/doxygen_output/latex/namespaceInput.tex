@@ -8,12 +8,6 @@ struct \mbox{\hyperlink{structInput_1_1Controller}{Controller}}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{namespaceInput_adf34fe3e60bbc7bf553fd830ba5f8cdf}{Setup\+Pins}} (const uint8\+\_\+t controller, uint8\+\_\+t DATA\+\_\+\+SERIALPIN)
-\item 
-void \mbox{\hyperlink{namespaceInput_a9d92855bcbf7a86d791cec75d7b3027c}{Read\+Controller\+Input}} (const uint8\+\_\+t controller, uint8\+\_\+t DATA\+\_\+\+SERIALPIN) const
-\item 
-bool \mbox{\hyperlink{namespaceInput_a2ebf7cdfdd3ad28ddbc3e35732d3525a}{Get\+Key}} (const uint8\+\_\+t controller, const uint8\+\_\+t key) const
-\item 
 void \mbox{\hyperlink{namespaceInput_a81f74d0bf0c0f63cfcbc928fa5b7d361}{Set\+Controller\+Count}} (const uint8\+\_\+t number)
 \begin{DoxyCompactList}\small\item\em sets how many controller are actively checked \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceInput_a5d4142b13b4a405569686bd85be5f9a8}{Setup\+Pins}} ()
@@ -24,11 +18,6 @@ bool \mbox{\hyperlink{namespaceInput_a9cd08dfda5c2734fae43e42c152bcb35}{Get\+But
 \begin{DoxyCompactList}\small\item\em checks if the desired button is currently pressed \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{namespaceInput_ae10eed4b8d1eb379478c976e1c2b78bc}{Get\+Button\+Down}} (const uint8\+\_\+t controller, const uint8\+\_\+t button)
 \begin{DoxyCompactList}\small\item\em checks if the desired button got pressed (only the transition) \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-uint8\+\_\+t \mbox{\hyperlink{namespaceInput_ae1891368539682810122014fb8cc977c}{controller\+Count}} = 0
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -66,34 +55,6 @@ checks if the desired button got pressed (only the transition)
 {\em button} & which button shall be checked \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespaceInput_a2ebf7cdfdd3ad28ddbc3e35732d3525a}\label{namespaceInput_a2ebf7cdfdd3ad28ddbc3e35732d3525a}} 
-\index{Input@{Input}!GetKey@{GetKey}}
-\index{GetKey@{GetKey}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{GetKey()}{GetKey()}}
-{\footnotesize\ttfamily bool Input\+::\+Get\+Key (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{controller,  }\item[{const uint8\+\_\+t}]{key }\end{DoxyParamCaption}) const}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=237pt]{namespaceInput_a2ebf7cdfdd3ad28ddbc3e35732d3525a_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{namespaceInput_a9d92855bcbf7a86d791cec75d7b3027c}\label{namespaceInput_a9d92855bcbf7a86d791cec75d7b3027c}} 
-\index{Input@{Input}!ReadControllerInput@{ReadControllerInput}}
-\index{ReadControllerInput@{ReadControllerInput}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{ReadControllerInput()}{ReadControllerInput()}}
-{\footnotesize\ttfamily void Input\+::\+Read\+Controller\+Input (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{controller,  }\item[{uint8\+\_\+t}]{DATA\+\_\+\+SERIALPIN }\end{DoxyParamCaption}) const}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=299pt]{namespaceInput_a9d92855bcbf7a86d791cec75d7b3027c_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{namespaceInput_a8962b4237cb785dd9ee09b72c2cb53d1}\label{namespaceInput_a8962b4237cb785dd9ee09b72c2cb53d1}} 
 \index{Input@{Input}!ReadControllerInputs@{ReadControllerInputs}}
 \index{ReadControllerInputs@{ReadControllerInputs}!Input@{Input}}
@@ -104,14 +65,6 @@ Here is the caller graph for this function\+:
 
 reads the current state of the controller(s) 
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{namespaceInput_a8962b4237cb785dd9ee09b72c2cb53d1_cgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{namespaceInput_a81f74d0bf0c0f63cfcbc928fa5b7d361}\label{namespaceInput_a81f74d0bf0c0f63cfcbc928fa5b7d361}} 
 \index{Input@{Input}!SetControllerCount@{SetControllerCount}}
 \index{SetControllerCount@{SetControllerCount}!Input@{Input}}
@@ -130,41 +83,10 @@ sets how many controller are actively checked
 \mbox{\Hypertarget{namespaceInput_a5d4142b13b4a405569686bd85be5f9a8}\label{namespaceInput_a5d4142b13b4a405569686bd85be5f9a8}} 
 \index{Input@{Input}!SetupPins@{SetupPins}}
 \index{SetupPins@{SetupPins}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{SetupPins()}{SetupPins()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{SetupPins()}{SetupPins()}}
 {\footnotesize\ttfamily void Input\+::\+Setup\+Pins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 setups the controller pins 
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=285pt]{namespaceInput_a5d4142b13b4a405569686bd85be5f9a8_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{namespaceInput_adf34fe3e60bbc7bf553fd830ba5f8cdf}\label{namespaceInput_adf34fe3e60bbc7bf553fd830ba5f8cdf}} 
-\index{Input@{Input}!SetupPins@{SetupPins}}
-\index{SetupPins@{SetupPins}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{SetupPins()}{SetupPins()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Input\+::\+Setup\+Pins (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{controller,  }\item[{uint8\+\_\+t}]{DATA\+\_\+\+SERIALPIN }\end{DoxyParamCaption})}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=255pt]{namespaceInput_adf34fe3e60bbc7bf553fd830ba5f8cdf_icgraph}
-\end{center}
-\end{figure}
-
-
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespaceInput_ae1891368539682810122014fb8cc977c}\label{namespaceInput_ae1891368539682810122014fb8cc977c}} 
-\index{Input@{Input}!controllerCount@{controllerCount}}
-\index{controllerCount@{controllerCount}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{controllerCount}{controllerCount}}
-{\footnotesize\ttfamily static uint8\+\_\+t Input\+::controller\+Count = 0}
 

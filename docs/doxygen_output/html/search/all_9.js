@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['max_5fcontrollers_62',['MAX_CONTROLLERS',['../bitluni__controller_8h.html#abcc2547d720676ea4e5c7b9cf5609789',1,'bitluni_controller.h']]]
+  ['tile_37',['Tile',['../classpixel__to__hex__converter_1_1Tile.html',1,'pixel_to_hex_converter']]],
+  ['tiles_38',['Tiles',['../namespacepixel__to__hex__converter.html#a41c04471aefea095531d8ae5da2e9266',1,'pixel_to_hex_converter']]]
 ];
