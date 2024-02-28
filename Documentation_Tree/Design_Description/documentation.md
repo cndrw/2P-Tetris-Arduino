@@ -5,7 +5,7 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
 - [Hardware](#hardware)
     - [Display](#display)
 - [Rendering](#rendering)
-    - [interne Representation des Displays](#interne-representation)
+    - [interne Repräsentation des Displays](#interne-repräsentation-des-displays)
     - [Übertragung des internen Zustands](#übertraung-des-internen-screen)
 - [OS-Struktur](#os---struktur)
     - [Processes](#processes)
@@ -24,12 +24,13 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
 
 
 ## Hardware
-### Display
+### Display -Matrix 32x32
 Das Display hat eine gesamt größe von 32x32 LEDs, welche aus 16 verschiedenen 8x8 LED-Modulen zusammengesetzt ist. Diese einzelnen Module sind per Daisy-Chain verbunden.
 
+
 ## Rendering
-### interne Representation des Displays
-Die Matrix die zur visualiserung genutzt wird verfügt über 32x32 LEDs, dass heißt die interne Representation muss es ermöglichen den Zustand aller 1024 LEDs abzuspeichern und zu verändern.
+### interne Repräsentation des Displays
+Die Matrix die zur visualiserung genutzt wird verfügt über 32x32 LEDs, dass heißt die interne Repräsentation muss es ermöglichen den Zustand aller 1024 LEDs abzuspeichern und zu verändern.
 
 Aufgrund dessen, dass unsere gewählte Matrix einfarbig ist, kann jede LED einfacherweise mit nur einem Bit dargestellt werden (an oder aus). Dementsprechen wird das gesamte Display mittels einem simplen Array der Länge 32, welches 32-Bit Integer speichert dargestellt. Dabei representiert der Index des Arrays die Zeile und die Position des Bits innerhalb des Integers die Spalte (MSB -> Spalte 0). Der Koordinaten Ursprung wurde als die linke obere Ecke definiert, des Weiteren steigt der y-Wert nach unten an.
 
@@ -61,8 +62,8 @@ screen[0] |= 0x8000'0000 // oder screen[0] |= (int32_t)1 << 31
 screen[10] |= 0x0C00'0000 // oder screen[10] |= (int32_t)2 << (31 - 6)
 ```
 
-### Übertraung des internen Screen
-Die [interne Darstellung des Displays](#interne-representation-des-displays) kann leider nicht in dieser Form an die Matrizen übertagen werden. Die SPI-Übertragung besteht in diesem Fall aus vier Schritten:
+### Übertragung des internen Screens
+Die [interne Darstellung des Displays](#interne-Repräsentation-des-displays) kann leider nicht in dieser Form an die Matrizen übertagen werden. Die SPI-Übertragung besteht in diesem Fall aus vier Schritten:
 1. Chip-Select auf LOW
 2. senden um welche Zeile es handelt (`SPI.transfer(row)`)
 3. senden welche LEDs in dieser Reihe welchen Zustand haben (`SPI.transfer(reihe)`)
