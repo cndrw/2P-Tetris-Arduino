@@ -7,7 +7,10 @@
     - [LED-Matrix](#led-matrix)
     - [Mikrocomputer](#mikrocontroller)
     - [SNES-Controller](#snes-controller)
+    - [Spannungsversorgung](#spannungsversorgung)
     - [I²C-LCD](#i²c-lcd)
+    - [Buzzer](#buzzer)
+    - [Schaltplan](#schaltplan)
 
 
 # Kurzbeschreibung
