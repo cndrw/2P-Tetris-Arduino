@@ -73,3 +73,16 @@ Das LCD war Teil des Arduino Kits und wurde somit nicht extra angeschafft.
 ### Buzzer
 Beim Buzzer handelt es sich um den Lautsprecher der Teil des Aurduino-Development Kits ist. Dieser wird im Gehäuse verbaut und gibt den bekannten Tetris Song wieder.
 Die Ansteuerung des Buzzers erfolgt über einen digitalen PWM-Pin des Mikrocontrollers.
+
+### Schaltplan
+<!--![Schaltplan Retris](../Engineering_Folder/images/Curcuitry_vorläufig.png)-->
+<p><img src="../Engineering_Folder/images/Curcuitry_vorläufig.png" width="600"></p>
+
+Der Schaltplan zeigt die Verkabelung der einzelnen Komponenten. Die Farben wurden wie folgt gewählt:
+- Rot: Spannungsversorgung (5V)
+- Schwarz: Erdung (GND)
+- Orange: Datenleitungen
+- Lila: Clock-Signale
+- Pink: Latch/CS/SS-Signale
+
+Der Schaltplan wurd mit Hilfe von Wokwi erstellt, hierbei war es leider nicht möglich die Schnittstellen für die Controller realitätsnah darzustellen, daher wurde diese nur schematisch dargestellt.
