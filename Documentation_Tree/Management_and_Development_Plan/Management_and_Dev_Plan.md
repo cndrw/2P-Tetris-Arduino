@@ -78,7 +78,14 @@ Das vierte Teilziel beschreibt die Finalisierung des Projekts. Hier sollten die 
 
 # Risikoanalyse
 
-### Finanzen und Budget:
+Ein Risiko bezieht sich auf die Möglichkeit eines negativen oder unerwünschten Ergebnisses oder Ereignisses, das aufgrund von Unsicherheiten eintritt. Mögliche unerwünschten Ereignisse wurden sich im Vorfeld wohl überlegt. 
+
+Hauptrisiken sehen wir in den Lieferzeiten, Entwicklungsprobleme, Hardwarelimitierungen und der Zeit.  
+
+Verringerung von Risiken durch verschiedene Strategien...
+
+
+Finanzen und Budget:
 Notwendige Investitionen und Zuordnung zu den einzelnen Projektphasen.
 Budgetplan: Wie werden die finanziellen Mittel eingesetzt?
 
