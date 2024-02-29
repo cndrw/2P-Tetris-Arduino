@@ -14,8 +14,7 @@
     - [Entwicklung](#2-entwicklung)
     - [Realisierung](#3-realisierung)
     - [Finalisierung](#4-finalisierung)
-5. [Projektverlauf und Meilensteine](#projektverlauf-und-meilensteine)
-6. [Abschluss](#)
+5. [Abschluss](#)
 
 
 # Ausgangslage
@@ -71,7 +70,7 @@ Im ersten Teilziel wurden grundlegende Anforderungen formuliert. Dies sollte den
 Der zweite zentrale Punkt für ein erfolgreiches Projekt war die Beschaffung der benötigten Komponenten. Hierfür sollten Angebote verglichen werden und mögliche "Worst-Case" Szenarien bedacht werden. Für diese Fälle sollten ausweichende Pläne erstellt werden. Es sollte bei erfolgreichem Abschluss des ersten Teilziels zu einer schnellen Umsetzung des zweiten kommen. Die Komponenten sollten schnell beschafft und anschließend auf Funktion geprüft werden.
 
 ## Drittes Teilziel
-Das dritte Teilziel umfasst die gesamte Entwicklung des eigentlichen Produkts. Die Erstellung der Software, sowie die Verbindung der einzelnen Komponenten. Vorallem die Erstellung der Software wurde dann in weitere Ziele unterteilt.
+Das dritte Teilziel umfasst die gesamte Entwicklung des eigentlichen Produkts. Die Erstellung der Software, sowie die Verbindung der einzelnen Komponenten. Vorallem die Erstellung der Software wurde dann in weitere Teilziele unterteilt.
 
 ## Viertes Teilziel
 Das vierte Teilziel beschreibt die Finalisierung des Projekts. Hier sollten die Tests zur Abdeckung der Requirements durchgeführt werden. Außerdem zählt zu der Finalisierung das Schreiben der Projektdokumentation.
@@ -106,13 +105,18 @@ Wie bereits beschrieben wurde das Projekt in vier Projektphasen unterteilt. Dies
 
 
 ### 1. Projektbeginn
-Das Projekt hat mit der Idee, eine Art des Klassikers Tetris zu entwickeln, begonnen. Nach einer rudimentären Beschreibung der Funktionen und der Genehmigung des Projekts durch Studiengangsleiter und Dozenten, ging es an die Vorbereitung für den Pitch. Dafür wurden einige Marktanalysen durchgeführt. Außerdem wurden Risiken und mögliche Chancen gegeneinander abgewogen. Eine Reihe von Spezifizierungen wurde in Requirements verankert. Außerdem wurde eine Materialliste angelegt und eine Kalkulation der Kosten durchgeführt. Anschließend wurde durch den Pitch am 07.12.2023 die erste Phase des Projekts abgeschlossen. Somit galt auch das erste Teilziel als erfolgreich abgeschlossen.
+Das Projekt hat mit der Idee, eine Art des Klassikers Tetris zu entwickeln, begonnen. Nach einer rudimentären Beschreibung der Funktionen und der Genehmigung des Projekts durch Studiengangsleiter und Dozenten, ging es an die Vorbereitung für den Pitch. Dafür wurden einige Marktanalysen durchgeführt. Außerdem wurden Risiken und mögliche Chancen gegeneinander abgewogen (siehe oben). Eine Reihe von Spezifizierungen wurde in Requirements verankert. Außerdem wurde eine Materialliste angelegt und eine Kalkulation der Kosten durchgeführt. Anschließend wurde durch den Pitch am 07.12.2023 die erste Phase des Projekts und ein wichtiger Meilenstein abgeschlossen. Somit galt auch das erste Teilziel als erfolgreich abgeschlossen.
 
 ### 2. Entwicklung
 Schritte: Umreißen Sie den geplanten Projektverlauf.
 Meilensteine: Definieren Sie wichtige Zwischenziele und deren Zeitpunkte.
 
+In der zweiten Phase sollte zu Beginn die Liste der Requirements vervollständigt werden. Dies erfolgte auch zeitnah. Des Weiteren wurden Komponenten verglichen und bestellt. Dies war ein sehr wichtiger Schritt für das Gesamtprojekt. Die Softwareentwicklung erfolgte weitestgehend über Wokwi in der die gewünschte Schaltung einfach nachgebaut werden konnte. Im abgelaufenen Jahr konnten wir auf einer Matrix die bekannten Tetrominos darstellen. Mitte Januar war die Basisarchitektur schließlich fertiggestellt und erste Hardware Komponenten wurden geliefert. Anschließend wurden die Hardware Komponenten auf Funktion getestet. Dies verlief nach verschiedenen Einstellungsproblemen und falscher Verdrahtung fehlerfrei. Somit konnte auch das zweite Teilziel ohne Mängel abgeschlossen werden.
+
 ### 3. Realisierung
+In dieser Phase wurde die Spiellogik vollständig erstellt. Außerdem wurden Start-, Pausen- und Stoppmenüs mit https://www.pixilart.com/draw erstellt. Diese wurden in ein Python Programm implementiert, sodass diese in Hexadezimalform ausgelesen werden konnten (siehe Engineering_Folder). Die Matrizen wurden mit der Daisy-Chain Methode verbunden und an den Arduino angeschlossen. Erste Versionen des Programms wurden auf den Arduino geflasht und getestet. Im weiteren Entwicklungsverlauf wurde die Software fertiggestellt. Somit war ein weiterer Meilenstein erreicht und die Spiellogik funktionierte virtuell. Anschließend wurden Features, wie die Originalmusik von Tetris eingefügt.
 
 ### 4. Finalisierung
-Das Projekt wurde im vorgegeben Zeitrahmen vollständig fertiggestellt. Hervorzuheben ist, dass alle Requirements erfüllt worden sind, ohne diese inhaltlich abzuändern. Mit anderen Worten haben wir den von uns vorgenommenen Scope vollständig umsetzen können.
+In dieser Phase war die Dokumentation ein Schwerpunkt. Sämtliche Erkenntnisse mussten nun verschriftlicht werden. Außerdem war die Implementierung der Software ein großer Punkt. Die Zusammenführung der Software mit den Hardware Komponenten war eine sehr wichtiger Meilenstein. Nebenbei wurde außerdem ein passendes Gehäuse gedruckt, sodass die Kontaktierungen geschützt werden konnten und die allgemeine Stabilität erhöht wurde. Die Tests wurden durchgeführt, sodass die Requirements abgesichert und bestätigt werden konnten.
+
+Das Projekt wurde im vorgegeben Zeitrahmen vollständig fertiggestellt. Hervorzuheben ist, dass nahezu alle Requirements erfüllt worden sind, ohne diese inhaltlich abzuändern. Mit anderen Worten haben wir den von uns vorgenommenen Scope vollständig umsetzen können.
