@@ -120,3 +120,8 @@ In dieser Phase wurde die Spiellogik vollständig erstellt. Außerdem wurden Sta
 In dieser Phase war die Dokumentation ein Schwerpunkt. Sämtliche Erkenntnisse mussten nun verschriftlicht werden. Außerdem war die Implementierung der Software ein großer Punkt. Die Zusammenführung der Software mit den Hardware Komponenten war eine sehr wichtiger Meilenstein. Nebenbei wurde außerdem ein passendes Gehäuse gedruckt, sodass die Kontaktierungen geschützt werden konnten und die allgemeine Stabilität erhöht wurde. Die Tests wurden durchgeführt, sodass die Requirements abgesichert und bestätigt werden konnten.
 
 Das Projekt wurde im vorgegeben Zeitrahmen vollständig fertiggestellt. Hervorzuheben ist, dass nahezu alle Requirements erfüllt worden sind, ohne diese inhaltlich abzuändern. Mit anderen Worten haben wir den von uns vorgenommenen Scope vollständig umsetzen können.
+
+# Abschluss
+- Lessons Learned
+Was war gut was schlecht?
+Projektrücklick
