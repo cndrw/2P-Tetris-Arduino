@@ -4,14 +4,18 @@
 
 1. [Ausgangslage](#ausgangslage)
 -  [Zeitplan](#zeitplan)
--  [Ressourcen](#)
+-  [Ressourcen](#ressourcen)
 - [Budget](#)
 - [Kommunikationsplan](#)
 2. [Projektziele](#projektziele)
 3. [Risikoanalyse](#risikoanalyse)
-- [Genehmigungen und Zustimmungen](#)
 4. [Projektverlauf und Meilensteine](#projektverlauf-und-meilensteine)
-- [Abschluss](#)
+    - [Projektbeginn](#1-projektbeginn)
+    - [Entwicklung](#2-entwicklung)
+    - [Realisierung](#3-realisierung)
+    - [Finalisierung](#4-finalisierung)
+5. [Projektverlauf und Meilensteine](#projektverlauf-und-meilensteine)
+6. [Abschluss](#)
 
 
 # Ausgangslage
@@ -38,6 +42,21 @@ Für Probleme oder Fragen stand uns in erster Linie aber das Internet zur Verfü
 
 Der finanzielle Rahmen wurde bereits in der Einleitung genannt. Dieser musste nicht vollständig ausgereizt werden. Eine genaue Aufstellung und Zusammensetzung der Kosten folgt im nächsten Kapitel.
 
+## Budget
+Die Budgetplanung fand im Zuge der Projektidee statt. Eine erste Kalkulation konnte man dem Pitch bereits entnehmen, indem wir eine Budgetobergrenze festgelegt haben und die Aufteilung in einem Kuchendiagramm festgehalten haben.
+
+![Bild aus dem Pitch Kostenvoranschlag](/Documentation_Tree/Engineering_Folder/images/)
+
+Die genaue Kostenverteliung der Hardware lässt sich dem unten stehenden Bild entnehmen. Rechnungen und Zeichnungen sind in dem ``Engineering_Folder`` enthalten.
+
+![BOM aus dem Excel Sheet](/Documentation_Tree/Engineering_Folder/images/)
+
+Für die Berechnung der Kosten der Erstellung der Software wurde ein Tool von dem Stakeholder zur Verfügung gestellt. In diesem wurden mit der Anzahl und den Typen der Requirements, eine Rechnung für die Dauer und die Kosten erstellt. Weitere wichtige Einflussfaktoren waren die Programmsprache, die Anzahl von Codezeilen und das Level der sicherheitstechnischen Relevanz für die Nutzer. Nach Eingabe der für uns erwarteten Parameter ergab sich eine Entwicklungszeit von zwei Monaten. Außerdem würden sich laut den Berechnungen für eine Serienentwicklung, Kosten in Höhe von 1.134.600 Euro ergeben.
+
+![evtl Bild aus der Seite](/fnmsod) (würde man unter der Vorlesung KostenRBCM finden)
+
+## Kommunikationsplan
+Für die Kommunikation wurde weniger über einen festen Zeitplan geregelt (wie oben beschrieben), sondern mehr über enge Absprachen im Team. Durch die Abgabe der "Weekly Reports" war es notwendig mindestens den wöchentlichen Status zu kommunizieren. Durch diverse Treffen an den Wochenenden und täglichen Kontakt waren Absprachen sehr leicht zu treffen. Als vorteilhaft hat sich in dem Zuammenhang auch die Teamgröße herausgestellt. Da es nur drei Teammitglieder gibt, konnten Entscheidungen schnell getroffen werden und zur allgemeinen Zufriedenheit umgesetzt werden.
 
 # Projektziele
 
@@ -57,13 +76,21 @@ Das dritte Teilziel umfasst die gesamte Entwicklung des eigentlichen Produkts. D
 ## Viertes Teilziel
 Das vierte Teilziel beschreibt die Finalisierung des Projekts. Hier sollten die Tests zur Abdeckung der Requirements durchgeführt werden. Außerdem zählt zu der Finalisierung das Schreiben der Projektdokumentation.
 
+# Risikoanalyse
+
+### Finanzen und Budget:
+Notwendige Investitionen und Zuordnung zu den einzelnen Projektphasen.
+Budgetplan: Wie werden die finanziellen Mittel eingesetzt?
+
+
 
 # Projektverlauf und Meilensteine
 
 Wie bereits beschrieben wurde das Projekt in vier Projektphasen unterteilt. Diese wurden vor Beginn festgelegt. Anhand des Zeitplans (siehe oben) orientierte sich der weitere Verlauf des Projekts.
 
+
 ### 1. Projektbeginn
-Das Projekt hat mit der Idee, eine Art von dem Klassiker Tetris zu entwickeln, begonnen. Nach einer rudimentären Beschreibung der Funktionen und Genehmigung des Projekts, ging es an die Vorbereitung für den Pitch. Dafür wurden einige Marktanalysen durchgeführt. Außerdem wurden Risiken und mögliche Chancen gegeneinander abgewogen. Eine Reihe von Spezifizierungen wurde schon teilweise in Requirements verankert. Außerdem wurde eine Materialliste angelegt und eine Kalkulation der Kosten durchgeführt. Anschließend wurde durch den Pitch am 07.12.2023 die erste Phase des Projekts abgeschlossen.
+Das Projekt hat mit der Idee, eine Art des Klassikers Tetris zu entwickeln, begonnen. Nach einer rudimentären Beschreibung der Funktionen und der Genehmigung des Projekts durch Studiengangsleiter und Dozenten, ging es an die Vorbereitung für den Pitch. Dafür wurden einige Marktanalysen durchgeführt. Außerdem wurden Risiken und mögliche Chancen gegeneinander abgewogen. Eine Reihe von Spezifizierungen wurde in Requirements verankert. Außerdem wurde eine Materialliste angelegt und eine Kalkulation der Kosten durchgeführt. Anschließend wurde durch den Pitch am 07.12.2023 die erste Phase des Projekts abgeschlossen.
 
 ### 2. Entwicklung
 Schritte: Umreißen Sie den geplanten Projektverlauf.
@@ -73,10 +100,3 @@ Meilensteine: Definieren Sie wichtige Zwischenziele und deren Zeitpunkte.
 
 ### 4. Finalisierung
 Das Projekt wurde im vorgegeben Zeitrahmen vollständig fertiggestellt. Hervorzuheben ist, dass alle Requirements erfüllt worden sind, ohne diese inhaltlich abzuändern. Mit anderen Worten haben wir den von uns vorgenommenen Scope vollständig umsetzen können.
-
-
-# Risikoanalyse
-
-### Finanzen und Budget:
-Notwendige Investitionen und Zuordnung zu den einzelnen Projektphasen.
-Budgetplan: Wie werden die finanziellen Mittel eingesetzt?
