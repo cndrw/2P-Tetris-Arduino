@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "author": "Crucey",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": -9, "left": 265.2, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": 87,
+      "left": -213.36,
+      "attrs": { "chain": "4" }
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix2",
+      "top": -66.6,
+      "left": -213.36,
+      "attrs": { "chain": "4" }
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix3",
+      "top": 10.2,
+      "left": -213.36,
+      "attrs": { "chain": "4" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 275,
+      "left": 38.4,
+      "attrs": { "color": "green", "key": "d" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 275,
+      "left": -124.8,
+      "attrs": { "color": "green", "key": "a" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 371,
+      "left": -28.8,
+      "attrs": { "color": "green", "key": "space" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 275,
+      "left": -48,
+      "attrs": { "color": "green", "key": "s" }
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix4",
+      "top": -143.4,
+      "left": -213.36,
+      "attrs": { "chain": "4" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -291.2,
+      "left": -196,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn5",
+      "top": 342.2,
+      "left": 48,
+      "attrs": { "color": "green", "key": "q" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": -160.8,
+      "left": 721.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "matrix1:CLK", "uno:13", "green", [ "h0" ] ],
+    [ "matrix1:CS", "uno:10", "green", [ "h0" ] ],
+    [ "matrix1:DIN", "uno:11", "green", [ "h0" ] ],
+    [ "matrix1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "matrix1:V+", "uno:5V", "green", [ "h124.8", "v326.4", "h172.8" ] ],
+    [ "matrix1:V+.2", "matrix3:V+", "green", [ "v0", "h-57.44", "v86.4", "h412.8", "v28.8" ] ],
+    [
+      "matrix1:GND.2",
+      "matrix3:GND",
+      "black",
+      [ "h-47.84", "v57.6", "h412.8", "v57.6", "h-9.6" ]
+    ],
+    [ "matrix1:DOUT", "matrix3:DIN", "green", [ "h-38.24", "v57.6", "h422.4", "v57.6", "h-9.6" ] ],
+    [ "matrix1:CS.2", "matrix3:CS", "green", [ "h-19.04", "v28.8", "h412.8", "v86.4" ] ],
+    [ "matrix1:CLK.2", "matrix3:CLK", "green", [ "h0.16", "v28.8", "h403.2", "v86.4" ] ],
+    [ "matrix3:V+.2", "matrix2:V+", "green", [ "v0", "h-67.04", "v67.2", "h422.4", "v28.8" ] ],
+    [ "matrix3:GND.2", "matrix2:GND", "black", [ "h-57.44", "v67.2", "h422.4", "v38.4" ] ],
+    [ "matrix3:DOUT", "matrix2:DIN", "green", [ "h-47.84", "v57.6", "h422.4", "v48" ] ],
+    [ "matrix3:CS.2", "matrix2:CS", "green", [ "h-38.24", "v38.4", "h422.4", "v67.2", "h-9.6" ] ],
+    [ "matrix3:CLK.2", "matrix2:CLK", "green", [ "h-28.64", "v38.4", "h422.4", "v67.2" ] ],
+    [ "btn1:1.r", "uno:2", "green", [ "v0", "h134.6", "v-326.4", "h278.4" ] ],
+    [ "uno:GND.3", "btn1:2.r", "black", [ "v0" ] ],
+    [ "uno:GND.3", "btn2:2.r", "black", [ "v167.9", "h-514.4" ] ],
+    [ "btn2:1.r", "uno:3", "green", [ "v0", "h48.2", "v-28.8", "h230.4", "v-316.8", "h278.4" ] ],
+    [ "btn3:2.r", "uno:GND.3", "green", [ "h0" ] ],
+    [ "btn3:1.r", "uno:4", "green", [ "v-19.2", "h211.4", "v-470.4", "h230.4" ] ],
+    [ "uno:GND.3", "btn4:2.r", "black", [ "v158.3", "h-437.6" ] ],
+    [ "btn4:1.r", "uno:5", "green", [ "v-57.6", "h240.2", "v-278.4", "h28.8" ] ],
+    [ "matrix2:V+.2", "matrix4:V+", "green", [ "v0", "h-76.64", "v-163.2", "h422.4", "v86.4" ] ],
+    [ "matrix2:GND.2", "matrix4:GND", "black", [ "h-67.04", "v-182.4", "h422.4", "v105.6" ] ],
+    [ "matrix2:DOUT", "matrix4:DIN", "green", [ "h-86.24", "v-192", "h451.2", "v115.2" ] ],
+    [ "matrix2:CS.2", "matrix4:CS", "green", [ "h-57.44", "v-182.4", "h432", "v105.6", "h-9.6" ] ],
+    [
+      "matrix2:CLK.2",
+      "matrix4:CLK",
+      "green",
+      [ "h-47.84", "v-182.4", "h441.6", "v105.6", "h-9.6" ]
+    ],
+    [ "lcd1:GND", "uno:GND.1", "black", [ "h-48", "v-48", "h624" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-144", "v460.9", "h777.6" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h-67.2", "v-9.4", "h-96", "v480", "h873.6" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h-172.8", "v480.3", "h19.2" ] ],
+    [ "matrix1:V+", "mega:5V", "green", [ "h115.2", "v115.2", "h192" ] ],
+    [ "matrix1:GND", "mega:GND.2", "black", [ "h134.4", "v115.2", "h172.8" ] ],
+    [ "matrix1:DIN", "mega:51", "green", [ "h144", "v115.2", "h393.6", "v-96" ] ],
+    [ "matrix1:CS", "mega:53", "green", [ "h124.8", "v115.2", "h422.4", "v-96" ] ],
+    [
+      "matrix1:CLK",
+      "mega:52",
+      "green",
+      [ "h105.6", "v124.8", "h422.4", "v-105.6", "h67.2", "v9.6" ]
+    ],
+    [ "btn1:2.r", "mega:GND.2", "green", [ "h0" ] ],
+    [ "btn1:1.r", "mega:2", "green", [ "v0", "h96.2", "v-355.2", "h19.2" ] ],
+    [ "mega:GND.2", "btn4:2.r", "black", [ "v160.5", "h-420.25" ] ],
+    [ "btn4:1.r", "mega:4", "green", [ "v-67.2", "h201.8", "v-307.2", "h249.6" ] ],
+    [ "mega:GND.2", "btn2:2.r", "black", [ "v170.1", "h-497.05" ] ],
+    [ "btn2:1.r", "mega:3", "green", [ "v-86.4", "h269", "v-297.6", "h278.4" ] ],
+    [ "mega:GND.2", "btn3:2.r", "black", [ "v0" ] ],
+    [ "btn3:1.r", "mega:5", "green", [ "v0", "h192.2", "v-432", "h230.4" ] ],
+    [ "lcd1:GND", "mega:GND.1", "black", [ "h-19.2", "v-86.4", "h393.6", "v105.6", "h28.8" ] ],
+    [ "lcd1:VCC", "mega:5V", "red", [ "h-48", "v489.7", "h672" ] ],
+    [ "lcd1:SDA", "mega:SDA", "green", [ "h-76.8", "v-95.8", "h624" ] ],
+    [ "lcd1:SCL", "mega:SCL", "green", [ "h-96", "v-143.7", "h614.4" ] ],
+    [ "mega:GND.3", "btn5:2.r", "black", [ "v0" ] ],
+    [ "btn5:1.r", "mega:6", "green", [ "v0", "h144.2", "v-480", "h201.6" ] ],
+    [ "mega:GND.1", "bz2:1", "black", [ "v0" ] ],
+    [ "bz2:2", "mega:11", "green", [ "v28.8", "h-346", "v48" ] ]
+  ],
+  "dependencies": {}
+}
