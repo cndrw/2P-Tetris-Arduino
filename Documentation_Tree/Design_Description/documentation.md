@@ -106,7 +106,7 @@ Zuerst muss deshalb die richtige Reihe ausgewählt werden. Die erste Übertragun
     row = screen[i + (j / 4) * 8]; // Y-Wert des screens
 }
 ```
-![Renderer_visual](images/Renderer_visual_v2.png)
+![Renderer_visual](../Engineering_Folder/images/Renderer_visual_v2.png)
 
 Diese Bild stellt die Übertragungsreihenfolge der internen Repräsentation bildlich da. Das Bild ist wie folgt zu lesen. Zuerst wird Rot übertragen, dann Grün, Dunkelblau, Hellblau, Gelb, Pink, Orang und zum Schluss Weiß. Außerdem wird von Hell nach Dunkel und anschließend von Oben nach unten übertragen. Demnach wird zuerst ganz oben das rote, helle Feld zuerst Übertragen, danach das rechts daneben, bis zum Dunkelsten, wonach die nächste Rote Zeile übertragen wird.
 
@@ -134,7 +134,9 @@ Dies Übertragung wird von der `DrawScreen` funktion ausgefürht, diese zeichnet
 
 
 ## OS-Struktur
-An oberster Stelle der Instanzen ist `RetrisOS`, es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das `Process`-Interface. 
+An oberster Stelle der Instanzen ist `RetrisOS`, es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das `Process`-Interface. Des Weiteren ist `RetrisOS` zuständig für die Auslesung der momentanen Controller Zustände sowie das zeichen des Frames am Ende des OS-Ticks.
+
+`RetrisOS` aktualisiert sein System dauerhaft in der Haupt-`loop` dabei wird diese durch einen `delay` von 10 ms begrenzt. Dass heißt die OS-Tick-Frequenz beträgt 100 hz. Demnach hat das Display eine Bildwiederholungsrate von 100 hz.
 
 ![UML-OS](../Engineering_Folder/images/UML_RetrisOS.svg)
 
@@ -147,39 +149,29 @@ Der `MenueHandler` wurde mit dem Strategie Design Pattern entworfen, da alle Men
 
 Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.
 ![UML-Menues](../Engineering_Folder/images/UML_Menues.svg)
-<!-- 
-`RefreshMenue` zeichnet das Menue erneut, mit evtl. Veränderungen.\
-`PushButton` führt die Funktion des (virtuellen) Knopfes (auf dem Display) aus, je nachdem welcher Knopf gerade ausgewählt ist.\
-`ButtonSelect` wählt den nächsten Knopf aus.
-
-Über die `AddMenue` Methode können einfach Menüs hinzugefügt werden, die das `Menue`-Interface haben. In der momentanen Implementierung ist die maximal Anzahl an Menüs die verwaltet werden auf drei beschränkt(Hauptmenü, Pausenmenü, Game-Over-Menü). -->
 
 ### GameManager
-Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht, sondern reagiert nur auf bestimmte aufkommende Spielzustände.
+Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht beteiligt, sondern reagiert nur auf bestimmte aufkommende Spielzustände der jeweiligen Spielinstanzen.
 
 ![UML-GameManger](../Engineering_Folder/images/UML_GameManager.svg)
-<!-- 
-Bei der Initialisierung des Prozesses (`Init`) wird eine Startsequenz gestartet, welche die Worte "Auf die Blöcke, fertig, lost" nacheinander mit einer kurzen Verzögerung zeigt. Danach wird der Initialisierungsvorgang der Spielsitzung(en) ausgeführt.
-
-Im `Update` werden lediglich die Spielsitzung(en) aktualisiert. Des Weiteren wird der momentane Zustand der Spielsitzung(en) ausgelesen und sollten beide im Zustand `GAME_STATE_FINISHED` sein wird der Systemprozess zum `MenueHandler` gewechselt, welcher das Game-Over-Menü zeigt.
-
-Die `Input`-Methode gibt lediglich die Eingaben der jeweiligen Controller an die dazugehörigen Spielinstanzen. Außerdem prüft sie vorher ob Controller 1 den Start-Knopf gedrückt hat, ist das der Fall so wird zum Pausenmenü gewechselt.
-
-In der `Freeze`-Methode werden/wird die laufenden Spielsitzung/en eingefroren, damit das Pausenmenü ausgeführt und falls gewollt, zum Spielgeschehen zurückgewechselt werden kann. Im Falle eines stilllegen wird nur das momentane Spielfeld gespeichert. Dabei werden die Zeilen welche zwischen der oberen und unteren Begrenzung des Spielfeldes sind, in ihrer Komplettheit aus dem internen `screen` kopiert. Beim entfrieren werden lediglich die gespeicherten Zeilen wieder in den `screen` kopiert und anschließend noch das/die Spielfeld/er gezeichnet, da beim entfrieren die `Init`-Methode eines Prozess nicht noch einmal aufgerufen wird. -->
 
 ## SpielLogik
 
-Die gesamte Spiellogik ist innerhalb der [`RetrisGame`]()-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig. Allgemein 
+Die gesamte Spiellogik ist innerhalb der [`RetrisGame`]()-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig.  
 
 ![UML-RetrisGame](../Engineering_Folder/images/UML_RetrisGame.svg)
 
 ### Input Management
+
+Der Basiscode für das Einlesen der Kontrollereingaben, stammt aus [HIER LINK](). Es wurden Anpassung vollzogen, damit dieser Code zu unserem Projekt passt und vorallem das Einlesen von zwei angeschlossen Kontrollern erlaubt.
+
+Das Auslesen der Kontrollereingaben erfolgt über eine Funktion, welche periodisch in der `UpdateSystem`-loop von `RetrisOS` ausgeführt wird. Es wurde sich bewusst gegen eine Implementierung mittels Timer entscheiden, da es keine ersichtlichen Vorteile zu bieten hat. Dadurch, dass diese Funktion in der `UpdateSystem`-loop steht, wird sie aller 10 ms aufgerufen und somit der momentane Zutstand des Kontrollers aller 10 ms aktualisiert. Die menschliche Reaktion liegt maximal bei 130 ms bzw. ist deutlich höher als die momentane Abfragerate. Ebenfalls würde eine höhere Abfragerate durch einen Timer den Mikrocomputer mehr auslasten, obwohl kein unterscheid beim Spielerebnis erkennbar ist. Die Vermutung, dass die Abfragerate schnell genung ist, damit man keine Verzögerung spürt, ließ sich auch durch Spieletests bekräftigen.
+
 ### Kollisions Erkennung
 
-Die Kollisionerkennung erfolgt bei `RetrisGame` nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für  die Kollisionauswertung, es reicht schon den aktuellen Zustand internen `screen` auszulesen.
+Die Kollisionerkennung erfolgt bei `RetrisGame` nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für die Kollisionauswertung, es reicht schon den aktuellen Zustand des internen `screen` auszulesen.
 
-Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt, sollte es dann, im Vergleich mit dem gesetzten Pixeln im `screen`,dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
-
+Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt, sollte es dann, im Vergleich mit dem gesetzten Pixeln im `screen`, dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
 
 ### Full-Line Erkennung
 
