@@ -101,27 +101,29 @@ Eine ausführliche Risikoanalyse und der Veränderung dessen finden Sie im ``Eng
 
 # Projektverlauf und Meilensteine
 
-Wie bereits beschrieben wurde das Projekt in vier Projektphasen unterteilt. Diese wurden vor Beginn festgelegt. Anhand des Zeitplans (siehe oben) orientierte sich der weitere Verlauf des Projekts.
-
+Wie bereits beschrieben wurde das Projekt in vier Projektphasen unterteilt. Jede Phase war darauf ausgerichtet, spezifische Ziele zu erreichen und wichtige Meilensteine zu setzen.
 
 ### 1. Projektbeginn
 Das Projekt hat mit der Idee, eine Art des Klassikers Tetris zu entwickeln, begonnen. Nach einer rudimentären Beschreibung der Funktionen und der Genehmigung des Projekts durch Studiengangsleiter und Dozenten, ging es an die Vorbereitung für den Pitch. Dafür wurden einige Marktanalysen durchgeführt. Außerdem wurden Risiken und mögliche Chancen gegeneinander abgewogen (siehe oben). Eine Reihe von Spezifizierungen wurde in Requirements verankert. Außerdem wurde eine Materialliste angelegt und eine Kalkulation der Kosten durchgeführt. Anschließend wurde durch den Pitch am 07.12.2023 die erste Phase des Projekts und ein wichtiger Meilenstein abgeschlossen. Somit galt auch das erste Teilziel als erfolgreich abgeschlossen.
 
 ### 2. Entwicklung
-Schritte: Umreißen Sie den geplanten Projektverlauf.
-Meilensteine: Definieren Sie wichtige Zwischenziele und deren Zeitpunkte.
-
 In der zweiten Phase sollte zu Beginn die Liste der Requirements vervollständigt werden. Dies erfolgte auch zeitnah. Des Weiteren wurden Komponenten verglichen und bestellt. Dies war ein sehr wichtiger Schritt für das Gesamtprojekt. Die Softwareentwicklung erfolgte weitestgehend über Wokwi in der die gewünschte Schaltung einfach nachgebaut werden konnte. Im abgelaufenen Jahr konnten wir auf einer Matrix die bekannten Tetrominos darstellen. Mitte Januar war die Basisarchitektur schließlich fertiggestellt und erste Hardware Komponenten wurden geliefert. Anschließend wurden die Hardware Komponenten auf Funktion getestet. Dies verlief nach verschiedenen Einstellungsproblemen und falscher Verdrahtung fehlerfrei. Somit konnte auch das zweite Teilziel ohne Mängel abgeschlossen werden.
 
 ### 3. Realisierung
-In dieser Phase wurde die Spiellogik vollständig erstellt. Außerdem wurden Start-, Pausen- und Stoppmenüs mit https://www.pixilart.com/draw erstellt. Diese wurden in ein Python Programm implementiert, sodass diese in Hexadezimalform ausgelesen werden konnten (siehe Engineering_Folder). Die Matrizen wurden mit der Daisy-Chain Methode verbunden und an den Arduino angeschlossen. Erste Versionen des Programms wurden auf den Arduino geflasht und getestet. Im weiteren Entwicklungsverlauf wurde die Software fertiggestellt. Somit war ein weiterer Meilenstein erreicht und die Spiellogik funktionierte virtuell. Anschließend wurden Features, wie die Originalmusik von Tetris eingefügt.
+In dieser Phase wurde die Spiellogik vollständig erstellt. Außerdem wurden Start-, Pausen- und Stoppmenüs mit https://www.pixilart.com/draw erstellt. Diese wurden in ein Python Programm implementiert, sodass diese in Hexadezimalform ausgelesen werden konnten (siehe Engineering_Folder). Durch die Implementierung von Start-, Pausen- und Stoppmenüs wurde die Nutzerfreundlichkeit verbessert. Die Matrizen wurden mit der Daisy-Chain Methode verbunden und an den Arduino angeschlossen. Erste Versionen des Programms wurden auf den Arduino geflasht und getestet. Im weiteren Entwicklungsverlauf wurde die Software fertiggestellt. Somit war ein weiterer Meilenstein erreicht und die Spiellogik funktionierte virtuell. Anschließend wurden Features, wie die Originalmusik von Tetris eingefügt.
 
 ### 4. Finalisierung
-In dieser Phase war die Dokumentation ein Schwerpunkt. Sämtliche Erkenntnisse mussten nun verschriftlicht werden. Außerdem war die Implementierung der Software ein großer Punkt. Die Zusammenführung der Software mit den Hardware Komponenten war eine sehr wichtiger Meilenstein. Nebenbei wurde außerdem ein passendes Gehäuse gedruckt, sodass die Kontaktierungen geschützt werden konnten und die allgemeine Stabilität erhöht wurde. Die Tests wurden durchgeführt, sodass die Requirements abgesichert und bestätigt werden konnten.
+Die Abschlussphase des Projekts konzentrierte sich auf die Dokumentation aller Ergebnisse und die Implementierung der finalen Softwareversion. Sämtliche Erkenntnisse mussten nun verschriftlicht werden. Außerdem war die Implementierung der Software ein großer Punkt. Die Zusammenführung der Software mit den Hardware Komponenten war eine sehr wichtiger Meilenstein. Ein weiterer Schwerpunkt lag auf der Fertigung eines Gehäuses für die Hardware-Komponenten, sodass die Kontaktierungen geschützt werden konnten und die allgemeine Stabilität erhöht wurde.  Durch umfangreiche Tests wurden die Funktionalität und Erfüllung der Anforderungen bestätigt.
 
-Das Projekt wurde im vorgegeben Zeitrahmen vollständig fertiggestellt. Hervorzuheben ist, dass nahezu alle Requirements erfüllt worden sind, ohne diese inhaltlich abzuändern. Mit anderen Worten haben wir den von uns vorgenommenen Scope vollständig umsetzen können.
+Das Projekt wurde im vorgegeben Zeitrahmen vollständig fertiggestellt. Hervorzuheben ist, dass nahezu alle Requirements erfüllt worden sind, ohne diese inhaltlich abzuändern. Mit anderen Worten haben wir den von uns vorgenommenen Scope vollständig umsetzen können. Dies unterstreicht die Effizienz und Wirksamkeit des Projektmanagements und der Umsetzung des Retris-Projekts.
 
 # Abschluss
-- Lessons Learned
-Was war gut was schlecht?
-Projektrücklick
+Es ist wichtig, aus jedem Projekt wertvolle Lektionen zu ziehen, um zukünftige Vorhaben zu verbessern. In unserem Rückblick auf das Retris-Projekt gibt es sowohl positive als auch negative Aspekte, die wir berücksichtigen müssen, um aus unseren Erfahrungen zu lernen und uns weiterzuentwickeln.
+
+Positiv war die reibungslose Kommunikation und Zusammenarbeit im Team, die zu einem effizienten Projektverlauf beitrug. Die Entwicklung des Spiels verlief erfolgreich und führte zur Erfüllung der meisten Projektziele. Die Entscheidung, die Softwareentwicklung auf der Plattform Wokwi durchzuführen, erwies sich als effektive Methode, um die Basisarchitektur des Spiels zu erstellen. Darüber hinaus halfen Tests und Prototypen dabei, Fehler frühzeitig zu erkennen und zu beheben, was die Qualität des Endprodukts verbesserte.
+
+Auf der anderen Seite gibt es auch Bereiche, in denen wir uns verbessern können. Die Dokumentation hätte früher im Projektverlauf beginnen sollen, um den Abschlussprozess zu erleichtern und den Aufwand zu reduzieren. Die Planung des Projekts wäre nicht ausreichend für ein umfangreicheres Vorhaben, und ein detaillierterer Zeitplan wäre notwendig gewesen, um den Projektfortschritt besser zu steuern. Die Steuerung des Projekts wurde vernachlässigt, da sich das Team hauptsächlich auf die Realisierung und Entwicklung konzentrierte. Eine stärkere Fokussierung auf das Projektmanagement hätte den gesamten Prozess verbessert.
+
+Als Lehren aus diesem Projekt nehmen wir mit, dass frühzeitige und kontinuierliche Dokumentation entscheidend ist, um einen reibungslosen Projektabschluss zu gewährleisten. Eine detailliertere und realistischere Planung, insbesondere in Bezug auf den Zeitplan, ist unerlässlich, um den Projekterfolg sicherzustellen. Außerdem ist eine ausgewogene Aufmerksamkeit auf Projektmanagement und Entwicklung erforderlich, um den Fortschritt des Projekts effektiv zu steuern und zu überwachen.
+
+Mit diesen Erkenntnissen sind wir bereit, unsere nächsten Projekte anzugehen und sie noch erfolgreicher zu gestalten.
