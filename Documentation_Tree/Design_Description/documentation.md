@@ -1,5 +1,5 @@
 # Retris - technische Dokumentation
-Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Gedanken hinter den Implementierungen. Eine genauere Dokumentation des Quellcodes finden sie [hier](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Gedanken hinter den Implementierungen. Die Dokumentation per Doxygen finden sie [hier](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/index.html).
 
 # Inhalt
 - [Hardware](#hardware)
@@ -20,6 +20,8 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
     - [Setup des Timer](#setup-des-timer)
     - [Timer-Logik](#timer-logik)
     - [Performance](#perfomance)
+- [Watchdog](#watchdog)
+    - [Implementierung](#implementierung)
     
 
 
@@ -33,14 +35,6 @@ Das Display hat eine gesamt größe von 32x32 LEDs, welche aus 16 verschiedenen 
 Die Matrix die zur visualiserung genutzt wird verfügt über 32x32 LEDs, dass heißt die interne Repräsentation muss es ermöglichen den Zustand aller 1024 LEDs abzuspeichern und zu verändern.
 
 Aufgrund dessen, dass unsere gewählte Matrix einfarbig ist, kann jede LED einfacherweise mit nur einem Bit dargestellt werden (an oder aus). Dementsprechen wird das gesamte Display mittels einem simplen Array der Länge 32, welches 32-Bit Integer speichert dargestellt. Dabei representiert der Index des Arrays die Zeile und die Position des Bits innerhalb des Integers die Spalte (MSB -> Spalte 0). Der Koordinaten Ursprung wurde als die linke obere Ecke definiert, des Weiteren steigt der y-Wert nach unten an.
-
-```
-                x
- _ _|_ _ _ _ _ _ >
-    |
-    |
- y  u
-```
 
 ```
 Zeile |    Spalte
@@ -151,31 +145,31 @@ Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionali
 ![UML-Menues](../Engineering_Folder/images/UML_Menues.svg)
 
 ### GameManager
-Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht beteiligt, sondern reagiert nur auf bestimmte aufkommende Spielzustände der jeweiligen Spielinstanzen.
+Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht beteiligt, sondern steuert nur die Initialisierung der Spielinstanzen, das Zwischenspeichern des Spielfeldes und reagiert auf bestimmte aufkommende Spielzustände der jeweiligen Spielinstanzen.
 
 ![UML-GameManger](../Engineering_Folder/images/UML_GameManager.svg)
 
 ## SpielLogik
 
-Die gesamte Spiellogik ist innerhalb der [`RetrisGame`]()-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig.  
+Die gesamte Spiellogik ist innerhalb der [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html)-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig.  
+
+Das Spiel wurde bei unserem System in fünf Spielzustände eingeteilt.
+
+Der "Normal"-Zustand ist dabei der `Playing`-Zustand, dieser repräsentiert den ganz normalen Spielablauf, d.h. ein Block fällt herunter. Wenn der Block gelandet ist, wird nach einer vollen Reihe gesucht. Ist eine neue volle Reihe entstanden, so wird in den `Animation`-Zustand gewechselt. Dieser ist verantwortlich die Clear-Animation abzuspielen, das Level und die Fallgeschwindigkeit anzupassen, sowie die Punkteanzeige des LCD-Displays zu aktualisieren und letztenendlich den einen neuen Block zu generieren. Sollte beim generieren eines neuen Blocks, erkannt werden, dass dieser nicht platziert werden kann, da dass Spielfeld voll ist, so gilt die Runde als verloren. Daher wird zum `Lost`-Zustand gewechselt, welcher lediglich die Game-Over-Animation abspielt und anschließend in den `Finished`-Zustand wechselt. Im `Finished`-Zustand passiert nichts (spiel wird nicht aktualisiert) und wird als Singalisierung des Spielendes für den [`GameManager`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classGameManager.html) benutzt. Der letzte Zustand ist der `Wait`-Zustand, dieser ist lediglich dafür da eine Verzögerung zu erzeugen (Verzögerung zwischen landen des Blockes und dem Generieren). Aufgrunddessen, dass dies Funktionalität nur in einer Situation benötigt wird, ist diese nur rudimentär Implementiert (nicht generisch) und ist eher als bindeglied zwishen 
 
 ![UML-RetrisGame](../Engineering_Folder/images/UML_RetrisGame.svg)
 
 ### Input Management
 
-Der Basiscode für das Einlesen der Kontrollereingaben, stammt aus [HIER LINK](). Es wurden Anpassung vollzogen, damit dieser Code zu unserem Projekt passt und vorallem das Einlesen von zwei angeschlossen Kontrollern erlaubt.
+Der Basiscode für das Einlesen der Kontrollereingaben, stammt aus dem Repositroy von [glumb](https://github.com/burks10/Arduino-SNES-Controller/tree/master/controller_test). Es wurden Anpassung vollzogen, damit dieser Code zu unserem Projekt passt und vorallem das Einlesen von zwei angeschlossen Kontrollern erlaubt.
 
-Das Auslesen der Kontrollereingaben erfolgt über eine Funktion, welche periodisch in der `UpdateSystem`-loop von `RetrisOS` ausgeführt wird. Es wurde sich bewusst gegen eine Implementierung mittels Timer entscheiden, da es keine ersichtlichen Vorteile zu bieten hat. Dadurch, dass diese Funktion in der `UpdateSystem`-loop steht, wird sie aller 10 ms aufgerufen und somit der momentane Zutstand des Kontrollers aller 10 ms aktualisiert. Die menschliche Reaktion liegt maximal bei 130 ms bzw. ist deutlich höher als die momentane Abfragerate. Ebenfalls würde eine höhere Abfragerate durch einen Timer den Mikrocomputer mehr auslasten, obwohl kein unterscheid beim Spielerebnis erkennbar ist. Die Vermutung, dass die Abfragerate schnell genung ist, damit man keine Verzögerung spürt, ließ sich auch durch Spieletests bekräftigen.
+Das Auslesen der Kontrollereingaben erfolgt über eine Funktion, welche periodisch in der `UpdateSystem`-loop von `RetrisOS` ausgeführt wird. Es wurde sich bewusst gegen eine Implementierung mittels Timer entscheiden, da es keine ersichtlichen Vorteile zu bieten hat. Dadurch, dass diese Funktion in der `UpdateSystem`-loop steht, wird sie aller ca. 10 ms (basis OS-Tick dauer) aufgerufen und somit der momentane Zutstand des Kontrollers aller 10 ms  aktualisiert. Die menschliche Reaktion liegt maximal bei 130 ms bzw. ist deutlich höher als die momentane Abfragerate. Ebenfalls würde eine höhere Abfragerate durch einen Timer den Mikrocomputer mehr auslasten, obwohl kein unterscheid beim Spielerebnis erkennbar ist. Die Vermutung, dass die Abfragerate schnell genung ist, damit man keine Verzögerung spürt, ließ sich auch durch Spieletests bekräftigen.
 
 ### Kollisions Erkennung
 
 Die Kollisionerkennung erfolgt bei `RetrisGame` nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für die Kollisionauswertung, es reicht schon den aktuellen Zustand des internen `screen` auszulesen.
 
 Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt, sollte es dann, im Vergleich mit dem gesetzten Pixeln im `screen`, dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
-
-### Full-Line Erkennung
-
-
 
 ## Music
 Die Musik in Retris wir über einen Piezo-Buzzer realisiert. Die Basis des Codes, der für die Musik zuständig ist kommt von [robsoncoutu](https://github.com/robsoncouto/arduino-songs/tree/master), jedoch wurden einige Änderungen vorgenommen, um die Performance zu erhöhen, welche in den Folgenden Kapitel erläutert werden.
@@ -245,37 +239,56 @@ ISR(TIMER_COMPA_vect)
     }
 }
 ```
-Nach der `holdTime` Berechnung wird noch die `duration` berechnet, letztendlich der Wert der im Output-Compare-Register sein wird. Berechnet wird dies über diese Formel: (hier bild zeigen). Der letzte schritt in der Routine ist es den `currentNote` Zähler um zwei zu erhöhen und eine if-Abrage zu tätigen, welche falls das Ende es liedes erreicht ist, den `currentNote` Zähler zu zurückzusetzten, damit das Lied in einer Dauerschleife läuft.
+Nach der `holdTime` Berechnung wird noch `top` berechnet, letztendlich der Wert der im Output-Compare-Register sein wird. Berechnet wird dies über diese Formel: (hier bild zeigen). Der letzte schritt in der Routine ist es den `currentNote` Zähler um zwei zu erhöhen und eine if-Abrage zu tätigen, welche falls das Ende es liedes erreicht ist, den `currentNote` Zähler zu zurückzusetzten, damit das Lied in einer Dauerschleife läuft.
 
 ### Perfomance 
 Die erste Umsetzunge des Music-Modules war nur der Basiscode umgeschrieben, damit dieser "parallel" zum Spiel laufen kann. Das heißt die Funktion musste in jedem OS-Tick aufgerufen werden, damit die Musik gespielt wird.
-Des weiteren verwendet sie die `tone` Funktion, welche intern zwar ein Timer benutzt, jedoch auch vieles anderes macht, was für unseren spezifizierten Use-Case unnötig ist.
-Die durchschnittliche Ausführungszeit der Funktion (ohne die Cyclen wo gewartet wird) beträgt ca. 276 Mikrosekunden.
+Des weiteren verwendete sie die `tone` Funktion, welche intern zwar ein Timer benutzt, jedoch auch vieles anderes macht, was für unseren spezifizierten Use-Case unnötig ist.
+Die durchschnittliche Ausführungszeit der Funktion (ohne die Zyklen wo gewartet wird) beträgt ca. 276 Mikrosekunden.
 
-Durch die optimierungen und verändert erreicht die neue Version eine durchschnittliche Ausführungszeit von ca. 87 Mikrosekunden und damit eine Leistungssteigerung von 316%. 
+Durch die Optimierungen und Veränderungen erreicht die neue Version eine durchschnittliche Ausführungszeit von 92 Mikrosekunden und damit eine Leistungssteigerung von 300%. 
 
-#### Messung
-Beide Versionen hatten die gleiche Struktur, daher wurde bei beiden die selbe Messstrategie angewendet. Zur Zeitmessung wurde dafür die `micro()` Funktion von Arduino verwendet. Sie wurde einmal am start aufgerufen und einmal am Ende, die differenz der beiden Werte ist die Ausführungszeit. Alle Ausführungszeiten, für einen durchlauf des Liedes, wurden zusammen addiert und letztendlich durch die Anzalh der Noten geteilt.
+## Watchdog
+
+Um zu vermeiden das wären des Betriebs ein, unvorhergesehener Bug auftritt, der das System sehr belastet bzw. im schlimmsten Fall in eine Endlosschleife führt, wurde ein Watchdog eingeführt. Dieser führt einen Systemreset durch, sobald er für mehr als vier Sekunden **nicht** zurückgesetzt wurden ist. Damit landet der Spieler wieder in dem Hauptmenu.
+
+### Implementierung 
+
+Die Implementierung fällt recht simpel aus. Die Einstellung des Watchdogs erfolgt über das `WDTCSR` Register (Watchdog Timer Control Register). Um die Time-out Konfiguartion zu ändern ist laut Datenblatt angegeben, dass in der selben Operation das Bit `WDCE` (Watchdog Change Enable) und `WDE` (Watchdog System Reset Enable) gesetzt werden muss. Danach muss man in den nächsten vier Clock-Zyklen die `WDP`-Bits (Watchdog Prescaler) setzen, sowie das `WDE`-Bit nochmals, da der Watchdog bei uns die Aufgabe des Resetten hat. Abiträr wurde die Time-Out-Zeit von vier Sekunden gewählt (`WDP3` high), da das System in der Main-Loop aller 10 ms ausgeführt wird und eine nichtausführung von 4 s ein deutliches Problem signalisiert.
+
 ```
-volatile uint32_t starTime = 0;
-volatile uint32_t sum = 0;
-Function()
-{
-    if (waitedTime > holdTime) {
-        startTime = micros();
-        // play Note
-        // check if the song is at its end
-        if (currentNote >= songLength)
-        {
-            Serial.println(sum / 99);
-        }
-        sum += (micros() - startTime);
-    }
-    else {
-        waitedTime++;
-    }
-} 
+  WDTCSR |= (1 << WDCE) | (1 << WDE); // watchdog change enable - as demanded by the datasheet
+  WDTCSR = (1 << WDE) | (1 << WDP3); // after 4s - system reset
 ```
+
+Das Resetten des Watchdogs erfolgt über eine Inline Assembly.
+```
+asm("WDR"); // reset watchdog
+```
+
+
+## Zeit Messungen
+
+
+### Messvorgehen
+Zur Messung der Zeit an sich, wurde die vom Arduino bereitgestellt funktion `micros` benutzt, welche die Zeit in Mikrosekunden seit dem Starten des Mikrocomputers ausgibt. Aufgrunddessen, dass das Retris Betriebssystem und das Retris-Gameplay an sich sehr viele bedingte Anweisungen hat (if-/switch-statement) hat, sprengt eine Messung aller Möglichkeiten den Rahmen dieser Arbeit. Daher wurde in folgenden Messungen nur die Durschnittszeiten eines Prozesse (z.B. `MainMenue`) gemessen, sowie den Worst-Case. Jede Messunge ging über einen Zeitraum von 30 Sekunden. Gemessen wurde dabei die `UpdateSystem`-Funktion in der Main-Loop (mit den jeweiligen Prozess aktiv). Nur für die Messung der `DrawScreen`-Funktion und dem Audio-Timer musste das vorgehen leicht verändert werden.
+
+```
+void loop {
+    // startet der Messung
+    retris.UpdateSystem();
+    // ende der Messung
+}
+```
+
+### Messergebnisse 
+
+Die Messergebniss lassen sich in der Datei 'Time Measurments' einsehen. Zu erwähnen ist, dass die Menüs und auch `RetrisGame` (größtenteils) gedrosselt werden, d.h. sie werden nicht mit jedem OS-Tick geupdated sondern beispielshaft nur jeden 30sten. Dadurch fallen die Durschnittszeiten relativ klein aus. Bei den Menüs ist zu erkennen, dass der Worst-Case jedoch nicht weit von dem Average-Case abweicht. Dementgegen tauchen bei manchen Messungen des Ein- und Zweispielermodus starke Worstcase-Spitzen auf, welche sogar den nächsten OS-Tick um ca. 16 zusätzliche Millisekunden verzögern können. Diese Spitzen werden verursacht durch das Senden an das LCD-Display, d.h. diese Spitzen treten jedesmal auf, wenn der Spieler eine volle Reihe auflöst. In den Messungen, wo keine volle Reihe endstanden ist, kann man erkennen, das auch der Worstcase nicht sondern stark vom Average abweicht.
+
+### Beurteilung der Ergebnisse
+
+Auch wenn die Worstcase-Spitzen, ausgelöst durch das LCD-Display eine große Abweichung von den herkömlichen Zeiten ist, sehen wir darin keine große Gefahr, da sie erstens nur beim Aktualiseren des LCD-Displays enstehen, also nur wenn man eine volle Reihe aufgelöst hat. Des Weiteren sollte auch durch die zusätzliche Verzögerung bei **einem** Frame (Worstcase ca. 38 ms), die Aktualisierungsrate des Matrix-Displays und das Einlesen der Controllerzustände deutlich unter der menschlichen Reaktionszeit sein und damit nicht bemerkbar sein.
+
 
 
 
