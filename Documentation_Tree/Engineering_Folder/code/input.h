@@ -1,7 +1,25 @@
 #ifndef INPUT_H
 #define INPUT_H
 
+#define BUTTON_PRESSED 0
+#define BUTTON_NOT_PRESSED 1
+
 #define BUTTON_AMOUNT 12
+#define BUTTON_B 0
+#define BUTTON_Y 1
+#define BUTTON_SELECT 2
+#define BUTTON_START 3
+#define BUTTON_UP 4
+#define BUTTON_DOWN 5
+#define BUTTON_LEFT 6
+#define BUTTON_RIGHT 7
+#define BUTTON_A 8
+#define BUTTON_X 9
+#define BUTTON_L 10
+#define BUTTON_R 11
+
+#define CONTROLLER_1 0
+#define CONTROLLER_2 1
 
 namespace Input {
 

@@ -1,25 +1,5 @@
 #include "input.h"
 
-#define BUTTON_PRESSED 0
-#define BUTTON_NOT_PRESSED 1
-
-#define BUTTON_AMOUNT 12
-#define BUTTON_B 0
-#define BUTTON_Y 1
-#define BUTTON_SELECT 2
-#define BUTTON_START 3
-#define BUTTON_UP 4
-#define BUTTON_DOWN 5
-#define BUTTON_LEFT 6
-#define BUTTON_RIGHT 7
-#define BUTTON_A 8
-#define BUTTON_X 9
-#define BUTTON_L 10
-#define BUTTON_R 11
-
-#define CONTROLLER_1 0
-#define CONTROLLER_2 1
-
 namespace Input {
 
 void SetControllerCount(const uint8_t number)
@@ -29,6 +9,12 @@ void SetControllerCount(const uint8_t number)
     
 void SetupPins()
 {
+  controllers[0].dataSerial = 12;
+  controllers[0].dataLatch = 7;
+  controllers[0].dataClock = 6;
+  controllers[1].dataSerial = 4;
+  controllers[1].dataLatch = 3;
+  controllers[1].dataClock = 2;
   // always set up for two controller
   for (int i = 0; i < 2; i++)
   {
@@ -52,9 +38,9 @@ void ReadControllerInputs()
   for (uint8_t j = 0; j < controllerCount; j++)
   {
 
-    digitalWrite(controllser[i].dataLatch, HIGH);
+    digitalWrite(controllers[j].dataLatch, HIGH);
     delayMicroseconds(12);
-    digitalWrite(controllers[i].dataLatch, LOW);
+    digitalWrite(controllers[j].dataLatch, LOW);
     delayMicroseconds(6);
 
     // current inputs will be written in last input befor getting updated
@@ -62,14 +48,14 @@ void ReadControllerInputs()
     // Retrieve button presses from shift register by pulling the clock high for 6us
     for(uint8_t i = 0; i < 16; i++)
     {
-      digitalWrite(controllers[i].dataClock, LOW);
+      digitalWrite(controllers[j].dataClock, LOW);
       delayMicroseconds(6);
       if(i <= 16)
       {
-        controllers[j].currInput[i] = digitalRead(controllers[i].dataSerial);
+        controllers[j].currInput[i] = digitalRead(controllers[j].dataSerial);
         
       }
-      digitalWrite(controllers[i].dataClock, HIGH);
+      digitalWrite(controllers[j].dataClock, HIGH);
       delayMicroseconds(6);
     }   
   }
