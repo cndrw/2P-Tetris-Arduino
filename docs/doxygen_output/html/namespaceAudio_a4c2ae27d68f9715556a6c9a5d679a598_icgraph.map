@@ -1,0 +1,5 @@
+<map id="Audio::StopAudio" name="Audio::StopAudio">
+<area shape="rect" id="node1" title="Stops the currently running audio @detials Resets every related variable, so the next audio can be pl..." alt="" coords="185,31,319,57"/>
+<area shape="rect" id="node2" href="$namespaceAudio.html#a306d5291e0e4308ebdd04eff7211efd9" title="Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine ..." alt="" coords="27,5,115,32"/>
+<area shape="rect" id="node3" href="$namespaceAudio.html#a7fbf1dd4a24b28ed3a9c3ec5f6947f47" title="Plays the given audio." alt="" coords="5,56,137,83"/>
+</map>

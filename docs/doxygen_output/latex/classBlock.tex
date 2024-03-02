@@ -1,0 +1,134 @@
+\hypertarget{classBlock}{}\doxysection{Block Class Reference}
+\label{classBlock}\index{Block@{Block}}
+
+
+A tetris block that can be moved and rotated.  
+
+
+
+
+{\ttfamily \#include $<$block.\+h$>$}
+
+
+
+Collaboration diagram for Block\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{classBlock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBlock_a8a1ff34bc2f249f6504e4e0686a6dc12}{Create}} (const \mbox{\hyperlink{structVector}{Vector}} \mbox{\hyperlink{constants_8h_aad650a4b8d9f59673e3fbf574fc97c90}{block\+Shape}}\mbox{[}$\,$\mbox{]}, const uint8\+\_\+t name, const \mbox{\hyperlink{structVector}{Vector}} start\+Position)
+\begin{DoxyCompactList}\small\item\em changes which specific block the object currently is \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBlock_a1ced2170a2dad5b9110cb3c2171be6e4}{Rotate}} ()
+\begin{DoxyCompactList}\small\item\em Rotates the block 90 degree clockwise. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBlock_ad867388e27d27f27cbcc80d03c426a8b}{Move\+Right}} ()
+\begin{DoxyCompactList}\small\item\em Moves the block one to the right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBlock_a086ba9ec7589bba279aec285a1ff61df}{Move\+Left}} ()
+\begin{DoxyCompactList}\small\item\em Moves the block one to the left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBlock_ac540e89656281c04dc3d3eb0f016a878}{Move\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Moves the block one down. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structVector}{Vector}} \mbox{\hyperlink{classBlock_a1c846cf5ade8b3a7fab9e9066f250d5a}{points}} \mbox{[}\mbox{\hyperlink{constants_8h_a22a79078d4bc53268ab86f316856248f}{BLOCK\+\_\+\+LENGTH}}\mbox{]}
+\item 
+\mbox{\hyperlink{structVector}{Vector}} \mbox{\hyperlink{classBlock_a6b195211ac40653e59146c8f39e933d1}{position}} = \{0,0\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classBlock_a7fbc12c719389d62f98fdb54d3c8ffe3}{block\+Name}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A tetris block that can be moved and rotated. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBlock_a8a1ff34bc2f249f6504e4e0686a6dc12}\label{classBlock_a8a1ff34bc2f249f6504e4e0686a6dc12}} 
+\index{Block@{Block}!Create@{Create}}
+\index{Create@{Create}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Block\+::\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structVector}{Vector}}}]{block\+Shape\mbox{[}$\,$\mbox{]},  }\item[{const uint8\+\_\+t}]{name,  }\item[{const \mbox{\hyperlink{structVector}{Vector}}}]{start\+Position }\end{DoxyParamCaption})}
+
+
+
+changes which specific block the object currently is 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Shape} & which \mbox{\hyperlink{classBlock}{Block}} it will be \\
+\hline
+{\em name} & name of the new \mbox{\hyperlink{classBlock}{Block}} \\
+\hline
+{\em start\+Position} & where the \mbox{\hyperlink{classBlock}{Block}} will appear on the screen \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBlock_ac540e89656281c04dc3d3eb0f016a878}\label{classBlock_ac540e89656281c04dc3d3eb0f016a878}} 
+\index{Block@{Block}!MoveDown@{MoveDown}}
+\index{MoveDown@{MoveDown}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{MoveDown()}{MoveDown()}}
+{\footnotesize\ttfamily void Block\+::\+Move\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the block one down. 
+
+Not rendering \mbox{\Hypertarget{classBlock_a086ba9ec7589bba279aec285a1ff61df}\label{classBlock_a086ba9ec7589bba279aec285a1ff61df}} 
+\index{Block@{Block}!MoveLeft@{MoveLeft}}
+\index{MoveLeft@{MoveLeft}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{MoveLeft()}{MoveLeft()}}
+{\footnotesize\ttfamily void Block\+::\+Move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the block one to the left. 
+
+Not rendering \mbox{\Hypertarget{classBlock_ad867388e27d27f27cbcc80d03c426a8b}\label{classBlock_ad867388e27d27f27cbcc80d03c426a8b}} 
+\index{Block@{Block}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily void Block\+::\+Move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the block one to the right. 
+
+Not rendering \mbox{\Hypertarget{classBlock_a1ced2170a2dad5b9110cb3c2171be6e4}\label{classBlock_a1ced2170a2dad5b9110cb3c2171be6e4}} 
+\index{Block@{Block}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}}
+{\footnotesize\ttfamily void Block\+::\+Rotate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rotates the block 90 degree clockwise. 
+
+Not rendering 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classBlock_a7fbc12c719389d62f98fdb54d3c8ffe3}\label{classBlock_a7fbc12c719389d62f98fdb54d3c8ffe3}} 
+\index{Block@{Block}!blockName@{blockName}}
+\index{blockName@{blockName}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{blockName}{blockName}}
+{\footnotesize\ttfamily uint8\+\_\+t Block\+::block\+Name = 0}
+
+\mbox{\Hypertarget{classBlock_a1c846cf5ade8b3a7fab9e9066f250d5a}\label{classBlock_a1c846cf5ade8b3a7fab9e9066f250d5a}} 
+\index{Block@{Block}!points@{points}}
+\index{points@{points}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVector}{Vector}} Block\+::points\mbox{[}\mbox{\hyperlink{constants_8h_a22a79078d4bc53268ab86f316856248f}{BLOCK\+\_\+\+LENGTH}}\mbox{]}}
+
+\mbox{\Hypertarget{classBlock_a6b195211ac40653e59146c8f39e933d1}\label{classBlock_a6b195211ac40653e59146c8f39e933d1}} 
+\index{Block@{Block}!position@{position}}
+\index{position@{position}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVector}{Vector}} Block\+::position = \{0,0\}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/\mbox{\hyperlink{block_8h}{block.\+h}}\end{DoxyCompactItemize}

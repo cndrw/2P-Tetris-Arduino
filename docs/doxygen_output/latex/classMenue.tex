@@ -1,0 +1,136 @@
+\hypertarget{classMenue}{}\doxysection{Menue Class Reference}
+\label{classMenue}\index{Menue@{Menue}}
+
+
+Interface for a menu, a menu can be drawn, refreshed, the button can be selected and the selected button can be pushed.  
+
+
+
+
+{\ttfamily \#include $<$menue.\+h$>$}
+
+
+
+Inheritance diagram for Menue\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classMenue__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMenue_afacadc44851321f947bd2c0dc63086de}{Menue}} (int32\+\_\+t title\+Sprite\mbox{[}$\,$\mbox{]})
+\item 
+virtual \mbox{\hyperlink{classMenue_acdd7433ca2da8ff0e6eb8dcd65949623}{$\sim$\+Menue}} ()
+\item 
+void \mbox{\hyperlink{classMenue_a2b1b623fbe8d71c8e6b229cb24fd7507}{Draw\+Menue}} ()
+\begin{DoxyCompactList}\small\item\em draws the menue on next OS-\/\+Tick \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMenue_adce71d1236d4f5348be246453d6dfd0a}{Refresh\+Menue}} ()=0
+\begin{DoxyCompactList}\small\item\em redraws the menue \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMenue_a18be7aef7a3139d0924652625e9c3cb8}{Push\+Button}} ()=0
+\begin{DoxyCompactList}\small\item\em executes the functionallity of the currently focused button \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMenue_a779600e5b905c0c072056b5e7ad3f0f5}{Button\+Select}} ()=0
+\begin{DoxyCompactList}\small\item\em selects the next button \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMenue_a87a0fbe9a0b6459e9ccabc63c5973831}{m\+\_\+selected\+Button}} = 0
+\item 
+int32\+\_\+t $\ast$ \mbox{\hyperlink{classMenue_aef79fb341119c2e845416d684f6570e5}{m\+\_\+title\+Sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for a menu, a menu can be drawn, refreshed, the button can be selected and the selected button can be pushed. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMenue_afacadc44851321f947bd2c0dc63086de}\label{classMenue_afacadc44851321f947bd2c0dc63086de}} 
+\index{Menue@{Menue}!Menue@{Menue}}
+\index{Menue@{Menue}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{Menue()}{Menue()}}
+{\footnotesize\ttfamily Menue\+::\+Menue (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{title\+Sprite\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMenue_acdd7433ca2da8ff0e6eb8dcd65949623}\label{classMenue_acdd7433ca2da8ff0e6eb8dcd65949623}} 
+\index{Menue@{Menue}!````~Menue@{$\sim$Menue}}
+\index{````~Menue@{$\sim$Menue}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{$\sim$Menue()}{~Menue()}}
+{\footnotesize\ttfamily virtual Menue\+::$\sim$\+Menue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenue_a779600e5b905c0c072056b5e7ad3f0f5}\label{classMenue_a779600e5b905c0c072056b5e7ad3f0f5}} 
+\index{Menue@{Menue}!ButtonSelect@{ButtonSelect}}
+\index{ButtonSelect@{ButtonSelect}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{ButtonSelect()}{ButtonSelect()}}
+{\footnotesize\ttfamily virtual void Menue\+::\+Button\+Select (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+selects the next button 
+
+
+
+Implemented in \mbox{\hyperlink{classPauseMenue_aa8b53aa7860a5b6617df2faad6eebfff}{Pause\+Menue}}, \mbox{\hyperlink{classMainMenue_a61b0573777e0006ba45c90897e5498a5}{Main\+Menue}}, and \mbox{\hyperlink{classDeathMenue_a3dbf415dc6bf9fe6f9da02f48f19c352}{Death\+Menue}}.
+
+\mbox{\Hypertarget{classMenue_a2b1b623fbe8d71c8e6b229cb24fd7507}\label{classMenue_a2b1b623fbe8d71c8e6b229cb24fd7507}} 
+\index{Menue@{Menue}!DrawMenue@{DrawMenue}}
+\index{DrawMenue@{DrawMenue}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{DrawMenue()}{DrawMenue()}}
+{\footnotesize\ttfamily void Menue\+::\+Draw\+Menue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+draws the menue on next OS-\/\+Tick 
+
+\mbox{\Hypertarget{classMenue_a18be7aef7a3139d0924652625e9c3cb8}\label{classMenue_a18be7aef7a3139d0924652625e9c3cb8}} 
+\index{Menue@{Menue}!PushButton@{PushButton}}
+\index{PushButton@{PushButton}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{PushButton()}{PushButton()}}
+{\footnotesize\ttfamily virtual void Menue\+::\+Push\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+executes the functionallity of the currently focused button 
+
+
+
+Implemented in \mbox{\hyperlink{classPauseMenue_a70a127d7ddb05846ca405d5dcd563541}{Pause\+Menue}}, \mbox{\hyperlink{classMainMenue_ac6274ab74f80f06f9d51474cf4fe2c3c}{Main\+Menue}}, and \mbox{\hyperlink{classDeathMenue_aa6862e591cae592360d8e3d2a76925ed}{Death\+Menue}}.
+
+\mbox{\Hypertarget{classMenue_adce71d1236d4f5348be246453d6dfd0a}\label{classMenue_adce71d1236d4f5348be246453d6dfd0a}} 
+\index{Menue@{Menue}!RefreshMenue@{RefreshMenue}}
+\index{RefreshMenue@{RefreshMenue}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{RefreshMenue()}{RefreshMenue()}}
+{\footnotesize\ttfamily virtual void Menue\+::\+Refresh\+Menue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+redraws the menue 
+
+
+
+Implemented in \mbox{\hyperlink{classPauseMenue_ab3a3c1b628b813328601b7913065d39c}{Pause\+Menue}}, \mbox{\hyperlink{classMainMenue_ae22ada9ca8ff76d353bceff5af0f15c9}{Main\+Menue}}, and \mbox{\hyperlink{classDeathMenue_ad5c8747d017225ba432c84ade0b744b1}{Death\+Menue}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classMenue_a87a0fbe9a0b6459e9ccabc63c5973831}\label{classMenue_a87a0fbe9a0b6459e9ccabc63c5973831}} 
+\index{Menue@{Menue}!m\_selectedButton@{m\_selectedButton}}
+\index{m\_selectedButton@{m\_selectedButton}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{m\_selectedButton}{m\_selectedButton}}
+{\footnotesize\ttfamily uint8\+\_\+t Menue\+::m\+\_\+selected\+Button = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classMenue_aef79fb341119c2e845416d684f6570e5}\label{classMenue_aef79fb341119c2e845416d684f6570e5}} 
+\index{Menue@{Menue}!m\_titleSprite@{m\_titleSprite}}
+\index{m\_titleSprite@{m\_titleSprite}!Menue@{Menue}}
+\doxysubsubsection{\texorpdfstring{m\_titleSprite}{m\_titleSprite}}
+{\footnotesize\ttfamily int32\+\_\+t$\ast$ Menue\+::m\+\_\+title\+Sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/\mbox{\hyperlink{menue_8h}{menue.\+h}}\end{DoxyCompactItemize}

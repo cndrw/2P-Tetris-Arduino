@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['up_93',['UP',['../classGameControllers.html#ac7d0e17f48a1708dc367b7a3f6e0e95ca480aed3760efe3461705bae0ffc14ce1',1,'GameControllers']]]
+  ['s_240',['S',['../constants_8h.html#af933676109efed7ab34cea71d748a517',1,'constants.h']]],
+  ['sblock_241',['SBLOCK',['../constants_8h.html#a9016b2359adfaed450aece13fe03abf5',1,'constants.h']]],
+  ['sblock_5fpreview_5f_242',['SBLOCK_PREVIEW_',['../constants_8h.html#a0ff42ff4520899d4b85ba8393c6f4f9f',1,'constants.h']]],
+  ['screen_243',['screen',['../constants_8h.html#a394f35d92dbf5001f1c12a8f7b47d2eb',1,'constants.h']]],
+  ['setcontrollercount_244',['SetControllerCount',['../namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361',1,'Input']]],
+  ['settimescale_245',['SetTimeScale',['../classRetrisGame.html#ad8c7d8a3c8d4b6c8eaa9814f5de89b8f',1,'RetrisGame']]],
+  ['setup_246',['Setup',['../namespaceAudio.html#a0ea529e1abfe2f01381433da4596cab8',1,'Audio']]],
+  ['setuppins_247',['SetupPins',['../namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8',1,'Input']]],
+  ['setupscreen_248',['SetupScreen',['../namespaceRenderer.html#a6318a390b3761ae76e5ca0a25eb1122a',1,'Renderer']]],
+  ['shiftall_249',['ShiftAll',['../namespaceRenderer.html#a65748626637418f461743c4ef49ffb24',1,'Renderer']]],
+  ['simulation_250',['SIMULATION',['../constants_8h.html#afd29c78cd36d8946cf1202e8e684f7a5',1,'constants.h']]],
+  ['size_251',['SIZE',['../constants_8h.html#a70ed59adcb4159ac551058053e649640',1,'constants.h']]],
+  ['stopaudio_252',['StopAudio',['../namespaceAudio.html#a4c2ae27d68f9715556a6c9a5d679a598',1,'Audio']]],
+  ['sys_5fprocess_5fgame_253',['SYS_PROCESS_GAME',['../retris__os_8h.html#a356225e30a7835232cc910ca75539899',1,'retris_os.h']]],
+  ['sys_5fprocess_5fmenue_254',['SYS_PROCESS_MENUE',['../retris__os_8h.html#a7b3656eb6cf68e226b6ccb83e1002ca6',1,'retris_os.h']]],
+  ['system_5fprocess_2eh_255',['system_process.h',['../system__process_8h.html',1,'']]]
 ];

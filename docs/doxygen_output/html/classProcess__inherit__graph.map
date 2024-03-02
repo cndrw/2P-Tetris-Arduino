@@ -1,0 +1,5 @@
+<map id="Process" name="Process">
+<area shape="rect" id="node1" title="application unit that can be run by the RetrisOS" alt="" coords="99,5,171,32"/>
+<area shape="rect" id="node2" href="$classGameManager.html" title="manages the gameplay of RetrisOS" alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node3" href="$classMenueHandler.html" title="controls the currently running menue" alt="" coords="147,80,265,107"/>
+</map>

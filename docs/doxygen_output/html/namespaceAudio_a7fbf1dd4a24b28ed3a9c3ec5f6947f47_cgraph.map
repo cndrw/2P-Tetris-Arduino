@@ -1,0 +1,4 @@
+<map id="Audio::PlayAudio" name="Audio::PlayAudio">
+<area shape="rect" id="node1" title="Plays the given audio." alt="" coords="5,5,137,32"/>
+<area shape="rect" id="node2" href="$namespaceAudio.html#a4c2ae27d68f9715556a6c9a5d679a598" title="Stops the currently running audio @detials Resets every related variable, so the next audio can be pl..." alt="" coords="185,5,319,32"/>
+</map>

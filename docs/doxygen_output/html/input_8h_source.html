@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>2P-Tetris-Arduino|Retris: Documentation_Tree/Engineering_Folder/input.h Source File</title>
+<title>2P-Tetris-Arduino|Retris: Documentation_Tree/Engineering_Folder/code/input.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_080b079c80360d33a2a44dc7c4710e4e.html">Documentation_Tree</a></li><li class="navelem"><a class="el" href="dir_e236320e11556eef8fc1e352963e55c4.html">Engineering_Folder</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_080b079c80360d33a2a44dc7c4710e4e.html">Documentation_Tree</a></li><li class="navelem"><a class="el" href="dir_e236320e11556eef8fc1e352963e55c4.html">Engineering_Folder</a></li><li class="navelem"><a class="el" href="dir_fdb7346590fbe2193b9758e30c786362.html">code</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,25 +72,25 @@ $(function() {
 <a href="input_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef INPUT_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define INPUT_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="input_8h.html#ae50d5c27b3a0f97a1c73dd342834d1d7">    4</a></span>&#160;<span class="preprocessor">#define CONTROLLER_1 0</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="input_8h.html#a5151689fa90f56c1babcd0fa50e190b5">    5</a></span>&#160;<span class="preprocessor">#define CONTROLLER_2 1</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="input_8h.html#a666f4a9872b7185170dd9318ceff91c6">    4</a></span>&#160;<span class="preprocessor">#define BUTTON_PRESSED 0</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="input_8h.html#ae1950c1e5cd4afed0d586c325276d809">    5</a></span>&#160;<span class="preprocessor">#define BUTTON_NOT_PRESSED 1</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="input_8h.html#a666f4a9872b7185170dd9318ceff91c6">    7</a></span>&#160;<span class="preprocessor">#define BUTTON_PRESSED 0</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="input_8h.html#ae1950c1e5cd4afed0d586c325276d809">    8</a></span>&#160;<span class="preprocessor">#define BUTTON_NOT_PRESSED 1</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">   10</a></span>&#160;<span class="preprocessor">#define BUTTON_AMOUNT 12</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="input_8h.html#a94a5d8e6a479582220c135a95b935948">   11</a></span>&#160;<span class="preprocessor">#define BUTTON_B 0</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="input_8h.html#ae828609252069795563592f52c8f0ff1">   12</a></span>&#160;<span class="preprocessor">#define BUTTON_Y 1</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="input_8h.html#a866a632a7e5c01da80d091d7ca05c0b5">   13</a></span>&#160;<span class="preprocessor">#define BUTTON_SELECT 2</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="input_8h.html#a0dd865ec0061ef01902beba5e257e298">   14</a></span>&#160;<span class="preprocessor">#define BUTTON_START 3</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="input_8h.html#a7639b378d6f757175ed0f9e8552e6cea">   15</a></span>&#160;<span class="preprocessor">#define BUTTON_UP 4</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="input_8h.html#a7e8516b8781963aa69154f9fc67b658a">   16</a></span>&#160;<span class="preprocessor">#define BUTTON_DOWN 5</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="input_8h.html#ad08344c00ddb49531348245d0c82987f">   17</a></span>&#160;<span class="preprocessor">#define BUTTON_LEFT 6</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="input_8h.html#a4cebcc5780890f5f5fbca9d072ea9652">   18</a></span>&#160;<span class="preprocessor">#define BUTTON_RIGHT 7</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="input_8h.html#a9cd67f3be58dbc886c0def221160536b">   19</a></span>&#160;<span class="preprocessor">#define BUTTON_A 8</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="input_8h.html#aa00c852ab240ccfc4717b66f0dddeeb0">   20</a></span>&#160;<span class="preprocessor">#define BUTTON_X 9</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="input_8h.html#a8129b8a94bc4253a26d2263a046c7053">   21</a></span>&#160;<span class="preprocessor">#define BUTTON_L 10</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="input_8h.html#ab3c80df399c1411404ac1cf88c4910c8">   22</a></span>&#160;<span class="preprocessor">#define BUTTON_R 11</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">    7</a></span>&#160;<span class="preprocessor">#define BUTTON_AMOUNT 12</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="input_8h.html#a94a5d8e6a479582220c135a95b935948">    8</a></span>&#160;<span class="preprocessor">#define BUTTON_B 0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="input_8h.html#ae828609252069795563592f52c8f0ff1">    9</a></span>&#160;<span class="preprocessor">#define BUTTON_Y 1</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="input_8h.html#a866a632a7e5c01da80d091d7ca05c0b5">   10</a></span>&#160;<span class="preprocessor">#define BUTTON_SELECT 2</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="input_8h.html#a0dd865ec0061ef01902beba5e257e298">   11</a></span>&#160;<span class="preprocessor">#define BUTTON_START 3</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="input_8h.html#a7639b378d6f757175ed0f9e8552e6cea">   12</a></span>&#160;<span class="preprocessor">#define BUTTON_UP 4</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="input_8h.html#a7e8516b8781963aa69154f9fc67b658a">   13</a></span>&#160;<span class="preprocessor">#define BUTTON_DOWN 5</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="input_8h.html#ad08344c00ddb49531348245d0c82987f">   14</a></span>&#160;<span class="preprocessor">#define BUTTON_LEFT 6</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="input_8h.html#a4cebcc5780890f5f5fbca9d072ea9652">   15</a></span>&#160;<span class="preprocessor">#define BUTTON_RIGHT 7</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="input_8h.html#a9cd67f3be58dbc886c0def221160536b">   16</a></span>&#160;<span class="preprocessor">#define BUTTON_A 8</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="input_8h.html#aa00c852ab240ccfc4717b66f0dddeeb0">   17</a></span>&#160;<span class="preprocessor">#define BUTTON_X 9</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="input_8h.html#a8129b8a94bc4253a26d2263a046c7053">   18</a></span>&#160;<span class="preprocessor">#define BUTTON_L 10</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="input_8h.html#ab3c80df399c1411404ac1cf88c4910c8">   19</a></span>&#160;<span class="preprocessor">#define BUTTON_R 11</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="input_8h.html#ae50d5c27b3a0f97a1c73dd342834d1d7">   21</a></span>&#160;<span class="preprocessor">#define CONTROLLER_1 0</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="input_8h.html#a5151689fa90f56c1babcd0fa50e190b5">   22</a></span>&#160;<span class="preprocessor">#define CONTROLLER_2 1</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceInput.html">   24</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceInput.html">Input</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
@@ -98,94 +98,35 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structInput_1_1Controller.html#ae68145f2766b483a20273d46d39b855c">   28</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structInput_1_1Controller.html#ae68145f2766b483a20273d46d39b855c">currInput</a>[<a class="code" href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">BUTTON_AMOUNT</a>] = {1};</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structInput_1_1Controller.html#a47b1c0535d7300a9e7536ea94f5f9869">   29</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structInput_1_1Controller.html#a47b1c0535d7300a9e7536ea94f5f9869">lastInput</a>[<a class="code" href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">BUTTON_AMOUNT</a>] = {1};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">static</span> constexpr uint8_t dataLatch[] = { 3, 7 };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">static</span> constexpr uint8_t dataClock[] = { 2, 6 };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">static</span> constexpr uint8_t dataSerial[] = { 4, 12 };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// static bool buttons[2][12] = {1}; </span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">static</span> Controller controllers[2]; <span class="comment">// max 2 controller with 12 buttons</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">static</span> uint8_t controllerCount = 2;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">SetControllerCount</a>(<span class="keyword">const</span> uint8_t number)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  controllerCount = number;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">SetupPins</a>()</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; controllerCount; i++)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Set DATA_CLOCK normally HIGH</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    pinMode(dataClock[i], OUTPUT);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    digitalWrite(dataClock[i], HIGH);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    pinMode(dataLatch[i], OUTPUT);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    digitalWrite(dataLatch[i], LOW);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    pinMode(dataSerial[i], OUTPUT);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    digitalWrite(dataSerial[i], HIGH);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    pinMode(dataSerial[i], INPUT);  </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">ReadControllerInputs</a>()</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// Latch for 12us</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordflow">for</span> (uint8_t j = 0; j &lt; controllerCount; j++)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    digitalWrite(dataLatch[j], HIGH);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    delayMicroseconds(12);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    digitalWrite(dataLatch[j], LOW);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    delayMicroseconds(6);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Retrieve button presses from shift register by pulling the clock high for 6us</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">for</span>(uint8_t i = 0; i &lt; 16; i++)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      digitalWrite(dataClock[j], LOW);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      delayMicroseconds(6);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">if</span>(i &lt;= 16)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">// current inputs will be written in last input befor getting updated</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        memcpy(controllers[j].lastInput, controllers[j].currInput, <span class="keyword">sizeof</span>(<span class="keywordtype">bool</span>) * <a class="code" href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">BUTTON_AMOUNT</a>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        controllers[j].<a class="code" href="structInput_1_1Controller.html#ae68145f2766b483a20273d46d39b855c">currInput</a>[i] = digitalRead(dataSerial[j]);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      digitalWrite(dataClock[j], HIGH);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      delayMicroseconds(6);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }   </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">  105</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">GetButton</a>(<span class="keyword">const</span> uint8_t controller, <span class="keyword">const</span> uint8_t button)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="comment">// if the button is pressed it is represented with a 0 in the buttons array</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">return</span> controllers[controller].<a class="code" href="structInput_1_1Controller.html#ae68145f2766b483a20273d46d39b855c">currInput</a>[button] == <a class="code" href="input_8h.html#a666f4a9872b7185170dd9318ceff91c6">BUTTON_PRESSED</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">  117</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">GetButtonDown</a>(<span class="keyword">const</span> uint8_t controller, <span class="keyword">const</span> uint8_t button)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// checked if there is a falling signal =&gt; button got pressed</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keywordflow">return</span> (controllers[controller].currInput[button] == <a class="code" href="input_8h.html#a666f4a9872b7185170dd9318ceff91c6">BUTTON_PRESSED</a>) &amp;&amp;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;         (controllers[controller].<a class="code" href="structInput_1_1Controller.html#a47b1c0535d7300a9e7536ea94f5f9869">lastInput</a>[button] == <a class="code" href="input_8h.html#ae1950c1e5cd4afed0d586c325276d809">BUTTON_NOT_PRESSED</a>);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}; <span class="comment">// Input</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ainput_8h_html_a666f4a9872b7185170dd9318ceff91c6"><div class="ttname"><a href="input_8h.html#a666f4a9872b7185170dd9318ceff91c6">BUTTON_PRESSED</a></div><div class="ttdeci">#define BUTTON_PRESSED</div><div class="ttdef"><b>Definition:</b> input.h:7</div></div>
-<div class="ttc" id="ainput_8h_html_ae1950c1e5cd4afed0d586c325276d809"><div class="ttname"><a href="input_8h.html#ae1950c1e5cd4afed0d586c325276d809">BUTTON_NOT_PRESSED</a></div><div class="ttdeci">#define BUTTON_NOT_PRESSED</div><div class="ttdef"><b>Definition:</b> input.h:8</div></div>
-<div class="ttc" id="ainput_8h_html_af38e4bccb1ce0b8a667606c4ffda02a9"><div class="ttname"><a href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">BUTTON_AMOUNT</a></div><div class="ttdeci">#define BUTTON_AMOUNT</div><div class="ttdef"><b>Definition:</b> input.h:10</div></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structInput_1_1Controller.html#a70460942b1ed0ba949f6692f3da9a42d">   30</a></span>&#160;  uint8_t <a class="code" href="structInput_1_1Controller.html#a70460942b1ed0ba949f6692f3da9a42d">dataClock</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structInput_1_1Controller.html#a53c0392e0247937743a37ba09ffc37b8">   31</a></span>&#160;  uint8_t <a class="code" href="structInput_1_1Controller.html#a53c0392e0247937743a37ba09ffc37b8">dataLatch</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structInput_1_1Controller.html#abe5360f48a864802159e1160fb628365">   32</a></span>&#160;  uint8_t <a class="code" href="structInput_1_1Controller.html#abe5360f48a864802159e1160fb628365">dataSerial</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">static</span> <a class="code" href="structInput_1_1Controller.html">Controller</a> controllers[2]; <span class="comment">// max 2 controller with 12 buttons</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">static</span> uint8_t controllerCount = 2;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">   42</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">SetControllerCount</a>(<span class="keyword">const</span> uint8_t number);</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">SetupPins</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">ReadControllerInputs</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">GetButton</a>(<span class="keyword">const</span> uint8_t controller, <span class="keyword">const</span> uint8_t button);</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">   62</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">GetButtonDown</a>(<span class="keyword">const</span> uint8_t controller, <span class="keyword">const</span> uint8_t button);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}; <span class="comment">// Input</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainput_8h_html_af38e4bccb1ce0b8a667606c4ffda02a9"><div class="ttname"><a href="input_8h.html#af38e4bccb1ce0b8a667606c4ffda02a9">BUTTON_AMOUNT</a></div><div class="ttdeci">#define BUTTON_AMOUNT</div><div class="ttdef"><b>Definition:</b> input.h:7</div></div>
 <div class="ttc" id="anamespaceInput_html"><div class="ttname"><a href="namespaceInput.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:24</div></div>
-<div class="ttc" id="anamespaceInput_html_a5d4142b13b4a405569686bd85be5f9a8"><div class="ttname"><a href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">Input::SetupPins</a></div><div class="ttdeci">void SetupPins()</div><div class="ttdoc">setups the controller pins</div><div class="ttdef"><b>Definition:</b> input.h:52</div></div>
-<div class="ttc" id="anamespaceInput_html_a81f74d0bf0c0f63cfcbc928fa5b7d361"><div class="ttname"><a href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">Input::SetControllerCount</a></div><div class="ttdeci">void SetControllerCount(const uint8_t number)</div><div class="ttdoc">sets how many controller are actively checked</div><div class="ttdef"><b>Definition:</b> input.h:44</div></div>
-<div class="ttc" id="anamespaceInput_html_a8962b4237cb785dd9ee09b72c2cb53d1"><div class="ttname"><a href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">Input::ReadControllerInputs</a></div><div class="ttdeci">void ReadControllerInputs()</div><div class="ttdoc">reads the current state of the controller(s)</div><div class="ttdef"><b>Definition:</b> input.h:72</div></div>
-<div class="ttc" id="anamespaceInput_html_a9cd08dfda5c2734fae43e42c152bcb35"><div class="ttname"><a href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">Input::GetButton</a></div><div class="ttdeci">bool GetButton(const uint8_t controller, const uint8_t button)</div><div class="ttdoc">checks if the desired button is currently pressed</div><div class="ttdef"><b>Definition:</b> input.h:105</div></div>
-<div class="ttc" id="anamespaceInput_html_ae10eed4b8d1eb379478c976e1c2b78bc"><div class="ttname"><a href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">Input::GetButtonDown</a></div><div class="ttdeci">bool GetButtonDown(const uint8_t controller, const uint8_t button)</div><div class="ttdoc">checks if the desired button got pressed (only the transition)</div><div class="ttdef"><b>Definition:</b> input.h:117</div></div>
+<div class="ttc" id="anamespaceInput_html_a5d4142b13b4a405569686bd85be5f9a8"><div class="ttname"><a href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">Input::SetupPins</a></div><div class="ttdeci">void SetupPins()</div><div class="ttdoc">setups the controller pins</div></div>
+<div class="ttc" id="anamespaceInput_html_a81f74d0bf0c0f63cfcbc928fa5b7d361"><div class="ttname"><a href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">Input::SetControllerCount</a></div><div class="ttdeci">void SetControllerCount(const uint8_t number)</div><div class="ttdoc">sets how many controller are actively checked</div></div>
+<div class="ttc" id="anamespaceInput_html_a8962b4237cb785dd9ee09b72c2cb53d1"><div class="ttname"><a href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">Input::ReadControllerInputs</a></div><div class="ttdeci">void ReadControllerInputs()</div><div class="ttdoc">reads the current state of the controller(s)</div></div>
+<div class="ttc" id="anamespaceInput_html_a9cd08dfda5c2734fae43e42c152bcb35"><div class="ttname"><a href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">Input::GetButton</a></div><div class="ttdeci">bool GetButton(const uint8_t controller, const uint8_t button)</div><div class="ttdoc">checks if the desired button is currently pressed</div></div>
+<div class="ttc" id="anamespaceInput_html_ae10eed4b8d1eb379478c976e1c2b78bc"><div class="ttname"><a href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">Input::GetButtonDown</a></div><div class="ttdeci">bool GetButtonDown(const uint8_t controller, const uint8_t button)</div><div class="ttdoc">checks if the desired button got pressed (only the transition)</div></div>
 <div class="ttc" id="astructInput_1_1Controller_html"><div class="ttname"><a href="structInput_1_1Controller.html">Input::Controller</a></div><div class="ttdef"><b>Definition:</b> input.h:27</div></div>
 <div class="ttc" id="astructInput_1_1Controller_html_a47b1c0535d7300a9e7536ea94f5f9869"><div class="ttname"><a href="structInput_1_1Controller.html#a47b1c0535d7300a9e7536ea94f5f9869">Input::Controller::lastInput</a></div><div class="ttdeci">bool lastInput[BUTTON_AMOUNT]</div><div class="ttdef"><b>Definition:</b> input.h:29</div></div>
+<div class="ttc" id="astructInput_1_1Controller_html_a53c0392e0247937743a37ba09ffc37b8"><div class="ttname"><a href="structInput_1_1Controller.html#a53c0392e0247937743a37ba09ffc37b8">Input::Controller::dataLatch</a></div><div class="ttdeci">uint8_t dataLatch</div><div class="ttdef"><b>Definition:</b> input.h:31</div></div>
+<div class="ttc" id="astructInput_1_1Controller_html_a70460942b1ed0ba949f6692f3da9a42d"><div class="ttname"><a href="structInput_1_1Controller.html#a70460942b1ed0ba949f6692f3da9a42d">Input::Controller::dataClock</a></div><div class="ttdeci">uint8_t dataClock</div><div class="ttdef"><b>Definition:</b> input.h:30</div></div>
+<div class="ttc" id="astructInput_1_1Controller_html_abe5360f48a864802159e1160fb628365"><div class="ttname"><a href="structInput_1_1Controller.html#abe5360f48a864802159e1160fb628365">Input::Controller::dataSerial</a></div><div class="ttdeci">uint8_t dataSerial</div><div class="ttdef"><b>Definition:</b> input.h:32</div></div>
 <div class="ttc" id="astructInput_1_1Controller_html_ae68145f2766b483a20273d46d39b855c"><div class="ttname"><a href="structInput_1_1Controller.html#ae68145f2766b483a20273d46d39b855c">Input::Controller::currInput</a></div><div class="ttdeci">bool currInput[BUTTON_AMOUNT]</div><div class="ttdef"><b>Definition:</b> input.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

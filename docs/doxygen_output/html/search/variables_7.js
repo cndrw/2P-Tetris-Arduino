@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['row_158',['row',['../namespacepixel__to__hex__converter.html#a217623f92279759ae0e79a661b111356',1,'pixel_to_hex_converter']]],
-  ['rows_159',['rows',['../namespacepixel__to__hex__converter.html#ae092eb8760061ba6de8d9ea1dd31f0b1',1,'pixel_to_hex_converter']]]
+  ['screen_389',['screen',['../constants_8h.html#a394f35d92dbf5001f1c12a8f7b47d2eb',1,'constants.h']]]
 ];

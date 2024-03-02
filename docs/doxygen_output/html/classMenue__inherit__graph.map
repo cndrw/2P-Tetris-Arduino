@@ -1,0 +1,6 @@
+<map id="Menue" name="Menue">
+<area shape="rect" id="node1" title="Interface for a menu, a menu can be drawn, refreshed, the button can be selected and the selected but..." alt="" coords="151,5,218,32"/>
+<area shape="rect" id="node2" href="$classDeathMenue.html" title="Implementation of the Menue interface." alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="$classMainMenue.html" title="Implementation of the Menue interface." alt="" coords="135,80,234,107"/>
+<area shape="rect" id="node4" href="$classPauseMenue.html" title="Implementation of the Menue interface." alt="" coords="258,80,362,107"/>
+</map>

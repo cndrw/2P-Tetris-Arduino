@@ -1,0 +1,83 @@
+\hypertarget{retris__game_8h}{}\doxysection{Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/retris\+\_\+game.h File Reference}
+\label{retris__game_8h}\index{Documentation\_Tree/Engineering\_Folder/code/retris\_game.h@{Documentation\_Tree/Engineering\_Folder/code/retris\_game.h}}
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}block.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}preview\+\_\+block.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}retris\+\_\+os.\+h\char`\"{}}\newline
+Include dependency graph for retris\+\_\+game.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{retris__game_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{retris__game_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classRetrisGame}{Retris\+Game}}
+\begin{DoxyCompactList}\small\item\em Manages one single game unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{retris__game_8h_a303debc7955f0a39c74976994f23886b}{BASE\+\_\+\+BLOCK\+\_\+\+SPEED}}~30
+\item 
+\#define \mbox{\hyperlink{retris__game_8h_ab947a33735390c75291a4f6f3a145c52}{GAME\+\_\+\+STATE\+\_\+\+PLAYING}}~0
+\item 
+\#define \mbox{\hyperlink{retris__game_8h_acb327253a74609e173473836f7681c02}{GAME\+\_\+\+STATE\+\_\+\+ANIMATION}}~1
+\item 
+\#define \mbox{\hyperlink{retris__game_8h_a6cbcee23c8d9fa41d550793d11f70481}{GAME\+\_\+\+STATE\+\_\+\+LOST}}~2
+\item 
+\#define \mbox{\hyperlink{retris__game_8h_a645312c41374942ee63329ffa0b603a4}{GAME\+\_\+\+STATE\+\_\+\+WAIT}}~3
+\item 
+\#define \mbox{\hyperlink{retris__game_8h_a2bdfdb195b28209c6dcb53090643b3ae}{GAME\+\_\+\+STATE\+\_\+\+FINISHED}}~4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{retris__game_8h_a303debc7955f0a39c74976994f23886b}\label{retris__game_8h_a303debc7955f0a39c74976994f23886b}} 
+\index{retris\_game.h@{retris\_game.h}!BASE\_BLOCK\_SPEED@{BASE\_BLOCK\_SPEED}}
+\index{BASE\_BLOCK\_SPEED@{BASE\_BLOCK\_SPEED}!retris\_game.h@{retris\_game.h}}
+\doxysubsubsection{\texorpdfstring{BASE\_BLOCK\_SPEED}{BASE\_BLOCK\_SPEED}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+BLOCK\+\_\+\+SPEED~30}
+
+\mbox{\Hypertarget{retris__game_8h_acb327253a74609e173473836f7681c02}\label{retris__game_8h_acb327253a74609e173473836f7681c02}} 
+\index{retris\_game.h@{retris\_game.h}!GAME\_STATE\_ANIMATION@{GAME\_STATE\_ANIMATION}}
+\index{GAME\_STATE\_ANIMATION@{GAME\_STATE\_ANIMATION}!retris\_game.h@{retris\_game.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE\_ANIMATION}{GAME\_STATE\_ANIMATION}}
+{\footnotesize\ttfamily \#define GAME\+\_\+\+STATE\+\_\+\+ANIMATION~1}
+
+\mbox{\Hypertarget{retris__game_8h_a2bdfdb195b28209c6dcb53090643b3ae}\label{retris__game_8h_a2bdfdb195b28209c6dcb53090643b3ae}} 
+\index{retris\_game.h@{retris\_game.h}!GAME\_STATE\_FINISHED@{GAME\_STATE\_FINISHED}}
+\index{GAME\_STATE\_FINISHED@{GAME\_STATE\_FINISHED}!retris\_game.h@{retris\_game.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE\_FINISHED}{GAME\_STATE\_FINISHED}}
+{\footnotesize\ttfamily \#define GAME\+\_\+\+STATE\+\_\+\+FINISHED~4}
+
+\mbox{\Hypertarget{retris__game_8h_a6cbcee23c8d9fa41d550793d11f70481}\label{retris__game_8h_a6cbcee23c8d9fa41d550793d11f70481}} 
+\index{retris\_game.h@{retris\_game.h}!GAME\_STATE\_LOST@{GAME\_STATE\_LOST}}
+\index{GAME\_STATE\_LOST@{GAME\_STATE\_LOST}!retris\_game.h@{retris\_game.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE\_LOST}{GAME\_STATE\_LOST}}
+{\footnotesize\ttfamily \#define GAME\+\_\+\+STATE\+\_\+\+LOST~2}
+
+\mbox{\Hypertarget{retris__game_8h_ab947a33735390c75291a4f6f3a145c52}\label{retris__game_8h_ab947a33735390c75291a4f6f3a145c52}} 
+\index{retris\_game.h@{retris\_game.h}!GAME\_STATE\_PLAYING@{GAME\_STATE\_PLAYING}}
+\index{GAME\_STATE\_PLAYING@{GAME\_STATE\_PLAYING}!retris\_game.h@{retris\_game.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE\_PLAYING}{GAME\_STATE\_PLAYING}}
+{\footnotesize\ttfamily \#define GAME\+\_\+\+STATE\+\_\+\+PLAYING~0}
+
+\mbox{\Hypertarget{retris__game_8h_a645312c41374942ee63329ffa0b603a4}\label{retris__game_8h_a645312c41374942ee63329ffa0b603a4}} 
+\index{retris\_game.h@{retris\_game.h}!GAME\_STATE\_WAIT@{GAME\_STATE\_WAIT}}
+\index{GAME\_STATE\_WAIT@{GAME\_STATE\_WAIT}!retris\_game.h@{retris\_game.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE\_WAIT}{GAME\_STATE\_WAIT}}
+{\footnotesize\ttfamily \#define GAME\+\_\+\+STATE\+\_\+\+WAIT~3}
+

@@ -1,0 +1,118 @@
+\hypertarget{classProcess}{}\doxysection{Process Class Reference}
+\label{classProcess}\index{Process@{Process}}
+
+
+application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}  
+
+
+
+
+{\ttfamily \#include $<$system\+\_\+process.\+h$>$}
+
+
+
+Inheritance diagram for Process\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{classProcess__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}{Update}} ()=0
+\begin{DoxyCompactList}\small\item\em updates the process \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}{Init}} (uint8\+\_\+t option)=0
+\begin{DoxyCompactList}\small\item\em initializes the process (start up) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Input}} (uint8\+\_\+t button1, uint8\+\_\+t button2)=0
+\begin{DoxyCompactList}\small\item\em gathers the current controller inputs (simulation) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Freeze}} (bool freeze)=0
+\begin{DoxyCompactList}\small\item\em freezes the process @detials can be discarded or unfrozen by an other process \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+OS}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProcess_a9d19d995b6115eb7244be090d21b4324}\label{classProcess_a9d19d995b6115eb7244be090d21b4324}} 
+\index{Process@{Process}!Freeze@{Freeze}}
+\index{Freeze@{Freeze}!Process@{Process}}
+\doxysubsubsection{\texorpdfstring{Freeze()}{Freeze()}}
+{\footnotesize\ttfamily virtual void Process\+::\+Freeze (\begin{DoxyParamCaption}\item[{bool}]{freeze }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+freezes the process @detials can be discarded or unfrozen by an other process 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freeze} & if true -\/$>$ process freezes \\
+\hline
+{\em freeze} & if false -\/$>$ process unfreezes \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMenueHandler_a86b79625d37e8235ac085634d5430db1}{Menue\+Handler}}, and \mbox{\hyperlink{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}{Game\+Manager}}.
+
+\mbox{\Hypertarget{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}\label{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}} 
+\index{Process@{Process}!Init@{Init}}
+\index{Init@{Init}!Process@{Process}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily virtual void Process\+::\+Init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{option }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+initializes the process (start up) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em option} & additional options for the initialization \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGameManager_ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13}{Game\+Manager}}, and \mbox{\hyperlink{classMenueHandler_aebc6ddcb00410b3280fb9f669e692658}{Menue\+Handler}}.
+
+\mbox{\Hypertarget{classProcess_add5d6f722a9c13a82b8a70de8572a78a}\label{classProcess_add5d6f722a9c13a82b8a70de8572a78a}} 
+\index{Process@{Process}!Input@{Input}}
+\index{Input@{Input}!Process@{Process}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
+{\footnotesize\ttfamily virtual void Process\+::\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button1,  }\item[{uint8\+\_\+t}]{button2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+gathers the current controller inputs (simulation) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button1} & input of controller 1 \\
+\hline
+{\em button2} & input of controller 2 \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGameManager_a2874602fb604d9563eb0693f39152c1d}{Game\+Manager}}, and \mbox{\hyperlink{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}{Menue\+Handler}}.
+
+\mbox{\Hypertarget{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}\label{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}} 
+\index{Process@{Process}!Update@{Update}}
+\index{Update@{Update}!Process@{Process}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Process\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+updates the process 
+
+
+
+Implemented in \mbox{\hyperlink{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}{Menue\+Handler}}, and \mbox{\hyperlink{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}{Game\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/\mbox{\hyperlink{system__process_8h}{system\+\_\+process.\+h}}\end{DoxyCompactItemize}

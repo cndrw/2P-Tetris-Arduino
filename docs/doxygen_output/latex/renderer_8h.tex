@@ -1,0 +1,44 @@
+\hypertarget{renderer_8h}{}\doxysection{Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/renderer.h File Reference}
+\label{renderer_8h}\index{Documentation\_Tree/Engineering\_Folder/code/renderer.h@{Documentation\_Tree/Engineering\_Folder/code/renderer.h}}
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+Include dependency graph for renderer.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{renderer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{renderer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceRenderer}{Renderer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceRenderer_a65748626637418f461743c4ef49ffb24}{Renderer\+::\+Shift\+All}} (uint8\+\_\+t send\+To\+Adress, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em function for setting up all matrices at once \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a6318a390b3761ae76e5ca0a25eb1122a}{Renderer\+::\+Setup\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em sets up the led matrices by writing to their registers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a6785a292a69df8b1531e81252c56944f}{Renderer\+::\+Draw\+Screen}} (int32\+\_\+t matrix\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em draws the current state of screen to the matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_ae2c23c66c7bf4d9e5721992db64568b2}{Renderer\+::\+Include\+Block}} (\mbox{\hyperlink{structVector}{Vector}} points\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structVector}{Vector}} anchor\+Point, int length)
+\begin{DoxyCompactList}\small\item\em draws a block to the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_aa8e4e87331f9b4e97ec2ad190b1b917e}{Renderer\+::\+Remove\+Block}} (\mbox{\hyperlink{structVector}{Vector}} points\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structVector}{Vector}} anchor\+Point, int length)
+\begin{DoxyCompactList}\small\item\em removes a block from the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a07eb43c45fab52a17726fac9ad30d06b}{Renderer\+::\+Include\+Rows}} (int32\+\_\+t rows\mbox{[}$\,$\mbox{]}, uint8\+\_\+t insert\+At, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em adds whole rows to the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a6490ebf4d2b116a04acb33101a102fd5}{Renderer\+::\+Clear\+Rows}} (uint8\+\_\+t from, uint8\+\_\+t to)
+\begin{DoxyCompactList}\small\item\em removes all rows between to rows (inlcusiv) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a0a898e8884e656a3632ddd3b1798ea59}{Renderer\+::\+Clear\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em clears the whole screen \end{DoxyCompactList}\end{DoxyCompactItemize}

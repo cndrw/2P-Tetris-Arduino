@@ -1,0 +1,4 @@
+<map id="DeathMenue" name="DeathMenue">
+<area shape="rect" id="node1" title="Implementation of the Menue interface." alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node2" href="$classMenue.html" title="Interface for a menu, a menu can be drawn, refreshed, the button can be selected and the selected but..." alt="" coords="25,5,91,32"/>
+</map>

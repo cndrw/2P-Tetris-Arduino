@@ -1,0 +1,4 @@
+<map id="GameManager" name="GameManager">
+<area shape="rect" id="node1" title="manages the gameplay of RetrisOS" alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node2" href="$classProcess.html" title="application unit that can be run by the RetrisOS" alt="" coords="29,5,101,32"/>
+</map>
