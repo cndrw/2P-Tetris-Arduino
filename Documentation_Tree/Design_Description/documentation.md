@@ -1,5 +1,5 @@
 # Retris - technische Dokumentation
-Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Gedanken hinter den Implementierungen. Eine genauere Dokumentation des Quellcodes findet sie [hier](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Gedanken hinter den Implementierungen. Eine genauere Dokumentation des Quellcodes finden sie [hier](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 
 # Inhalt
 - [Hardware](#hardware)
