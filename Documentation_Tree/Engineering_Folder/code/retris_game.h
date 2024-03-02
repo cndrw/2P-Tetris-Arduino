@@ -74,6 +74,7 @@ class RetrisGame
     void DrawGameField(uint8_t viewStyle);
 
     uint8_t GetGameState();
+    Vector GetGamePosition();
 
   private:
       /**

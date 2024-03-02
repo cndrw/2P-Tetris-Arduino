@@ -45,8 +45,8 @@ class GameManager : public Process
     void LoadGameState();
 
   private:
-    RetrisGame games[2] = { RetrisGame(), RetrisGame() };
-    Vector gamePositions[2] = { {1, 10}, {19, 10} };
+    RetrisGame m_games[2] = { RetrisGame(), RetrisGame() };
+    Vector m_gamePositions[2] = { {1, 10}, {19, 10} };
     int32_t m_savedFields[GAME_HEIGHT] = {0};
     uint8_t m_playerCount = 1;
 };

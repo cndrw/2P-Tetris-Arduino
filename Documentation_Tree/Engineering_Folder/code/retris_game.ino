@@ -256,6 +256,11 @@ uint8_t RetrisGame::GetGameState()
   return m_gameState;
 }
 
+Vector RetrisGame::GetGamePosition()
+{
+  return m_gamePosition;
+}
+
 bool RetrisGame::ValidateMove(uint8_t move)
 {
   Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);

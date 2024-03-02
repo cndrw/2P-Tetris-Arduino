@@ -40,7 +40,7 @@ void GameManager::Init(uint8_t playerCount)
 #endif
   for (uint8_t i = 0; i < m_playerCount; i++)
   {
-    games[i].Init(gamePositions[i], m_playerCount);
+    m_games[i].Init(m_gamePositions[i], m_playerCount);
   }
   Audio::PlayAudio(AUDIO_KOROBEINIKI, true);
 }
@@ -59,10 +59,10 @@ void GameManager::Update()
   uint8_t changeCondition = 0;
   for (uint8_t i = 0; i < m_playerCount; i++)
   {
-    games[i].Update();
+    m_games[i].Update();
     // the finished game state has the value 4 so 4 * playerCount must be 4 (for one player)
     // or 8 (for two player)
-    changeCondition += games[i].GetGameState();
+    changeCondition += m_games[i].GetGameState();
   }
 
   if (changeCondition == GAME_STATE_FINISHED * m_playerCount)
@@ -81,10 +81,10 @@ void GameManager::Input(uint8_t pressedButton1, uint8_t pressedButton2)
     retris.FreezeCurrentProcess(SYS_PROCESS_MENUE, PAUSE_MENUE);
   }
 
-  games[0].ProcessInput(pressedButton1);
+  m_games[0].ProcessInput(pressedButton1);
   if (m_playerCount == 2)
   {
-    games[1].ProcessInput(pressedButton2);
+    m_games[1].ProcessInput(pressedButton2);
   }
 }
 #endif
@@ -98,21 +98,24 @@ void GameManager::Freeze(bool freeze)
   else
   {
     LoadGameState();
-    games[0].DrawGameField(m_playerCount);
+    m_games[0].DrawGameField(m_playerCount);
     if (m_playerCount == 2)
     {
-      games[1].DrawGameField(m_playerCount);
+      m_games[1].DrawGameField(m_playerCount);
     }
   }
 }
 
 void GameManager::SaveGameState()
 {
-  uint8_t row = 10 + 1;
+  // if 2-Player mode then both have the same y so, just get the y from game instance 1
+  uint8_t row = m_games[0].GetGamePosition().y + 1; // get the first row from the game field (not border)
   memcpy(m_savedFields, screen + row, sizeof(int32_t) * GAME_HEIGHT);
 }
 
 void GameManager::LoadGameState()
 {
-  Renderer::IncludeRows(m_savedFields, 11, GAME_HEIGHT);
+  uint8_t row = m_games[0].GetGamePosition().y + 1;
+  Renderer::IncludeRows(m_savedFields, row, GAME_HEIGHT);
 }
+

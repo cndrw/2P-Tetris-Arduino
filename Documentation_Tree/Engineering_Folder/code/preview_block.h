@@ -1,4 +1,4 @@
-#ifndef PREVIEW_BLOCK_H
+	#ifndef PREVIEW_BLOCK_H
 #define PREVIEW_BLOCK_H
 
 #include "vector.h"
@@ -31,7 +31,7 @@ class PreviewBlock
   
   private:
     Vector previewBlock[BLOCK_LENGTH];
-    const Vector positionTable[7] = { {4, 4}, {6, 4}, {5, 3}, {4, 4}, {4, 4}, {4, 3}, {6, 4} };
+    const Vector positionTable[7] = { {4, 4}, {6, 4}, {5, 3}, {6, 4}, {4, 4}, {4, 3}, {6, 4} };
     uint8_t m_width = 12; // 10
     uint8_t m_height = 10; // 12
 };
