@@ -32,7 +32,7 @@
 #define LBLOCK_PREVIEW {{0, 0}, {0, 1}, {0, -1}, {1, 1}}
 #define JBLOCK_PREVIEW {{0,0}, {0,-1}, {0,1}, {-1,1}}
 #define SBLOCK_PREVIEW_ {{0,0}, {-1,0}, {-1,-1}, {0, 1}}
-#define ZBLOCK_PREVIEW {{0,0}, {0,1}, {-1,0}, {-1,-1}}
+#define ZBLOCK_PREVIEW {{0,0}, {0,1}, {1,0}, {1,-1}}
 
 #define L 0
 #define J 1
