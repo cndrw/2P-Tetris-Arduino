@@ -217,7 +217,7 @@ static volatile uint32_t holdTime = 0; // how long the note should be played (in
 static volatile bool isLooping = false;
 /**
 * @brief Stops the currently running audio
-* @detials Resets every related variable, so the next audio can be played.
+* @details Resets every related variable, so the next audio can be played.
 */
 void StopAudio()
 {

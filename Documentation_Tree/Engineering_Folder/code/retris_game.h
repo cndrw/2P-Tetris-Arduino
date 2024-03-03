@@ -20,7 +20,8 @@
 #define GAME_STATE_WAIT 3
 #define GAME_STATE_FINISHED 4
 /**
- * @brief Manages one single game unit
+ * @brief Manages one single game unit and has alle the Tetris logic
+ * implemented
  * @details Keeps track of which instance it is
 */
 class RetrisGame
@@ -31,6 +32,8 @@ class RetrisGame
     /**
      * @brief Initializes the game unit - drawing game field and creating first block
      * @details It also sets the random seed for the random block generation
+     * @param startPosition Where the game field shall be placed (top-left point)
+     * @param style How the game will appear (preview Block above or to the side of the game field)
      * 
     */
     void Init(Vector startPosition, uint8_t style);

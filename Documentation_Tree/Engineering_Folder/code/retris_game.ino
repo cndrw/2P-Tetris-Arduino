@@ -14,7 +14,8 @@
 uint8_t DEBUG_BLOCK = I;
 #endif
 
-#define BASE_BLOCK_SPEED 30
+#define BASE_BLOCK_SPEED 40
+#define CLEAR_LINES_HURDLE 10
 
 #define VIEW_STYLE_HORIZONTAL 1
 #define VIEW_STYLE_VERTICAL 2
@@ -379,8 +380,8 @@ void RetrisGame::ClearAnimation()
   m_fullLineTable = 0;
 
   // every 10 cleared Lines the level is incremented as well as the speed
-  m_level = m_clearedLinesCount / 2;
-  m_baseSpeed = BASE_BLOCK_SPEED - m_clearedLinesCount / 2;
+  m_level = m_clearedLinesCount / CLEAR_LINES_HURDLE;
+  m_baseSpeed = BASE_BLOCK_SPEED - m_clearedLinesCount / CLEAR_LINES_HURDLE;
   SetTimeScale(m_baseSpeed);
 
   UpdateScore(lineCount);
