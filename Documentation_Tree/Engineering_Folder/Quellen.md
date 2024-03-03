@@ -15,3 +15,8 @@ https://edu.books.sensebox.de/de/grundlagen/der_serielle_datenbus.html
 https://wokwi.com/arduino
 
 https://www.pixilart.com/draw
+
+https://de.wikipedia.org/wiki/Tetris
+
+https://www.onlinespiele-sammlung.de/tetris/about-tetris.php
+
