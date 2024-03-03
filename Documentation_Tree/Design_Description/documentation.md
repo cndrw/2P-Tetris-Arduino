@@ -5,14 +5,14 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
 - [Rendering](#rendering)
     - [interne Repräsentation des Displays](#interne-repräsentation-des-displays)
     - [Übertragung des internen Zustands](#übertraung-des-internen-screen)
-- [OS-Struktur](#os---struktur)
-    - [Processes](#processes)
+- [Überblick Systemarchitektur](#systemarchitektur)
+- [OS-Struktur](#os-struktur)
     - [MenueHandler](#menuehandler)
     - [GameManager](#gamemanager)
 - [Spiellogik](#spiellogik) 
     - [Zustandsmaschine](#zustandsmaschine)
-    - [Input Management](#input-management)
     - [Kollisions Erkennung](#collision-detection)
+- [Input Management](#input-management)
 - [Musik](#music)
     - [Aufbau der Notenliste](#aufbau-der-notenliste)
     - [Setup des Timer](#setup-des-timer)
@@ -121,6 +121,12 @@ Der Teil `(j % 4) * 2` ermöglicht die Folge: 0,2,4,6,0,2,... Mit der `6 - ` dav
 ```
 Dies Übertragung wird von der `DrawScreen` funktion ausgeführt, diese zeichnet am Ende jedes OS-Ticks den momentan Zustand des internen `screen`.
 
+## Systemarchitektur
+
+In der nachfolgenden Grafik sieht man die allgemeine Systemarchitektur. Dies soll den schematischen Aufbau des Projekts aufzeigen und die entsprechenden Schnittstellen auf einen Blick kenntlich machen.
+
+![Systemarchitektur](/Documentation_Tree/Engineering_Folder/images/Systemarchitektur.PNG)
+
 
 
 ## OS-Struktur
@@ -154,7 +160,7 @@ Der [`GameManager`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/htm
 
 ## SpielLogik
 
-Die gesamte Spiellogik ist innerhalb der [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html)-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig. Die Spiellogik entspricht im Allgemeinen genau der aus 
+Die gesamte Spiellogik ist innerhalb der [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html)-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig. Die Spiellogik entspricht im Allgemeinen genau der orignalen Tetris Spiellogik.
 
 ![UML-RetrisGame](../Engineering_Folder/images/UML_RetrisGame.svg)
 **HINWEIS**: Um die Informationsdichte zu reduzieren wurden nicht alle Methoden und Variablen in diesem Diagramm eingetragen.
@@ -168,18 +174,18 @@ Der "Normal"-Zustand ist dabei der `Playing`-Zustand, dieser repräsentiert den 
 
 Auch wenn von Blöcken generieren gesprochen wurden ist, ist dies nur um dem, was vermeintlich auf dem Spielfeld passiert, treu zu sein. Denn [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) hat immer den selben Block, welcher nachdem er gelandet ist lediglich zurückgesetzt wird und eine andere Form annimmt. Dadurch ist muss kein Object zur Laufzeit erstellt werden. Des Weiteren wurde die Animation iterativ implementiert, d.h. die Funktion ist abhängig davon welche Tick-Anzahl gerade herrscht (wird jeden Tick aufgerufen). In einer zukünftigen Version könnten diese Animation mittels Timern realisert werden. Diese Betrachtung kam für die momentane Retris Version leider zu spät in der Entwicklung.
 
-
-### Input Management
-
-Der Basiscode für das Einlesen der Kontrollereingaben, stammt aus dem Repositroy von [glumb](https://github.com/burks10/Arduino-SNES-Controller/tree/master/controller_test). Es wurden Anpassung vollzogen, damit dieser Code zu unserem Projekt passt und vorallem das Einlesen von zwei angeschlossen Kontrollern erlaubt.
-
-Das Auslesen der Kontrollereingaben erfolgt über eine Funktion, welche periodisch in der `UpdateSystem`-loop von `RetrisOS` ausgeführt wird. Es wurde sich bewusst gegen eine Implementierung mittels Timer entscheiden, da es keine ersichtlichen Vorteile zu bieten hat. Dadurch, dass diese Funktion in der `UpdateSystem`-loop steht, wird sie aller ca. 10 ms (basis OS-Tick dauer) aufgerufen und somit der momentane Zutstand des Kontrollers aller 10 ms  aktualisiert. Die menschliche Reaktion liegt maximal bei 130 ms bzw. ist deutlich höher als die momentane Abfragerate. Ebenfalls würde eine höhere Abfragerate durch einen Timer den Mikrocomputer mehr auslasten, obwohl kein unterscheid beim Spielerebnis erkennbar ist. Die Vermutung, dass die Abfragerate schnell genung ist, damit man keine Verzögerung spürt, ließ sich auch durch Spieletests bekräftigen.
-
 ### Kollisions Erkennung
 
 Die Kollisionerkennung erfolgt bei [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für die Kollisionauswertung, es reicht schon den aktuellen Zustand des internen `screen` auszulesen.
 
 Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt, sollte es dann, im Vergleich mit dem gesetzten Pixeln im `screen`, dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
+
+## Input Management
+
+Der Basiscode für das Einlesen der Kontrollereingaben, stammt aus dem Repositroy von [glumb](https://github.com/burks10/Arduino-SNES-Controller/tree/master/controller_test). Es wurden Anpassung vollzogen, damit dieser Code zu unserem Projekt passt und vorallem das Einlesen von zwei angeschlossen Kontrollern erlaubt.
+
+Das Auslesen der Kontrollereingaben erfolgt über eine Funktion, welche periodisch in der `UpdateSystem`-loop von `RetrisOS` ausgeführt wird. Es wurde sich bewusst gegen eine Implementierung mittels Timer entscheiden, da es keine ersichtlichen Vorteile zu bieten hat. Dadurch, dass diese Funktion in der `UpdateSystem`-loop steht, wird sie aller ca. 10 ms (basis OS-Tick dauer) aufgerufen und somit der momentane Zutstand des Kontrollers aller 10 ms  aktualisiert. Die menschliche Reaktion liegt maximal bei 130 ms bzw. ist deutlich höher als die momentane Abfragerate. Ebenfalls würde eine höhere Abfragerate durch einen Timer den Mikrocomputer mehr auslasten, obwohl kein unterscheid beim Spielerebnis erkennbar ist. Die Vermutung, dass die Abfragerate schnell genung ist, damit man keine Verzögerung spürt, ließ sich auch durch Spieletests bekräftigen.
+
 
 ## Music
 Die Musik in Retris wir über einen Piezo-Buzzer realisiert. Die Basis des Codes, der für die Musik zuständig ist kommt von [robsoncoutu](https://github.com/robsoncouto/arduino-songs/tree/master), jedoch wurden einige Änderungen vorgenommen, um die Performance zu erhöhen, welche in den Folgenden Kapitel erläutert werden.
