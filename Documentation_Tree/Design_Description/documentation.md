@@ -2,8 +2,6 @@
 Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Gedanken hinter den Implementierungen. Die Dokumentation per Doxygen finden sie [hier](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/index.html).
 
 # Inhalt
-- [Hardware](#hardware)
-    - [Display](#display)
 - [Rendering](#rendering)
     - [interne Repräsentation des Displays](#interne-repräsentation-des-displays)
     - [Übertragung des internen Zustands](#übertraung-des-internen-screen)
@@ -12,9 +10,9 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
     - [MenueHandler](#menuehandler)
     - [GameManager](#gamemanager)
 - [Spiellogik](#spiellogik) 
+    - [Zustandsmaschine](#zustandsmaschine)
     - [Input Management](#input-management)
     - [Kollisions Erkennung](#collision-detection)
-    - [Full-Line Erkennung](#full-line-detection)
 - [Musik](#music)
     - [Aufbau der Notenliste](#aufbau-der-notenliste)
     - [Setup des Timer](#setup-des-timer)
@@ -22,13 +20,11 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
     - [Performance](#perfomance)
 - [Watchdog](#watchdog)
     - [Implementierung](#implementierung)
+- [Zeit Messung](#zeit-messungen)
+    - [Messvorgehen](#messvorgehen)
+    - [Messergebnisse](#messergebnisse)
+    - [Beurteilung](#beurteilung-der-ergebnisse)
     
-
-
-## Hardware
-### Display -Matrix 32x32
-Das Display hat eine gesamt größe von 32x32 LEDs, welche aus 16 verschiedenen 8x8 LED-Modulen zusammengesetzt ist. Diese einzelnen Module sind per Daisy-Chain verbunden.
-
 
 ## Rendering
 ### interne Repräsentation des Displays
@@ -37,7 +33,7 @@ Die Matrix die zur visualiserung genutzt wird verfügt über 32x32 LEDs, dass he
 Aufgrund dessen, dass unsere gewählte Matrix einfarbig ist, kann jede LED einfacherweise mit nur einem Bit dargestellt werden (an oder aus). Dementsprechen wird das gesamte Display mittels einem simplen Array der Länge 32, welches 32-Bit Integer speichert dargestellt. Dabei representiert der Index des Arrays die Zeile und die Position des Bits innerhalb des Integers die Spalte (MSB -> Spalte 0). Der Koordinaten Ursprung wurde als die linke obere Ecke definiert, des Weiteren steigt der y-Wert nach unten an.
 
 ```
-Zeile |    Spalte
+Zeile |    | Spalte
 ----------------------------
       |    | 0 | 1 | 2 | 3 | . . .
 0     | 0b | x | x | x | x |
@@ -123,41 +119,55 @@ Der Teil `(j % 4) * 2` ermöglicht die Folge: 0,2,4,6,0,2,... Mit der `6 - ` dav
     SPI.transfer(data);
 }
 ```
-Dies Übertragung wird von der `DrawScreen` funktion ausgefürht, diese zeichnet nach jedem OS-Tick den momentan Zustand des internen `screen`.
+Dies Übertragung wird von der `DrawScreen` funktion ausgeführt, diese zeichnet am Ende jedes OS-Ticks den momentan Zustand des internen `screen`.
 
 
 
 ## OS-Struktur
-An oberster Stelle der Instanzen ist `RetrisOS`, es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das `Process`-Interface. Des Weiteren ist `RetrisOS` zuständig für die Auslesung der momentanen Controller Zustände sowie das zeichen des Frames am Ende des OS-Ticks.
+An oberster Stelle der Instanzen ist [`RetrisOS`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisOS.html), es ist die ausführende Kraft in dieser Systemarchitektur. Es kann Prozesse initialisieren, updaten, einfrieren und den laufenden Prozess durch einen anderen ersetzten. Das sind die grundlegenden Funktionen die ein Prozess aufweisen muss, damit er ausgeführt werden kann. Realisiert wird das über das [`Process`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classProcess.html)-Interface. Des Weiteren ist [`RetrisOS`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisOS.html) zuständig für die Auslesung der momentanen Controller Zustände sowie das zeichen des Frames am Ende des OS-Ticks.
 
-`RetrisOS` aktualisiert sein System dauerhaft in der Haupt-`loop` dabei wird diese durch einen `delay` von 10 ms begrenzt. Dass heißt die OS-Tick-Frequenz beträgt 100 hz. Demnach hat das Display eine Bildwiederholungsrate von 100 hz.
+Der Grundsätzliche Ablauf ist, dass nach einlesen der Controllerzustände lediglich der momentane Process aktualisiert wird. Sollte der laufende Prozess geändert werden, muss nur der neue Prozess zuerst initialisiert werden um danach in der `UpdateSystem`-Funktion regelmäßig aktualisiert zu werden. Demnach ist es [`RetrisOS`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisOS.html) egal, somit weist es ein sehr generisches Verhalten auf, was es sehr einfach macht neue Prozess zu implementieren, wie z.B. einen extra Modus.
+
+[`RetrisOS`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisOS.html) aktualisiert sein System dauerhaft in der Main-Loop dabei wird Taktrate zusätzlich durch einen `delay` von 10 ms veringert. Dass heißt die OS-Tick-Frequenz beträgt rund 100 hz (Rohwert ohne Ausführungszeit des Systems). Demnach hat das Display eine Bildwiederholungsrate von ca. 100 hz.
 
 ![UML-OS](../Engineering_Folder/images/UML_RetrisOS.svg)
+**HINWEIS**: Um die Informationsdichte zu reduzieren wurden nicht alle Methoden und Variablen in diesem Diagramm eingetragen.
 
 ### MenueHandler
-Eine Instanz mit dem `Process`-Interface ist der `MenueHandler`, dieser ist Verantwortlich die richtigen Menüs anzuzeigen. Da es ein Prozess ist, kann es auch alle Aufgaben wie in der [OS-Struktur](#os-struktur) genannt, da das einfrieren von Menüs allerdings nicht benötigt wird, ist diese Funktionalität leer.
+Eine Instanz mit dem `Process`-Interface ist der [`MenueHandler`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classMenueHandler.html), dieser ist verantwortlich die richtigen Menüs anzuzeigen. Da es ein Prozess ist, kann es auch alle Aufgaben wie in der [OS-Struktur](#os-struktur) genannt, da das einfrieren von Menüs allerdings nicht benötigt wird, ist diese Funktionalität leer.
 
-Der `MenueHandler` wurde mit dem Strategie Design Pattern entworfen, da alle Menüs in den Grundzügen gleich funktionieren, aber trotzdem leicht anderes Verhalten in der Ausführung haben.
+Der [`MenueHandler`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classMenueHandler.html) wurde mit dem Strategie Design-Pattern entworfen, da alle Menüs in den Grundzügen gleich funktionieren, aber trotzdem leicht anderes Verhalten in der Ausführung haben.
 
 ![UML-MenueHandler](../Engineering_Folder/images/UML_MenuHandler.svg)
+**HINWEIS**: Um die Informationsdichte zu reduzieren wurden nicht alle Methoden und Variablen in diesem Diagramm eingetragen.
 
-Um das zu realiseren gibt es das `Menue`-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.
+
+Um das zu realiseren gibt es das [`Menue`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classMenue.html)-Interface, welches die Grundfunktionalität jedes Menüs vorgibt. Darunter fallen die Methoden `RefreshMenue`, `PushButton` und `ButtonSelect`.
 ![UML-Menues](../Engineering_Folder/images/UML_Menues.svg)
+**HINWEIS**: Um die Informationsdichte zu reduzieren wurden nicht alle Methoden und Variablen in diesem Diagramm eingetragen.
 
 ### GameManager
-Der `GameManager` ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays (`RetrisGame`), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht beteiligt, sondern steuert nur die Initialisierung der Spielinstanzen, das Zwischenspeichern des Spielfeldes und reagiert auf bestimmte aufkommende Spielzustände der jeweiligen Spielinstanzen.
+Der [`GameManager`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classGameManager.html) ist die zweite Instanz welche ein ausführbarer Prozess ist. Er steuert die Ausführung des eigentlichen Gameplays ([`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html)), je nachdem welcher Modus ausgewählt worden ist (1-Spieler oder 2-Spieler). An der Steuerung des Spielgeschehens ist er jedoch nicht beteiligt, sondern steuert nur die Initialisierung der Spielinstanzen, das Zwischenspeichern des Spielfeldes und reagiert auf bestimmte aufkommende Spielzustände der jeweiligen Spielinstanzen. Des Weiteren ist er für das Wechseln in das Pausenmenü und das Starten der Musik verantwortlich, da dies Spieleranzahl unabhängige Funktionen sind, und nicht zur eigentlich Spiellogik von [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) gehören.
 
 ![UML-GameManger](../Engineering_Folder/images/UML_GameManager.svg)
+**HINWEIS**: Um die Informationsdichte zu reduzieren wurden nicht alle Methoden und Variablen in diesem Diagramm eingetragen.
 
 ## SpielLogik
 
-Die gesamte Spiellogik ist innerhalb der [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html)-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig.  
-
-Das Spiel wurde bei unserem System in fünf Spielzustände eingeteilt.
-
-Der "Normal"-Zustand ist dabei der `Playing`-Zustand, dieser repräsentiert den ganz normalen Spielablauf, d.h. ein Block fällt herunter. Wenn der Block gelandet ist, wird nach einer vollen Reihe gesucht. Ist eine neue volle Reihe entstanden, so wird in den `Animation`-Zustand gewechselt. Dieser ist verantwortlich die Clear-Animation abzuspielen, das Level und die Fallgeschwindigkeit anzupassen, sowie die Punkteanzeige des LCD-Displays zu aktualisieren und letztenendlich den einen neuen Block zu generieren. Sollte beim generieren eines neuen Blocks, erkannt werden, dass dieser nicht platziert werden kann, da dass Spielfeld voll ist, so gilt die Runde als verloren. Daher wird zum `Lost`-Zustand gewechselt, welcher lediglich die Game-Over-Animation abspielt und anschließend in den `Finished`-Zustand wechselt. Im `Finished`-Zustand passiert nichts (spiel wird nicht aktualisiert) und wird als Singalisierung des Spielendes für den [`GameManager`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classGameManager.html) benutzt. Der letzte Zustand ist der `Wait`-Zustand, dieser ist lediglich dafür da eine Verzögerung zu erzeugen (Verzögerung zwischen landen des Blockes und dem Generieren). Aufgrunddessen, dass dies Funktionalität nur in einer Situation benötigt wird, ist diese nur rudimentär Implementiert (nicht generisch) und ist eher als bindeglied zwishen 
+Die gesamte Spiellogik ist innerhalb der [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html)-Klasse implementiert, dabei ist ein Objekt dieser Klasse für genau ein Spielfeld zuständig. Die Spiellogik entspricht im Allgemeinen genau der aus 
 
 ![UML-RetrisGame](../Engineering_Folder/images/UML_RetrisGame.svg)
+**HINWEIS**: Um die Informationsdichte zu reduzieren wurden nicht alle Methoden und Variablen in diesem Diagramm eingetragen.
+
+### Zustandsmaschine
+Das Spiel wurde bei unserem System in fünf Spielzustände eingeteilt.
+
+Der "Normal"-Zustand ist dabei der `Playing`-Zustand, dieser repräsentiert den ganz normalen Spielablauf, d.h. ein Block fällt herunter. Wenn der Block gelandet ist, wird nach einer vollen Reihe gesucht. Ist eine neue volle Reihe entstanden, so wird in den `Animation`-Zustand gewechselt. Dieser ist verantwortlich die Clear-Animation abzuspielen, das Level und die Fallgeschwindigkeit anzupassen, sowie die Punkteanzeige des LCD-Displays zu aktualisieren und letztenendlich den einen neuen Block zu generieren. Sollte beim generieren eines neuen Blocks, erkannt werden, dass dieser nicht platziert werden kann, da dass Spielfeld voll ist, so gilt die Runde als verloren. Daher wird zum `Lost`-Zustand gewechselt, welcher lediglich die Game-Over-Animation abspielt und anschließend in den `Finished`-Zustand wechselt. Im `Finished`-Zustand passiert nichts (spiel wird nicht aktualisiert) und wird als Singalisierung des Spielendes für den [`GameManager`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classGameManager.html) benutzt. Der letzte Zustand ist der `Wait`-Zustand, dieser ist lediglich dafür da eine Verzögerung zu erzeugen (Verzögerung zwischen landen des Blockes und dem Generieren). Aufgrunddessen, dass diese Funktionalität nur in einer Situation benötigt wird, ist diese auch nur rudimentär Implementiert (nicht generisch). 
+
+![Zustandsdiagramm](../Engineering_Folder/images/state_retris_game.svg)
+
+Auch wenn von Blöcken generieren gesprochen wurden ist, ist dies nur um dem, was vermeintlich auf dem Spielfeld passiert, treu zu sein. Denn [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) hat immer den selben Block, welcher nachdem er gelandet ist lediglich zurückgesetzt wird und eine andere Form annimmt. Dadurch ist muss kein Object zur Laufzeit erstellt werden. Des Weiteren wurde die Animation iterativ implementiert, d.h. die Funktion ist abhängig davon welche Tick-Anzahl gerade herrscht (wird jeden Tick aufgerufen). In einer zukünftigen Version könnten diese Animation mittels Timern realisert werden. Diese Betrachtung kam für die momentane Retris Version leider zu spät in der Entwicklung.
+
 
 ### Input Management
 
@@ -167,7 +177,7 @@ Das Auslesen der Kontrollereingaben erfolgt über eine Funktion, welche periodis
 
 ### Kollisions Erkennung
 
-Die Kollisionerkennung erfolgt bei `RetrisGame` nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für die Kollisionauswertung, es reicht schon den aktuellen Zustand des internen `screen` auszulesen.
+Die Kollisionerkennung erfolgt bei [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und deaktiviert Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten speichern für die Kollisionauswertung, es reicht schon den aktuellen Zustand des internen `screen` auszulesen.
 
 Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt, sollte es dann, im Vergleich mit dem gesetzten Pixeln im `screen`, dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
 
@@ -254,7 +264,7 @@ Um zu vermeiden das wären des Betriebs ein, unvorhergesehener Bug auftritt, der
 
 ### Implementierung 
 
-Die Implementierung fällt recht simpel aus. Die Einstellung des Watchdogs erfolgt über das `WDTCSR` Register (Watchdog Timer Control Register). Um die Time-out Konfiguartion zu ändern ist laut Datenblatt angegeben, dass in der selben Operation das Bit `WDCE` (Watchdog Change Enable) und `WDE` (Watchdog System Reset Enable) gesetzt werden muss. Danach muss man in den nächsten vier Clock-Zyklen die `WDP`-Bits (Watchdog Prescaler) setzen, sowie das `WDE`-Bit nochmals, da der Watchdog bei uns die Aufgabe des Resetten hat. Abiträr wurde die Time-Out-Zeit von vier Sekunden gewählt (`WDP3` high), da das System in der Main-Loop aller 10 ms ausgeführt wird und eine nichtausführung von 4 s ein deutliches Problem signalisiert.
+Die Implementierung fällt recht simpel aus. Die Einstellung des Watchdogs erfolgt über das `WDTCSR` Register (Watchdog Timer Control Register). Um die Time-out Konfiguartion zu ändern ist laut Datenblatt angegeben, dass in der selben Operation das Bit `WDCE` (Watchdog Change Enable) und `WDE` (Watchdog System Reset Enable) gesetzt werden muss. Danach muss man in den nächsten vier Clock-Zyklen die `WDP`-Bits (Watchdog Prescaler) setzen, sowie das `WDE`-Bit nochmals, da der Watchdog bei uns die Aufgabe des Resetten hat. Abiträr wurde die Time-Out-Zeit von vier Sekunden gewählt (`WDP3` high), da das System in der Main-Loop aller ca. 10 ms ausgeführt wird und eine nichtausführung von 4 s ein deutliches Problem signalisiert.
 
 ```
   WDTCSR |= (1 << WDCE) | (1 << WDE); // watchdog change enable - as demanded by the datasheet
@@ -283,11 +293,16 @@ void loop {
 
 ### Messergebnisse 
 
-Die Messergebniss lassen sich in der Datei 'Time Measurments' einsehen. Zu erwähnen ist, dass die Menüs und auch `RetrisGame` (größtenteils) gedrosselt werden, d.h. sie werden nicht mit jedem OS-Tick geupdated sondern beispielshaft nur jeden 30sten. Dadurch fallen die Durschnittszeiten relativ klein aus. Bei den Menüs ist zu erkennen, dass der Worst-Case jedoch nicht weit von dem Average-Case abweicht. Dementgegen tauchen bei manchen Messungen des Ein- und Zweispielermodus starke Worstcase-Spitzen auf, welche sogar den nächsten OS-Tick um ca. 16 zusätzliche Millisekunden verzögern können. Diese Spitzen werden verursacht durch das Senden an das LCD-Display, d.h. diese Spitzen treten jedesmal auf, wenn der Spieler eine volle Reihe auflöst. In den Messungen, wo keine volle Reihe endstanden ist, kann man erkennen, das auch der Worstcase nicht sondern stark vom Average abweicht.
+Die Messergebniss lassen sich in der Datei 'Time Measurments' einsehen. Zu erwähnen ist, dass die Menüs und auch [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) (größtenteils) gedrosselt werden, d.h. sie werden nicht mit jedem OS-Tick geupdated sondern beispielshaft nur jeden 30sten. Dadurch fallen die Durschnittszeiten relativ klein aus. Bei den Menüs ist zu erkennen, dass der Worst-Case jedoch nicht weit von dem Average-Case abweicht. Dementgegen tauchen bei manchen Messungen des Ein- und Zweispielermodus starke Worstcase-Spitzen auf, welche sogar den nächsten OS-Tick um ca. 16 zusätzliche Millisekunden verzögern können. Diese Spitzen werden verursacht durch das Senden an das LCD-Display, d.h. diese Spitzen treten jedesmal auf, wenn der Spieler eine volle Reihe auflöst. In den Messungen, wo keine volle Reihe endstanden ist, kann man erkennen, das auch der Worstcase nicht sondern stark vom Average abweicht.
 
 ### Beurteilung der Ergebnisse
 
-Auch wenn die Worstcase-Spitzen, ausgelöst durch das LCD-Display eine große Abweichung von den herkömlichen Zeiten ist, sehen wir darin keine große Gefahr, da sie erstens nur beim Aktualiseren des LCD-Displays enstehen, also nur wenn man eine volle Reihe aufgelöst hat. Des Weiteren sollte auch durch die zusätzliche Verzögerung bei **einem** Frame (Worstcase ca. 38 ms), die Aktualisierungsrate des Matrix-Displays und das Einlesen der Controllerzustände deutlich unter der menschlichen Reaktionszeit sein und damit nicht bemerkbar sein.
+Auch wenn die Worstcase-Spitzen, ausgelöst durch das LCD-Display eine große Abweichung von den herkömlichen Zeiten ist, sehen wir darin keine große Gefahr, da sie erstens nur beim Aktualiseren des LCD-Displays enstehen, also nur wenn man eine volle Reihe aufgelöst hat. Des Weiteren sollte auch durch die zusätzliche Verzögerung bei **einem** Frame (Worstcase ca. 38 ms), die Aktualisierungsrate des Matrix-Displays und das Einlesen der Controllerzustände liegen immernoch deutlich unter der menschlichen Reaktionszeit und damit nicht bemerkbar sein.
+
+
+## Scheduling
+
+Ein Notwendigkeit für Scheduling war für dieses Projekt nicht wirklich von Bedeutung. Da die gesamte Spiellogik sich in der Main-Loop befindet und ebenfalls aufeinander aufbaut, d.h. es macht nur wirklich Sinn alles nacheinander, aufeinmal auszuführen. Das einzige Modul, das dem nicht entspricht ist dabei das [`Audio`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/namespaceAudio.html) Modul, da dieses über einen Timer läuft. Da die Musik nebenbei läuft und keine Abhängigkeit gegenüber des Hauptsystems (und vice verca) hat, gibt es keinen Anlass die Ausführung der Prozess zu Planen (schedule). Die Main-Loop wird lediglich immer mal kurz unterbrochen werden um eine neue Note zu spielen. Durch die Implementierung fällt tatsälich immer ein Interrupt an, auch wenn keine neue Note gespielt werden muss, da bei diesen Interrupt jedoch nur eine variable inkrementiert wird, kann man die Ausführungszeit vernachlässigen. 
 
 
 
