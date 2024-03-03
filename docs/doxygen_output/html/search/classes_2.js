@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['snescontroller_100',['SNESController',['../classSNESController.html',1,'']]]
+  ['deathmenue_278',['DeathMenue',['../classDeathMenue.html',1,'']]]
 ];

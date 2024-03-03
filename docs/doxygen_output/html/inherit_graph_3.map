@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classMenue.html" title="Interface for a menu, a menu can be drawn, refreshed, the button can be selected and the selected but..." alt="" coords="5,56,72,83"/>
+<area shape="rect" id="node2" href="$classDeathMenue.html" title="Implementation of the Menue interface." alt="" coords="120,5,225,32"/>
+<area shape="rect" id="node3" href="$classMainMenue.html" title="Implementation of the Menue interface." alt="" coords="123,56,222,83"/>
+<area shape="rect" id="node4" href="$classPauseMenue.html" title="Implementation of the Menue interface." alt="" coords="121,107,225,133"/>
+</map>

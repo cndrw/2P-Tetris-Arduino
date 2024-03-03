@@ -1,0 +1,151 @@
+\hypertarget{classRetrisGame}{}\doxysection{Retris\+Game Class Reference}
+\label{classRetrisGame}\index{RetrisGame@{RetrisGame}}
+
+
+Manages one single game unit.  
+
+
+
+
+{\ttfamily \#include $<$retris\+\_\+game.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRetrisGame_a7e97bedde49092670d00a2a3768f1f43}{Retris\+Game}} ()
+\item 
+void \mbox{\hyperlink{classRetrisGame_a1e44098c1fe6a102ebfa6a4b232c5f9b}{Init}} (\mbox{\hyperlink{structVector}{Vector}} start\+Position, uint8\+\_\+t style)
+\begin{DoxyCompactList}\small\item\em Initializes the game unit -\/ drawing game field and creating first block. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRetrisGame_a7b900af8817372781a826ecf91d0a148}{Process\+Input}} (uint8\+\_\+t pressed\+Button)
+\item 
+void \mbox{\hyperlink{classRetrisGame_adbb5dd55189de951d7f028606ca70b72}{Update}} ()
+\begin{DoxyCompactList}\small\item\em function that gets called every game tick \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRetrisGame_a35e7e256dfb871d753ad0d6b677f2a7a}{Move\+Right}} ()
+\begin{DoxyCompactList}\small\item\em Moves the current \mbox{\hyperlink{classBlock}{Block}} to the right by one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRetrisGame_a70a7ff315b970afee31a10e8cb43652b}{Move\+Left}} ()
+\begin{DoxyCompactList}\small\item\em Moves the current \mbox{\hyperlink{classBlock}{Block}} to the left by one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRetrisGame_a824c156b6f20aa91c4b5c9b567a863d7}{Rotate}} ()
+\begin{DoxyCompactList}\small\item\em Rotates the current \mbox{\hyperlink{classBlock}{Block}} 90° clockwise. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRetrisGame_ad8c7d8a3c8d4b6c8eaa9814f5de89b8f}{Set\+Time\+Scale}} (uint8\+\_\+t time\+Scale)
+\begin{DoxyCompactList}\small\item\em Sets the rate of game ticks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRetrisGame_a051208c3adf7cd18c487d5c5a06b99ad}{Draw\+Game\+Field}} (uint8\+\_\+t view\+Style)
+\begin{DoxyCompactList}\small\item\em Draws the game field with the preview block. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classRetrisGame_a5106694f25f703404c0e7ce112115222}{Get\+Game\+State}} ()
+\item 
+\mbox{\hyperlink{structVector}{Vector}} \mbox{\hyperlink{classRetrisGame_a13a61476591bd8fc0e7799bd48346bbd}{Get\+Game\+Position}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages one single game unit. 
+
+Keeps track of which instance it is 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRetrisGame_a7e97bedde49092670d00a2a3768f1f43}\label{classRetrisGame_a7e97bedde49092670d00a2a3768f1f43}} 
+\index{RetrisGame@{RetrisGame}!RetrisGame@{RetrisGame}}
+\index{RetrisGame@{RetrisGame}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{RetrisGame()}{RetrisGame()}}
+{\footnotesize\ttfamily Retris\+Game\+::\+Retris\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRetrisGame_a051208c3adf7cd18c487d5c5a06b99ad}\label{classRetrisGame_a051208c3adf7cd18c487d5c5a06b99ad}} 
+\index{RetrisGame@{RetrisGame}!DrawGameField@{DrawGameField}}
+\index{DrawGameField@{DrawGameField}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{DrawGameField()}{DrawGameField()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Draw\+Game\+Field (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{view\+Style }\end{DoxyParamCaption})}
+
+
+
+Draws the game field with the preview block. 
+
+\mbox{\Hypertarget{classRetrisGame_a13a61476591bd8fc0e7799bd48346bbd}\label{classRetrisGame_a13a61476591bd8fc0e7799bd48346bbd}} 
+\index{RetrisGame@{RetrisGame}!GetGamePosition@{GetGamePosition}}
+\index{GetGamePosition@{GetGamePosition}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{GetGamePosition()}{GetGamePosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVector}{Vector}} Retris\+Game\+::\+Get\+Game\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRetrisGame_a5106694f25f703404c0e7ce112115222}\label{classRetrisGame_a5106694f25f703404c0e7ce112115222}} 
+\index{RetrisGame@{RetrisGame}!GetGameState@{GetGameState}}
+\index{GetGameState@{GetGameState}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{GetGameState()}{GetGameState()}}
+{\footnotesize\ttfamily uint8\+\_\+t Retris\+Game\+::\+Get\+Game\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRetrisGame_a1e44098c1fe6a102ebfa6a4b232c5f9b}\label{classRetrisGame_a1e44098c1fe6a102ebfa6a4b232c5f9b}} 
+\index{RetrisGame@{RetrisGame}!Init@{Init}}
+\index{Init@{Init}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVector}{Vector}}}]{start\+Position,  }\item[{uint8\+\_\+t}]{style }\end{DoxyParamCaption})}
+
+
+
+Initializes the game unit -\/ drawing game field and creating first block. 
+
+It also sets the random seed for the random block generation \mbox{\Hypertarget{classRetrisGame_a70a7ff315b970afee31a10e8cb43652b}\label{classRetrisGame_a70a7ff315b970afee31a10e8cb43652b}} 
+\index{RetrisGame@{RetrisGame}!MoveLeft@{MoveLeft}}
+\index{MoveLeft@{MoveLeft}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{MoveLeft()}{MoveLeft()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the current \mbox{\hyperlink{classBlock}{Block}} to the left by one. 
+
+If the move to the left is not possible (kollider on the right), the function will do nothing \mbox{\Hypertarget{classRetrisGame_a35e7e256dfb871d753ad0d6b677f2a7a}\label{classRetrisGame_a35e7e256dfb871d753ad0d6b677f2a7a}} 
+\index{RetrisGame@{RetrisGame}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the current \mbox{\hyperlink{classBlock}{Block}} to the right by one. 
+
+If the move to the right is not possible (kollider on the right), the function will do nothing \mbox{\Hypertarget{classRetrisGame_a7b900af8817372781a826ecf91d0a148}\label{classRetrisGame_a7b900af8817372781a826ecf91d0a148}} 
+\index{RetrisGame@{RetrisGame}!ProcessInput@{ProcessInput}}
+\index{ProcessInput@{ProcessInput}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{ProcessInput()}{ProcessInput()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Process\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pressed\+Button }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRetrisGame_a824c156b6f20aa91c4b5c9b567a863d7}\label{classRetrisGame_a824c156b6f20aa91c4b5c9b567a863d7}} 
+\index{RetrisGame@{RetrisGame}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Rotate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rotates the current \mbox{\hyperlink{classBlock}{Block}} 90° clockwise. 
+
+If the rotate is not possible the function will do nothing \mbox{\Hypertarget{classRetrisGame_ad8c7d8a3c8d4b6c8eaa9814f5de89b8f}\label{classRetrisGame_ad8c7d8a3c8d4b6c8eaa9814f5de89b8f}} 
+\index{RetrisGame@{RetrisGame}!SetTimeScale@{SetTimeScale}}
+\index{SetTimeScale@{SetTimeScale}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{SetTimeScale()}{SetTimeScale()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Set\+Time\+Scale (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{time\+Scale }\end{DoxyParamCaption})}
+
+
+
+Sets the rate of game ticks. 
+
+Low time\+Scale means faster game and high time\+Scale slower game 
+\begin{DoxyParams}{Parameters}
+{\em time\+Scale} & The number by which the OS-\/\+Tick gets divied by \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRetrisGame_adbb5dd55189de951d7f028606ca70b72}\label{classRetrisGame_adbb5dd55189de951d7f028606ca70b72}} 
+\index{RetrisGame@{RetrisGame}!Update@{Update}}
+\index{Update@{Update}!RetrisGame@{RetrisGame}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Retris\+Game\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function that gets called every game tick 
+
+A game tick is a fraction of an OS-\/\+Tick (depending on game speed) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/\mbox{\hyperlink{retris__game_8h}{retris\+\_\+game.\+h}}\end{DoxyCompactItemize}

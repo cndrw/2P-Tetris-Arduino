@@ -116,7 +116,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = Documentation_Tree/Engineering_Folder/ #set input folder
+INPUT                  = Documentation_Tree/Engineering_Folder/code #set input folder
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \

@@ -1,0 +1,138 @@
+\hypertarget{namespaceAudio}{}\doxysection{Audio Namespace Reference}
+\label{namespaceAudio}\index{Audio@{Audio}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAudio_1_1Melody}{Melody}}
+\begin{DoxyCompactList}\small\item\em holds data that is relevant for playing a melody/song/audio \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceAudio_a4c2ae27d68f9715556a6c9a5d679a598}{Stop\+Audio}} ()
+\begin{DoxyCompactList}\small\item\em Stops the currently running audio @detials Resets every related variable, so the next audio can be played. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47}{Play\+Audio}} (const uint8\+\_\+t audio, const bool enable\+Looping=false, const bool resume=false)
+\begin{DoxyCompactList}\small\item\em Plays the given audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceAudio_a0ea529e1abfe2f01381433da4596cab8}{Setup}} ()
+\begin{DoxyCompactList}\small\item\em Sets up the timer registers (Timer1) for playing audio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceAudio_a306d5291e0e4308ebdd04eff7211efd9}{ISR}} (TIMER1\+\_\+\+COMPA\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine which frequency the pwm will be. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespaceAudio_a421ac9f0a53ffca22bc47e976b5a7a93}{tempo}} = 144
+\item 
+constexpr uint16\+\_\+t \mbox{\hyperlink{namespaceAudio_abe54bb09dcbc99d0433125c8617b56fa}{whole\+Note}} = (60000 $\ast$ 4) / \mbox{\hyperlink{namespaceAudio_a421ac9f0a53ffca22bc47e976b5a7a93}{tempo}}
+\item 
+\mbox{\hyperlink{structAudio_1_1Melody}{Melody}} \mbox{\hyperlink{namespaceAudio_a28b544058183fa9461e8159d83dea6d9}{melodies}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Collection of every melody that can be played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceAudio_a306d5291e0e4308ebdd04eff7211efd9}\label{namespaceAudio_a306d5291e0e4308ebdd04eff7211efd9}} 
+\index{Audio@{Audio}!ISR@{ISR}}
+\index{ISR@{ISR}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}}
+{\footnotesize\ttfamily Audio\+::\+ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+COMPA\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine which frequency the pwm will be. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{namespaceAudio_a306d5291e0e4308ebdd04eff7211efd9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47}\label{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47}} 
+\index{Audio@{Audio}!PlayAudio@{PlayAudio}}
+\index{PlayAudio@{PlayAudio}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{PlayAudio()}{PlayAudio()}}
+{\footnotesize\ttfamily void Audio\+::\+Play\+Audio (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{audio,  }\item[{const bool}]{enable\+Looping = {\ttfamily false},  }\item[{const bool}]{resume = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Plays the given audio. 
+
+Will first stop if there is already running, an audio 
+\begin{DoxyParams}{Parameters}
+{\em audio} & Name of the audio that will be played \\
+\hline
+{\em enable\+Looping} & Determines wether the audio shall be looping or not \\
+\hline
+{\em resume} & If true the audio will resume where it had stopped \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceAudio_a0ea529e1abfe2f01381433da4596cab8}\label{namespaceAudio_a0ea529e1abfe2f01381433da4596cab8}} 
+\index{Audio@{Audio}!Setup@{Setup}}
+\index{Setup@{Setup}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Setup()}{Setup()}}
+{\footnotesize\ttfamily void Audio\+::\+Setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets up the timer registers (Timer1) for playing audio. 
+
+\mbox{\Hypertarget{namespaceAudio_a4c2ae27d68f9715556a6c9a5d679a598}\label{namespaceAudio_a4c2ae27d68f9715556a6c9a5d679a598}} 
+\index{Audio@{Audio}!StopAudio@{StopAudio}}
+\index{StopAudio@{StopAudio}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{StopAudio()}{StopAudio()}}
+{\footnotesize\ttfamily void Audio\+::\+Stop\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the currently running audio @detials Resets every related variable, so the next audio can be played. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{namespaceAudio_a4c2ae27d68f9715556a6c9a5d679a598_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceAudio_a28b544058183fa9461e8159d83dea6d9}\label{namespaceAudio_a28b544058183fa9461e8159d83dea6d9}} 
+\index{Audio@{Audio}!melodies@{melodies}}
+\index{melodies@{melodies}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{melodies}{melodies}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAudio_1_1Melody}{Melody}} Audio\+::melodies\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  \{korobeiniki, \textcolor{keyword}{sizeof}(korobeiniki) / \textcolor{keyword}{sizeof}(uint32\_t), 0\},}
+\DoxyCodeLine{  \{buttonSwitch, \textcolor{keyword}{sizeof}(buttonSwitch) / \textcolor{keyword}{sizeof}(uint32\_t), 0\},}
+\DoxyCodeLine{  \{buttonPress, \textcolor{keyword}{sizeof}(buttonPress) / \textcolor{keyword}{sizeof}(uint32\_t), 0\},}
+\DoxyCodeLine{  \{gameOver, \textcolor{keyword}{sizeof}(gameOver) / \textcolor{keyword}{sizeof}(uint32\_t), 0\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Collection of every melody that can be played. 
+
+\mbox{\Hypertarget{namespaceAudio_a421ac9f0a53ffca22bc47e976b5a7a93}\label{namespaceAudio_a421ac9f0a53ffca22bc47e976b5a7a93}} 
+\index{Audio@{Audio}!tempo@{tempo}}
+\index{tempo@{tempo}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{tempo}{tempo}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t Audio\+::tempo = 144\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\Hypertarget{namespaceAudio_abe54bb09dcbc99d0433125c8617b56fa}\label{namespaceAudio_abe54bb09dcbc99d0433125c8617b56fa}} 
+\index{Audio@{Audio}!wholeNote@{wholeNote}}
+\index{wholeNote@{wholeNote}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{wholeNote}{wholeNote}}
+{\footnotesize\ttfamily constexpr uint16\+\_\+t Audio\+::whole\+Note = (60000 $\ast$ 4) / \mbox{\hyperlink{namespaceAudio_a421ac9f0a53ffca22bc47e976b5a7a93}{tempo}}\hspace{0.3cm}{\ttfamily [constexpr]}}
+

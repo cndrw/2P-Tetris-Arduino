@@ -1,0 +1,145 @@
+\hypertarget{namespaceRenderer}{}\doxysection{Renderer Namespace Reference}
+\label{namespaceRenderer}\index{Renderer@{Renderer}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceRenderer_a65748626637418f461743c4ef49ffb24}{Shift\+All}} (uint8\+\_\+t send\+To\+Adress, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em function for setting up all matrices at once \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a6318a390b3761ae76e5ca0a25eb1122a}{Setup\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em sets up the led matrices by writing to their registers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a6785a292a69df8b1531e81252c56944f}{Draw\+Screen}} (int32\+\_\+t matrix\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em draws the current state of screen to the matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_ae2c23c66c7bf4d9e5721992db64568b2}{Include\+Block}} (\mbox{\hyperlink{structVector}{Vector}} points\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structVector}{Vector}} anchor\+Point, int length)
+\begin{DoxyCompactList}\small\item\em draws a block to the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_aa8e4e87331f9b4e97ec2ad190b1b917e}{Remove\+Block}} (\mbox{\hyperlink{structVector}{Vector}} points\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structVector}{Vector}} anchor\+Point, int length)
+\begin{DoxyCompactList}\small\item\em removes a block from the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a07eb43c45fab52a17726fac9ad30d06b}{Include\+Rows}} (int32\+\_\+t rows\mbox{[}$\,$\mbox{]}, uint8\+\_\+t insert\+At, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em adds whole rows to the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a6490ebf4d2b116a04acb33101a102fd5}{Clear\+Rows}} (uint8\+\_\+t from, uint8\+\_\+t to)
+\begin{DoxyCompactList}\small\item\em removes all rows between to rows (inlcusiv) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceRenderer_a0a898e8884e656a3632ddd3b1798ea59}{Clear\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em clears the whole screen \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceRenderer_a6490ebf4d2b116a04acb33101a102fd5}\label{namespaceRenderer_a6490ebf4d2b116a04acb33101a102fd5}} 
+\index{Renderer@{Renderer}!ClearRows@{ClearRows}}
+\index{ClearRows@{ClearRows}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{ClearRows()}{ClearRows()}}
+{\footnotesize\ttfamily void Renderer\+::\+Clear\+Rows (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{from,  }\item[{uint8\+\_\+t}]{to }\end{DoxyParamCaption})}
+
+
+
+removes all rows between to rows (inlcusiv) 
+
+can only remove contigious rows 
+\begin{DoxyParams}{Parameters}
+{\em from} & start row \\
+\hline
+{\em to} & end row \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceRenderer_a0a898e8884e656a3632ddd3b1798ea59}\label{namespaceRenderer_a0a898e8884e656a3632ddd3b1798ea59}} 
+\index{Renderer@{Renderer}!ClearScreen@{ClearScreen}}
+\index{ClearScreen@{ClearScreen}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{ClearScreen()}{ClearScreen()}}
+{\footnotesize\ttfamily void Renderer\+::\+Clear\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clears the whole screen 
+
+\mbox{\Hypertarget{namespaceRenderer_a6785a292a69df8b1531e81252c56944f}\label{namespaceRenderer_a6785a292a69df8b1531e81252c56944f}} 
+\index{Renderer@{Renderer}!DrawScreen@{DrawScreen}}
+\index{DrawScreen@{DrawScreen}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{DrawScreen()}{DrawScreen()}}
+{\footnotesize\ttfamily void Renderer\+::\+Draw\+Screen (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{matrix\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+draws the current state of screen to the matrix 
+
+\mbox{\Hypertarget{namespaceRenderer_ae2c23c66c7bf4d9e5721992db64568b2}\label{namespaceRenderer_ae2c23c66c7bf4d9e5721992db64568b2}} 
+\index{Renderer@{Renderer}!IncludeBlock@{IncludeBlock}}
+\index{IncludeBlock@{IncludeBlock}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{IncludeBlock()}{IncludeBlock()}}
+{\footnotesize\ttfamily void Renderer\+::\+Include\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVector}{Vector}}}]{points\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{structVector}{Vector}}}]{anchor\+Point,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+draws a block to the screen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & points that make up the block \\
+\hline
+{\em anchor\+Point} & coordinates where the block will be placed \\
+\hline
+{\em length} & how many points the block has \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceRenderer_a07eb43c45fab52a17726fac9ad30d06b}\label{namespaceRenderer_a07eb43c45fab52a17726fac9ad30d06b}} 
+\index{Renderer@{Renderer}!IncludeRows@{IncludeRows}}
+\index{IncludeRows@{IncludeRows}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{IncludeRows()}{IncludeRows()}}
+{\footnotesize\ttfamily void Renderer\+::\+Include\+Rows (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{rows\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{insert\+At,  }\item[{uint8\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+adds whole rows to the screen 
+
+can only add contigious rows 
+\begin{DoxyParams}{Parameters}
+{\em rows} & collection of rows that will be added \\
+\hline
+{\em insert\+At} & at which row the insertion starts \\
+\hline
+{\em length} & how many rows \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceRenderer_aa8e4e87331f9b4e97ec2ad190b1b917e}\label{namespaceRenderer_aa8e4e87331f9b4e97ec2ad190b1b917e}} 
+\index{Renderer@{Renderer}!RemoveBlock@{RemoveBlock}}
+\index{RemoveBlock@{RemoveBlock}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{RemoveBlock()}{RemoveBlock()}}
+{\footnotesize\ttfamily void Renderer\+::\+Remove\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVector}{Vector}}}]{points\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{structVector}{Vector}}}]{anchor\+Point,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+removes a block from the screen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & points that make up the block \\
+\hline
+{\em anchor\+Point} & coordinates where the block will be removed \\
+\hline
+{\em length} & how many points the block has \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceRenderer_a6318a390b3761ae76e5ca0a25eb1122a}\label{namespaceRenderer_a6318a390b3761ae76e5ca0a25eb1122a}} 
+\index{Renderer@{Renderer}!SetupScreen@{SetupScreen}}
+\index{SetupScreen@{SetupScreen}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{SetupScreen()}{SetupScreen()}}
+{\footnotesize\ttfamily void Renderer\+::\+Setup\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets up the led matrices by writing to their registers 
+
+\mbox{\Hypertarget{namespaceRenderer_a65748626637418f461743c4ef49ffb24}\label{namespaceRenderer_a65748626637418f461743c4ef49ffb24}} 
+\index{Renderer@{Renderer}!ShiftAll@{ShiftAll}}
+\index{ShiftAll@{ShiftAll}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{ShiftAll()}{ShiftAll()}}
+{\footnotesize\ttfamily void Renderer\+::\+Shift\+All (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{send\+To\+Adress,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+function for setting up all matrices at once 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sent\+To\+Adress} & adress of the register \\
+\hline
+{\em data} & data that will be set in the register \\
+\hline
+\end{DoxyParams}

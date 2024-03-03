@@ -1,0 +1,136 @@
+\hypertarget{classMenueHandler}{}\doxysection{Menue\+Handler Class Reference}
+\label{classMenueHandler}\index{MenueHandler@{MenueHandler}}
+
+
+controls the currently running menue  
+
+
+
+
+{\ttfamily \#include $<$menue\+\_\+handler.\+h$>$}
+
+
+
+Inheritance diagram for Menue\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classMenueHandler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menue\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classMenueHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMenueHandler_a116501fdae208ed827f1ed3b41793d82}{Add\+Menue}} (\mbox{\hyperlink{classMenue}{Menue}} $\ast$p\+\_\+menue)
+\begin{DoxyCompactList}\small\item\em adds a menu to the internal managed menues \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenueHandler_aebc6ddcb00410b3280fb9f669e692658}{Init}} (uint8\+\_\+t menue)
+\begin{DoxyCompactList}\small\item\em initializes the menu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}{Update}} ()
+\begin{DoxyCompactList}\small\item\em updates the currently running menu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}{Input}} (uint8\+\_\+t pressed\+Button, uint8\+\_\+t)
+\begin{DoxyCompactList}\small\item\em directs the currently pressed button to the currently running menu (simulation) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenueHandler_a86b79625d37e8235ac085634d5430db1}{Freeze}} (bool)
+\begin{DoxyCompactList}\small\item\em freezes the currently running menu \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+controls the currently running menue 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenueHandler_a116501fdae208ed827f1ed3b41793d82}\label{classMenueHandler_a116501fdae208ed827f1ed3b41793d82}} 
+\index{MenueHandler@{MenueHandler}!AddMenue@{AddMenue}}
+\index{AddMenue@{AddMenue}!MenueHandler@{MenueHandler}}
+\doxysubsubsection{\texorpdfstring{AddMenue()}{AddMenue()}}
+{\footnotesize\ttfamily void Menue\+Handler\+::\+Add\+Menue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMenue}{Menue}} $\ast$}]{p\+\_\+menue }\end{DoxyParamCaption})}
+
+
+
+adds a menu to the internal managed menues 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+menue} & menu that will be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMenueHandler_a86b79625d37e8235ac085634d5430db1}\label{classMenueHandler_a86b79625d37e8235ac085634d5430db1}} 
+\index{MenueHandler@{MenueHandler}!Freeze@{Freeze}}
+\index{Freeze@{Freeze}!MenueHandler@{MenueHandler}}
+\doxysubsubsection{\texorpdfstring{Freeze()}{Freeze()}}
+{\footnotesize\ttfamily void Menue\+Handler\+::\+Freeze (\begin{DoxyParamCaption}\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+freezes the currently running menu 
+
+
+
+Implements \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Process}}.
+
+\mbox{\Hypertarget{classMenueHandler_aebc6ddcb00410b3280fb9f669e692658}\label{classMenueHandler_aebc6ddcb00410b3280fb9f669e692658}} 
+\index{MenueHandler@{MenueHandler}!Init@{Init}}
+\index{Init@{Init}!MenueHandler@{MenueHandler}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Menue\+Handler\+::\+Init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{menue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+initializes the menu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menue} & the menu that will be initialized \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}{Process}}.
+
+\mbox{\Hypertarget{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}\label{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}} 
+\index{MenueHandler@{MenueHandler}!Input@{Input}}
+\index{Input@{Input}!MenueHandler@{MenueHandler}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
+{\footnotesize\ttfamily void Menue\+Handler\+::\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pressed\+Button,  }\item[{uint8\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+directs the currently pressed button to the currently running menu (simulation) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pressed\+Button} & button that got pressed by controller 1 \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Process}}.
+
+\mbox{\Hypertarget{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}\label{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}} 
+\index{MenueHandler@{MenueHandler}!Update@{Update}}
+\index{Update@{Update}!MenueHandler@{MenueHandler}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Menue\+Handler\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+updates the currently running menu 
+
+
+
+Implements \mbox{\hyperlink{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}{Process}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/\mbox{\hyperlink{menue__handler_8h}{menue\+\_\+handler.\+h}}\end{DoxyCompactItemize}

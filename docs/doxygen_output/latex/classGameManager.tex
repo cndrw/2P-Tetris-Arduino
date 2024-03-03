@@ -1,0 +1,121 @@
+\hypertarget{classGameManager}{}\doxysection{Game\+Manager Class Reference}
+\label{classGameManager}\index{GameManager@{GameManager}}
+
+
+manages the gameplay of \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}  
+
+
+
+
+{\ttfamily \#include $<$game\+\_\+manager.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classGameManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classGameManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGameManager_ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13}{Init}} (uint8\+\_\+t player\+Count)
+\begin{DoxyCompactList}\small\item\em initializes the game session(s) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}{Update}} ()
+\begin{DoxyCompactList}\small\item\em updates each game instance and the music \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_a2874602fb604d9563eb0693f39152c1d}{Input}} (uint8\+\_\+t pressed\+Button1, uint8\+\_\+t pressed\+Button2)
+\begin{DoxyCompactList}\small\item\em directs the pressed buttons to the game instances \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}{Freeze}} (bool freeze)
+\begin{DoxyCompactList}\small\item\em saves and freezes the game instances \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+manages the gameplay of \mbox{\hyperlink{classRetrisOS}{Retris\+OS}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}\label{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}} 
+\index{GameManager@{GameManager}!Freeze@{Freeze}}
+\index{Freeze@{Freeze}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{Freeze()}{Freeze()}}
+{\footnotesize\ttfamily void Game\+Manager\+::\+Freeze (\begin{DoxyParamCaption}\item[{bool}]{freeze }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+saves and freezes the game instances 
+
+
+
+Implements \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Process}}.
+
+\mbox{\Hypertarget{classGameManager_ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13}\label{classGameManager_ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13}} 
+\index{GameManager@{GameManager}!Init@{Init}}
+\index{Init@{Init}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Game\+Manager\+::\+Init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{player\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+initializes the game session(s) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Count} & how many game instances will be started (max. 2) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}{Process}}.
+
+\mbox{\Hypertarget{classGameManager_a2874602fb604d9563eb0693f39152c1d}\label{classGameManager_a2874602fb604d9563eb0693f39152c1d}} 
+\index{GameManager@{GameManager}!Input@{Input}}
+\index{Input@{Input}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
+{\footnotesize\ttfamily void Game\+Manager\+::\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pressed\+Button1,  }\item[{uint8\+\_\+t}]{pressed\+Button2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+directs the pressed buttons to the game instances 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pressed\+Button1} & pressed button from controller 1 \\
+\hline
+{\em pressed\+Button2} & pressed button from controller 2 \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Process}}.
+
+\mbox{\Hypertarget{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}\label{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}} 
+\index{GameManager@{GameManager}!Update@{Update}}
+\index{Update@{Update}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+Manager\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+updates each game instance and the music 
+
+
+
+Implements \mbox{\hyperlink{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}{Process}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/\mbox{\hyperlink{game__manager_8h}{game\+\_\+manager.\+h}}\end{DoxyCompactItemize}

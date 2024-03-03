@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['r_71',['R',['../classGameControllers.html#ac7d0e17f48a1708dc367b7a3f6e0e95cab11f9c7519fcdbe8ba713e08b30a2da8',1,'GameControllers']]],
-  ['readcontrollerinput_72',['ReadControllerInput',['../namespaceInput.html#a9d92855bcbf7a86d791cec75d7b3027c',1,'Input::ReadControllerInput()'],['../Controller__config_8h.html#ab8d1a2e216b74e3fa33fa8110e5cde69',1,'ReadControllerInput():&#160;Controller_config.h']]],
-  ['readcontrollerinputs_73',['ReadControllerInputs',['../namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1',1,'Input']]],
-  ['right_74',['RIGHT',['../classGameControllers.html#ac7d0e17f48a1708dc367b7a3f6e0e95ca5c3778a1d25963c5336d1b82a4c1bdbc',1,'GameControllers']]],
-  ['row_75',['row',['../namespacepixel__to__hex__converter.html#a217623f92279759ae0e79a661b111356',1,'pixel_to_hex_converter']]],
-  ['rows_76',['rows',['../namespacepixel__to__hex__converter.html#ae092eb8760061ba6de8d9ea1dd31f0b1',1,'pixel_to_hex_converter']]]
+  ['o_209',['O',['../constants_8h.html#a396fecfabe3105afc15a61c209f910f0',1,'constants.h']]],
+  ['oblock_210',['OBLOCK',['../constants_8h.html#a1e640d80c98e304b9dfe74fdcf39602f',1,'constants.h']]],
+  ['operator_2a_3d_211',['operator*=',['../structVector.html#a357f04fdcadd798dfdc9540040604da9',1,'Vector']]],
+  ['operator_2b_212',['operator+',['../structVector.html#a8636c13924ae2a8f08a5c56c1bdee35d',1,'Vector']]]
 ];

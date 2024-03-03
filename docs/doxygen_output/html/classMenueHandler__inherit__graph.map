@@ -1,0 +1,4 @@
+<map id="MenueHandler" name="MenueHandler">
+<area shape="rect" id="node1" title="controls the currently running menue" alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node2" href="$classProcess.html" title="application unit that can be run by the RetrisOS" alt="" coords="28,5,100,32"/>
+</map>
