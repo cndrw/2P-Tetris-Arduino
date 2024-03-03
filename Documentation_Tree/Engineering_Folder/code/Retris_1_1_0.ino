@@ -68,7 +68,6 @@ void setup() {
 void loop()
 {
   retris.UpdateSystem();
-  Renderer::DrawScreen(screen);
   asm("WDR"); // reset watchdog
   delay(10);
 }

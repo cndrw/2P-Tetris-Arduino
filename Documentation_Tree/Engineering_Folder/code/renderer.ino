@@ -25,14 +25,14 @@ namespace Renderer
     ShiftAll(0x09, 0x00); //decode mode register - No decode
   }
 
-  void DrawScreen(int32_t matrix[])
+  void DrawScreen()
   {
     for (uint8_t i = 0; i < ROWS; i++)
     {
       PORTB &= ~(1 << PB0); // CS LOW
       for (uint8_t j = 0; j < SIZE; j++)
       {
-        uint8_t data = matrix[i + (j / 4) * 8] >> ((6 - ((j % 4) * 2)) * 4);
+        uint8_t data = screen[i + (j / 4) * 8] >> ((6 - ((j % 4) * 2)) * 4);
 
 #if SIMULATION
         data = ((data >> 1) & 0x55) | ((data << 1) & 0xAA);

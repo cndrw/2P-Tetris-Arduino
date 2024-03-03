@@ -4,7 +4,7 @@
 #include "vector.h"
 #include <LiquidCrystal_I2C.h>
 
-#define SIMULATION 1
+#define SIMULATION 0
 #define DEBUG 0
 
 #define CLK 52

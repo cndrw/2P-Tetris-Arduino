@@ -19,7 +19,7 @@ namespace Renderer
   /**
    * @brief draws the current state of screen to the matrix 
    */
-  void DrawScreen(int32_t matrix[]);
+  void DrawScreen();
   /**
    * @brief draws a block to the screen
    * @param points points that make up the block

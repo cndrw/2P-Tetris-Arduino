@@ -96,6 +96,7 @@ void RetrisOS::UpdateSystem()
 #endif
 
   mp_processes[m_currentProcess]->Update();
+  Renderer::DrawScreen(screen);
 }
 
 // replaces the current process with the frozen one
