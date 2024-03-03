@@ -7,8 +7,9 @@ Diese Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ged
 - [Rendering](#rendering)
     - [interne Repräsentation des Displays](#interne-repräsentation-des-displays)
     - [Übertragung des internen Zustands](#übertraung-des-internen-screen)
-- [OS-Struktur](#os---struktur)
-    - [Processes](#processes)
+- [Überblick Systemarchitektur](#systemarchitektur)
+- [OS-Struktur](#os-struktur)
+    - [Processes](#)Wo ist das Kapitel dazu??
     - [MenueHandler](#menuehandler)
     - [GameManager](#gamemanager)
 - [Spiellogik](#spiellogik) 
@@ -124,6 +125,12 @@ Der Teil `(j % 4) * 2` ermöglicht die Folge: 0,2,4,6,0,2,... Mit der `6 - ` dav
 }
 ```
 Dies Übertragung wird von der `DrawScreen` funktion ausgefürht, diese zeichnet nach jedem OS-Tick den momentan Zustand des internen `screen`.
+
+## Systemarchitektur
+
+In der nachfolgenden Grafik sieht man die allgemeine Systemarchitektur. Dies soll den schematischen Aufbau des Projekts aufzeigen und die entsprechenden Schnittstellen auf einen Blick kenntlich machen.
+
+![Systemarchitektur](/Documentation_Tree/Engineering_Folder/images/Systemarchitektur.PNG)
 
 
 
