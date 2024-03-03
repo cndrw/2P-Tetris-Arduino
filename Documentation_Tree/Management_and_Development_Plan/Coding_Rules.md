@@ -1,12 +1,12 @@
 # Coding Standards 
-## General
-Variable names shall be descriptiv in the given context and not use abbreviation except for common used ones (i.e. x, y, z or i in loops).
+## Allgemein
+Variablennamen sollen den gegebenen Kontext beschreiben und keine Abkürzungen verwenden, außer für häufig verwendete (z. B. x, y, z oder i in Schleifen).
 
-Magic numbers should be avoided if possible. 
+Magische Zahlen sollten vermieden werden, wenn möglich.
 
-For for-loops, if-statements and switch-case-statemants should always have a defined body with "{}" even when it could be written without.
+Für for-Schleifen, if-Anweisungen und switch-case-Anweisungen sollte immer ein definierter Körper mit "{}" vorhanden sein, auch wenn es nicht notwendig ist.
 
-Example:
+Beispiel:
 ```
 if (input == Input.right)
 {
@@ -27,21 +27,21 @@ switch (gameState)
 }
 ```
 
-## Type Usage
-For integer types the cstdint library should be used 
+## Typenverwendung
+Für Ganzzahltypen (integer) sollte die cstdint-Bibliothek verwendet werden. 
 
-## Comments
-Comments which explaing a function an it's parameter shall always be written with doxygen
+## Kommentare
+Kommentare, die eine Funktion und ihre Parameter erklären, sollten immer mit Doxygen geschrieben werden.
 ```
 [missing example]
 ```
 ---
 
-Comments should be placed where the function of code might not be so obvious.
+Kommentare sollten dort platziert werden, wo die Funktion des Codes möglicherweise nicht so offensichtlich ist.
 
-Comments for indenpendet code snippets should be written with the "//" even if spanning over mutiple lines.
+Kommentare für unabhängige Code-Schnipsel sollten mit "//" geschrieben werden, auch wenn sie über mehrere Zeilen gehen.
 
-Example:
+Beispiel:
 ```
 // This is a comment
 
@@ -50,11 +50,11 @@ Example:
 // a bit longer
 ```
 
-## Naming Conventions
-### Filenames
-Source and header files shall be named in lower case and in case of an compound word spaced accordingly with underscores.
+## Namenskonventionen
+### Dateinamen
+Quell- und Headerdateien sollen in Kleinbuchstaben benannt werden und bei zusammengesetzten Wörtern entsprechend mit Unterstrichen versehen sein.
 
-Example:
+Beispiel:
 ```
 tetris.c
 tetris.h
@@ -62,29 +62,28 @@ music_manager.c
 music_manager.h
 ```
 ---
-###  Variables
-Macros should always be named capitalized. If the name is an compound word it will be spaced with an underscore accordingly.
+###  Variablen
+Makros sollten immer großgeschrieben werden. Wenn der Name aus mehreren Wörtern besteht, wird er entsprechend mit einem Unterstrich versehen.
 
-Example:
+Beispiel:
 ```
 #define SIZE 10
 #define MAX_LENGTH 20
 ```
 ---
-The name of a variable in general should be written in camelCase (with potential prefixes).
+Der Name einer Variablen im Allgemeinen sollte in camelCase geschrieben werden (mit potenziellen Präfixen).
 
-Example:
+Beispiel:
 ```
 uint8_t countDown = 0;
 float time = 0f;
 bool isActivated = false;
 ```
 
-## Defines
-Use makros  over enums, enums will take up storage while makros won't.
-To ensure right usage over when using over mutiple files, coherent makros shall begin with an common title.
+## Definitionen
+Verwenden von Makros anstelle von Enums. Enums belegen Speicher, während Makros dies nicht tun. Um die richtige Verwendung sicherzustellen, wenn sie über mehrere Dateien hinweg verwendet werden, sollen kohärente Makros mit einem gemeinsamen Titel beginnen.
 
-Example:
+Beispiel:
 ```
 #define GAME_STATE_PLAY 0
 #define GAME_STATE_PAUSE 1
@@ -93,25 +92,24 @@ Example:
 #define MENUE_PAUSE 1
 ```
 
-The asterisk (*) for pointers is next to the type additionally pointers will be named with and "p_" prefix. 
+Das Asterisk (*) für Zeiger steht neben dem Typ, zusätzlich werden Zeiger mit einem Präfix "p_" benannt.
 
-Example:
+Beispiel:
 ```
 int8_t* p_dataInput;
 ```
 ---
-Arrays should be if possible always named in plural as well as marked with a "a_" prefix.
+Arrays sollten, wenn möglich, immer im Plural benannt werden und mit einem "a_"-Präfix markiert sein.
 
-Example:
+Beispiel:
 ```
 uint8_t a_numbers[SIZE];
 ```
 ---
 
-Classes, Struct and Enums shall be named in PascalCase.
-Private variables should we named with an "m_" prefix while public varaibles remain named as normal ones.
+Klassen, Strukturen und Enums sollen in PascalCase benannt werden. Private Variablen sollten mit einem "m_"-Präfix benannt werden, während öffentliche Variablen wie normale benannt bleiben.
 
-Example:
+Beispiel:
 ```
 class GameManager
 {
@@ -138,10 +136,10 @@ public enum Input
 }
 ```
 
-### Functions
-Function names will be declared with with camelCase and an additional "fn_" infront. The funcition body shall start on a new line.
+### Funktionen
+Funktionsnamen werden in camelCase und mit einem zusätzlichen "fn_" vorangestellt deklariert. Der Funktionskörper sollte auf einer neuen Zeile beginnen.
 
-Example:
+Beispiel:
 ```
 void fn_drawScreen(int16_t a, char b)
 {
