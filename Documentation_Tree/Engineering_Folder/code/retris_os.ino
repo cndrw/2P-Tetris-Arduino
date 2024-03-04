@@ -1,5 +1,6 @@
 #include "retris_os.h"
 #include "constants.h"
+#include "renderer.h"
 
 #if !SIMULATION
 #include "input.h"
@@ -96,7 +97,7 @@ void RetrisOS::UpdateSystem()
 #endif
 
   mp_processes[m_currentProcess]->Update();
-  Renderer::DrawScreen(screen);
+  Renderer::DrawScreen();
 }
 
 // replaces the current process with the frozen one

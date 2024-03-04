@@ -39,6 +39,7 @@ void setup() {
   Audio::Setup();
   Renderer::SetupScreen();
   HW::lcd.init();
+  HW::lcd.backlight();
   WatchdogSetup();
 #if !SIMULATION
   Input::SetupPins();

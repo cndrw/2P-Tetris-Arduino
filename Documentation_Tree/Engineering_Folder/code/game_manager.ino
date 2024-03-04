@@ -11,7 +11,7 @@ void GameManager::Init(uint8_t playerCount)
 {
   // redraw the screen in order to have an empty
   // one while the intro sequence is happening
-  Renderer::DrawScreen(screen);
+  Renderer::DrawScreen();
 
   // intro sequence
   HW::lcd.setCursor(0, 0);
