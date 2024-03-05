@@ -396,7 +396,7 @@ void RetrisGame::UpdateScore(const uint8_t clearedRows)
   // update lcd screen
   HW::lcd.setCursor(0, m_instanceCount - 1);
   HW::lcd.print("P" + String(m_instanceCount) + ": " + String(m_score));
-  HW::lcd.setCursor(15, m_instanceCount - 1);
+  HW::lcd.setCursor(14, m_instanceCount - 1);
   HW::lcd.print(m_level);
 }
 
