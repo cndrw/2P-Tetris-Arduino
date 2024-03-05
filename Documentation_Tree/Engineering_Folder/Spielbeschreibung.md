@@ -13,7 +13,7 @@
 
 ## Motivation
 
-Retris basiert auf dem legendären Puzzle-Videospiel Tetris, dass 1985 von dem sowjetischen Softwareingenieur Alexey Pajitnov entwickelt wurde. Es wurde von mehreren Unternehmen für verschiedene Plattformen veröffentlicht.  Inspiriert von dem zeitlosen Klassiker, bietet Retris ein vertrautes Gameplay, das durch moderne Technologie und einzigartige Features bereichert wird. Retris wird mit SNES-Controllern gesteuert und kann im Zwei-Spieler-Modus gespielt werden.
+Retris basiert auf dem legendären Puzzle-Videospiel Tetris, dass 1985 von dem sowjetischen Softwareingenieur Alexey Pajitnov entwickelt wurde. Es wurde von mehreren Unternehmen für verschiedene Plattformen veröffentlicht.  Inspiriert von dem zeitlosen Klassiker, bietet Retris ein vertrautes Gameplay, dass durch moderne Technologie und einzigartige Features bereichert wird. Retris wird mit SNES-Controllern gesteuert und kann im Zwei-Spieler-Modus gespielt werden.
 
 
 # Spielbeschreibung
@@ -46,15 +46,19 @@ Nach einer bestimmten Anzahl an Reihen, die der Spieler gelöscht hat - in unser
 - B : nicht belegt
 - X : Rotieren des Blocks
 - Y : nicht belegt
+
 Pfeiltasten :
 - links : Bewegung des Retrominos nach links
 - rechts : Bewegung des Retrominos nach rechts
-- oben : Pfeiltaste nach oben bewegt die Auswahl nach oben
-- unten : Pfeiltaste nach unten bewegt die Auswahl nach unten
+- oben : Pfeiltaste nach oben bewegt die Auswahl nach oben (Menü)
+- unten : Pfeiltaste nach unten bewegt die Auswahl nach unten (Menü)
 
 Start Knopf : Stoppen des Spiels, Pause
+
 Select Knopf : Stoppen des Spiels, Pause
+
 R1 : nicht belegt
+
 L1 :  nicht belegt
 
 ![Beschreibung](/Documentation_Tree/Engineering_Folder/images/Controller_Beschreibung.jpg)
@@ -65,10 +69,10 @@ Wenn das Spielfeld mit unvollständigen Reihen bis zum oberen Rand gefüllt ist,
 
 
 ## Innovative Funktionen:
-Retris bietet eine Vielzahl von innovativen Funktionen, die das Spielerlebnis bereichern. Von einem eingängigen Soundtrack, der die Atmosphäre belebt, bis hin zu einem Zwei-Spieler-Modus, der es Ihnen ermöglicht, gegen Freunde oder Rivalen anzutreten, bietet Retris eine Vielzahl von Möglichkeiten, das Spiel zu genießen.
+Retris bietet eine Vielzahl von innovativen Funktionen, die das Spielerlebnis bereichern. Von einem eingängigen Soundtrack, der die Atmosphäre belebt, bis hin zu einem Zwei-Spieler-Modus, der es Ihnen ermöglicht, gegen Freunde oder Rivalen anzutreten, bietet Retris eine Vielzahl von Möglichkeiten, das Spiel zu genießen. Außerdem bringt die Controllersteuerung eine einfache Handhabung mit sich.
 
 ## Mobilität und Flexibilität:
-Dank seiner tragbaren Hardware und mobilen Stromversorgung können Sie Retris überallhin mitnehmen und spielen, egal ob Sie unterwegs sind oder zu Hause auf dem Sofa entspannen. Das kompakte Design und die austauschbaren Controller machen Retris zu einem idealen Begleiter für unterwegs.
+Dank seiner tragbaren Hardware und einfachen Stromversorgung, können Sie Retris überallhin mitnehmen und spielen, egal ob Sie unterwegs sind oder zu Hause auf dem Sofa entspannen. Das kompakte Design und die austauschbaren Controller machen Retris zu einem idealen Begleiter für unterwegs.
 
 ## 100 % Spielspaß garantiert:
 Mit seinem einzigartigen Gameplay, innovativen Funktionen und grenzenloser Spielfreude ist Retris das Spiel für alle, die das Retro-Feeling lieben und gleichzeitig die Zukunft des Gamings erleben wollen.
