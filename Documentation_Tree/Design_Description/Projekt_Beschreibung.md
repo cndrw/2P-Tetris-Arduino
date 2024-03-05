@@ -1,14 +1,15 @@
 <!-- Table of contents -->
 # Inhalt
 
-1. [Kurzbeschreibung](#kurzbeschreibung)
-2. [Aufbau](#aufbau)
+- [Inhalt](#inhalt)
+- [Kurzbeschreibung](#kurzbeschreibung)
+- [Aufbau](#aufbau)
     - [Gehäuse](#gehäuse)
     - [LED-Matrix](#led-matrix)
-    - [Mikrocomputer](#mikrocontroller)
+    - [Mikrocontroller](#mikrocontroller)
     - [SNES-Controller](#snes-controller)
     - [Spannungsversorgung](#spannungsversorgung)
-    - [I²C-LCD](#i²c-lcd)
+    - [I²C-LCD](#ic-lcd)
     - [Buzzer](#buzzer)
     - [Schaltplan](#schaltplan)
 
@@ -44,7 +45,7 @@ Um beispielsweise die Helligkeit der LEDs zu steuern oder andere Anpassungen vor
 
 Für die Steuerung und der Logik der gesamten Systemarchitektur ist der Mikrocomputer zuständig. 
 Hier haben wir auf ein klassisches Arduino-Kit mit einem Arduino MEGA zurückgegriffen. Dieses bietet bereits einige Bauteile und Leitungen die für unser Projekt nötig sind.
-Die Wahl des Arduino MEGA mit dem Kern ATmega2560 war eine reine Vorsichtsmaßnahme um zu vermeiden, dass uns der Speicherplatz des Chips definitv ausreicht. Der Mikrocontroller bietet uns genügend digitale und analoge Pins, um die Ansteuerung der LED-Matrix, der beiden SNES-Controller, des Buzzers und des LCD zu realisieren.
+Die Wahl des Arduino MEGA mit dem Kern ATmega2560 war eine reine Vorsichtsmaßnahme um zu vermeiden, dass uns der Speicherplatz des Chips definitv ausreicht. Rückwirkend betrachtet war dies auch die richtige Entscheidung, da der Arbeitsspeicher eines Arduino UNO nicht für dieses Projekt ausgereicht hätte. Mit einem Verbrauch von etwa 16 Kilobyte Flash Speicher und 2,6 Kilobyte RAM, war der leistungsfähigere Mikrocontroller notwendig. Der Mikrocontroller bietet uns genügend digitale und analoge Pins, um die Ansteuerung der LED-Matrix, der beiden SNES-Controller, des Buzzers und des LCD zu realisieren.
 
 
 ### SNES-Controller
