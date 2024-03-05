@@ -11,10 +11,10 @@ class Block
 {
   public:
     /**
-     * @brief changes which specific block the object currently is
-     * @param blockShape which Block it will be
-     * @param name name of the new Block
-     * @param startPosition where the Block will appear on the screen
+     * @brief Changes which specific block (shape) the object currently is
+     * @param blockShape Which block it will be
+     * @param name Name of the new block
+     * @param startPosition Where the block will appear on the screen
      */
     void Create(const Vector blockShape[], const uint8_t name, const Vector startPosition);
     /**

@@ -2,7 +2,7 @@
 \label{classGameManager}\index{GameManager@{GameManager}}
 
 
-manages the gameplay of \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}  
+Manages the gameplay of up to two \mbox{\hyperlink{classRetrisGame}{Retris\+Game}} instances.  
 
 
 
@@ -33,17 +33,15 @@ Collaboration diagram for Game\+Manager\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classGameManager_ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13}{Init}} (uint8\+\_\+t player\+Count)
-\begin{DoxyCompactList}\small\item\em initializes the game session(s) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the game session(s) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}{Update}} ()
-\begin{DoxyCompactList}\small\item\em updates each game instance and the music \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGameManager_a2874602fb604d9563eb0693f39152c1d}{Input}} (uint8\+\_\+t pressed\+Button1, uint8\+\_\+t pressed\+Button2)
-\begin{DoxyCompactList}\small\item\em directs the pressed buttons to the game instances \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Updates each game instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}{Freeze}} (bool freeze)
-\begin{DoxyCompactList}\small\item\em saves and freezes the game instances \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Saves the current state of the game field and freezes the game instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-manages the gameplay of \mbox{\hyperlink{classRetrisOS}{Retris\+OS}} 
+Manages the gameplay of up to two \mbox{\hyperlink{classRetrisGame}{Retris\+Game}} instances. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}\label{classGameManager_a58bd3f139e32c0d1bf432d398ffd79ed}} 
@@ -54,7 +52,7 @@ manages the gameplay of \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}
 
 
 
-saves and freezes the game instances 
+Saves the current state of the game field and freezes the game instances. 
 
 
 
@@ -68,37 +66,16 @@ Implements \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Proc
 
 
 
-initializes the game session(s) 
+Initializes the game session(s) 
 
 
 \begin{DoxyParams}{Parameters}
-{\em player\+Count} & how many game instances will be started (max. 2) \\
+{\em player\+Count} & How many game instances will be started (max. 2) \\
 \hline
 \end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}{Process}}.
-
-\mbox{\Hypertarget{classGameManager_a2874602fb604d9563eb0693f39152c1d}\label{classGameManager_a2874602fb604d9563eb0693f39152c1d}} 
-\index{GameManager@{GameManager}!Input@{Input}}
-\index{Input@{Input}!GameManager@{GameManager}}
-\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
-{\footnotesize\ttfamily void Game\+Manager\+::\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pressed\+Button1,  }\item[{uint8\+\_\+t}]{pressed\+Button2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-directs the pressed buttons to the game instances 
-
-
-\begin{DoxyParams}{Parameters}
-{\em pressed\+Button1} & pressed button from controller 1 \\
-\hline
-{\em pressed\+Button2} & pressed button from controller 2 \\
-\hline
-\end{DoxyParams}
-
-
-Implements \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Process}}.
 
 \mbox{\Hypertarget{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}\label{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}} 
 \index{GameManager@{GameManager}!Update@{Update}}
@@ -108,7 +85,7 @@ Implements \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Proc
 
 
 
-updates each game instance and the music 
+Updates each game instance. 
 
 
 

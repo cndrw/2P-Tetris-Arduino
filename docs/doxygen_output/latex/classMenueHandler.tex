@@ -2,7 +2,7 @@
 \label{classMenueHandler}\index{MenueHandler@{MenueHandler}}
 
 
-controls the currently running menue  
+Controls the currently running menue and can change between up to 3 menus.  
 
 
 
@@ -33,19 +33,17 @@ Collaboration diagram for Menue\+Handler\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classMenueHandler_a116501fdae208ed827f1ed3b41793d82}{Add\+Menue}} (\mbox{\hyperlink{classMenue}{Menue}} $\ast$p\+\_\+menue)
-\begin{DoxyCompactList}\small\item\em adds a menu to the internal managed menues \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adds a menu to the internal managed menues. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenueHandler_aebc6ddcb00410b3280fb9f669e692658}{Init}} (uint8\+\_\+t menue)
-\begin{DoxyCompactList}\small\item\em initializes the menu \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the menu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}{Update}} ()
 \begin{DoxyCompactList}\small\item\em updates the currently running menu \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}{Input}} (uint8\+\_\+t pressed\+Button, uint8\+\_\+t)
-\begin{DoxyCompactList}\small\item\em directs the currently pressed button to the currently running menu (simulation) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenueHandler_a86b79625d37e8235ac085634d5430db1}{Freeze}} (bool)
-\begin{DoxyCompactList}\small\item\em freezes the currently running menu \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Freezes the currently running menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-controls the currently running menue 
+Controls the currently running menue and can change between up to 3 menus. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classMenueHandler_a116501fdae208ed827f1ed3b41793d82}\label{classMenueHandler_a116501fdae208ed827f1ed3b41793d82}} 
@@ -56,11 +54,11 @@ controls the currently running menue
 
 
 
-adds a menu to the internal managed menues 
+Adds a menu to the internal managed menues. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p\+\_\+menue} & menu that will be added \\
+{\em p\+\_\+menue} & Menu that will be added \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classMenueHandler_a86b79625d37e8235ac085634d5430db1}\label{classMenueHandler_a86b79625d37e8235ac085634d5430db1}} 
@@ -71,9 +69,9 @@ adds a menu to the internal managed menues
 
 
 
-freezes the currently running menu 
+Freezes the currently running menu. 
 
-
+Functionality not needed, therefore no implementation 
 
 Implements \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Process}}.
 
@@ -85,35 +83,16 @@ Implements \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Proc
 
 
 
-initializes the menu 
+Initializes the menu. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em menue} & the menu that will be initialized \\
+{\em menue} & The menu that will be initialized \\
 \hline
 \end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}{Process}}.
-
-\mbox{\Hypertarget{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}\label{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}} 
-\index{MenueHandler@{MenueHandler}!Input@{Input}}
-\index{Input@{Input}!MenueHandler@{MenueHandler}}
-\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
-{\footnotesize\ttfamily void Menue\+Handler\+::\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pressed\+Button,  }\item[{uint8\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-directs the currently pressed button to the currently running menu (simulation) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em pressed\+Button} & button that got pressed by controller 1 \\
-\hline
-\end{DoxyParams}
-
-
-Implements \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Process}}.
 
 \mbox{\Hypertarget{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}\label{classMenueHandler_a34d739b1935c5e5d47a8ddf6a48aefd8}} 
 \index{MenueHandler@{MenueHandler}!Update@{Update}}

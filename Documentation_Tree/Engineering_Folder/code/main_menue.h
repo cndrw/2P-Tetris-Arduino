@@ -41,7 +41,7 @@ const int32_t MainMenueSprite[32] = {
 
 /**
 * @brief Implementation of the Menue interface
-* @details In the main menu the play can choose between 1-Player and 2-Player mode
+* @details In the main menu the player can choose between 1-Player and 2-Player mode
 */
 class MainMenue : public Menue
 {

@@ -17,7 +17,7 @@ class Menue
 
     virtual ~Menue() {}
     /**
-     * @brief draws the menue on next OS-Tick
+     * @brief Writes the menue screen visual to the internal screen
      */
     void DrawMenue()
     {
@@ -25,15 +25,15 @@ class Menue
       m_selectedButton = 0;
     }
     /**
-     * @brief redraws the menue
+     * @brief Redraws the menue
      */
     virtual void RefreshMenue() = 0;
     /**
-     * @brief executes the functionallity of the currently focused button
+     * @brief Executes the functionallity of the currently focused button
      */
     virtual void PushButton() = 0;
     /**
-     * @brief selects the next button
+     * @brief Selects the next button
      */
     virtual void ButtonSelect() = 0;
   

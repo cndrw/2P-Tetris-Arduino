@@ -77,19 +77,19 @@ Data Structures</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a81f74d0bf0c0f63cfcbc928fa5b7d361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">SetControllerCount</a> (const uint8_t number)</td></tr>
-<tr class="memdesc:a81f74d0bf0c0f63cfcbc928fa5b7d361"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets how many controller are actively checked  <a href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">More...</a><br /></td></tr>
+<tr class="memdesc:a81f74d0bf0c0f63cfcbc928fa5b7d361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets how many controller are actively checked.  <a href="namespaceInput.html#a81f74d0bf0c0f63cfcbc928fa5b7d361">More...</a><br /></td></tr>
 <tr class="separator:a81f74d0bf0c0f63cfcbc928fa5b7d361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d4142b13b4a405569686bd85be5f9a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">SetupPins</a> ()</td></tr>
-<tr class="memdesc:a5d4142b13b4a405569686bd85be5f9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">setups the controller pins  <a href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">More...</a><br /></td></tr>
+<tr class="memdesc:a5d4142b13b4a405569686bd85be5f9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setups the controller pins.  <a href="namespaceInput.html#a5d4142b13b4a405569686bd85be5f9a8">More...</a><br /></td></tr>
 <tr class="separator:a5d4142b13b4a405569686bd85be5f9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8962b4237cb785dd9ee09b72c2cb53d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">ReadControllerInputs</a> ()</td></tr>
-<tr class="memdesc:a8962b4237cb785dd9ee09b72c2cb53d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads the current state of the controller(s)  <a href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">More...</a><br /></td></tr>
+<tr class="memdesc:a8962b4237cb785dd9ee09b72c2cb53d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current state of the controller(s)  <a href="namespaceInput.html#a8962b4237cb785dd9ee09b72c2cb53d1">More...</a><br /></td></tr>
 <tr class="separator:a8962b4237cb785dd9ee09b72c2cb53d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cd08dfda5c2734fae43e42c152bcb35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">GetButton</a> (const uint8_t controller, const uint8_t button)</td></tr>
-<tr class="memdesc:a9cd08dfda5c2734fae43e42c152bcb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the desired button is currently pressed  <a href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">More...</a><br /></td></tr>
+<tr class="memdesc:a9cd08dfda5c2734fae43e42c152bcb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the desired button is currently pressed.  <a href="namespaceInput.html#a9cd08dfda5c2734fae43e42c152bcb35">More...</a><br /></td></tr>
 <tr class="separator:a9cd08dfda5c2734fae43e42c152bcb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae10eed4b8d1eb379478c976e1c2b78bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">GetButtonDown</a> (const uint8_t controller, const uint8_t button)</td></tr>
-<tr class="memdesc:ae10eed4b8d1eb379478c976e1c2b78bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the desired button got pressed (only the transition)  <a href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">More...</a><br /></td></tr>
+<tr class="memdesc:ae10eed4b8d1eb379478c976e1c2b78bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the desired button got pressed (only the transition from unpressed to pressed)  <a href="namespaceInput.html#ae10eed4b8d1eb379478c976e1c2b78bc">More...</a><br /></td></tr>
 <tr class="separator:ae10eed4b8d1eb379478c976e1c2b78bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -119,11 +119,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>checks if the desired button is currently pressed </p>
+<p>Checks if the desired button is currently pressed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">controller</td><td>which controller shall be checked </td></tr>
-    <tr><td class="paramname">button</td><td>which button shall be checked </td></tr>
+    <tr><td class="paramname">controller</td><td>Which controller shall be checked </td></tr>
+    <tr><td class="paramname">button</td><td>Which button shall be checked </td></tr>
   </table>
   </dd>
 </dl>
@@ -156,11 +156,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>checks if the desired button got pressed (only the transition) </p>
+<p>Checks if the desired button got pressed (only the transition from unpressed to pressed) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">controller</td><td>which controller shall be checked </td></tr>
-    <tr><td class="paramname">button</td><td>which button shall be checked </td></tr>
+    <tr><td class="paramname">controller</td><td>Which controller shall be checked </td></tr>
+    <tr><td class="paramname">button</td><td>Which button shall be checked </td></tr>
   </table>
   </dd>
 </dl>
@@ -182,7 +182,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>reads the current state of the controller(s) </p>
+<p>Reads the current state of the controller(s) </p>
 
 </div>
 </div>
@@ -202,10 +202,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sets how many controller are actively checked </p>
+<p>Sets how many controller are actively checked. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>number of controller </td></tr>
+    <tr><td class="paramname">number</td><td>Number of controller </td></tr>
   </table>
   </dd>
 </dl>
@@ -227,7 +227,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>setups the controller pins </p>
+<p>Setups the controller pins. </p>
 
 </div>
 </div>

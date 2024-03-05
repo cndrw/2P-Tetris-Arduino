@@ -46,23 +46,23 @@ class RetrisGame
     void ProcessInput();
 #endif
     /**
-     * @brief function that gets called every game tick
-     * @details A game tick is a fraction of an OS-Tick (depending on game speed)
+     * @brief Function that gets called every game tick
+     * @details An OS-Tick is a fraction of an game tick (depending on game speed)
     */
     void Update();
     /**
      * @brief Moves the current Block to the right by one
-     * @details If the move to the right is not possible (kollider on the right), the function will do nothing
+     * @details If the move to the right is not possible (collider on the right), the function will do nothing
     */
     void MoveRight();
     /**
      * @brief Moves the current Block to the left by one
-     * @details If the move to the left is not possible (kollider on the right), the function will do nothing
+     * @details If the move to the left is not possible (collider on the left), the function will do nothing
     */
     void MoveLeft();
     /**
      * @brief Rotates the current Block 90° clockwise
-     * @details If the rotate is not possible the function will do nothing
+     * @details If the rotation is not possible the function will do nothing
     */
     void Rotate();
     /**
@@ -73,6 +73,7 @@ class RetrisGame
     void SetTimeScale(uint8_t timeScale);
     /**
      * @brief Draws the game field with the preview block
+     * @param viewStyle The style of the game instance - preview  Block can be to the right or on top of the game field
     */
     void DrawGameField(uint8_t viewStyle);
 

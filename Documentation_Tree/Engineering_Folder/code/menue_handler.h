@@ -6,19 +6,19 @@
 
 /**
  * @class MenueHandler
- * @brief controls the currently running menue
+ * @brief Controls the currently running menue and can change between up to 3 menus
  */
 class MenueHandler : public Process
 {
   public:
     /**
-     * @brief adds a menu to the internal managed menues
-     * @param p_menue menu that will be added
+     * @brief Adds a menu to the internal managed menues
+     * @param p_menue Menu that will be added
      */
     void AddMenue(Menue* p_menue);
     /**
-     * @brief initializes the menu
-     * @param menue the menu that will be initialized
+     * @brief Initializes the menu
+     * @param menue The menu that will be initialized
      */
     void Init(uint8_t menue);
     /**
@@ -27,13 +27,14 @@ class MenueHandler : public Process
     void Update();
 #if SIMULATION
     /**
-     * @brief directs the currently pressed button to the currently running menu (simulation)
-     * @param pressedButton button that got pressed by controller 1
+     * @brief Directs the currently pressed button to the currently running menu (simulation)
+     * @param pressedButton Button that got pressed by controller 1
      */
     void Input(uint8_t pressedButton, uint8_t);
 #endif
     /**
-     * @brief freezes the currently running menu
+     * @brief Freezes the currently running menu
+     * @details Functionality not needed, therefore no implementation
      */
     void Freeze(bool) {}
 

@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>manages the gameplay of <a class="el" href="classRetrisOS.html" title="controls the current running processes">RetrisOS</a>  
+<p>Manages the gameplay of up to two <a class="el" href="classRetrisGame.html" title="Manages one single game unit and has alle the Tetris logic implemented.">RetrisGame</a> instances.  
  <a href="classGameManager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="game__manager_8h_source.html">game_manager.h</a>&gt;</code></p>
@@ -94,20 +94,17 @@ Collaboration diagram for GameManager:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13">Init</a> (uint8_t playerCount)</td></tr>
-<tr class="memdesc:ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes the game session(s)  <a href="classGameManager.html#ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13">More...</a><br /></td></tr>
+<tr class="memdesc:ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the game session(s)  <a href="classGameManager.html#ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13">More...</a><br /></td></tr>
 <tr class="separator:ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3bb4452ac262ec8a68dcc3eea2f0124"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#af3bb4452ac262ec8a68dcc3eea2f0124">Update</a> ()</td></tr>
-<tr class="memdesc:af3bb4452ac262ec8a68dcc3eea2f0124"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates each game instance and the music  <a href="classGameManager.html#af3bb4452ac262ec8a68dcc3eea2f0124">More...</a><br /></td></tr>
+<tr class="memdesc:af3bb4452ac262ec8a68dcc3eea2f0124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates each game instance.  <a href="classGameManager.html#af3bb4452ac262ec8a68dcc3eea2f0124">More...</a><br /></td></tr>
 <tr class="separator:af3bb4452ac262ec8a68dcc3eea2f0124"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2874602fb604d9563eb0693f39152c1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#a2874602fb604d9563eb0693f39152c1d">Input</a> (uint8_t pressedButton1, uint8_t pressedButton2)</td></tr>
-<tr class="memdesc:a2874602fb604d9563eb0693f39152c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">directs the pressed buttons to the game instances  <a href="classGameManager.html#a2874602fb604d9563eb0693f39152c1d">More...</a><br /></td></tr>
-<tr class="separator:a2874602fb604d9563eb0693f39152c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58bd3f139e32c0d1bf432d398ffd79ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#a58bd3f139e32c0d1bf432d398ffd79ed">Freeze</a> (bool freeze)</td></tr>
-<tr class="memdesc:a58bd3f139e32c0d1bf432d398ffd79ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">saves and freezes the game instances  <a href="classGameManager.html#a58bd3f139e32c0d1bf432d398ffd79ed">More...</a><br /></td></tr>
+<tr class="memdesc:a58bd3f139e32c0d1bf432d398ffd79ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the current state of the game field and freezes the game instances.  <a href="classGameManager.html#a58bd3f139e32c0d1bf432d398ffd79ed">More...</a><br /></td></tr>
 <tr class="separator:a58bd3f139e32c0d1bf432d398ffd79ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>manages the gameplay of <a class="el" href="classRetrisOS.html" title="controls the current running processes">RetrisOS</a> </p>
+<div class="textblock"><p>Manages the gameplay of up to two <a class="el" href="classRetrisGame.html" title="Manages one single game unit and has alle the Tetris logic implemented.">RetrisGame</a> instances. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a58bd3f139e32c0d1bf432d398ffd79ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58bd3f139e32c0d1bf432d398ffd79ed">&#9670;&nbsp;</a></span>Freeze()</h2>
@@ -133,7 +130,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>saves and freezes the game instances </p>
+<p>Saves the current state of the game field and freezes the game instances. </p>
 
 <p>Implements <a class="el" href="classProcess.html#a9d19d995b6115eb7244be090d21b4324">Process</a>.</p>
 
@@ -163,62 +160,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>initializes the game session(s) </p>
+<p>Initializes the game session(s) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">playerCount</td><td>how many game instances will be started (max. 2) </td></tr>
+    <tr><td class="paramname">playerCount</td><td>How many game instances will be started (max. 2) </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="classProcess.html#a3fdd1c563af3dd7421feccd09f4aa57f">Process</a>.</p>
-
-</div>
-</div>
-<a id="a2874602fb604d9563eb0693f39152c1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2874602fb604d9563eb0693f39152c1d">&#9670;&nbsp;</a></span>Input()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GameManager::Input </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pressedButton1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pressedButton2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>directs the pressed buttons to the game instances </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pressedButton1</td><td>pressed button from controller 1 </td></tr>
-    <tr><td class="paramname">pressedButton2</td><td>pressed button from controller 2 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="classProcess.html#add5d6f722a9c13a82b8a70de8572a78a">Process</a>.</p>
 
 </div>
 </div>
@@ -245,7 +195,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>updates each game instance and the music </p>
+<p>Updates each game instance. </p>
 
 <p>Implements <a class="el" href="classProcess.html#ae515dc114a5fb46b36ac5efcdae4fd75">Process</a>.</p>
 

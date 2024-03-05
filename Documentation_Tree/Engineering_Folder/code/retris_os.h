@@ -9,39 +9,39 @@
 #define SYS_PROCESS_MENUE 1
 
 /**
- * @brief controls the current running processes
+ * @brief Controls which process is currently running
  */
 class RetrisOS
 {
   public:
     RetrisOS() {}
     /**
-     * @brief adds a process to the internal process list
-     * @param p_process the process that will be added
+     * @brief Adds a process to the internal process list
+     * @param p_process The process that will be added
      */
     void AddProcess(Process* p_process);
     /**
-     * @brief updates the Retris system and the current process
+     * @brief Updates the Retris system and the current process
+     * @details Reads in the controller inputs
      */
     void UpdateSystem();
     /**
-     * @brief changes the currently running process
-     * @param process the process that shall be executed
-     * @param option additional option for the initialization of the process
+     * @brief Changes the currently running process
+     * @param process The process that shall be executed
+     * @param option Additional option for the initialization of the process
      */
     void ChangeProcess(uint8_t process, uint8_t option);
     /**
-     * @brief freezes the currently running process
-     * @param newProcess the new process that will be executed instead
-     * @param option initialization option for the process
+     * @brief Freezes the currently running process
+     * @param newProcess The new process that will be executed instead
+     * @param option Initialization option for the process
      */
     void FreezeCurrentProcess(uint8_t newProcess, uint8_t option);
-    // There can only be one frozen process at a time
     /**
-     * @brief unfreezes the currently frozen process
-     * @detail There can only one frozen process at a time
+     * @brief Unfreezes the currently frozen process
+     * @details There can only one frozen process at a time
      */
-    void UnFreezeProcess();
+    void UnFreezeProcess(); 
 
 
   private:

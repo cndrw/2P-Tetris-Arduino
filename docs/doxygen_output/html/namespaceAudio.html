@@ -79,7 +79,7 @@ Data Structures</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4c2ae27d68f9715556a6c9a5d679a598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceAudio.html#a4c2ae27d68f9715556a6c9a5d679a598">StopAudio</a> ()</td></tr>
-<tr class="memdesc:a4c2ae27d68f9715556a6c9a5d679a598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the currently running audio @detials Resets every related variable, so the next audio can be played.  <a href="namespaceAudio.html#a4c2ae27d68f9715556a6c9a5d679a598">More...</a><br /></td></tr>
+<tr class="memdesc:a4c2ae27d68f9715556a6c9a5d679a598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the currently running audio.  <a href="namespaceAudio.html#a4c2ae27d68f9715556a6c9a5d679a598">More...</a><br /></td></tr>
 <tr class="separator:a4c2ae27d68f9715556a6c9a5d679a598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fbf1dd4a24b28ed3a9c3ec5f6947f47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceAudio.html#a7fbf1dd4a24b28ed3a9c3ec5f6947f47">PlayAudio</a> (const uint8_t audio, const bool enableLooping=false, const bool resume=false)</td></tr>
 <tr class="memdesc:a7fbf1dd4a24b28ed3a9c3ec5f6947f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the given audio.  <a href="namespaceAudio.html#a7fbf1dd4a24b28ed3a9c3ec5f6947f47">More...</a><br /></td></tr>
@@ -88,7 +88,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0ea529e1abfe2f01381433da4596cab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the timer registers (Timer1) for playing audio.  <a href="namespaceAudio.html#a0ea529e1abfe2f01381433da4596cab8">More...</a><br /></td></tr>
 <tr class="separator:a0ea529e1abfe2f01381433da4596cab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306d5291e0e4308ebdd04eff7211efd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceAudio.html#a306d5291e0e4308ebdd04eff7211efd9">ISR</a> (TIMER1_COMPA_vect)</td></tr>
-<tr class="memdesc:a306d5291e0e4308ebdd04eff7211efd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine which frequency the pwm will be.  <a href="namespaceAudio.html#a306d5291e0e4308ebdd04eff7211efd9">More...</a><br /></td></tr>
+<tr class="memdesc:a306d5291e0e4308ebdd04eff7211efd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt service routine that will get triggered when the timer hits TOP.  <a href="namespaceAudio.html#a306d5291e0e4308ebdd04eff7211efd9">More...</a><br /></td></tr>
 <tr class="separator:a306d5291e0e4308ebdd04eff7211efd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -118,7 +118,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine which frequency the pwm will be. </p>
+<p>Interrupt service routine that will get triggered when the timer hits TOP. </p>
+<p>It will determine which frequency the PWM will be </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -164,11 +165,11 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Plays the given audio. </p>
-<p>Will first stop if there is already running, an audio </p><dl class="params"><dt>Parameters</dt><dd>
+<p>At first it will stop if any audio is playing at the moment. Then it will proceed to play the desired <a class="el" href="namespaceAudio.html">Audio</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">audio</td><td>Name of the audio that will be played </td></tr>
     <tr><td class="paramname">enableLooping</td><td>Determines wether the audio shall be looping or not </td></tr>
-    <tr><td class="paramname">resume</td><td>If true the audio will resume where it had stopped </td></tr>
+    <tr><td class="paramname">resume</td><td>If true the audio will resume where it had stopped before </td></tr>
   </table>
   </dd>
 </dl>
@@ -218,7 +219,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Stops the currently running audio @detials Resets every related variable, so the next audio can be played. </p>
+<p>Stops the currently running audio. </p>
+<p>Resets every related variable, so the next audio can be played. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

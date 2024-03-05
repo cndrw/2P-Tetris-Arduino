@@ -5,24 +5,24 @@
 #include "constants.h"
 
 /**
- * @brief handles the preview field 
+ * @brief Handles the field that will preview the Block that will be spawned next
 */
 class PreviewBlock
 {
   public:
     /**
-     * @brief updates the preview
-     * @param name name of the block that will be previewed
+     * @brief Updates the preview
+     * @param name Name of the block that will be previewed
      */
     void UpdatePreview(uint8_t name);
     /**
-     * @brief draws the border of the preview
+     * @brief Draws the border of the preview
      */
     void DrawBorder();
 
   private:
     /**
-     * @brief clears the preview (not the borders)
+     * @brief Clears the preview (not the borders)
      */
     void ClearPreview();
 

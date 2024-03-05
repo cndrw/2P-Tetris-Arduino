@@ -7,40 +7,40 @@
 
 /**
  * @class GameManager
- * @brief manages the gameplay of RetrisOS
+ * @brief Manages the gameplay of up to two RetrisGame instances
  */
 class GameManager : public Process
 {
   public:
     /**
-     * @brief initializes the game session(s)
-     * @param playerCount how many game instances will be started (max. 2)
+     * @brief Initializes the game session(s)
+     * @param playerCount How many game instances will be started (max. 2)
      */
     void Init(uint8_t playerCount);
     /**
-     * @brief updates each game instance and the music
+     * @brief Updates each game instance
      */
     void Update();
 #if SIMULATION
     /**
-     * @brief directs the pressed buttons to the game instances
-     * @param pressedButton1 pressed button from controller 1
-     * @param pressedButton2 pressed button from controller 2
+     * @brief Directs the pressed buttons to the game instances (simulation)
+     * @param pressedButton1 Pressed button from controller 1
+     * @param pressedButton2 Pressed button from controller 2
      */
     void Input(uint8_t pressedButton1, uint8_t pressedButton2);
 #endif
     /**
-     * @brief saves and freezes the game instances
+     * @brief Saves the current state of the game field and freezes the game instances
      */
     void Freeze(bool freeze);
 
   private:
     /**
-     * @brief saves the current state of the playing field
+     * @brief Saves the current state of the playing field
      */
     void SaveGameState();
     /**
-     * @brief loads the saved game field state
+     * @brief Loads the saved game field state
      */
     void LoadGameState();
 

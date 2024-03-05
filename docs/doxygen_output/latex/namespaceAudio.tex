@@ -9,13 +9,13 @@ struct \mbox{\hyperlink{structAudio_1_1Melody}{Melody}}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{namespaceAudio_a4c2ae27d68f9715556a6c9a5d679a598}{Stop\+Audio}} ()
-\begin{DoxyCompactList}\small\item\em Stops the currently running audio @detials Resets every related variable, so the next audio can be played. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Stops the currently running audio. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47}{Play\+Audio}} (const uint8\+\_\+t audio, const bool enable\+Looping=false, const bool resume=false)
 \begin{DoxyCompactList}\small\item\em Plays the given audio. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceAudio_a0ea529e1abfe2f01381433da4596cab8}{Setup}} ()
 \begin{DoxyCompactList}\small\item\em Sets up the timer registers (Timer1) for playing audio. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceAudio_a306d5291e0e4308ebdd04eff7211efd9}{ISR}} (TIMER1\+\_\+\+COMPA\+\_\+vect)
-\begin{DoxyCompactList}\small\item\em Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine which frequency the pwm will be. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Interrupt service routine that will get triggered when the timer hits TOP. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,16 +36,10 @@ constexpr uint16\+\_\+t \mbox{\hyperlink{namespaceAudio_abe54bb09dcbc99d0433125c
 
 
 
-Interrupt service routine that will get triggered when the timer hits TOP @detials It will determine which frequency the pwm will be. 
+Interrupt service routine that will get triggered when the timer hits TOP. 
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=282pt]{namespaceAudio_a306d5291e0e4308ebdd04eff7211efd9_cgraph}
-\end{center}
-\end{figure}
+It will determine which frequency the PWM will be Here is the call graph for this function\+:
+% FIG 0
 \mbox{\Hypertarget{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47}\label{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47}} 
 \index{Audio@{Audio}!PlayAudio@{PlayAudio}}
 \index{PlayAudio@{PlayAudio}!Audio@{Audio}}
@@ -56,23 +50,17 @@ Here is the call graph for this function\+:
 
 Plays the given audio. 
 
-Will first stop if there is already running, an audio 
+At first it will stop if any audio is playing at the moment. Then it will proceed to play the desired \mbox{\hyperlink{namespaceAudio}{Audio}} 
 \begin{DoxyParams}{Parameters}
 {\em audio} & Name of the audio that will be played \\
 \hline
 {\em enable\+Looping} & Determines wether the audio shall be looping or not \\
 \hline
-{\em resume} & If true the audio will resume where it had stopped \\
+{\em resume} & If true the audio will resume where it had stopped before \\
 \hline
 \end{DoxyParams}
 Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=315pt]{namespaceAudio_a7fbf1dd4a24b28ed3a9c3ec5f6947f47_cgraph}
-\end{center}
-\end{figure}
+% FIG 1
 \mbox{\Hypertarget{namespaceAudio_a0ea529e1abfe2f01381433da4596cab8}\label{namespaceAudio_a0ea529e1abfe2f01381433da4596cab8}} 
 \index{Audio@{Audio}!Setup@{Setup}}
 \index{Setup@{Setup}!Audio@{Audio}}
@@ -91,16 +79,10 @@ Sets up the timer registers (Timer1) for playing audio.
 
 
 
-Stops the currently running audio @detials Resets every related variable, so the next audio can be played. 
+Stops the currently running audio. 
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=315pt]{namespaceAudio_a4c2ae27d68f9715556a6c9a5d679a598_icgraph}
-\end{center}
-\end{figure}
+Resets every related variable, so the next audio can be played. Here is the caller graph for this function\+:
+% FIG 2
 
 
 \doxysubsection{Variable Documentation}

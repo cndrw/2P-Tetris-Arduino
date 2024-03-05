@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Manages one single game unit.  
+<p>Manages one single game unit and has alle the Tetris logic implemented.  
  <a href="classRetrisGame.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="retris__game_8h_source.html">retris_game.h</a>&gt;</code></p>
@@ -80,10 +80,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e44098c1fe6a102ebfa6a4b232c5f9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetrisGame.html#a1e44098c1fe6a102ebfa6a4b232c5f9b">Init</a> (<a class="el" href="structVector.html">Vector</a> startPosition, uint8_t style)</td></tr>
 <tr class="memdesc:a1e44098c1fe6a102ebfa6a4b232c5f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the game unit - drawing game field and creating first block.  <a href="classRetrisGame.html#a1e44098c1fe6a102ebfa6a4b232c5f9b">More...</a><br /></td></tr>
 <tr class="separator:a1e44098c1fe6a102ebfa6a4b232c5f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b900af8817372781a826ecf91d0a148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetrisGame.html#a7b900af8817372781a826ecf91d0a148">ProcessInput</a> (uint8_t pressedButton)</td></tr>
-<tr class="separator:a7b900af8817372781a826ecf91d0a148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51fd1e7f2e5b0b37a29c5e05c1f7fda8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetrisGame.html#a51fd1e7f2e5b0b37a29c5e05c1f7fda8">ProcessInput</a> ()</td></tr>
+<tr class="memdesc:a51fd1e7f2e5b0b37a29c5e05c1f7fda8"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if buttons are pressed and does the corresponding action  <a href="classRetrisGame.html#a51fd1e7f2e5b0b37a29c5e05c1f7fda8">More...</a><br /></td></tr>
+<tr class="separator:a51fd1e7f2e5b0b37a29c5e05c1f7fda8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb5dd55189de951d7f028606ca70b72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetrisGame.html#adbb5dd55189de951d7f028606ca70b72">Update</a> ()</td></tr>
-<tr class="memdesc:adbb5dd55189de951d7f028606ca70b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that gets called every game tick  <a href="classRetrisGame.html#adbb5dd55189de951d7f028606ca70b72">More...</a><br /></td></tr>
+<tr class="memdesc:adbb5dd55189de951d7f028606ca70b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets called every game tick.  <a href="classRetrisGame.html#adbb5dd55189de951d7f028606ca70b72">More...</a><br /></td></tr>
 <tr class="separator:adbb5dd55189de951d7f028606ca70b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35e7e256dfb871d753ad0d6b677f2a7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetrisGame.html#a35e7e256dfb871d753ad0d6b677f2a7a">MoveRight</a> ()</td></tr>
 <tr class="memdesc:a35e7e256dfb871d753ad0d6b677f2a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the current <a class="el" href="classBlock.html" title="A tetris block that can be moved and rotated.">Block</a> to the right by one.  <a href="classRetrisGame.html#a35e7e256dfb871d753ad0d6b677f2a7a">More...</a><br /></td></tr>
@@ -106,7 +107,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13a61476591bd8fc0e7799bd48346bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages one single game unit. </p>
+<div class="textblock"><p>Manages one single game unit and has alle the Tetris logic implemented. </p>
 <p>Keeps track of which instance it is </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7e97bedde49092670d00a2a3768f1f43"></a>
@@ -144,6 +145,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draws the game field with the preview block. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewStyle</td><td>The style of the game instance - preview <a class="el" href="classBlock.html" title="A tetris block that can be moved and rotated.">Block</a> can be to the right or on top of the game field </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -208,7 +215,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the game unit - drawing game field and creating first block. </p>
-<p>It also sets the random seed for the random block generation </p>
+<p>It also sets the random seed for the random block generation </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startPosition</td><td>Where the game field shall be placed (top-left point) </td></tr>
+    <tr><td class="paramname">style</td><td>How the game will appear (preview <a class="el" href="classBlock.html" title="A tetris block that can be moved and rotated.">Block</a> above or to the side of the game field) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -228,7 +241,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Moves the current <a class="el" href="classBlock.html" title="A tetris block that can be moved and rotated.">Block</a> to the left by one. </p>
-<p>If the move to the left is not possible (kollider on the right), the function will do nothing </p>
+<p>If the move to the left is not possible (collider on the left), the function will do nothing </p>
 
 </div>
 </div>
@@ -248,12 +261,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Moves the current <a class="el" href="classBlock.html" title="A tetris block that can be moved and rotated.">Block</a> to the right by one. </p>
-<p>If the move to the right is not possible (kollider on the right), the function will do nothing </p>
+<p>If the move to the right is not possible (collider on the right), the function will do nothing </p>
 
 </div>
 </div>
-<a id="a7b900af8817372781a826ecf91d0a148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b900af8817372781a826ecf91d0a148">&#9670;&nbsp;</a></span>ProcessInput()</h2>
+<a id="a51fd1e7f2e5b0b37a29c5e05c1f7fda8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51fd1e7f2e5b0b37a29c5e05c1f7fda8">&#9670;&nbsp;</a></span>ProcessInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,12 +274,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RetrisGame::ProcessInput </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pressedButton</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>checks if buttons are pressed and does the corresponding action </p>
 
 </div>
 </div>
@@ -286,7 +300,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Rotates the current <a class="el" href="classBlock.html" title="A tetris block that can be moved and rotated.">Block</a> 90° clockwise. </p>
-<p>If the rotate is not possible the function will do nothing </p>
+<p>If the rotation is not possible the function will do nothing </p>
 
 </div>
 </div>
@@ -331,8 +345,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>function that gets called every game tick </p>
-<p>A game tick is a fraction of an OS-Tick (depending on game speed) </p>
+<p>Function that gets called every game tick. </p>
+<p>An OS-Tick is a fraction of an game tick (depending on game speed) </p>
 
 </div>
 </div>

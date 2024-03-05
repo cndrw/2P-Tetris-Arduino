@@ -1,0 +1,169 @@
+\hypertarget{input_8h}{}\doxysection{Documentation\+\_\+\+Tree/\+Engineering\+\_\+\+Folder/code/input.h File Reference}
+\label{input_8h}\index{Documentation\_Tree/Engineering\_Folder/code/input.h@{Documentation\_Tree/Engineering\_Folder/code/input.h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structInput_1_1Controller}{Input\+::\+Controller}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceInput}{Input}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{input_8h_a666f4a9872b7185170dd9318ceff91c6}{BUTTON\+\_\+\+PRESSED}}~0
+\item 
+\#define \mbox{\hyperlink{input_8h_ae1950c1e5cd4afed0d586c325276d809}{BUTTON\+\_\+\+NOT\+\_\+\+PRESSED}}~1
+\item 
+\#define \mbox{\hyperlink{input_8h_af38e4bccb1ce0b8a667606c4ffda02a9}{BUTTON\+\_\+\+AMOUNT}}~12
+\item 
+\#define \mbox{\hyperlink{input_8h_a94a5d8e6a479582220c135a95b935948}{BUTTON\+\_\+B}}~0
+\item 
+\#define \mbox{\hyperlink{input_8h_ae828609252069795563592f52c8f0ff1}{BUTTON\+\_\+Y}}~1
+\item 
+\#define \mbox{\hyperlink{input_8h_a866a632a7e5c01da80d091d7ca05c0b5}{BUTTON\+\_\+\+SELECT}}~2
+\item 
+\#define \mbox{\hyperlink{input_8h_a0dd865ec0061ef01902beba5e257e298}{BUTTON\+\_\+\+START}}~3
+\item 
+\#define \mbox{\hyperlink{input_8h_a7639b378d6f757175ed0f9e8552e6cea}{BUTTON\+\_\+\+UP}}~4
+\item 
+\#define \mbox{\hyperlink{input_8h_a7e8516b8781963aa69154f9fc67b658a}{BUTTON\+\_\+\+DOWN}}~5
+\item 
+\#define \mbox{\hyperlink{input_8h_ad08344c00ddb49531348245d0c82987f}{BUTTON\+\_\+\+LEFT}}~6
+\item 
+\#define \mbox{\hyperlink{input_8h_a4cebcc5780890f5f5fbca9d072ea9652}{BUTTON\+\_\+\+RIGHT}}~7
+\item 
+\#define \mbox{\hyperlink{input_8h_a9cd67f3be58dbc886c0def221160536b}{BUTTON\+\_\+A}}~8
+\item 
+\#define \mbox{\hyperlink{input_8h_aa00c852ab240ccfc4717b66f0dddeeb0}{BUTTON\+\_\+X}}~9
+\item 
+\#define \mbox{\hyperlink{input_8h_a8129b8a94bc4253a26d2263a046c7053}{BUTTON\+\_\+L}}~10
+\item 
+\#define \mbox{\hyperlink{input_8h_ab3c80df399c1411404ac1cf88c4910c8}{BUTTON\+\_\+R}}~11
+\item 
+\#define \mbox{\hyperlink{input_8h_ae50d5c27b3a0f97a1c73dd342834d1d7}{CONTROLLER\+\_\+1}}~0
+\item 
+\#define \mbox{\hyperlink{input_8h_a5151689fa90f56c1babcd0fa50e190b5}{CONTROLLER\+\_\+2}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceInput_a81f74d0bf0c0f63cfcbc928fa5b7d361}{Input\+::\+Set\+Controller\+Count}} (const uint8\+\_\+t number)
+\begin{DoxyCompactList}\small\item\em Sets how many controller are actively checked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceInput_a5d4142b13b4a405569686bd85be5f9a8}{Input\+::\+Setup\+Pins}} ()
+\begin{DoxyCompactList}\small\item\em Setups the controller pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceInput_a8962b4237cb785dd9ee09b72c2cb53d1}{Input\+::\+Read\+Controller\+Inputs}} ()
+\begin{DoxyCompactList}\small\item\em Reads the current state of the controller(s) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceInput_a9cd08dfda5c2734fae43e42c152bcb35}{Input\+::\+Get\+Button}} (const uint8\+\_\+t controller, const uint8\+\_\+t button)
+\begin{DoxyCompactList}\small\item\em Checks if the desired button is currently pressed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceInput_ae10eed4b8d1eb379478c976e1c2b78bc}{Input\+::\+Get\+Button\+Down}} (const uint8\+\_\+t controller, const uint8\+\_\+t button)
+\begin{DoxyCompactList}\small\item\em Checks if the desired button got pressed (only the transition from unpressed to pressed) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{input_8h_a9cd67f3be58dbc886c0def221160536b}\label{input_8h_a9cd67f3be58dbc886c0def221160536b}} 
+\index{input.h@{input.h}!BUTTON\_A@{BUTTON\_A}}
+\index{BUTTON\_A@{BUTTON\_A}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_A}{BUTTON\_A}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+A~8}
+
+\mbox{\Hypertarget{input_8h_af38e4bccb1ce0b8a667606c4ffda02a9}\label{input_8h_af38e4bccb1ce0b8a667606c4ffda02a9}} 
+\index{input.h@{input.h}!BUTTON\_AMOUNT@{BUTTON\_AMOUNT}}
+\index{BUTTON\_AMOUNT@{BUTTON\_AMOUNT}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_AMOUNT}{BUTTON\_AMOUNT}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+AMOUNT~12}
+
+\mbox{\Hypertarget{input_8h_a94a5d8e6a479582220c135a95b935948}\label{input_8h_a94a5d8e6a479582220c135a95b935948}} 
+\index{input.h@{input.h}!BUTTON\_B@{BUTTON\_B}}
+\index{BUTTON\_B@{BUTTON\_B}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_B}{BUTTON\_B}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+B~0}
+
+\mbox{\Hypertarget{input_8h_a7e8516b8781963aa69154f9fc67b658a}\label{input_8h_a7e8516b8781963aa69154f9fc67b658a}} 
+\index{input.h@{input.h}!BUTTON\_DOWN@{BUTTON\_DOWN}}
+\index{BUTTON\_DOWN@{BUTTON\_DOWN}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_DOWN}{BUTTON\_DOWN}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+DOWN~5}
+
+\mbox{\Hypertarget{input_8h_a8129b8a94bc4253a26d2263a046c7053}\label{input_8h_a8129b8a94bc4253a26d2263a046c7053}} 
+\index{input.h@{input.h}!BUTTON\_L@{BUTTON\_L}}
+\index{BUTTON\_L@{BUTTON\_L}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_L}{BUTTON\_L}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+L~10}
+
+\mbox{\Hypertarget{input_8h_ad08344c00ddb49531348245d0c82987f}\label{input_8h_ad08344c00ddb49531348245d0c82987f}} 
+\index{input.h@{input.h}!BUTTON\_LEFT@{BUTTON\_LEFT}}
+\index{BUTTON\_LEFT@{BUTTON\_LEFT}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_LEFT}{BUTTON\_LEFT}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+LEFT~6}
+
+\mbox{\Hypertarget{input_8h_ae1950c1e5cd4afed0d586c325276d809}\label{input_8h_ae1950c1e5cd4afed0d586c325276d809}} 
+\index{input.h@{input.h}!BUTTON\_NOT\_PRESSED@{BUTTON\_NOT\_PRESSED}}
+\index{BUTTON\_NOT\_PRESSED@{BUTTON\_NOT\_PRESSED}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_NOT\_PRESSED}{BUTTON\_NOT\_PRESSED}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+NOT\+\_\+\+PRESSED~1}
+
+\mbox{\Hypertarget{input_8h_a666f4a9872b7185170dd9318ceff91c6}\label{input_8h_a666f4a9872b7185170dd9318ceff91c6}} 
+\index{input.h@{input.h}!BUTTON\_PRESSED@{BUTTON\_PRESSED}}
+\index{BUTTON\_PRESSED@{BUTTON\_PRESSED}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_PRESSED}{BUTTON\_PRESSED}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+PRESSED~0}
+
+\mbox{\Hypertarget{input_8h_ab3c80df399c1411404ac1cf88c4910c8}\label{input_8h_ab3c80df399c1411404ac1cf88c4910c8}} 
+\index{input.h@{input.h}!BUTTON\_R@{BUTTON\_R}}
+\index{BUTTON\_R@{BUTTON\_R}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_R}{BUTTON\_R}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+R~11}
+
+\mbox{\Hypertarget{input_8h_a4cebcc5780890f5f5fbca9d072ea9652}\label{input_8h_a4cebcc5780890f5f5fbca9d072ea9652}} 
+\index{input.h@{input.h}!BUTTON\_RIGHT@{BUTTON\_RIGHT}}
+\index{BUTTON\_RIGHT@{BUTTON\_RIGHT}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_RIGHT}{BUTTON\_RIGHT}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+RIGHT~7}
+
+\mbox{\Hypertarget{input_8h_a866a632a7e5c01da80d091d7ca05c0b5}\label{input_8h_a866a632a7e5c01da80d091d7ca05c0b5}} 
+\index{input.h@{input.h}!BUTTON\_SELECT@{BUTTON\_SELECT}}
+\index{BUTTON\_SELECT@{BUTTON\_SELECT}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_SELECT}{BUTTON\_SELECT}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+SELECT~2}
+
+\mbox{\Hypertarget{input_8h_a0dd865ec0061ef01902beba5e257e298}\label{input_8h_a0dd865ec0061ef01902beba5e257e298}} 
+\index{input.h@{input.h}!BUTTON\_START@{BUTTON\_START}}
+\index{BUTTON\_START@{BUTTON\_START}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_START}{BUTTON\_START}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+START~3}
+
+\mbox{\Hypertarget{input_8h_a7639b378d6f757175ed0f9e8552e6cea}\label{input_8h_a7639b378d6f757175ed0f9e8552e6cea}} 
+\index{input.h@{input.h}!BUTTON\_UP@{BUTTON\_UP}}
+\index{BUTTON\_UP@{BUTTON\_UP}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_UP}{BUTTON\_UP}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+UP~4}
+
+\mbox{\Hypertarget{input_8h_aa00c852ab240ccfc4717b66f0dddeeb0}\label{input_8h_aa00c852ab240ccfc4717b66f0dddeeb0}} 
+\index{input.h@{input.h}!BUTTON\_X@{BUTTON\_X}}
+\index{BUTTON\_X@{BUTTON\_X}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_X}{BUTTON\_X}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+X~9}
+
+\mbox{\Hypertarget{input_8h_ae828609252069795563592f52c8f0ff1}\label{input_8h_ae828609252069795563592f52c8f0ff1}} 
+\index{input.h@{input.h}!BUTTON\_Y@{BUTTON\_Y}}
+\index{BUTTON\_Y@{BUTTON\_Y}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_Y}{BUTTON\_Y}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+Y~1}
+
+\mbox{\Hypertarget{input_8h_ae50d5c27b3a0f97a1c73dd342834d1d7}\label{input_8h_ae50d5c27b3a0f97a1c73dd342834d1d7}} 
+\index{input.h@{input.h}!CONTROLLER\_1@{CONTROLLER\_1}}
+\index{CONTROLLER\_1@{CONTROLLER\_1}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{CONTROLLER\_1}{CONTROLLER\_1}}
+{\footnotesize\ttfamily \#define CONTROLLER\+\_\+1~0}
+
+\mbox{\Hypertarget{input_8h_a5151689fa90f56c1babcd0fa50e190b5}\label{input_8h_a5151689fa90f56c1babcd0fa50e190b5}} 
+\index{input.h@{input.h}!CONTROLLER\_2@{CONTROLLER\_2}}
+\index{CONTROLLER\_2@{CONTROLLER\_2}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{CONTROLLER\_2}{CONTROLLER\_2}}
+{\footnotesize\ttfamily \#define CONTROLLER\+\_\+2~1}
+

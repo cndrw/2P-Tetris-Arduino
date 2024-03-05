@@ -2,7 +2,7 @@
 \label{classProcess}\index{Process@{Process}}
 
 
-application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}  
+Application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}.  
 
 
 
@@ -23,17 +23,15 @@ Inheritance diagram for Process\+:
 \begin{DoxyCompactItemize}
 \item 
 virtual void \mbox{\hyperlink{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}{Update}} ()=0
-\begin{DoxyCompactList}\small\item\em updates the process \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Updates the process. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classProcess_a3fdd1c563af3dd7421feccd09f4aa57f}{Init}} (uint8\+\_\+t option)=0
-\begin{DoxyCompactList}\small\item\em initializes the process (start up) \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classProcess_add5d6f722a9c13a82b8a70de8572a78a}{Input}} (uint8\+\_\+t button1, uint8\+\_\+t button2)=0
-\begin{DoxyCompactList}\small\item\em gathers the current controller inputs (simulation) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the process (start up) \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classProcess_a9d19d995b6115eb7244be090d21b4324}{Freeze}} (bool freeze)=0
-\begin{DoxyCompactList}\small\item\em freezes the process @detials can be discarded or unfrozen by an other process \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Can freezes or unfreeze the process. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+OS}} 
+Application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+OS}}. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classProcess_a9d19d995b6115eb7244be090d21b4324}\label{classProcess_a9d19d995b6115eb7244be090d21b4324}} 
@@ -44,13 +42,13 @@ application unit that can be run by the \mbox{\hyperlink{classRetrisOS}{Retris\+
 
 
 
-freezes the process @detials can be discarded or unfrozen by an other process 
+Can freezes or unfreeze the process. 
 
-
+The frozen state can be discarded or unfrozen by \mbox{\hyperlink{classRetrisOS}{Retris\+OS}} 
 \begin{DoxyParams}{Parameters}
-{\em freeze} & if true -\/$>$ process freezes \\
+{\em freeze} & If true -\/$>$ process freezes \\
 \hline
-{\em freeze} & if false -\/$>$ process unfreezes \\
+{\em freeze} & If false -\/$>$ process unfreezes \\
 \hline
 \end{DoxyParams}
 
@@ -65,37 +63,16 @@ Implemented in \mbox{\hyperlink{classMenueHandler_a86b79625d37e8235ac085634d5430
 
 
 
-initializes the process (start up) 
+Initializes the process (start up) 
 
 
 \begin{DoxyParams}{Parameters}
-{\em option} & additional options for the initialization \\
+{\em option} & Additional options for the initialization \\
 \hline
 \end{DoxyParams}
 
 
 Implemented in \mbox{\hyperlink{classGameManager_ad6d8a36d7bf2c6b4c52a8d3fe8f1ef13}{Game\+Manager}}, and \mbox{\hyperlink{classMenueHandler_aebc6ddcb00410b3280fb9f669e692658}{Menue\+Handler}}.
-
-\mbox{\Hypertarget{classProcess_add5d6f722a9c13a82b8a70de8572a78a}\label{classProcess_add5d6f722a9c13a82b8a70de8572a78a}} 
-\index{Process@{Process}!Input@{Input}}
-\index{Input@{Input}!Process@{Process}}
-\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
-{\footnotesize\ttfamily virtual void Process\+::\+Input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button1,  }\item[{uint8\+\_\+t}]{button2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-gathers the current controller inputs (simulation) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em button1} & input of controller 1 \\
-\hline
-{\em button2} & input of controller 2 \\
-\hline
-\end{DoxyParams}
-
-
-Implemented in \mbox{\hyperlink{classGameManager_a2874602fb604d9563eb0693f39152c1d}{Game\+Manager}}, and \mbox{\hyperlink{classMenueHandler_abe1ae4f619cdd40ca817469a3e73e0f6}{Menue\+Handler}}.
 
 \mbox{\Hypertarget{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}\label{classProcess_ae515dc114a5fb46b36ac5efcdae4fd75}} 
 \index{Process@{Process}!Update@{Update}}
@@ -105,7 +82,7 @@ Implemented in \mbox{\hyperlink{classGameManager_a2874602fb604d9563eb0693f39152c
 
 
 
-updates the process 
+Updates the process. 
 
 
 

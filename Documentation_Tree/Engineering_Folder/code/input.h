@@ -36,28 +36,28 @@ static Controller controllers[2]; // max 2 controller with 12 buttons
 static uint8_t controllerCount = 2;
 
 /**
- * @brief sets how many controller are actively checked
- * @param number number of controller
+ * @brief Sets how many controller are actively checked
+ * @param number Number of controller
 */
 void SetControllerCount(const uint8_t number);
 /**
- * @brief setups the controller pins
+ * @brief Setups the controller pins
 */
 void SetupPins();
 /**
- * @brief reads the current state of the controller(s)
+ * @brief Reads the current state of the controller(s)
 */
 void ReadControllerInputs();
 /**
- * @brief checks if the desired button is currently pressed
- * @param controller which controller shall be checked
- * @param button which button shall be checked
+ * @brief Checks if the desired button is currently pressed
+ * @param controller Which controller shall be checked
+ * @param button Which button shall be checked
 */
 bool GetButton(const uint8_t controller, const uint8_t button);
 /**
- * @brief checks if the desired button got pressed (only the transition)
- * @param controller which controller shall be checked
- * @param button which button shall be checked
+ * @brief Checks if the desired button got pressed (only the transition from unpressed to pressed)
+ * @param controller Which controller shall be checked
+ * @param button Which button shall be checked
 */
 bool GetButtonDown(const uint8_t controller, const uint8_t button);
 

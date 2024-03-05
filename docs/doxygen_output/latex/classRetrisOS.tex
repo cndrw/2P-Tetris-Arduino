@@ -2,7 +2,7 @@
 \label{classRetrisOS}\index{RetrisOS@{RetrisOS}}
 
 
-controls the current running processes  
+Controls which process is currently running.  
 
 
 
@@ -15,19 +15,19 @@ controls the current running processes
 \mbox{\hyperlink{classRetrisOS_a8543a76475ef27c92db70f60ccdce7ce}{Retris\+OS}} ()
 \item 
 void \mbox{\hyperlink{classRetrisOS_a5b2314c40aad981237edbcbbec579fec}{Add\+Process}} (\mbox{\hyperlink{classProcess}{Process}} $\ast$p\+\_\+process)
-\begin{DoxyCompactList}\small\item\em adds a process to the internal process list \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adds a process to the internal process list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRetrisOS_a0271b95490f001cace061272c6bbe5ae}{Update\+System}} ()
-\begin{DoxyCompactList}\small\item\em updates the Retris system and the current process \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Updates the Retris system and the current process. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRetrisOS_a05360285fdb582cb902e51e1a18b4682}{Change\+Process}} (uint8\+\_\+t process, uint8\+\_\+t option)
-\begin{DoxyCompactList}\small\item\em changes the currently running process \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Changes the currently running process. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRetrisOS_a1b39d006f5f8fc97edd38a02f579d529}{Freeze\+Current\+Process}} (uint8\+\_\+t new\+Process, uint8\+\_\+t option)
-\begin{DoxyCompactList}\small\item\em freezes the currently running process \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Freezes the currently running process. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRetrisOS_a3cd1279cd6dd32d9db376b38cfa7702a}{Un\+Freeze\+Process}} ()
-\begin{DoxyCompactList}\small\item\em unfreezes the currently frozen process @detail There can only one frozen process at a time \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unfreezes the currently frozen process. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-controls the current running processes 
+Controls which process is currently running. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classRetrisOS_a8543a76475ef27c92db70f60ccdce7ce}\label{classRetrisOS_a8543a76475ef27c92db70f60ccdce7ce}} 
@@ -47,11 +47,11 @@ controls the current running processes
 
 
 
-adds a process to the internal process list 
+Adds a process to the internal process list. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p\+\_\+process} & the process that will be added \\
+{\em p\+\_\+process} & The process that will be added \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classRetrisOS_a05360285fdb582cb902e51e1a18b4682}\label{classRetrisOS_a05360285fdb582cb902e51e1a18b4682}} 
@@ -62,13 +62,13 @@ adds a process to the internal process list
 
 
 
-changes the currently running process 
+Changes the currently running process. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em process} & the process that shall be executed \\
+{\em process} & The process that shall be executed \\
 \hline
-{\em option} & additional option for the initialization of the process \\
+{\em option} & Additional option for the initialization of the process \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classRetrisOS_a1b39d006f5f8fc97edd38a02f579d529}\label{classRetrisOS_a1b39d006f5f8fc97edd38a02f579d529}} 
@@ -79,13 +79,13 @@ changes the currently running process
 
 
 
-freezes the currently running process 
+Freezes the currently running process. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em new\+Process} & the new process that will be executed instead \\
+{\em new\+Process} & The new process that will be executed instead \\
 \hline
-{\em option} & initialization option for the process \\
+{\em option} & Initialization option for the process \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classRetrisOS_a3cd1279cd6dd32d9db376b38cfa7702a}\label{classRetrisOS_a3cd1279cd6dd32d9db376b38cfa7702a}} 
@@ -96,9 +96,9 @@ freezes the currently running process
 
 
 
-unfreezes the currently frozen process @detail There can only one frozen process at a time 
+Unfreezes the currently frozen process. 
 
-\mbox{\Hypertarget{classRetrisOS_a0271b95490f001cace061272c6bbe5ae}\label{classRetrisOS_a0271b95490f001cace061272c6bbe5ae}} 
+There can only one frozen process at a time \mbox{\Hypertarget{classRetrisOS_a0271b95490f001cace061272c6bbe5ae}\label{classRetrisOS_a0271b95490f001cace061272c6bbe5ae}} 
 \index{RetrisOS@{RetrisOS}!UpdateSystem@{UpdateSystem}}
 \index{UpdateSystem@{UpdateSystem}!RetrisOS@{RetrisOS}}
 \doxysubsubsection{\texorpdfstring{UpdateSystem()}{UpdateSystem()}}
@@ -106,9 +106,9 @@ unfreezes the currently frozen process @detail There can only one frozen process
 
 
 
-updates the Retris system and the current process 
+Updates the Retris system and the current process. 
 
-
+Reads in the controller inputs 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -82,26 +82,26 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classMenueHandler.html#aebc6ddcb00410b3280fb9f669e692658">   23</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenueHandler.html#aebc6ddcb00410b3280fb9f669e692658">Init</a>(uint8_t menue);</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classMenueHandler.html#a34d739b1935c5e5d47a8ddf6a48aefd8">   27</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenueHandler.html#a34d739b1935c5e5d47a8ddf6a48aefd8">Update</a>();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#if SIMULATION</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classMenueHandler.html#abe1ae4f619cdd40ca817469a3e73e0f6">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenueHandler.html#abe1ae4f619cdd40ca817469a3e73e0f6">Input</a>(uint8_t pressedButton, uint8_t);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceInput.html">Input</a>(uint8_t pressedButton, uint8_t);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classMenueHandler.html#a86b79625d37e8235ac085634d5430db1">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenueHandler.html#a86b79625d37e8235ac085634d5430db1">Freeze</a>(<span class="keywordtype">bool</span>) {}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classMenue.html">Menue</a>* mp_menues[3];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    uint8_t m_currentMenue = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassMenueHandler_html"><div class="ttname"><a href="classMenueHandler.html">MenueHandler</a></div><div class="ttdoc">controls the currently running menue</div><div class="ttdef"><b>Definition:</b> menue_handler.h:12</div></div>
-<div class="ttc" id="aclassMenueHandler_html_a116501fdae208ed827f1ed3b41793d82"><div class="ttname"><a href="classMenueHandler.html#a116501fdae208ed827f1ed3b41793d82">MenueHandler::AddMenue</a></div><div class="ttdeci">void AddMenue(Menue *p_menue)</div><div class="ttdoc">adds a menu to the internal managed menues</div></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classMenueHandler.html#a86b79625d37e8235ac085634d5430db1">   39</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenueHandler.html#a86b79625d37e8235ac085634d5430db1">Freeze</a>(<span class="keywordtype">bool</span>) {}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classMenue.html">Menue</a>* mp_menues[3];</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    uint8_t m_currentMenue = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassMenueHandler_html"><div class="ttname"><a href="classMenueHandler.html">MenueHandler</a></div><div class="ttdoc">Controls the currently running menue and can change between up to 3 menus.</div><div class="ttdef"><b>Definition:</b> menue_handler.h:12</div></div>
+<div class="ttc" id="aclassMenueHandler_html_a116501fdae208ed827f1ed3b41793d82"><div class="ttname"><a href="classMenueHandler.html#a116501fdae208ed827f1ed3b41793d82">MenueHandler::AddMenue</a></div><div class="ttdeci">void AddMenue(Menue *p_menue)</div><div class="ttdoc">Adds a menu to the internal managed menues.</div></div>
 <div class="ttc" id="aclassMenueHandler_html_a34d739b1935c5e5d47a8ddf6a48aefd8"><div class="ttname"><a href="classMenueHandler.html#a34d739b1935c5e5d47a8ddf6a48aefd8">MenueHandler::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">updates the currently running menu</div></div>
-<div class="ttc" id="aclassMenueHandler_html_a86b79625d37e8235ac085634d5430db1"><div class="ttname"><a href="classMenueHandler.html#a86b79625d37e8235ac085634d5430db1">MenueHandler::Freeze</a></div><div class="ttdeci">void Freeze(bool)</div><div class="ttdoc">freezes the currently running menu</div><div class="ttdef"><b>Definition:</b> menue_handler.h:38</div></div>
-<div class="ttc" id="aclassMenueHandler_html_abe1ae4f619cdd40ca817469a3e73e0f6"><div class="ttname"><a href="classMenueHandler.html#abe1ae4f619cdd40ca817469a3e73e0f6">MenueHandler::Input</a></div><div class="ttdeci">void Input(uint8_t pressedButton, uint8_t)</div><div class="ttdoc">directs the currently pressed button to the currently running menu (simulation)</div></div>
-<div class="ttc" id="aclassMenueHandler_html_aebc6ddcb00410b3280fb9f669e692658"><div class="ttname"><a href="classMenueHandler.html#aebc6ddcb00410b3280fb9f669e692658">MenueHandler::Init</a></div><div class="ttdeci">void Init(uint8_t menue)</div><div class="ttdoc">initializes the menu</div></div>
+<div class="ttc" id="aclassMenueHandler_html_a86b79625d37e8235ac085634d5430db1"><div class="ttname"><a href="classMenueHandler.html#a86b79625d37e8235ac085634d5430db1">MenueHandler::Freeze</a></div><div class="ttdeci">void Freeze(bool)</div><div class="ttdoc">Freezes the currently running menu.</div><div class="ttdef"><b>Definition:</b> menue_handler.h:39</div></div>
+<div class="ttc" id="aclassMenueHandler_html_aebc6ddcb00410b3280fb9f669e692658"><div class="ttname"><a href="classMenueHandler.html#aebc6ddcb00410b3280fb9f669e692658">MenueHandler::Init</a></div><div class="ttdeci">void Init(uint8_t menue)</div><div class="ttdoc">Initializes the menu.</div></div>
 <div class="ttc" id="aclassMenue_html"><div class="ttname"><a href="classMenue.html">Menue</a></div><div class="ttdoc">Interface for a menu, a menu can be drawn, refreshed, the button can be selected and the selected but...</div><div class="ttdef"><b>Definition:</b> menue.h:12</div></div>
-<div class="ttc" id="aclassProcess_html"><div class="ttname"><a href="classProcess.html">Process</a></div><div class="ttdoc">application unit that can be run by the RetrisOS</div><div class="ttdef"><b>Definition:</b> system_process.h:11</div></div>
+<div class="ttc" id="aclassProcess_html"><div class="ttname"><a href="classProcess.html">Process</a></div><div class="ttdoc">Application unit that can be run by the RetrisOS.</div><div class="ttdef"><b>Definition:</b> system_process.h:11</div></div>
 <div class="ttc" id="amain__menue_8h_html"><div class="ttname"><a href="main__menue_8h.html">main_menue.h</a></div></div>
 <div class="ttc" id="amenue_8h_html"><div class="ttname"><a href="menue_8h.html">menue.h</a></div></div>
+<div class="ttc" id="anamespaceInput_html"><div class="ttname"><a href="namespaceInput.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

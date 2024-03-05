@@ -232,10 +232,10 @@ void StopAudio()
 }
 /**
 * @brief Plays the given audio
-* @details Will first stop if there is already running, an audio
+* @details At first it will stop if any audio is playing at the moment. Then it will proceed to play the desired Audio
 * @param audio Name of the audio that will be played
 * @param enableLooping Determines wether the audio shall be looping or not
-* @param resume If true the audio will resume where it had stopped
+* @param resume If true the audio will resume where it had stopped before
 */
 void PlayAudio(const uint8_t audio, const bool enableLooping = false, const bool resume = false)
 {
@@ -270,7 +270,7 @@ void Setup()
 }
 /**
 * @brief Interrupt service routine that will get triggered when the timer hits TOP
-* @detials It will determine which frequency the pwm will be
+* @details It will determine which frequency the PWM will be
 */
 ISR(TIMER1_COMPA_vect)
 {
