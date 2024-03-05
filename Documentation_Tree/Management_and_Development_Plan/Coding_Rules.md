@@ -33,7 +33,15 @@ Für Ganzzahltypen (integer) sollte die cstdint-Bibliothek verwendet werden.
 ## Kommentare
 Kommentare, die eine Funktion und ihre Parameter erklären, sollten immer mit Doxygen geschrieben werden.
 ```
-[missing example]
+/**
+* @brief This function does this
+* @param a Is a parameter
+* @return Will give back an integer
+*/
+int func(int a)
+{
+    // ...
+}
 ```
 ---
 
@@ -99,11 +107,9 @@ Beispiel:
 int8_t* p_dataInput;
 ```
 ---
-Arrays sollten, wenn möglich, immer im Plural benannt werden und mit einem "a_"-Präfix markiert sein.
-
-Beispiel:
+Arrays sollten, wenn möglich, immer im Plural benannt werden. :
 ```
-uint8_t a_numbers[SIZE];
+uint8_t numbers[SIZE];
 ```
 ---
 
@@ -137,7 +143,7 @@ public enum Input
 ```
 
 ### Funktionen
-Funktionsnamen werden in camelCase und mit einem zusätzlichen "fn_" vorangestellt deklariert. Der Funktionskörper sollte auf einer neuen Zeile beginnen.
+Funktionsnamen werden in PascalCase geschrieben. Der Funktionskörper sollte auf einer neuen Zeile beginnen.
 
 Beispiel:
 ```
