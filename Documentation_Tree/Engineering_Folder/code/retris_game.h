@@ -19,6 +19,9 @@
 #define GAME_STATE_LOST 2
 #define GAME_STATE_WAIT 3
 #define GAME_STATE_FINISHED 4
+
+#define SPEED_LOOK_UP_TABLE { 40, 39, 38, 37, 36, 35, 35, 34, 33, 32, 31, 30, 28, 27, 26, 25, 24, 22, 21, 19, 18, 16, 15, 13, 11, 9, 8, 6, 4, 2 }
+
 /**
  * @brief Manages one single game unit and has alle the Tetris logic
  * implemented
@@ -158,6 +161,7 @@ class RetrisGame
       bool m_activeInput = true;
       uint8_t m_waitTime = 0;
       const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {6, 2} };
+      static constexpr uint8_t speedTable[30] = SPEED_LOOK_UP_TABLE;
       uint16_t m_baseSpeed = BASE_BLOCK_SPEED;
 };
 

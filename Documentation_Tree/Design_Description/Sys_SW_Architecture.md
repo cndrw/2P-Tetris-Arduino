@@ -15,6 +15,7 @@ Dieses Dokument zeigt den strukturellen Aufbau des Projektes "Retris" und die Ge
   - [Spiellogik](#spiellogik)
     - [Zustandsmaschine](#zustandsmaschine)
     - [Kollisions Erkennung](#kollisions-erkennung)
+    - [Fallgeschwindigkeit]()
   - [Input Management](#input-management)
   - [Musik](#musik)
     - [Aufbau der Notenliste](#aufbau-der-notenliste)
@@ -182,6 +183,18 @@ Auch wenn von "Blöcken generieren" gesprochen worden ist, ist dies nur um dem, 
 Die Kollisionerkennung erfolgt bei [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) nach dem einfachen Prinzip, dass aktive Pixel (LEDs) blockieren und inaktive Pixel nicht blockieren. Durch dieses einfache Verfahren können gesetzte Blöcke lediglich auf dem Bildschirm "liegen gelassen" werden, d.h. man muss keine zustätzlichen Daten für die Kollisionauswertung speichern. Es reicht schon den aktuellen Zustand des internen `screen` auszulesen.
 
 Das technische Vorgehen, ob die gewünschte Bewegung des Blockes auch zulässig ist, ist ebenso simpel gehalten. Die Bewegung wird probeweise ausgeführt. Sollte es dann im Vergleich mit den gesetzten Pixeln im `screen`, dazu kommen, dass diese Bewegung auf einem Pixel landen würde, welcher schon aktiv ist, so wurde eine Kollision erkannt.
+
+### Fallgeschwindigkeit
+
+Bei dem Verlauf der Fallgeschwindigkeit des Blockes unterscheidet sich Retris von dem originalem Tetris. In Tetris gibt es keine kontinuierlische Geschwindigkeitserhöhung, d.h. nicht mit jedem Level wird sich die Fallgeschwindigkeit erhöhen. Um einen angenehmen Verlauf der Schwierigkeit zu haben, haben wir uns dazu entschieden die Fallgeschwindigkeit kontinuierlich pro Level zu erhöhen. Dabei sollte trotzdem ein gewisser Grad von exponentiellen Wachstum in der Geschwindigketisveränderung sein. Des Weiteren entspricht die Fallgeschwindigkeit in [`RetrisGame`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisGame.html) genau dem Faktor, um welchen die Spielinstanz langsamer als [`RetrisOS`](https://cndrw.github.io/2P-Tetris-Arduino/doxygen_output/html/classRetrisOS.html) (OS-Tick) aktualisiert wird. Das heißt, soll die Geschwindigkeit erhöht werden, so muss die eigentliche Variable verringert werden. Dabei kam für die Fallgeschwindigkeit in abhängikeit des Levels folgende Gleichung heraus:
+
+$f(x) = 40 - e^3 - e^{0.0366\cdot x + 3} \qquad x \ \hat{=} \ Level $
+
+Die Paramter $ 40 - e^3$ und $0.0366$ ergaben sich dabei aus den folgenden Bedingungen:
+- Anfangsgeschwindigkeit : $f(0) = 40$
+- Maximalgeschwindigkeit: $f(29) = 2$
+
+Nach dem Level 29 folgen keine weiteren Geschwindigkeitserhöhungen. Da die Fallgeschwindigkeit nur ganzzahlige Werte annehmen kann, werden alle berechneten Ergebnisse aus der Formel abgerundet. Schließlich sind auch die Geschwindigkeiten für alle Level zur Compile-Time bekannt, d.h. man kann die aufwendigen Berechnungen umgehen, indem man diese vorher berechnet und in einem Look-Up-Table (Array) definiert.
 
 ## Input Management
 

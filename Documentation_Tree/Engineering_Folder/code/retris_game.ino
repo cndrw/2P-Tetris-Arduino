@@ -20,6 +20,8 @@ uint8_t DEBUG_BLOCK = I;
 #define VIEW_STYLE_HORIZONTAL 1
 #define VIEW_STYLE_VERTICAL 2
 
+constexpr uint8_t RetrisGame::speedTable[];
+
 RetrisGame::RetrisGame()
 {
   static uint8_t instanceCount = 0;
@@ -381,7 +383,11 @@ void RetrisGame::ClearAnimation()
 
   // every 10 cleared Lines the level is incremented as well as the speed
   m_level = m_clearedLinesCount / CLEAR_LINES_HURDLE;
-  m_baseSpeed = BASE_BLOCK_SPEED - m_clearedLinesCount / CLEAR_LINES_HURDLE;
+
+  if (m_level <= 29) // 29 is the last level where the speed increases
+  {
+    m_baseSpeed = speedTable[m_level];
+  }
   SetTimeScale(m_baseSpeed);
 
   UpdateScore(lineCount);

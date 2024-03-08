@@ -49,7 +49,8 @@ void GameManager::Update()
 {
 #if !SIMULATION
   // switch to the pause menu is handled by the game manager
-  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START))
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START) || 
+      Input::GetButtonDown(CONTROLLER_1, BUTTON_SELECT))
   {
     Audio::StopAudio();
     retris.FreezeCurrentProcess(SYS_PROCESS_MENUE, PAUSE_MENUE);
