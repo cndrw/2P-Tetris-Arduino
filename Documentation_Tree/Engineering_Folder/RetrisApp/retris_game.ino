@@ -32,20 +32,23 @@ RetrisGame::RetrisGame()
 void RetrisGame::Init(Vector startPosition, uint8_t style)
 {
   m_gamePosition = startPosition;
+
   // reset all variables from the sesssion
   ResetGame();
 
   randomSeed(micros());
+  m_blockBag.Init();
+
 #if DEBUG
   uint8_t randomBlock = DEBUG_BLOCK;
   m_nextBlock = DEBUG_BLOCK;
 #else
-  uint8_t randomBlock = random(7);
-  m_nextBlock = random(7);
+  uint8_t startBlock = m_blockBag.GetNextBlock();
+  m_nextBlock = m_blockBag.GetNextBlock();
 #endif
 
   DrawGameField(style);
-  m_currentBlock.Create(blockShape[randomBlock], randomBlock, m_gamePosition + positionTable[randomBlock]);
+  m_currentBlock.Create(blockShape[startBlock], startBlock, m_gamePosition + positionTable[startBlock]);
 
   m_activeInput = true;
 }
@@ -461,10 +464,12 @@ void RetrisGame::SpawnNewBlock()
 void RetrisGame::CreateBlock()
 {
   m_currentBlock.Create(blockShape[m_nextBlock], m_nextBlock, m_gamePosition + positionTable[m_nextBlock]);
+
 #if DEBUG
   uint8_t randomBlock = DEBUG_BLOCK;
 #else
-  m_nextBlock = random(7);
+  m_nextBlock = m_blockBag.GetNextBlock();
 #endif
+
   m_previewBlock.UpdatePreview(m_nextBlock);
 }

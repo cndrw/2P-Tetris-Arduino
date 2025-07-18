@@ -7,6 +7,7 @@
 #include "renderer.h"
 #include "preview_block.h"
 #include "retris_os.h"
+#include "block_bag.h"
 
 #if !SIMULATION
 #include "input.h"
@@ -146,6 +147,7 @@ class RetrisGame
 
     private:
       Block m_currentBlock;
+      BlockBag m_blockBag;
       uint8_t m_nextBlock = 0;
       Vector m_gamePosition = {0, 0}; // top-left of the playing field
       PreviewBlock m_previewBlock;
