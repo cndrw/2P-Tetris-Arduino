@@ -1,4 +1,5 @@
 #include "block_bag.h"
+#include "Arduino.h"
 
 void BlockBag::Init()
 {

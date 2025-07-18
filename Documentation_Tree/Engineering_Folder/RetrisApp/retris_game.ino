@@ -107,15 +107,13 @@ void RetrisGame::ProcessInput()
     Rotate();
   }
 
+  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_R))
+  {
+    QuickDrop();
+  }
+
   // if button is pressed then "fast fall", else normal current speed
   SetTimeScale(Input::GetButton(m_instanceCount - 1, BUTTON_A) ? 4 : m_baseSpeed);
-
-  // Cheatcode
-  if (Input::GetButton(m_instanceCount - 1, BUTTON_DOWN) &&
-      Input::GetButtonDown(m_instanceCount - 1, BUTTON_R))
-      {
-        m_clearedLinesCount += 10;
-      }
 #endif
 }
 
@@ -130,14 +128,17 @@ void RetrisGame::Update()
   {
     case GAME_STATE_PLAYING:
     {
-      bool gameTick = m_ticks / m_timeScale;
+      bool gameTick = (m_ticks / m_timeScale) || m_quickDropped;
+
+      DisplayQuickDrop(gameTick);
+
       if (!gameTick)
       {
         return;
       }
       m_ticks = 0;
 
-      if (ValidateMove(MOVE_BELOW))
+      if (ValidateMove(MOVE_BELOW, m_currentBlock))
       {
           m_currentBlock.MoveDown();
           Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
@@ -184,7 +185,7 @@ void RetrisGame::Update()
 
 void RetrisGame::MoveRight()
 {
-  if (ValidateMove(MOVE_RIGHT))
+  if (ValidateMove(MOVE_RIGHT, m_currentBlock))
   {
     m_currentBlock.MoveRight();
   }
@@ -194,7 +195,7 @@ void RetrisGame::MoveRight()
 
 void RetrisGame::MoveLeft()
 {
-  if (ValidateMove(MOVE_LEFT))
+  if (ValidateMove(MOVE_LEFT, m_currentBlock))
   {
     m_currentBlock.MoveLeft();
   }
@@ -210,6 +211,49 @@ void RetrisGame::Rotate()
   if (ValidateMove(temp.points))
   {
     memcpy(m_currentBlock.points, temp.points, sizeof(Vector) * BLOCK_LENGTH);
+  }
+
+  Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+}
+
+void RetrisGame::QuickDrop()
+{
+  Block temp = m_currentBlock;
+  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+
+  while (ValidatePosition(temp))
+  {
+    temp.MoveDown();
+  };
+
+  // redo last move down which was not valid anymore
+  temp.position.y -= 1;
+
+  m_currentBlock = temp;
+  Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  m_quickDropped = true;
+}
+
+void RetrisGame::DisplayQuickDrop(bool isGameTick)
+{
+  Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+
+  m_quickDropBlock = m_currentBlock;
+  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+
+  while (ValidatePosition(m_quickDropBlock))
+  {
+    m_quickDropBlock.MoveDown();
+  };
+
+  // redo last move down which was not valid anymore
+  m_quickDropBlock.position.y -= 1;
+
+  Renderer::IncludeBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+  if (!ValidateMove(MOVE_BELOW, m_currentBlock))
+  {
+    Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
   }
 
   Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
@@ -267,14 +311,14 @@ Vector RetrisGame::GetGamePosition()
   return m_gamePosition;
 }
 
-bool RetrisGame::ValidateMove(uint8_t move)
+bool RetrisGame::ValidateMove(uint8_t move, const Block& block)
 {
-  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  Renderer::RemoveBlock(block.points, block.position, BLOCK_LENGTH);
 
   bool moveIsAllowed = false; 
   for (int i = 0; i < BLOCK_LENGTH; i++)
   {
-    Vector absPosition = m_currentBlock.points[i] + m_currentBlock.position;
+    Vector absPosition = block.points[i] + block.position;
     switch(move)
     {
       case MOVE_RIGHT:
@@ -318,6 +362,23 @@ for (int i = 0; i < BLOCK_LENGTH; i++)
     break;
   }
 }
+  return moveIsAllowed;
+}
+
+bool RetrisGame::ValidatePosition(Block block)
+{
+  bool moveIsAllowed = false;
+  for (int i = 0; i < BLOCK_LENGTH; i++)
+  {
+    Vector absPosition = block.points[i] + block.position;
+    moveIsAllowed = !((screen[absPosition.y] >>  (31 - absPosition.x)) & 1);
+
+    if (!moveIsAllowed)
+    {
+      break;
+    }
+  }
+
   return moveIsAllowed;
 }
 
@@ -458,12 +519,14 @@ void RetrisGame::SpawnNewBlock()
     return;
   }
 
-  Wait(20);
+  Wait(m_quickDropped ? 0 : 20);
+  m_quickDropped = false;
 }
 
 void RetrisGame::CreateBlock()
 {
   m_currentBlock.Create(blockShape[m_nextBlock], m_nextBlock, m_gamePosition + positionTable[m_nextBlock]);
+  m_quickDropBlock = m_currentBlock;
 
 #if DEBUG
   uint8_t randomBlock = DEBUG_BLOCK;

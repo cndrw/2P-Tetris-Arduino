@@ -68,6 +68,15 @@ class RetrisGame
      * @brief Rotates the current Block 90° clockwise
      * @details If the rotation is not possible the function will do nothing
     */
+    /**
+     * @brief QuickDrops the current Block to the ground
+    */
+    void QuickDrop();
+    /**
+     * @brief Displays the quick drop i.e. shows where the block will land 
+     * @param isGameTick If true, the preview will not be displayed
+    */
+    void DisplayQuickDrop(bool isGameTick);
     void Rotate();
     /**
      * @brief Sets the rate of game ticks 
@@ -89,10 +98,11 @@ class RetrisGame
        * @brief Validates if the given move is possible right now
        * @details It will internally perform the move on the current Block
        * @param move Which move will be checked
+       * @param block The block that will be checked
        * @return If true the move is valid
        * @return If false the move is invalid
       */
-      bool ValidateMove(uint8_t move);
+      bool ValidateMove(uint8_t move, const Block& block);
       /**
        * @brief Validates if the given move is possible right now
        * @details It will only check if the given points are intersecting with any collider
@@ -101,6 +111,13 @@ class RetrisGame
        * @return If false the move is invalid
       */
       bool ValidateMove(Vector points[]);
+      /**
+       * @brief Checks if the current Block can be placed at the given position
+       * @param block The block that will be checked
+       * @return If true the position is valid
+       * @return If false the position is invalid
+      */
+      bool ValidatePosition(Block block);
       /**
        * @brief Checks if at least one full line is currently on the game field
        * @return If true a full line got detected
@@ -147,6 +164,8 @@ class RetrisGame
 
     private:
       Block m_currentBlock;
+      Block m_quickDropBlock;
+      bool m_quickDropped = false;
       BlockBag m_blockBag;
       uint8_t m_nextBlock = 0;
       Vector m_gamePosition = {0, 0}; // top-left of the playing field
