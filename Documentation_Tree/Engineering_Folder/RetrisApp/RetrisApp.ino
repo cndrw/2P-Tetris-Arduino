@@ -11,6 +11,7 @@
 #include "main_menue.h"
 #include "death_menue.h"
 #include "pause_menue.h"
+#include "settings_menue.h"
 #include "audio.h"
 
 void WatchdogSetup()
@@ -27,6 +28,7 @@ MenueHandler menueHandler;
 MainMenue mainMenue;
 DeathMenue deathMenue;
 PauseMenue pauseMenue;
+SettingsMenue settingsMenue;
 
 
 void setup() {
@@ -53,6 +55,7 @@ void setup() {
   menueHandler.AddMenue(&mainMenue);
   menueHandler.AddMenue(&deathMenue);
   menueHandler.AddMenue(&pauseMenue);
+  menueHandler.AddMenue(&settingsMenue);
 
   // start with the main menu
   retris.ChangeProcess(SYS_PROCESS_MENUE, MAIN_MENUE);

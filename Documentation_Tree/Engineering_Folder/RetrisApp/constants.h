@@ -53,6 +53,7 @@
 #define MAIN_MENUE 0
 #define DEATH_MENUE 1
 #define PAUSE_MENUE 2
+#define SETTINGS_MENUE 3
 
 #if SIMULATION
 #define BUTTON_NONE 0

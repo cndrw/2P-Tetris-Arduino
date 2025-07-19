@@ -39,7 +39,7 @@ class MenueHandler : public Process
     void Freeze(bool) {}
 
   private:
-    Menue* mp_menues[3];
+    Menue* mp_menues[4];
     uint8_t m_currentMenue = 0;
 };
 
