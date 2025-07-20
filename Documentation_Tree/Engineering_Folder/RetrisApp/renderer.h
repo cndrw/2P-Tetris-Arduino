@@ -43,6 +43,15 @@ namespace Renderer
    */
   void IncludeRows(int32_t rows[], uint8_t insertAt, uint8_t length);
   /**
+   * @brief adds whole rows additive to the screen
+   * @details can only add contigious rows  
+   * @details additive means that only the ones can be added  
+   * @param rows collection of rows that will be added
+   * @param insertAt at which row the insertion starts
+   * @param length how many rows 
+   */
+  void IncludeRowsAdditive(int32_t rows[], uint8_t insertAt, uint8_t length);
+  /**
    * @brief removes all rows between to rows (inlcusiv)
    * @details can only remove contigious rows 
    * @param from start row

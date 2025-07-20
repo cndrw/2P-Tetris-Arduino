@@ -1,5 +1,6 @@
 #include "retris_game.h"
 #include "audio.h"
+#include "config.h"
 #include "game_manager.h"
 #include "retris_os.h"
 
@@ -42,7 +43,11 @@ void GameManager::Init(uint8_t playerCount)
   {
     m_games[i].Init(m_gamePositions[i], m_playerCount);
   }
-  Audio::PlayAudio(AUDIO_KOROBEINIKI, true);
+
+  if (config.musicEnabled)
+  {
+    Audio::PlayAudio(AUDIO_KOROBEINIKI, true);
+  }
 }
 
 void GameManager::Update()

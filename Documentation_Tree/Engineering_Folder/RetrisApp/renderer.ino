@@ -71,6 +71,14 @@ namespace Renderer
     memcpy(screen + insertAt, rows, sizeof(int32_t) * length);
   }
 
+  void IncludeRowsAdditive(int32_t rows[], uint8_t insertAt, uint8_t length)
+  {
+    for (uint8_t i = 0; i < length; i++)
+    {
+      screen[insertAt + i] |= rows[i];
+    }
+  }
+
   void ClearRows(uint8_t from, uint8_t to)
   {
     for (uint8_t i = from; i < to; i++)
