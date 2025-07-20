@@ -34,13 +34,8 @@
 #define SBLOCK_PREVIEW_ {{0,0}, {-1,0}, {-1,-1}, {0, 1}}
 #define ZBLOCK_PREVIEW {{0,0}, {0,1}, {1,0}, {1,-1}}
 
-#define L 0
-#define J 1
-#define T 2
-#define S 3
-#define Z 4
-#define O 5
-#define I 6
+#define O_ID 5
+#define I_ID 6
 
 #define MOVE_RIGHT 1
 #define MOVE_LEFT 2

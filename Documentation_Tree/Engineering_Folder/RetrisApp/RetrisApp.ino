@@ -13,6 +13,7 @@
 #include "pause_menue.h"
 #include "settings_menue.h"
 #include "audio.h"
+#include "config.h"
 
 void WatchdogSetup()
 {
@@ -42,6 +43,7 @@ void setup() {
   Renderer::SetupScreen();
   HW::lcd.init();
   HW::lcd.backlight();
+  config.LoadConfig();
   WatchdogSetup();
 #if !SIMULATION
   Input::SetupPins();
