@@ -91,6 +91,7 @@ class RetrisGame
     void DrawGameField(uint8_t viewStyle);
 
     uint8_t GetGameState();
+    uint32_t& GetCurrentScore();
     Vector GetGamePosition();
 
   private:
@@ -175,7 +176,7 @@ class RetrisGame
       int32_t m_fullLineTable = 0; // look up table for where a full line was detected
       uint8_t m_ticks = 0; // counter which counts OS-Ticks
       uint8_t m_timeScale = 30;
-      uint16_t m_score = 0;
+      uint32_t m_score = 0;
       uint8_t m_level = 0;
       uint8_t m_instanceCount = 0;
       uint16_t m_clearedLinesCount = 0;

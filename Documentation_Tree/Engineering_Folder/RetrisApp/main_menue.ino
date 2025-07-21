@@ -4,6 +4,14 @@
 #include "retris_os.h"
 #include "input.h"
 
+void MainMenue::Init()
+{
+  HW::lcd.setCursor(0, 0);
+  HW::lcd.print("Highscore:");
+  HW::lcd.setCursor(0, 1);
+  HW::lcd.print(config.highscore);
+}
+
 void MainMenue::PushButton()
 {
   Audio::PlayAudio(AUDIO_BUTTON_PRESS);
@@ -18,6 +26,8 @@ void MainMenue::PushButton()
   {
     retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
   }
+
+  HW::lcd.clear();
 }
 
 void MainMenue::ButtonSelect()

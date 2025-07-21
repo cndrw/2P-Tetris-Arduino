@@ -13,6 +13,11 @@ void SettingsMenue::RefreshMenue()
   {
     Audio::PlayAudio(AUDIO_BUTTON_PRESS);
     retris.ChangeProcess(SYS_PROCESS_MENUE, MAIN_MENUE);
+    if (settingsChanged)
+    {
+      config.SaveConfig();
+      settingsChanged = false;
+    }
     return;
   }
 
@@ -40,6 +45,7 @@ void SettingsMenue::RefreshMenue()
         config.fastFallEnabled = !config.fastFallEnabled;
         break;
     }
+    settingsChanged = true;
   }
 
   // Render everything

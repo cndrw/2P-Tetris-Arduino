@@ -306,6 +306,11 @@ uint8_t RetrisGame::GetGameState()
   return m_gameState;
 }
 
+uint32_t& RetrisGame::GetCurrentScore()
+{
+  return m_score;
+}
+
 Vector RetrisGame::GetGamePosition()
 {
   return m_gamePosition;

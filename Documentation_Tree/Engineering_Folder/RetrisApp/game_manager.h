@@ -43,6 +43,11 @@ class GameManager : public Process
      * @brief Loads the saved game field state
      */
     void LoadGameState();
+    /**
+     * @brief Checks if the current game has a new highscore
+     * @details If so, it will update the highscore in the config
+     */
+    void CheckForNewHighscore();
 
   private:
     RetrisGame m_games[2] = { RetrisGame(), RetrisGame() };

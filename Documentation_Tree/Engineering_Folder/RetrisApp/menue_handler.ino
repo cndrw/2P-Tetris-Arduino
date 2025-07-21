@@ -13,6 +13,7 @@ void MenueHandler::AddMenue(Menue* p_menue)
 
 void MenueHandler::Init(uint8_t menue)
 {
+  mp_menues[menue]->Init();
   mp_menues[menue]->DrawMenue();
   m_currentMenue = menue;
 }

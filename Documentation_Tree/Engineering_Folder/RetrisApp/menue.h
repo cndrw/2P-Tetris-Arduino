@@ -25,6 +25,10 @@ class Menue
       m_selectedButton = 0;
     }
     /**
+     * @brief Setups up the menue if needed
+     */
+    virtual void Init() = 0;
+    /**
      * @brief Redraws the menue
      */
     virtual void RefreshMenue() = 0;

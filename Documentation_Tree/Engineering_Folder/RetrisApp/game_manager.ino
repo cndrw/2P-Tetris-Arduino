@@ -75,6 +75,8 @@ void GameManager::Update()
   {
     Audio::PlayAudio(AUDIO_GAME_OVER);
     retris.ChangeProcess(SYS_PROCESS_MENUE, DEATH_MENUE);
+  
+    CheckForNewHighscore();
   }
 }
 
@@ -123,5 +125,18 @@ void GameManager::LoadGameState()
 {
   uint8_t row = m_games[0].GetGamePosition().y + 1;
   Renderer::IncludeRows(m_savedFields, row, GAME_HEIGHT);
+}
+
+void GameManager::CheckForNewHighscore()
+{
+  for (uint8_t i = 0; i < m_playerCount; i++)
+  {
+    uint32_t& currentScore = m_games[i].GetCurrentScore();
+    if (currentScore > config.highscore)
+    {
+      config.highscore = currentScore;
+      config.SaveConfig();
+    }
+  }
 }
 

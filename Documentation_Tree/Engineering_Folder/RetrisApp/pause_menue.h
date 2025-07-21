@@ -48,6 +48,7 @@ class PauseMenue : public Menue
   public:
     PauseMenue() : Menue(PauseMenueSprite) {}
     ~PauseMenue() {}
+    void Init() {};
     void RefreshMenue();
     void PushButton();
     void ButtonSelect();

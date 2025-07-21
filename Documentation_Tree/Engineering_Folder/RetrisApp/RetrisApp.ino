@@ -43,7 +43,7 @@ void setup() {
   Renderer::SetupScreen();
   HW::lcd.init();
   HW::lcd.backlight();
-  config.LoadConfig();
+  // config.LoadConfig();
   WatchdogSetup();
 #if !SIMULATION
   Input::SetupPins();
@@ -77,3 +77,14 @@ void loop()
   asm("WDR"); // reset watchdog
   delay(10);
 }
+
+// TODO:
+// - hold mechanic implemtieren
+
+// Wenn ich flashen kann
+// - settings menue testen
+// - speichern von daten mit EEPROM testen
+// - fast fall testen
+// - fast fall visual pwm ausprobieren
+// - wird highscore korrekt aktualisiert?
+// - wird nur config gespeichert, wenn sich etwas geändert hat?

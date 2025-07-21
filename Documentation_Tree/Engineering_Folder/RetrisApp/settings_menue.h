@@ -46,11 +46,13 @@ class SettingsMenue : public Menue
   public:
     SettingsMenue() : Menue(SettingsMenueSprite) {}
     ~SettingsMenue() {}
-    void RefreshMenue() {}
-    void PushButton();
-    void ButtonSelect();
+    void Init() {}
+    void PushButton() {};
+    void ButtonSelect() {};
+    void RefreshMenue();
 
   private:
+    bool settingsChanged = false;
     const Vector arrow[3] = { {0, 0}, {-1, 1}, {0, 2} };
     const Vector arrowPosition[2] = { {29, 10}, {29, 19} };
 

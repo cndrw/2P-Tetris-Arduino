@@ -48,7 +48,7 @@ class DeathMenue : public Menue
   public:
     DeathMenue() : Menue(DeathMenueSprite) {}
     ~DeathMenue() {}
-
+    void Init() {};
     void PushButton();
     void RefreshMenue();
     void ButtonSelect();
