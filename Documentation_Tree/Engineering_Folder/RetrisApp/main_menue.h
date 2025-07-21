@@ -55,6 +55,7 @@ class MainMenue : public Menue
   private:
     const Vector arrow[3] = { {0, 0}, {-1, 1}, {0, 2} };
     const Vector arrowPosition[2] = { {29, 15}, {29, 25} };
+    bool openSettings = false;
 };
 
 #endif

@@ -2,13 +2,22 @@
 #include "audio.h"
 #include "main_menue.h"
 #include "retris_os.h"
+#include "input.h"
 
 void MainMenue::PushButton()
 {
-  // conviently m_selectedButton alternates between 1 and 0 
-  // and the SYS_OPT for 1P and 2P alternates between 1 and 2
   Audio::PlayAudio(AUDIO_BUTTON_PRESS);
-  retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
+
+  // small hack to open the settings menu
+  // possibility was originally not intended
+  if (openSettings)
+  {
+    retris.ChangeProcess(SYS_PROCESS_MENUE, SETTINGS_MENUE);
+  }
+  else
+  {
+    retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
+  }
 }
 
 void MainMenue::ButtonSelect()
@@ -18,4 +27,7 @@ void MainMenue::ButtonSelect()
   // even it is not a block this function can be used to include any vector array
   Renderer::IncludeBlock(arrow, arrowPosition[m_selectedButton], 3);
   Renderer::RemoveBlock(arrow, arrowPosition[!m_selectedButton], 3);
+
+  openSettings = Input::GetButtonDown(CONTROLLER_1, BUTTON_START);
 }
+
