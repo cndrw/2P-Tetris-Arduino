@@ -92,6 +92,12 @@ void RetrisGame::ProcessInput()
     break;
   }
 #else
+  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
+  {
+    HoldBlock();
+    return;
+  }
+
   if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_RIGHT))
   {
     MoveRight();
@@ -152,7 +158,7 @@ void RetrisGame::Update()
           m_gameState = GAME_STATE_ANIMATION;
           return;
         }
-          SpawnNewBlock();
+        SpawnNewBlock();
       }
       break;
     }
@@ -170,7 +176,7 @@ void RetrisGame::Update()
       {
         m_gameState = GAME_STATE_PLAYING;
         m_waitTime = 0;
-        CreateBlock();
+        CreateBlock(m_nextBlock, true);
         m_activeInput = true;
       }
       break;
@@ -201,6 +207,24 @@ void RetrisGame::MoveLeft()
   }
 
   Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+}
+
+void RetrisGame::HoldBlock()
+{
+  if (m_holdedBlock == INVALID_BLOCK)
+  {
+    m_holdedBlock = m_currentBlock.blockName;
+    SpawnNewBlock();
+  }
+  else
+  {
+    Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+    uint8_t currBlock = m_currentBlock.blockName;
+    CreateBlock(m_holdedBlock, false);
+    m_holdedBlock = currBlock;
+  }
+
+  m_holdPreviewBlock.UpdatePreview(m_holdedBlock);
 }
 
 void RetrisGame::Rotate()
@@ -280,6 +304,9 @@ void RetrisGame::DrawGameField(uint8_t viewStyle)
 
   m_previewBlock.DrawBorder();
   m_previewBlock.UpdatePreview(m_nextBlock);
+
+  m_holdPreviewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y + 10};
+  m_holdPreviewBlock.DrawBorder();
 
   int32_t horizontalWall = 0x00000FFF;
   uint8_t offset = 32 - m_gamePosition.x - GAME_WIDTH_WB;
@@ -528,16 +555,19 @@ void RetrisGame::SpawnNewBlock()
   m_quickDropped = false;
 }
 
-void RetrisGame::CreateBlock()
+void RetrisGame::CreateBlock(uint8_t block, bool updatePreview)
 {
-  m_currentBlock.Create(blockShape[m_nextBlock], m_nextBlock, m_gamePosition + positionTable[m_nextBlock]);
+  m_currentBlock.Create(blockShape[block], block, m_gamePosition + positionTable[block]);
   m_quickDropBlock = m_currentBlock;
 
+  if (updatePreview)
+  {
 #if DEBUG
-  uint8_t randomBlock = DEBUG_BLOCK;
+    uint8_t randomBlock = DEBUG_BLOCK;
 #else
-  m_nextBlock = m_blockBag.GetNextBlock();
+    m_nextBlock = m_blockBag.GetNextBlock();
 #endif
 
-  m_previewBlock.UpdatePreview(m_nextBlock);
+    m_previewBlock.UpdatePreview(m_nextBlock);
+  }
 }

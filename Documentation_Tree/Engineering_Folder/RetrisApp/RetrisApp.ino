@@ -80,6 +80,8 @@ void loop()
 
 // TODO:
 // - hold mechanic implemtieren
+// - gedrückt halten von links/rechts -> sliden links/rechts 
+// - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
 // Wenn ich flashen kann
 // - settings menue testen

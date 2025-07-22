@@ -21,6 +21,8 @@
 #define GAME_STATE_WAIT 3
 #define GAME_STATE_FINISHED 4
 
+#define INVALID_BLOCK 42
+
 #define SPEED_LOOK_UP_TABLE { 40, 39, 38, 37, 36, 35, 35, 34, 33, 32, 31, 30, 28, 27, 26, 25, 24, 22, 21, 19, 18, 16, 15, 13, 11, 9, 8, 6, 4, 2 }
 
 /**
@@ -68,6 +70,7 @@ class RetrisGame
      * @brief Rotates the current Block 90° clockwise
      * @details If the rotation is not possible the function will do nothing
     */
+    void Rotate();
     /**
      * @brief QuickDrops the current Block to the ground
     */
@@ -77,7 +80,11 @@ class RetrisGame
      * @param isGameTick If true, the preview will not be displayed
     */
     void DisplayQuickDrop(bool isGameTick);
-    void Rotate();
+    /**
+     * @brief Holds the current Block
+     * @details The current Block will be replaced with the holded Block (if there is one)
+    */
+    void HoldBlock();
     /**
      * @brief Sets the rate of game ticks 
      * @details Low timeScale means faster game and high timeScale slower game
@@ -161,16 +168,18 @@ class RetrisGame
        * @brief Creates a new block at the top of the field
        * @details Generates the next block and send it to the preview
       */
-      void CreateBlock();
+      void CreateBlock(uint8_t block, bool updatePreview);
 
     private:
       Block m_currentBlock;
       Block m_quickDropBlock;
+      uint8_t m_holdedBlock = INVALID_BLOCK;
       bool m_quickDropped = false;
       BlockBag m_blockBag;
       uint8_t m_nextBlock = 0;
       Vector m_gamePosition = {0, 0}; // top-left of the playing field
       PreviewBlock m_previewBlock;
+      PreviewBlock m_holdPreviewBlock;
       uint8_t m_gameState = 0;
       int32_t m_fullLine = 0; // refrence integer for a full line
       int32_t m_fullLineTable = 0; // look up table for where a full line was detected
