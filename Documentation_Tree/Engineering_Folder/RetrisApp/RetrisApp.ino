@@ -79,8 +79,6 @@ void loop()
 }
 
 // TODO:
-// - hold mechanic nur bei einzelspieler
-// - gedrückt halten von links/rechts -> sliden links/rechts 
 // - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
 // Wenn ich flashen kann
@@ -90,3 +88,4 @@ void loop()
 // - fast fall visual pwm ausprobieren
 // - wird highscore korrekt aktualisiert?
 // - wird nur config gespeichert, wenn sich etwas geändert hat?
+// - hold block feature testen, darf nur in 1 player modus sein, keine bugs wenn man z.b. quittet etc.

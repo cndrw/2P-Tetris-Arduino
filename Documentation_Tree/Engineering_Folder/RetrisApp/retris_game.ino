@@ -20,6 +20,8 @@ uint8_t DEBUG_BLOCK = I;
 #define VIEW_STYLE_HORIZONTAL 1
 #define VIEW_STYLE_VERTICAL 2
 
+#define TICKS_UNTIL_AUTO_MOVE 5
+
 constexpr uint8_t RetrisGame::speedTable[];
 
 RetrisGame::RetrisGame()
@@ -99,12 +101,41 @@ void RetrisGame::ProcessInput()
     return;
   }
 
-  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_RIGHT))
+  static uint8_t rightCounter = 0;
+  static uint8_t leftCounter = 0;
+
+  if (Input::GetButton(m_instanceCount - 1, BUTTON_RIGHT))
+  {
+    if (rightCounter++ > TICKS_UNTIL_AUTO_MOVE)
+    {
+      m_rightButtonHeld = true;
+    }
+  }
+  else
+  {
+    m_rightButtonHeld = false;
+    rightCounter = 0;
+  }
+
+  if (Input::GetButton(m_instanceCount - 1, BUTTON_LEFT))
+  {
+    if (leftCounter++ > TICKS_UNTIL_AUTO_MOVE)
+    {
+      m_leftButtonHeld = true;
+    }
+  }
+  else
+  {
+    m_leftButtonHeld = false;
+    leftCounter = 0;
+  }
+
+  if (m_rightButtonHeld || Input::GetButtonDown(m_instanceCount - 1, BUTTON_RIGHT))
   {
     MoveRight();
   }
 
-  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_LEFT))
+  if (m_leftButtonHeld || Input::GetButtonDown(m_instanceCount - 1, BUTTON_LEFT))
   {
     MoveLeft();
   }
@@ -534,6 +565,7 @@ void RetrisGame::ResetGame()
   m_gameState = GAME_STATE_PLAYING;
   m_fullLine = 0;
   m_fullLineTable = 0;
+  m_holdedBlock = INVALID_BLOCK;
 }
 
 void RetrisGame::Wait(const uint8_t waitTime)

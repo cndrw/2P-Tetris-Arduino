@@ -195,6 +195,8 @@ class RetrisGame
       const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {6, 2} };
       static constexpr uint8_t speedTable[30] = SPEED_LOOK_UP_TABLE;
       uint16_t m_baseSpeed = BASE_BLOCK_SPEED;
+      bool m_rightButtonHeld = false; 
+      bool m_leftButtonHeld = false; 
 };
 
 #endif
