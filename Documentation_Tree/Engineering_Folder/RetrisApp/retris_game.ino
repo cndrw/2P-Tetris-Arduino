@@ -29,9 +29,10 @@ RetrisGame::RetrisGame()
   m_instanceCount = instanceCount;
 }
 
-void RetrisGame::Init(Vector startPosition, uint8_t style)
+void RetrisGame::Init(Vector startPosition, uint8_t style, bool holdBlockActive)
 {
   m_gamePosition = startPosition;
+  m_holdBlockActive = holdBlockActive;
 
   // reset all variables from the sesssion
   ResetGame();
@@ -92,7 +93,7 @@ void RetrisGame::ProcessInput()
     break;
   }
 #else
-  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
+  if (m_holdBlockActive && Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
   {
     HoldBlock();
     return;
@@ -305,8 +306,11 @@ void RetrisGame::DrawGameField(uint8_t viewStyle)
   m_previewBlock.DrawBorder();
   m_previewBlock.UpdatePreview(m_nextBlock);
 
-  m_holdPreviewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y + 10};
-  m_holdPreviewBlock.DrawBorder();
+  if (m_holdBlockActive)
+  {
+    m_holdPreviewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y + 10};
+    m_holdPreviewBlock.DrawBorder();
+  }
 
   int32_t horizontalWall = 0x00000FFF;
   uint8_t offset = 32 - m_gamePosition.x - GAME_WIDTH_WB;

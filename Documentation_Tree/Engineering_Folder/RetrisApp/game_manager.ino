@@ -36,12 +36,13 @@ void GameManager::Init(uint8_t playerCount)
       // m_playerCount will be whatever it was last time
       break;
   }
+
 #if !SIMULATION
   Input::SetControllerCount(m_playerCount);
 #endif
   for (uint8_t i = 0; i < m_playerCount; i++)
   {
-    m_games[i].Init(m_gamePositions[i], m_playerCount);
+    m_games[i].Init(m_gamePositions[i], m_playerCount, m_playerCount == GAME_OPT_1P);
   }
 
   if (config.musicEnabled)

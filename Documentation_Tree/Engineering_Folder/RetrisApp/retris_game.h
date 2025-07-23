@@ -42,7 +42,7 @@ class RetrisGame
      * @param style How the game will appear (preview Block above or to the side of the game field)
      * 
     */
-    void Init(Vector startPosition, uint8_t style);
+    void Init(Vector startPosition, uint8_t style, bool holdBlockActive);
 #if SIMULATION
     void ProcessInput(uint8_t pressedButton);
 #else
@@ -173,6 +173,7 @@ class RetrisGame
     private:
       Block m_currentBlock;
       Block m_quickDropBlock;
+      bool m_holdBlockActive = false; // if true, the hold block is active
       uint8_t m_holdedBlock = INVALID_BLOCK;
       bool m_quickDropped = false;
       BlockBag m_blockBag;

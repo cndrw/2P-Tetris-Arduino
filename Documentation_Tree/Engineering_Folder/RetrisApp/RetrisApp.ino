@@ -79,7 +79,7 @@ void loop()
 }
 
 // TODO:
-// - hold mechanic implemtieren
+// - hold mechanic nur bei einzelspieler
 // - gedrückt halten von links/rechts -> sliden links/rechts 
 // - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
