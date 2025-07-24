@@ -7,9 +7,11 @@
 #define MUSIC_LABEL 0
 #define FAST_FALL_LABEL 1
 
-void SettingsMenue::RefreshMenue()
+void SettingsMenue::ButtonSelect()
 {
-  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START))
+  static uint8_t counter = 0;
+  if (counter < 200) counter++;
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START) && counter > MENUE_SWITCH_DELAY)
   {
     Audio::PlayAudio(AUDIO_BUTTON_PRESS);
     retris.ChangeProcess(SYS_PROCESS_MENUE, MAIN_MENUE);
@@ -18,11 +20,10 @@ void SettingsMenue::RefreshMenue()
       config.SaveConfig();
       settingsChanged = false;
     }
+    counter = 0;
     return;
   }
 
-  // redraw the menue (without on/off labels)
-  memcpy(screen, m_titleSprite, sizeof(int32_t) * 32);
 
   if (Input::GetButtonDown(CONTROLLER_1, BUTTON_UP) ||
       Input::GetButtonDown(CONTROLLER_1, BUTTON_DOWN))
@@ -31,7 +32,6 @@ void SettingsMenue::RefreshMenue()
     m_selectedButton = !m_selectedButton;
   }
 
-  // change selected setting 
   if (Input::GetButtonDown(CONTROLLER_1, BUTTON_A))
   {
     Audio::PlayAudio(AUDIO_BUTTON_PRESS);
@@ -47,6 +47,15 @@ void SettingsMenue::RefreshMenue()
     }
     settingsChanged = true;
   }
+}
+
+void SettingsMenue::RefreshMenue()
+{
+
+  // redraw the menue (without on/off labels)
+  memcpy(screen, m_titleSprite, sizeof(int32_t) * 32);
+
+  // change selected setting 
 
   // Render everything
   Renderer::IncludeBlock(arrow, arrowPosition[m_selectedButton], 3);

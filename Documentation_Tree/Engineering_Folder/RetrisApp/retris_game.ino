@@ -5,6 +5,7 @@
 #include "preview_block.h"
 #include "retris_os.h"
 #include "retris_game.h"
+#include "config.h"
 
 #if !SIMULATION
 #include "input.h"
@@ -20,7 +21,7 @@ uint8_t DEBUG_BLOCK = I;
 #define VIEW_STYLE_HORIZONTAL 1
 #define VIEW_STYLE_VERTICAL 2
 
-#define TICKS_UNTIL_AUTO_MOVE 5
+#define TICKS_UNTIL_AUTO_MOVE 10
 
 constexpr uint8_t RetrisGame::speedTable[];
 
@@ -168,7 +169,10 @@ void RetrisGame::Update()
     {
       bool gameTick = (m_ticks / m_timeScale) || m_quickDropped;
 
-      DisplayQuickDrop(gameTick);
+      if (config.fastFallEnabled)
+      {
+        DisplayQuickDrop(gameTick);
+      }
 
       if (!gameTick)
       {
@@ -327,7 +331,7 @@ void RetrisGame::DrawGameField(uint8_t viewStyle)
     // Horizontal style can only be used in 1P-Mode 
     // move the game field to a more central place 
     m_gamePosition = {4, 6};
-    m_previewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y + 4};
+    m_previewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y - 2};
   }
   else if (viewStyle == VIEW_STYLE_VERTICAL)
   {

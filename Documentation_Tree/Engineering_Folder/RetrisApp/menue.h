@@ -4,6 +4,8 @@
 #include "vector.h"
 #include "constants.h"
 
+#define MENUE_SWITCH_DELAY 20
+
 /**
 * @brief Interface for a menu, a menu can be drawn, refreshed, the button can be selected 
 * and the selected button can be pushed

@@ -54,9 +54,8 @@ class MainMenue : public Menue
     void Init();
 
   private:
-    const Vector arrow[3] = { {0, 0}, {-1, 1}, {0, 2} };
-    const Vector arrowPosition[2] = { {29, 15}, {29, 25} };
-    bool openSettings = false;
+    const Vector m_arrow[3] = { {0, 0}, {-1, 1}, {0, 2} };
+    const Vector m_arrowPosition[2] = { {29, 15}, {29, 25} };
 };
 
 #endif

@@ -26,11 +26,7 @@ void MenueHandler::Update()
     mp_menues[m_currentMenue]->PushButton();
   }
 
-  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_DOWN) ||
-      Input::GetButtonDown(CONTROLLER_1, BUTTON_UP))
-  {
-    mp_menues[m_currentMenue]->ButtonSelect();
-  }
+  mp_menues[m_currentMenue]->ButtonSelect();
 #endif
 
   // to restrict the refresh speed of a menu

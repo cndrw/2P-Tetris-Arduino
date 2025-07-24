@@ -79,12 +79,17 @@ void loop()
 }
 
 // TODO:
+// - music wird abgespielt nach resume im pausemenue
+// - hold can man gedrück halten
+// - man kann immer die selben blöcke halten (undendlichen stallen)
+// - erster hold block wird nicht entfernt
+// - quick drop macht bugs wenn resume (visuell)
+//  -> selbe für hold blocks
+// - bugs im lcd -> sachen werden nicht resettet
 // - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
 // Wenn ich flashen kann
-// - settings menue testen
 // - speichern von daten mit EEPROM testen
-// - fast fall testen
 // - fast fall visual pwm ausprobieren
 // - wird highscore korrekt aktualisiert?
 // - wird nur config gespeichert, wenn sich etwas geändert hat?

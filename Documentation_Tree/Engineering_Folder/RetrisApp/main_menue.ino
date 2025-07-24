@@ -18,26 +18,31 @@ void MainMenue::PushButton()
 
   // small hack to open the settings menu
   // possibility was originally not intended
-  if (openSettings)
-  {
-    retris.ChangeProcess(SYS_PROCESS_MENUE, SETTINGS_MENUE);
-  }
-  else
-  {
-    retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
-  }
+  retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
 
   HW::lcd.clear();
 }
 
 void MainMenue::ButtonSelect()
 {
-  Audio::PlayAudio(AUDIO_BUTTON_SWITCH);
-  m_selectedButton = m_selectedButton == 1 ? 0 : 1;
-  // even it is not a block this function can be used to include any vector array
-  Renderer::IncludeBlock(arrow, arrowPosition[m_selectedButton], 3);
-  Renderer::RemoveBlock(arrow, arrowPosition[!m_selectedButton], 3);
 
-  openSettings = Input::GetButtonDown(CONTROLLER_1, BUTTON_START);
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_DOWN) ||
+      Input::GetButtonDown(CONTROLLER_1, BUTTON_UP))
+  {
+    Audio::PlayAudio(AUDIO_BUTTON_SWITCH);
+    m_selectedButton = m_selectedButton == 1 ? 0 : 1;
+    // even it is not a block this function can be used to include any vector array
+    Renderer::IncludeBlock(m_arrow, m_arrowPosition[m_selectedButton], 3);
+    Renderer::RemoveBlock(m_arrow, m_arrowPosition[!m_selectedButton], 3);
+  }
+
+  static uint8_t counter = 0;
+  if (counter < 200) counter++;
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START) && counter > MENUE_SWITCH_DELAY)
+  {
+    retris.ChangeProcess(SYS_PROCESS_MENUE, SETTINGS_MENUE);
+    counter = 0;
+  }
 }
+
 
