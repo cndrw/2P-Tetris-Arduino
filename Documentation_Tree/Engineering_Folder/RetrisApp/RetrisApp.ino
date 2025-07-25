@@ -79,7 +79,6 @@ void loop()
 }
 
 // TODO:
-// - music wird abgespielt nach resume im pausemenue
 // - hold can man gedrück halten
 // - man kann immer die selben blöcke halten (undendlichen stallen)
 // - erster hold block wird nicht entfernt

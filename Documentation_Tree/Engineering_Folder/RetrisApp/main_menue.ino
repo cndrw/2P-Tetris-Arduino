@@ -36,12 +36,9 @@ void MainMenue::ButtonSelect()
     Renderer::RemoveBlock(m_arrow, m_arrowPosition[!m_selectedButton], 3);
   }
 
-  static uint8_t counter = 0;
-  if (counter < 200) counter++;
-  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START) && counter > MENUE_SWITCH_DELAY)
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START))
   {
     retris.ChangeProcess(SYS_PROCESS_MENUE, SETTINGS_MENUE);
-    counter = 0;
   }
 }
 

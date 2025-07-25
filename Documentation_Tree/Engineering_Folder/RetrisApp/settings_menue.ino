@@ -9,9 +9,7 @@
 
 void SettingsMenue::ButtonSelect()
 {
-  static uint8_t counter = 0;
-  if (counter < 200) counter++;
-  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START) && counter > MENUE_SWITCH_DELAY)
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START))
   {
     Audio::PlayAudio(AUDIO_BUTTON_PRESS);
     retris.ChangeProcess(SYS_PROCESS_MENUE, MAIN_MENUE);
@@ -20,7 +18,6 @@ void SettingsMenue::ButtonSelect()
       config.SaveConfig();
       settingsChanged = false;
     }
-    counter = 0;
     return;
   }
 
@@ -30,6 +27,7 @@ void SettingsMenue::ButtonSelect()
   {
     Audio::PlayAudio(AUDIO_BUTTON_SWITCH);
     m_selectedButton = !m_selectedButton;
+    RefreshMenue();
   }
 
   if (Input::GetButtonDown(CONTROLLER_1, BUTTON_A))
@@ -46,6 +44,7 @@ void SettingsMenue::ButtonSelect()
         break;
     }
     settingsChanged = true;
+    RefreshMenue();
   }
 }
 

@@ -175,6 +175,7 @@ class RetrisGame
       Block m_quickDropBlock;
       bool m_holdBlockActive = false; // if true, the hold block is active
       uint8_t m_holdedBlock = INVALID_BLOCK;
+      bool m_hasSwitched = false;
       bool m_quickDropped = false;
       BlockBag m_blockBag;
       uint8_t m_nextBlock = 0;

@@ -20,14 +20,7 @@ void MenueHandler::Init(uint8_t menue)
 
 void MenueHandler::Update()
 {
-#if !SIMULATION
-  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_A))
-  {
-    mp_menues[m_currentMenue]->PushButton();
-  }
-
   mp_menues[m_currentMenue]->ButtonSelect();
-#endif
 
   // to restrict the refresh speed of a menu
   // there is no need that the menues refreshes at such a high rate
@@ -38,6 +31,11 @@ void MenueHandler::Update()
   if (ticks == 0)
   {
     mp_menues[m_currentMenue]->RefreshMenue();
+  }
+
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_A))
+  {
+    mp_menues[m_currentMenue]->PushButton();
   }
 }
 

@@ -96,9 +96,9 @@ void RetrisGame::ProcessInput()
     break;
   }
 #else
-  if (m_holdBlockActive && Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
+  if (m_holdBlockActive && !m_hasSwitched && Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
   {
-    HoldBlock();
+    // HoldBlock();
     return;
   }
 
@@ -214,6 +214,7 @@ void RetrisGame::Update()
         m_waitTime = 0;
         CreateBlock(m_nextBlock, true);
         m_activeInput = true;
+        m_hasSwitched = false;
       }
       break;
 
@@ -250,6 +251,7 @@ void RetrisGame::HoldBlock()
   if (m_holdedBlock == INVALID_BLOCK)
   {
     m_holdedBlock = m_currentBlock.blockName;
+    Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
     SpawnNewBlock();
   }
   else
@@ -260,6 +262,7 @@ void RetrisGame::HoldBlock()
     m_holdedBlock = currBlock;
   }
 
+  m_hasSwitched = true;
   m_holdPreviewBlock.UpdatePreview(m_holdedBlock);
 }
 
