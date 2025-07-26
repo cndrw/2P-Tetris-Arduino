@@ -5,6 +5,7 @@
 #include "preview_block.h"
 #include "retris_os.h"
 #include "retris_game.h"
+#include "audio.h"
 #include "config.h"
 
 #if !SIMULATION
@@ -469,7 +470,7 @@ bool RetrisGame::CheckFullLine()
     if (maskedLine == m_fullLine)
     {
       m_fullLineTable |= (int32_t)1 << (31 - currentLine);
-      m_clearedLinesCount++;
+      m_clearedLinesTotal++;
     }
   }
 
@@ -514,13 +515,27 @@ void RetrisGame::ClearAnimation()
       screen[currentLine + lineCount] &= ~m_fullLine;
       screen[currentLine + lineCount] |= maskedLine;
     }
+
+    if (!config.musicEnabled)
+    {
+      if (lineCount < 4)
+      {
+        Audio::PlayAudio(AUDIO_LINE_CLEARED);
+      }
+      else
+      {
+        Audio::PlayAudio(AUDIO_LINE_CLEARED_TETRIS);
+      }
+    }
   }
+
+  Serial.println(lineCount);
 
   m_ticks = 0;
   m_fullLineTable = 0;
 
   // every 10 cleared Lines the level is incremented as well as the speed
-  m_level = m_clearedLinesCount / CLEAR_LINES_HURDLE;
+  m_level = m_clearedLinesTotal / CLEAR_LINES_HURDLE;
 
   if (m_level <= 29) // 29 is the last level where the speed increases
   {
@@ -568,7 +583,7 @@ void RetrisGame::ResetGame()
 {
   m_level = 0;
   m_score = 0;
-  m_clearedLinesCount = 0;
+  m_clearedLinesTotal = 0;
   m_gameState = GAME_STATE_PLAYING;
   m_fullLine = 0;
   m_fullLineTable = 0;

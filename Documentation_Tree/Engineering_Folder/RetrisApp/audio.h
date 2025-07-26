@@ -107,6 +107,8 @@ namespace Audio {
 #define AUDIO_BUTTON_SWITCH 1
 #define AUDIO_BUTTON_PRESS 2
 #define AUDIO_GAME_OVER 3
+#define AUDIO_LINE_CLEARED 4
+#define AUDIO_LINE_CLEARED_TETRIS 5
 
 // change this to make the song slower or faster
 constexpr uint8_t tempo = 144;
@@ -199,6 +201,22 @@ static volatile constexpr uint32_t buttonPress[] = { NOTE_D6, Conv(16) };
 */
 static volatile constexpr uint32_t gameOver[] = { REST, Conv(4), NOTE_G5, Conv(8), NOTE_DS5, Conv(8), NOTE_A4, Conv(2) };
 /**
+ * @brief arrangement of the audio that will be played when a single line is cleared
+ */
+static volatile constexpr uint32_t lineCleared[] = {
+  NOTE_FS5, Audio::Conv(16),
+  NOTE_D5,  Audio::Conv(16)
+};
+/**
+ * @brief arrangement of the audio that will be played when tetris is cleared
+ */
+static volatile constexpr uint32_t lineClearedTetris[] = {
+  NOTE_A4, Conv(16),
+  NOTE_C5, Conv(16),
+  NOTE_E5, Conv(16),
+  NOTE_G5, Conv(16)
+};
+/**
 * @brief Collection of every melody that can be played
 */
 Melody melodies[] = {
@@ -206,6 +224,8 @@ Melody melodies[] = {
   {buttonSwitch, sizeof(buttonSwitch) / sizeof(uint32_t), 0},
   {buttonPress, sizeof(buttonPress) / sizeof(uint32_t), 0},
   {gameOver, sizeof(gameOver) / sizeof(uint32_t), 0},
+  {lineCleared, sizeof(lineCleared) / sizeof(uint32_t), 0},
+  {lineClearedTetris, sizeof(lineClearedTetris) / sizeof(uint32_t), 0},
 };
 
 // variables that control the current playing audio

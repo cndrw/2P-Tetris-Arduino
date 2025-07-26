@@ -38,6 +38,7 @@ void MainMenue::ButtonSelect()
 
   if (Input::GetButtonDown(CONTROLLER_1, BUTTON_START))
   {
+    Audio::PlayAudio(AUDIO_BUTTON_PRESS);
     retris.ChangeProcess(SYS_PROCESS_MENUE, SETTINGS_MENUE);
   }
 }

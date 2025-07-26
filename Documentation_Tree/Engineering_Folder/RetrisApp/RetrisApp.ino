@@ -79,12 +79,11 @@ void loop()
 }
 
 // TODO:
-// - hold can man gedrück halten
-// - man kann immer die selben blöcke halten (undendlichen stallen)
-// - erster hold block wird nicht entfernt
 // - quick drop macht bugs wenn resume (visuell)
 //  -> selbe für hold blocks
 // - bugs im lcd -> sachen werden nicht resettet
+// - wenn ich ein block holde wird die FF nicht weggemacht
+// - sound für line clear fehlt
 // - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
 // Wenn ich flashen kann

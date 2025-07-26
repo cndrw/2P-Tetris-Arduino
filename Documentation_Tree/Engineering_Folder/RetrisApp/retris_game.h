@@ -190,7 +190,8 @@ class RetrisGame
       uint32_t m_score = 0;
       uint8_t m_level = 0;
       uint8_t m_instanceCount = 0;
-      uint16_t m_clearedLinesCount = 0;
+      uint16_t m_clearedLinesTotal = 0;
+      bool m_hasClearedLines = false;
       bool m_activeInput = true;
       uint8_t m_waitTime = 0;
       const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {6, 2} };
