@@ -103,14 +103,15 @@ void GameManager::Freeze(bool freeze)
   if (freeze)
   {
     SaveGameState();
+    HW::lcd.clear();
   }
   else
   {
     LoadGameState();
-    m_games[0].DrawGameField(m_playerCount);
-    if (m_playerCount == 2)
+    for (uint8_t i = 0; i < m_playerCount; i++)
     {
-      m_games[1].DrawGameField(m_playerCount);
+      m_games[i].DrawGameField(m_playerCount);
+      m_games[i].DisplayScore();
     }
   }
 }

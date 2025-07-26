@@ -18,9 +18,8 @@ void MainMenue::PushButton()
 
   // small hack to open the settings menu
   // possibility was originally not intended
-  retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
-
   HW::lcd.clear();
+  retris.ChangeProcess(SYS_PROCESS_GAME, m_selectedButton + 1);
 }
 
 void MainMenue::ButtonSelect()

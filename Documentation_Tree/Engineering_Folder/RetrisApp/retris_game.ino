@@ -53,6 +53,7 @@ void RetrisGame::Init(Vector startPosition, uint8_t style, bool holdBlockActive)
 #endif
 
   DrawGameField(style);
+  DisplayScore();
   m_currentBlock.Create(blockShape[startBlock], startBlock, m_gamePosition + positionTable[startBlock]);
 
   m_activeInput = true;
@@ -553,6 +554,11 @@ void RetrisGame::UpdateScore(const uint8_t clearedRows)
   m_score += baseValues[clearedRows - 1] * (m_level + 1);
 
   // update lcd screen
+  DisplayScore();
+}
+
+void RetrisGame::DisplayScore()
+{
   HW::lcd.setCursor(0, m_instanceCount - 1);
   HW::lcd.print("P" + String(m_instanceCount) + ": " + String(m_score));
   HW::lcd.setCursor(14, m_instanceCount - 1);

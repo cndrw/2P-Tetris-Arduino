@@ -83,7 +83,6 @@ void loop()
 //  -> selbe für hold blocks
 // - bugs im lcd -> sachen werden nicht resettet
 // - wenn ich ein block holde wird die FF nicht weggemacht
-// - sound für line clear fehlt
 // - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
 // Wenn ich flashen kann

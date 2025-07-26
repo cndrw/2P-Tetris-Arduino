@@ -96,6 +96,7 @@ class RetrisGame
      * @param viewStyle The style of the game instance - preview  Block can be to the right or on top of the game field
     */
     void DrawGameField(uint8_t viewStyle);
+    void DisplayScore();
 
     uint8_t GetGameState();
     uint32_t& GetCurrentScore();
@@ -191,7 +192,6 @@ class RetrisGame
       uint8_t m_level = 0;
       uint8_t m_instanceCount = 0;
       uint16_t m_clearedLinesTotal = 0;
-      bool m_hasClearedLines = false;
       bool m_activeInput = true;
       uint8_t m_waitTime = 0;
       const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {6, 2} };
