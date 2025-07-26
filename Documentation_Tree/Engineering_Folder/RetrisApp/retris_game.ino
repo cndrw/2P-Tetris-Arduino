@@ -100,7 +100,7 @@ void RetrisGame::ProcessInput()
 #else
   if (m_holdBlockActive && !m_hasSwitched && Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
   {
-    // HoldBlock();
+    HoldBlock();
     return;
   }
 
@@ -250,15 +250,16 @@ void RetrisGame::MoveLeft()
 
 void RetrisGame::HoldBlock()
 {
+  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+
   if (m_holdedBlock == INVALID_BLOCK)
   {
     m_holdedBlock = m_currentBlock.blockName;
-    Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
     SpawnNewBlock();
   }
   else
   {
-    Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
     uint8_t currBlock = m_currentBlock.blockName;
     CreateBlock(m_holdedBlock, false);
     m_holdedBlock = currBlock;

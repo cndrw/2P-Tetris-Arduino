@@ -60,6 +60,7 @@ void GameManager::Update()
   {
     Audio::StopAudio();
     retris.FreezeCurrentProcess(SYS_PROCESS_MENUE, PAUSE_MENUE);
+    return;
   }
 #endif
 

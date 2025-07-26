@@ -71,6 +71,7 @@ void setup() {
 #endif
 }
 
+
 void loop()
 {
   retris.UpdateSystem();
@@ -79,10 +80,7 @@ void loop()
 }
 
 // TODO:
-// - quick drop macht bugs wenn resume (visuell)
-//  -> selbe für hold blocks
-// - bugs im lcd -> sachen werden nicht resettet
-// - wenn ich ein block holde wird die FF nicht weggemacht
+// - nach resume aufheben gibt es manchmal eine kurze "beschleunigung"
 // - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
 
 // Wenn ich flashen kann
