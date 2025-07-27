@@ -15,7 +15,7 @@ void Block::Rotate()
 {
   switch(blockName)
   {
-    case I:
+    case I_ID:
       for (int i = 0; i < BLOCK_LENGTH; i++)
       {
         Vector temp = points[i];
@@ -24,7 +24,7 @@ void Block::Rotate()
       }
       break;
 
-    case O:
+    case O_ID:
       break;
 
     default:

@@ -5,6 +5,8 @@
 #include "preview_block.h"
 #include "retris_os.h"
 #include "retris_game.h"
+#include "audio.h"
+#include "config.h"
 
 #if !SIMULATION
 #include "input.h"
@@ -20,6 +22,9 @@ uint8_t DEBUG_BLOCK = I;
 #define VIEW_STYLE_HORIZONTAL 1
 #define VIEW_STYLE_VERTICAL 2
 
+#define TICKS_UNTIL_AUTO_MOVE 10
+#define INPUT_ACTION_DECAY 15
+
 constexpr uint8_t RetrisGame::speedTable[];
 
 RetrisGame::RetrisGame()
@@ -29,23 +34,28 @@ RetrisGame::RetrisGame()
   m_instanceCount = instanceCount;
 }
 
-void RetrisGame::Init(Vector startPosition, uint8_t style)
+void RetrisGame::Init(Vector startPosition, uint8_t style, bool holdBlockActive)
 {
   m_gamePosition = startPosition;
+  m_holdBlockActive = holdBlockActive;
+
   // reset all variables from the sesssion
   ResetGame();
 
   randomSeed(micros());
+  m_blockBag.Init();
+
 #if DEBUG
   uint8_t randomBlock = DEBUG_BLOCK;
   m_nextBlock = DEBUG_BLOCK;
 #else
-  uint8_t randomBlock = random(7);
-  m_nextBlock = random(7);
+  uint8_t startBlock = m_blockBag.GetNextBlock();
+  m_nextBlock = m_blockBag.GetNextBlock();
 #endif
 
   DrawGameField(style);
-  m_currentBlock.Create(blockShape[randomBlock], randomBlock, m_gamePosition + positionTable[randomBlock]);
+  DisplayScore();
+  m_currentBlock.Create(blockShape[startBlock], startBlock, m_gamePosition + positionTable[startBlock]);
 
   m_activeInput = true;
 }
@@ -89,30 +99,75 @@ void RetrisGame::ProcessInput()
     break;
   }
 #else
+  if (m_holdBlockActive && !m_hasSwitched && Input::GetButtonDown(m_instanceCount - 1, BUTTON_Y))
+  {
+    HoldBlock();
+    return;
+  }
+
+  if (Input::GetButton(m_instanceCount - 1, BUTTON_RIGHT))
+  {
+    if (m_rightButtonCounter++ > TICKS_UNTIL_AUTO_MOVE)
+    {
+      m_rightButtonHeld = true;
+    }
+  }
+  else
+  {
+    m_rightButtonHeld = false;
+    m_rightButtonCounter = 0;
+  }
+
+  if (Input::GetButton(m_instanceCount - 1, BUTTON_LEFT))
+  {
+    if (m_leftButtonCounter++ > TICKS_UNTIL_AUTO_MOVE)
+    {
+      m_leftButtonHeld = true;
+    }
+  }
+  else
+  {
+    m_leftButtonHeld = false;
+    m_leftButtonCounter = 0;
+  }
+
+  if (m_rightButtonHeld && m_rightButtonCounter % 3 == 0)
+  {
+    MoveRight();
+    m_ticksSinceLastInput = 0;
+  }
+
+  if (m_leftButtonHeld && m_leftButtonCounter % 3 == 0)
+  {
+    MoveLeft();
+    m_ticksSinceLastInput = 0;
+  }
+
   if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_RIGHT))
   {
     MoveRight();
+    m_ticksSinceLastInput = 0;
   }
 
   if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_LEFT))
   {
     MoveLeft();
+    m_ticksSinceLastInput = 0;
   }
 
   if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_X))
   {
     Rotate();
+    m_ticksSinceLastInput = 0;
+  }
+
+  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_R))
+  {
+    QuickDrop();
   }
 
   // if button is pressed then "fast fall", else normal current speed
   SetTimeScale(Input::GetButton(m_instanceCount - 1, BUTTON_A) ? 4 : m_baseSpeed);
-
-  // Cheatcode
-  if (Input::GetButton(m_instanceCount - 1, BUTTON_DOWN) &&
-      Input::GetButtonDown(m_instanceCount - 1, BUTTON_R))
-      {
-        m_clearedLinesCount += 10;
-      }
 #endif
 }
 
@@ -123,21 +178,32 @@ void RetrisGame::Update()
 #endif
 
   m_ticks++;
+  m_ticksSinceLastInput++;
   switch(m_gameState)
   {
     case GAME_STATE_PLAYING:
     {
-      bool gameTick = m_ticks / m_timeScale;
+      bool gameTick = (m_ticks / m_timeScale) || m_quickDropped;
+
+      if (config.fastFallEnabled)
+      {
+        DisplayQuickDrop(gameTick);
+      }
+
       if (!gameTick)
       {
         return;
       }
       m_ticks = 0;
 
-      if (ValidateMove(MOVE_BELOW))
+      if (ValidateMove(MOVE_BELOW, m_currentBlock))
       {
           m_currentBlock.MoveDown();
           Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+      }
+      else if (m_ticksSinceLastInput < INPUT_ACTION_DECAY)
+      {
+        Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
       }
       else 
       {
@@ -148,7 +214,7 @@ void RetrisGame::Update()
           m_gameState = GAME_STATE_ANIMATION;
           return;
         }
-          SpawnNewBlock();
+        SpawnNewBlock();
       }
       break;
     }
@@ -166,8 +232,9 @@ void RetrisGame::Update()
       {
         m_gameState = GAME_STATE_PLAYING;
         m_waitTime = 0;
-        CreateBlock();
+        CreateBlock(m_nextBlock, true);
         m_activeInput = true;
+        m_hasSwitched = false;
       }
       break;
 
@@ -181,7 +248,7 @@ void RetrisGame::Update()
 
 void RetrisGame::MoveRight()
 {
-  if (ValidateMove(MOVE_RIGHT))
+  if (ValidateMove(MOVE_RIGHT, m_currentBlock))
   {
     m_currentBlock.MoveRight();
   }
@@ -191,12 +258,33 @@ void RetrisGame::MoveRight()
 
 void RetrisGame::MoveLeft()
 {
-  if (ValidateMove(MOVE_LEFT))
+  if (ValidateMove(MOVE_LEFT, m_currentBlock))
   {
     m_currentBlock.MoveLeft();
   }
 
   Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+}
+
+void RetrisGame::HoldBlock()
+{
+  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+
+  if (m_holdedBlock == INVALID_BLOCK)
+  {
+    m_holdedBlock = m_currentBlock.blockName;
+    SpawnNewBlock();
+  }
+  else
+  {
+    uint8_t currBlock = m_currentBlock.blockName;
+    CreateBlock(m_holdedBlock, false);
+    m_holdedBlock = currBlock;
+  }
+
+  m_hasSwitched = true;
+  m_holdPreviewBlock.UpdatePreview(m_holdedBlock);
 }
 
 void RetrisGame::Rotate()
@@ -207,6 +295,49 @@ void RetrisGame::Rotate()
   if (ValidateMove(temp.points))
   {
     memcpy(m_currentBlock.points, temp.points, sizeof(Vector) * BLOCK_LENGTH);
+  }
+
+  Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+}
+
+void RetrisGame::QuickDrop()
+{
+  Block temp = m_currentBlock;
+  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+
+  while (ValidatePosition(temp))
+  {
+    temp.MoveDown();
+  };
+
+  // redo last move down which was not valid anymore
+  temp.position.y -= 1;
+
+  m_currentBlock = temp;
+  Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  m_quickDropped = true;
+}
+
+void RetrisGame::DisplayQuickDrop(bool isGameTick)
+{
+  Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+
+  m_quickDropBlock = m_currentBlock;
+  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+
+  while (ValidatePosition(m_quickDropBlock))
+  {
+    m_quickDropBlock.MoveDown();
+  };
+
+  // redo last move down which was not valid anymore
+  m_quickDropBlock.position.y -= 1;
+
+  Renderer::IncludeBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
+  if (!ValidateMove(MOVE_BELOW, m_currentBlock))
+  {
+    Renderer::RemoveBlock(m_quickDropBlock.points, m_quickDropBlock.position, BLOCK_LENGTH);
   }
 
   Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
@@ -224,7 +355,7 @@ void RetrisGame::DrawGameField(uint8_t viewStyle)
     // Horizontal style can only be used in 1P-Mode 
     // move the game field to a more central place 
     m_gamePosition = {4, 6};
-    m_previewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y + 4};
+    m_previewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y - 2};
   }
   else if (viewStyle == VIEW_STYLE_VERTICAL)
   {
@@ -233,6 +364,12 @@ void RetrisGame::DrawGameField(uint8_t viewStyle)
 
   m_previewBlock.DrawBorder();
   m_previewBlock.UpdatePreview(m_nextBlock);
+
+  if (m_holdBlockActive)
+  {
+    m_holdPreviewBlock.borderPosition = {m_gamePosition.x + 14, m_gamePosition.y + 10};
+    m_holdPreviewBlock.DrawBorder();
+  }
 
   int32_t horizontalWall = 0x00000FFF;
   uint8_t offset = 32 - m_gamePosition.x - GAME_WIDTH_WB;
@@ -259,19 +396,24 @@ uint8_t RetrisGame::GetGameState()
   return m_gameState;
 }
 
+uint32_t& RetrisGame::GetCurrentScore()
+{
+  return m_score;
+}
+
 Vector RetrisGame::GetGamePosition()
 {
   return m_gamePosition;
 }
 
-bool RetrisGame::ValidateMove(uint8_t move)
+bool RetrisGame::ValidateMove(uint8_t move, const Block& block)
 {
-  Renderer::RemoveBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+  Renderer::RemoveBlock(block.points, block.position, BLOCK_LENGTH);
 
   bool moveIsAllowed = false; 
   for (int i = 0; i < BLOCK_LENGTH; i++)
   {
-    Vector absPosition = m_currentBlock.points[i] + m_currentBlock.position;
+    Vector absPosition = block.points[i] + block.position;
     switch(move)
     {
       case MOVE_RIGHT:
@@ -318,6 +460,23 @@ for (int i = 0; i < BLOCK_LENGTH; i++)
   return moveIsAllowed;
 }
 
+bool RetrisGame::ValidatePosition(Block block)
+{
+  bool moveIsAllowed = false;
+  for (int i = 0; i < BLOCK_LENGTH; i++)
+  {
+    Vector absPosition = block.points[i] + block.position;
+    moveIsAllowed = !((screen[absPosition.y] >>  (31 - absPosition.x)) & 1);
+
+    if (!moveIsAllowed)
+    {
+      break;
+    }
+  }
+
+  return moveIsAllowed;
+}
+
 bool RetrisGame::CheckFullLine()
 {
   // 1 or 0 represents if the line is full or not
@@ -331,7 +490,7 @@ bool RetrisGame::CheckFullLine()
     if (maskedLine == m_fullLine)
     {
       m_fullLineTable |= (int32_t)1 << (31 - currentLine);
-      m_clearedLinesCount++;
+      m_clearedLinesTotal++;
     }
   }
 
@@ -376,13 +535,25 @@ void RetrisGame::ClearAnimation()
       screen[currentLine + lineCount] &= ~m_fullLine;
       screen[currentLine + lineCount] |= maskedLine;
     }
+
+    if (!config.musicEnabled)
+    {
+      if (lineCount < 4)
+      {
+        Audio::PlayAudio(AUDIO_LINE_CLEARED);
+      }
+      else
+      {
+        Audio::PlayAudio(AUDIO_LINE_CLEARED_TETRIS);
+      }
+    }
   }
 
   m_ticks = 0;
   m_fullLineTable = 0;
 
   // every 10 cleared Lines the level is incremented as well as the speed
-  m_level = m_clearedLinesCount / CLEAR_LINES_HURDLE;
+  m_level = m_clearedLinesTotal / CLEAR_LINES_HURDLE;
 
   if (m_level <= 29) // 29 is the last level where the speed increases
   {
@@ -400,6 +571,11 @@ void RetrisGame::UpdateScore(const uint8_t clearedRows)
   m_score += baseValues[clearedRows - 1] * (m_level + 1);
 
   // update lcd screen
+  DisplayScore();
+}
+
+void RetrisGame::DisplayScore()
+{
   HW::lcd.setCursor(0, m_instanceCount - 1);
   HW::lcd.print("P" + String(m_instanceCount) + ": " + String(m_score));
   HW::lcd.setCursor(14, m_instanceCount - 1);
@@ -430,10 +606,11 @@ void RetrisGame::ResetGame()
 {
   m_level = 0;
   m_score = 0;
-  m_clearedLinesCount = 0;
+  m_clearedLinesTotal = 0;
   m_gameState = GAME_STATE_PLAYING;
   m_fullLine = 0;
   m_fullLineTable = 0;
+  m_holdedBlock = INVALID_BLOCK;
 }
 
 void RetrisGame::Wait(const uint8_t waitTime)
@@ -455,16 +632,23 @@ void RetrisGame::SpawnNewBlock()
     return;
   }
 
-  Wait(20);
+  Wait(m_quickDropped ? 0 : 20);
+  m_quickDropped = false;
 }
 
-void RetrisGame::CreateBlock()
+void RetrisGame::CreateBlock(uint8_t block, bool updatePreview)
 {
-  m_currentBlock.Create(blockShape[m_nextBlock], m_nextBlock, m_gamePosition + positionTable[m_nextBlock]);
+  m_currentBlock.Create(blockShape[block], block, m_gamePosition + positionTable[block]);
+  m_quickDropBlock = m_currentBlock;
+
+  if (updatePreview)
+  {
 #if DEBUG
-  uint8_t randomBlock = DEBUG_BLOCK;
+    uint8_t randomBlock = DEBUG_BLOCK;
 #else
-  m_nextBlock = random(7);
+    m_nextBlock = m_blockBag.GetNextBlock();
 #endif
-  m_previewBlock.UpdatePreview(m_nextBlock);
+
+    m_previewBlock.UpdatePreview(m_nextBlock);
+  }
 }

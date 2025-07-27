@@ -51,10 +51,11 @@ class MainMenue : public Menue
     void RefreshMenue() {}
     void PushButton();
     void ButtonSelect();
+    void Init();
 
   private:
-    const Vector arrow[3] = { {0, 0}, {-1, 1}, {0, 2} };
-    const Vector arrowPosition[2] = { {29, 15}, {29, 25} };
+    const Vector m_arrow[3] = { {0, 0}, {-1, 1}, {0, 2} };
+    const Vector m_arrowPosition[2] = { {29, 15}, {29, 25} };
 };
 
 #endif

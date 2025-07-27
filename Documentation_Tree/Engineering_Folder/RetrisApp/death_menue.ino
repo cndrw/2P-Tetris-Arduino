@@ -43,9 +43,13 @@ void DeathMenue::RefreshMenue()
 
 void DeathMenue::ButtonSelect()
 {
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_DOWN) ||
+      Input::GetButtonDown(CONTROLLER_1, BUTTON_UP))
+  {
     Audio::PlayAudio(AUDIO_BUTTON_SWITCH);
     Renderer::IncludeRows(button1, 18, 5); // 18 = pos of first button
     Renderer::IncludeRows(button2, 25, 5); // 25 = pos of second button
     m_selectedButton = m_selectedButton == 1 ? 0 : 1;
     RefreshMenue();
+  }
 }

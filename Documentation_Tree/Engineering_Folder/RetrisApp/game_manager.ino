@@ -1,5 +1,6 @@
 #include "retris_game.h"
 #include "audio.h"
+#include "config.h"
 #include "game_manager.h"
 #include "retris_os.h"
 
@@ -35,14 +36,19 @@ void GameManager::Init(uint8_t playerCount)
       // m_playerCount will be whatever it was last time
       break;
   }
+
 #if !SIMULATION
   Input::SetControllerCount(m_playerCount);
 #endif
   for (uint8_t i = 0; i < m_playerCount; i++)
   {
-    m_games[i].Init(m_gamePositions[i], m_playerCount);
+    m_games[i].Init(m_gamePositions[i], m_playerCount, m_playerCount == GAME_OPT_1P);
   }
-  Audio::PlayAudio(AUDIO_KOROBEINIKI, true);
+
+  if (config.musicEnabled)
+  {
+    Audio::PlayAudio(AUDIO_KOROBEINIKI, true);
+  }
 }
 
 void GameManager::Update()
@@ -54,6 +60,7 @@ void GameManager::Update()
   {
     Audio::StopAudio();
     retris.FreezeCurrentProcess(SYS_PROCESS_MENUE, PAUSE_MENUE);
+    return;
   }
 #endif
 
@@ -69,7 +76,10 @@ void GameManager::Update()
   if (changeCondition == GAME_STATE_FINISHED * m_playerCount)
   {
     Audio::PlayAudio(AUDIO_GAME_OVER);
+    HW::lcd.clear();
     retris.ChangeProcess(SYS_PROCESS_MENUE, DEATH_MENUE);
+  
+    CheckForNewHighscore();
   }
 }
 
@@ -95,14 +105,15 @@ void GameManager::Freeze(bool freeze)
   if (freeze)
   {
     SaveGameState();
+    HW::lcd.clear();
   }
   else
   {
     LoadGameState();
-    m_games[0].DrawGameField(m_playerCount);
-    if (m_playerCount == 2)
+    for (uint8_t i = 0; i < m_playerCount; i++)
     {
-      m_games[1].DrawGameField(m_playerCount);
+      m_games[i].DrawGameField(m_playerCount);
+      m_games[i].DisplayScore();
     }
   }
 }
@@ -118,5 +129,18 @@ void GameManager::LoadGameState()
 {
   uint8_t row = m_games[0].GetGamePosition().y + 1;
   Renderer::IncludeRows(m_savedFields, row, GAME_HEIGHT);
+}
+
+void GameManager::CheckForNewHighscore()
+{
+  for (uint8_t i = 0; i < m_playerCount; i++)
+  {
+    uint32_t& currentScore = m_games[i].GetCurrentScore();
+    if (currentScore > config.highscore)
+    {
+      config.highscore = currentScore;
+      config.SaveConfig();
+    }
+  }
 }
 

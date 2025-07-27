@@ -8,7 +8,7 @@ class Tile:
         
 
 
-img = Image.open("pics/Pausenmenü.png")
+img = Image.open("images/Settingsmenü.png")
 
 Tiles = []
 rows = []

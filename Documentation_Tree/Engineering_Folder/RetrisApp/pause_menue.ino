@@ -3,6 +3,7 @@
 #include "renderer.h"
 #include "constants.h"
 #include "retris_os.h"
+#include "config.h"
 
 #define BUTTON_RESUME 0
 #define BUTTON_MENUE 1
@@ -31,7 +32,10 @@ void PauseMenue::PushButton()
   switch(m_selectedButton)
   {
     case BUTTON_RESUME:
-      Audio::PlayAudio(AUDIO_KOROBEINIKI, true, true);
+      if (config.musicEnabled)
+      {
+        Audio::PlayAudio(AUDIO_KOROBEINIKI, true, true);
+      }
       retris.UnFreezeProcess();
       break;
 
@@ -47,10 +51,14 @@ void PauseMenue::PushButton()
 
 void PauseMenue::ButtonSelect()
 {
-  Audio::PlayAudio(AUDIO_BUTTON_SWITCH);
+  if (Input::GetButtonDown(CONTROLLER_1, BUTTON_DOWN) ||
+      Input::GetButtonDown(CONTROLLER_1, BUTTON_UP))
+  {
+    Audio::PlayAudio(AUDIO_BUTTON_SWITCH);
 
-  Renderer::IncludeRows(buttonResume, buttonPositions[0], 5);
-  Renderer::IncludeRows(buttonMenue, buttonPositions[1], 5);
-  m_selectedButton = m_selectedButton == 1 ? 0 : 1; // there are only two buttons
-  RefreshMenue();
+    Renderer::IncludeRows(buttonResume, buttonPositions[0], 5);
+    Renderer::IncludeRows(buttonMenue, buttonPositions[1], 5);
+    m_selectedButton = m_selectedButton == 1 ? 0 : 1; // there are only two buttons
+    RefreshMenue();
+  }
 }

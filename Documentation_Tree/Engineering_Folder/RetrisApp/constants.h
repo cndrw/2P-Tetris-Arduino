@@ -27,20 +27,15 @@
 #define SBLOCK {{0,0}, {1,0}, {0, 1}, {-1, 1}}
 #define ZBLOCK {{0,0}, {0,1}, {-1, 0}, {1, 1}}
 #define OBLOCK {{0,0}, {0,1}, {1,1}, {1,0}}
-#define IBLOCK {{0,0}, {-1, 0}, {1, 0}, {-2, 0}}
+#define IBLOCK {{0,0}, {-1, 0}, {1, 0}, {2, 0}}
 
 #define LBLOCK_PREVIEW {{0, 0}, {0, 1}, {0, -1}, {1, 1}}
 #define JBLOCK_PREVIEW {{0,0}, {0,-1}, {0,1}, {-1,1}}
 #define SBLOCK_PREVIEW_ {{0,0}, {-1,0}, {-1,-1}, {0, 1}}
 #define ZBLOCK_PREVIEW {{0,0}, {0,1}, {1,0}, {1,-1}}
 
-#define L 0
-#define J 1
-#define T 2
-#define S 3
-#define Z 4
-#define O 5
-#define I 6
+#define O_ID 5
+#define I_ID 6
 
 #define MOVE_RIGHT 1
 #define MOVE_LEFT 2
@@ -53,6 +48,7 @@
 #define MAIN_MENUE 0
 #define DEATH_MENUE 1
 #define PAUSE_MENUE 2
+#define SETTINGS_MENUE 3
 
 #if SIMULATION
 #define BUTTON_NONE 0

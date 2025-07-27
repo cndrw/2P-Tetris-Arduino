@@ -4,6 +4,8 @@
 #include "vector.h"
 #include "constants.h"
 
+#define MENUE_SWITCH_DELAY 20
+
 /**
 * @brief Interface for a menu, a menu can be drawn, refreshed, the button can be selected 
 * and the selected button can be pushed
@@ -24,6 +26,10 @@ class Menue
       memcpy(screen, m_titleSprite, sizeof(int32_t) * 32);
       m_selectedButton = 0;
     }
+    /**
+     * @brief Setups up the menue if needed
+     */
+    virtual void Init() = 0;
     /**
      * @brief Redraws the menue
      */

@@ -11,7 +11,9 @@
 #include "main_menue.h"
 #include "death_menue.h"
 #include "pause_menue.h"
+#include "settings_menue.h"
 #include "audio.h"
+#include "config.h"
 
 void WatchdogSetup()
 {
@@ -27,6 +29,7 @@ MenueHandler menueHandler;
 MainMenue mainMenue;
 DeathMenue deathMenue;
 PauseMenue pauseMenue;
+SettingsMenue settingsMenue;
 
 
 void setup() {
@@ -40,6 +43,7 @@ void setup() {
   Renderer::SetupScreen();
   HW::lcd.init();
   HW::lcd.backlight();
+  config.LoadConfig();
   WatchdogSetup();
 #if !SIMULATION
   Input::SetupPins();
@@ -53,6 +57,7 @@ void setup() {
   menueHandler.AddMenue(&mainMenue);
   menueHandler.AddMenue(&deathMenue);
   menueHandler.AddMenue(&pauseMenue);
+  menueHandler.AddMenue(&settingsMenue);
 
   // start with the main menu
   retris.ChangeProcess(SYS_PROCESS_MENUE, MAIN_MENUE);
@@ -66,9 +71,11 @@ void setup() {
 #endif
 }
 
+
 void loop()
 {
   retris.UpdateSystem();
   asm("WDR"); // reset watchdog
   delay(10);
 }
+

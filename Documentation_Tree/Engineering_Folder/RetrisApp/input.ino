@@ -45,16 +45,18 @@ void ReadControllerInputs()
 
     // current inputs will be written in last input befor getting updated
     memcpy(controllers[j].lastInput, controllers[j].currInput, sizeof(bool) * BUTTON_AMOUNT);
+
     // Retrieve button presses from shift register by pulling the clock high for 6us
     for(uint8_t i = 0; i < 16; i++)
     {
       digitalWrite(controllers[j].dataClock, LOW);
       delayMicroseconds(6);
-      if(i <= 16)
+
+      if (i <= 11)
       {
         controllers[j].currInput[i] = digitalRead(controllers[j].dataSerial);
-        
       }
+        
       digitalWrite(controllers[j].dataClock, HIGH);
       delayMicroseconds(6);
     }   

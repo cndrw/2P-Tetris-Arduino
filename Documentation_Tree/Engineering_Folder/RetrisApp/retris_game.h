@@ -7,6 +7,7 @@
 #include "renderer.h"
 #include "preview_block.h"
 #include "retris_os.h"
+#include "block_bag.h"
 
 #if !SIMULATION
 #include "input.h"
@@ -19,6 +20,8 @@
 #define GAME_STATE_LOST 2
 #define GAME_STATE_WAIT 3
 #define GAME_STATE_FINISHED 4
+
+#define INVALID_BLOCK 42
 
 #define SPEED_LOOK_UP_TABLE { 40, 39, 38, 37, 36, 35, 35, 34, 33, 32, 31, 30, 28, 27, 26, 25, 24, 22, 21, 19, 18, 16, 15, 13, 11, 9, 8, 6, 4, 2 }
 
@@ -39,7 +42,7 @@ class RetrisGame
      * @param style How the game will appear (preview Block above or to the side of the game field)
      * 
     */
-    void Init(Vector startPosition, uint8_t style);
+    void Init(Vector startPosition, uint8_t style, bool holdBlockActive);
 #if SIMULATION
     void ProcessInput(uint8_t pressedButton);
 #else
@@ -69,6 +72,20 @@ class RetrisGame
     */
     void Rotate();
     /**
+     * @brief QuickDrops the current Block to the ground
+    */
+    void QuickDrop();
+    /**
+     * @brief Displays the quick drop i.e. shows where the block will land 
+     * @param isGameTick If true, the preview will not be displayed
+    */
+    void DisplayQuickDrop(bool isGameTick);
+    /**
+     * @brief Holds the current Block
+     * @details The current Block will be replaced with the holded Block (if there is one)
+    */
+    void HoldBlock();
+    /**
      * @brief Sets the rate of game ticks 
      * @details Low timeScale means faster game and high timeScale slower game
      * @param timeScale The number by which the OS-Tick gets divied by
@@ -79,8 +96,10 @@ class RetrisGame
      * @param viewStyle The style of the game instance - preview  Block can be to the right or on top of the game field
     */
     void DrawGameField(uint8_t viewStyle);
+    void DisplayScore();
 
     uint8_t GetGameState();
+    uint32_t& GetCurrentScore();
     Vector GetGamePosition();
 
   private:
@@ -88,10 +107,11 @@ class RetrisGame
        * @brief Validates if the given move is possible right now
        * @details It will internally perform the move on the current Block
        * @param move Which move will be checked
+       * @param block The block that will be checked
        * @return If true the move is valid
        * @return If false the move is invalid
       */
-      bool ValidateMove(uint8_t move);
+      bool ValidateMove(uint8_t move, const Block& block);
       /**
        * @brief Validates if the given move is possible right now
        * @details It will only check if the given points are intersecting with any collider
@@ -100,6 +120,13 @@ class RetrisGame
        * @return If false the move is invalid
       */
       bool ValidateMove(Vector points[]);
+      /**
+       * @brief Checks if the current Block can be placed at the given position
+       * @param block The block that will be checked
+       * @return If true the position is valid
+       * @return If false the position is invalid
+      */
+      bool ValidatePosition(Block block);
       /**
        * @brief Checks if at least one full line is currently on the game field
        * @return If true a full line got detected
@@ -142,27 +169,39 @@ class RetrisGame
        * @brief Creates a new block at the top of the field
        * @details Generates the next block and send it to the preview
       */
-      void CreateBlock();
+      void CreateBlock(uint8_t block, bool updatePreview);
 
     private:
       Block m_currentBlock;
+      Block m_quickDropBlock;
+      bool m_holdBlockActive = false; // if true, the hold block is active
+      uint8_t m_holdedBlock = INVALID_BLOCK;
+      bool m_hasSwitched = false;
+      bool m_quickDropped = false;
+      BlockBag m_blockBag;
       uint8_t m_nextBlock = 0;
       Vector m_gamePosition = {0, 0}; // top-left of the playing field
       PreviewBlock m_previewBlock;
+      PreviewBlock m_holdPreviewBlock;
       uint8_t m_gameState = 0;
       int32_t m_fullLine = 0; // refrence integer for a full line
       int32_t m_fullLineTable = 0; // look up table for where a full line was detected
       uint8_t m_ticks = 0; // counter which counts OS-Ticks
+      uint8_t m_ticksSinceLastInput = 0; // counts the ticks since the last input
       uint8_t m_timeScale = 30;
-      uint16_t m_score = 0;
+      uint32_t m_score = 0;
       uint8_t m_level = 0;
       uint8_t m_instanceCount = 0;
-      uint16_t m_clearedLinesCount = 0;
+      uint16_t m_clearedLinesTotal = 0;
       bool m_activeInput = true;
       uint8_t m_waitTime = 0;
-      const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {6, 2} };
+      const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2} };
       static constexpr uint8_t speedTable[30] = SPEED_LOOK_UP_TABLE;
       uint16_t m_baseSpeed = BASE_BLOCK_SPEED;
+      bool m_rightButtonHeld = false; 
+      bool m_leftButtonHeld = false; 
+      uint8_t m_rightButtonCounter = 0;
+      uint8_t m_leftButtonCounter = 0;
 };
 
 #endif

@@ -21,7 +21,7 @@ namespace Renderer
     ShiftAll(0x0f, 0x00); //display test register - test mode off
     ShiftAll(0x0b, 0x07); //scan limit register - display digits 0 thru 7
     ShiftAll(0x0c, 0x01); //shutdown register - normal operation
-    ShiftAll(0x0a, 0x00); //intensity register - max brightness
+    ShiftAll(0x0a, 0x00); //intensity register - min brightness
     ShiftAll(0x09, 0x00); //decode mode register - No decode
   }
 
@@ -69,6 +69,14 @@ namespace Renderer
   void IncludeRows(int32_t rows[], uint8_t insertAt, uint8_t length)
   {
     memcpy(screen + insertAt, rows, sizeof(int32_t) * length);
+  }
+
+  void IncludeRowsAdditive(int32_t rows[], uint8_t insertAt, uint8_t length)
+  {
+    for (uint8_t i = 0; i < length; i++)
+    {
+      screen[insertAt + i] |= rows[i];
+    }
   }
 
   void ClearRows(uint8_t from, uint8_t to)
