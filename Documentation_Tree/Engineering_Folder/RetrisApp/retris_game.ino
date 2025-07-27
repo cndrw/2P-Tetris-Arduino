@@ -185,7 +185,7 @@ void RetrisGame::Update()
     {
       bool gameTick = (m_ticks / m_timeScale) || m_quickDropped;
 
-      if (config.fastFallEnabled)
+      if (config.fastDropEnabled)
       {
         DisplayQuickDrop(gameTick);
       }

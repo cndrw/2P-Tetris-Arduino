@@ -40,7 +40,7 @@ void SettingsMenue::ButtonSelect()
         config.musicEnabled = !config.musicEnabled;
         break;
       case FAST_FALL_LABEL:
-        config.fastFallEnabled = !config.fastFallEnabled;
+        config.fastDropEnabled = !config.fastDropEnabled;
         break;
     }
     settingsChanged = true;
@@ -61,5 +61,5 @@ void SettingsMenue::RefreshMenue()
   Renderer::RemoveBlock(arrow, arrowPosition[!m_selectedButton], 3);
 
   Renderer::IncludeRowsAdditive(labels[config.musicEnabled], labelPositions[MUSIC_LABEL], 5);
-  Renderer::IncludeRowsAdditive(labels[config.fastFallEnabled], labelPositions[FAST_FALL_LABEL], 5);
+  Renderer::IncludeRowsAdditive(labels[config.fastDropEnabled], labelPositions[FAST_FALL_LABEL], 5);
 }
