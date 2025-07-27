@@ -76,6 +76,7 @@ void GameManager::Update()
   if (changeCondition == GAME_STATE_FINISHED * m_playerCount)
   {
     Audio::PlayAudio(AUDIO_GAME_OVER);
+    HW::lcd.clear();
     retris.ChangeProcess(SYS_PROCESS_MENUE, DEATH_MENUE);
   
     CheckForNewHighscore();

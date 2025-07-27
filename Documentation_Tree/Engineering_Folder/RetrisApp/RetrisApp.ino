@@ -43,7 +43,7 @@ void setup() {
   Renderer::SetupScreen();
   HW::lcd.init();
   HW::lcd.backlight();
-  // config.LoadConfig();
+  config.LoadConfig();
   WatchdogSetup();
 #if !SIMULATION
   Input::SetupPins();
@@ -79,13 +79,3 @@ void loop()
   delay(10);
 }
 
-// TODO:
-// - nach resume aufheben gibt es manchmal eine kurze "beschleunigung"
-// - block erst "gesetz" wenn kein input mehr kommt (links/rechts/rotation)
-
-// Wenn ich flashen kann
-// - speichern von daten mit EEPROM testen
-// - fast fall visual pwm ausprobieren
-// - wird highscore korrekt aktualisiert?
-// - wird nur config gespeichert, wenn sich etwas geändert hat?
-// - hold block feature testen, darf nur in 1 player modus sein, keine bugs wenn man z.b. quittet etc.

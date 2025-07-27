@@ -23,6 +23,7 @@ uint8_t DEBUG_BLOCK = I;
 #define VIEW_STYLE_VERTICAL 2
 
 #define TICKS_UNTIL_AUTO_MOVE 10
+#define INPUT_ACTION_DECAY 15
 
 constexpr uint8_t RetrisGame::speedTable[];
 
@@ -104,12 +105,9 @@ void RetrisGame::ProcessInput()
     return;
   }
 
-  static uint8_t rightCounter = 0;
-  static uint8_t leftCounter = 0;
-
   if (Input::GetButton(m_instanceCount - 1, BUTTON_RIGHT))
   {
-    if (rightCounter++ > TICKS_UNTIL_AUTO_MOVE)
+    if (m_rightButtonCounter++ > TICKS_UNTIL_AUTO_MOVE)
     {
       m_rightButtonHeld = true;
     }
@@ -117,12 +115,12 @@ void RetrisGame::ProcessInput()
   else
   {
     m_rightButtonHeld = false;
-    rightCounter = 0;
+    m_rightButtonCounter = 0;
   }
 
   if (Input::GetButton(m_instanceCount - 1, BUTTON_LEFT))
   {
-    if (leftCounter++ > TICKS_UNTIL_AUTO_MOVE)
+    if (m_leftButtonCounter++ > TICKS_UNTIL_AUTO_MOVE)
     {
       m_leftButtonHeld = true;
     }
@@ -130,22 +128,37 @@ void RetrisGame::ProcessInput()
   else
   {
     m_leftButtonHeld = false;
-    leftCounter = 0;
+    m_leftButtonCounter = 0;
   }
 
-  if (m_rightButtonHeld || Input::GetButtonDown(m_instanceCount - 1, BUTTON_RIGHT))
+  if (m_rightButtonHeld && m_rightButtonCounter % 3 == 0)
   {
     MoveRight();
+    m_ticksSinceLastInput = 0;
   }
 
-  if (m_leftButtonHeld || Input::GetButtonDown(m_instanceCount - 1, BUTTON_LEFT))
+  if (m_leftButtonHeld && m_leftButtonCounter % 3 == 0)
   {
     MoveLeft();
+    m_ticksSinceLastInput = 0;
+  }
+
+  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_RIGHT))
+  {
+    MoveRight();
+    m_ticksSinceLastInput = 0;
+  }
+
+  if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_LEFT))
+  {
+    MoveLeft();
+    m_ticksSinceLastInput = 0;
   }
 
   if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_X))
   {
     Rotate();
+    m_ticksSinceLastInput = 0;
   }
 
   if (Input::GetButtonDown(m_instanceCount - 1, BUTTON_R))
@@ -165,6 +178,7 @@ void RetrisGame::Update()
 #endif
 
   m_ticks++;
+  m_ticksSinceLastInput++;
   switch(m_gameState)
   {
     case GAME_STATE_PLAYING:
@@ -186,6 +200,10 @@ void RetrisGame::Update()
       {
           m_currentBlock.MoveDown();
           Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
+      }
+      else if (m_ticksSinceLastInput < INPUT_ACTION_DECAY)
+      {
+        Renderer::IncludeBlock(m_currentBlock.points, m_currentBlock.position, BLOCK_LENGTH);
       }
       else 
       {
@@ -530,8 +548,6 @@ void RetrisGame::ClearAnimation()
       }
     }
   }
-
-  Serial.println(lineCount);
 
   m_ticks = 0;
   m_fullLineTable = 0;

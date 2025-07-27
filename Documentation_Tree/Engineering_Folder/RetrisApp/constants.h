@@ -27,7 +27,7 @@
 #define SBLOCK {{0,0}, {1,0}, {0, 1}, {-1, 1}}
 #define ZBLOCK {{0,0}, {0,1}, {-1, 0}, {1, 1}}
 #define OBLOCK {{0,0}, {0,1}, {1,1}, {1,0}}
-#define IBLOCK {{0,0}, {-1, 0}, {1, 0}, {-2, 0}}
+#define IBLOCK {{0,0}, {-1, 0}, {1, 0}, {2, 0}}
 
 #define LBLOCK_PREVIEW {{0, 0}, {0, 1}, {0, -1}, {1, 1}}
 #define JBLOCK_PREVIEW {{0,0}, {0,-1}, {0,1}, {-1,1}}

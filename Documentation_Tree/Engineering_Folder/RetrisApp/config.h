@@ -14,16 +14,16 @@ struct Config {
 
     void SaveConfig()
     {
-        // EEPROM.put(MUSIC_ENABLED_ADDR, musicEnabled);
-        // EEPROM.put(FAST_FALL_ENABLED_ADDR, fastFallEnabled);
-        // EEPROM.put(HIGH_SCORE_ADDR, highscore);
+        EEPROM.put(MUSIC_ENABLED_ADDR, musicEnabled);
+        EEPROM.put(FAST_FALL_ENABLED_ADDR, fastFallEnabled);
+        EEPROM.put(HIGH_SCORE_ADDR, highscore);
     }
 
     void LoadConfig()
     {
-        // EEPROM.get(MUSIC_ENABLED_ADDR, musicEnabled);
-        // EEPROM.get(FAST_FALL_ENABLED_ADDR, fastFallEnabled);
-        // EEPROM.get(HIGH_SCORE_ADDR, highscore);
+        EEPROM.get(MUSIC_ENABLED_ADDR, musicEnabled);
+        EEPROM.get(FAST_FALL_ENABLED_ADDR, fastFallEnabled);
+        EEPROM.get(HIGH_SCORE_ADDR, highscore);
     }
 }config;
 

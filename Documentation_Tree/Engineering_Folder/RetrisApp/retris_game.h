@@ -187,6 +187,7 @@ class RetrisGame
       int32_t m_fullLine = 0; // refrence integer for a full line
       int32_t m_fullLineTable = 0; // look up table for where a full line was detected
       uint8_t m_ticks = 0; // counter which counts OS-Ticks
+      uint8_t m_ticksSinceLastInput = 0; // counts the ticks since the last input
       uint8_t m_timeScale = 30;
       uint32_t m_score = 0;
       uint8_t m_level = 0;
@@ -194,11 +195,13 @@ class RetrisGame
       uint16_t m_clearedLinesTotal = 0;
       bool m_activeInput = true;
       uint8_t m_waitTime = 0;
-      const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {6, 2} };
+      const Vector positionTable[7] = { {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2}, {5, 2} };
       static constexpr uint8_t speedTable[30] = SPEED_LOOK_UP_TABLE;
       uint16_t m_baseSpeed = BASE_BLOCK_SPEED;
       bool m_rightButtonHeld = false; 
       bool m_leftButtonHeld = false; 
+      uint8_t m_rightButtonCounter = 0;
+      uint8_t m_leftButtonCounter = 0;
 };
 
 #endif
