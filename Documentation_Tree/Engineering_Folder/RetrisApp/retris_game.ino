@@ -611,6 +611,7 @@ void RetrisGame::ResetGame()
   m_fullLine = 0;
   m_fullLineTable = 0;
   m_holdedBlock = INVALID_BLOCK;
+  m_baseSpeed = speedTable[0];
 }
 
 void RetrisGame::Wait(const uint8_t waitTime)

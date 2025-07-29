@@ -79,3 +79,6 @@ void loop()
   delay(10);
 }
 
+// TODO: 
+// - speed wurde nicht resettet?
+
